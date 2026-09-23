@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-03",
+  "strategy": "dm_dri_regularization",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "H0 Champion; B0 Momentum; O_RAW/O_RES previous zero-coefficient DRI",
+  "random_seed": 20260911,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "feature_definitions": {"window": 21, "features_per_variant": 42, "chronological": "21 complete past/current returns", "sorted": "same vector ascending", "variants": ["raw", "res"], "missing": "0.0; no jitter; reset on relisting"},
+  "model": "StandardScaler + Ridge or alpha-max-relative ElasticNet; annual expanding",
+  "parameters": {
+    "ridge_lambda_grid": [0.01, 0.1, 1.0],
+    "elasticnet_rho_grid": [0.1, 0.5, 0.9],
+    "l1_ratio": 0.5,
+    "initial_cv": [
+      {"train_end": "2009-12-31", "validation_start": "2010-01-01", "validation_end": "2010-06-30"},
+      {"train_end": "2010-06-30", "validation_start": "2010-07-01", "validation_end": "2010-12-31"}
+    ],
+    "selection_metric": "pooled MSE; ties choose stronger penalty; null diagnostic only",
+    "model_years": [2011, 2012, 2013, 2014, 2015, 2016],
+    "ewma_alpha": 0.25,
+    "elasticnet_max_iter": 20000,
+    "elasticnet_tol": 0.00000001,
+    "blas_threads": 1
+  },
+  "max_trials": 8,
+  "known_prior_scoring_trials": 75,
+  "hyperparameter_configurations": 12,
+  "trials": [
+    {"trial_id": "H0", "artifact": "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/H0.parquet"},
+    {"trial_id": "B0", "artifact": "artifacts/DM-20260909-02/run-20260909T061458Z/predictions/B0.parquet"},
+    {"trial_id": "O_RAW", "artifact": "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/D2.parquet"},
+    {"trial_id": "O_RES", "artifact": "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/D3.parquet"},
+    {"trial_id": "R_RAW", "family": "ridge", "variant": "raw"},
+    {"trial_id": "R_RES", "family": "ridge", "variant": "res"},
+    {"trial_id": "E_RAW", "family": "elasticnet", "variant": "raw"},
+    {"trial_id": "E_RES", "family": "elasticnet", "variant": "res"}
+  ],
+  "selection_rule": {"improved_folds_min": 3, "pooled_and_median_delta_positive": true, "champion_requires_total_and_short": true, "technical_nonzero_and_dispersion": true, "bootstrap_lower_positive_for_adoptable": true},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "bootstrap": {"reps": 1000, "block": 20},
+  "causality_cutoffs": ["2010-12-30", "2012-06-29", "2014-12-30"]
+}

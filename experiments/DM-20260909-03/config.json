@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260909-03",
+  "strategy": "dm_fundamental_weakness",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260909-02:T1",
+  "random_seed": 20260909,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 4,
+  "trials": [
+    {"trial_id": "C0", "description": "Champion T1: equal cash-flow deterioration"},
+    {"trial_id": "C1", "description": "Profitability deterioration"},
+    {"trial_id": "C2", "description": "Balance-sheet weakness"},
+    {"trial_id": "C3", "description": "Multi-dimensional fundamental weakness"}
+  ],
+  "feature_definitions": {"cash": ["CFOYoY/Assets", "CFO/Assets", "NetCashProxy"], "profit": ["OperatingProfit/Assets YoY", "OrdinaryProfit/Assets YoY", "Profit/Assets YoY"], "balance": ["Equity/Assets", "CashAndEquivalents/Assets"], "rank": "daily cross-sectional percentile; new-feature missing=0.5 neutral", "freshness_calendar_days": 450, "yoy_tolerance_days": 7},
+  "model": "Fixed M60/EWMA(0.25) Long score stitching with independent equal-weight Short-risk blocks",
+  "parameters": {"alpha": 0.25, "long_pool_pct": 0.4, "short_pool_pct": 0.4, "neutral_pool_pct": 0.2},
+  "selection_rule": {"short_improved_folds_min": 3, "median_delta_short_net_min": 0.0, "pooled_short_net_improved": true, "net_sharpe_not_below_c0": true, "long_fixed_preservation": true},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260909-01",
+  "strategy": "dm_asymmetric_fundamental",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260908-v1:M_res60s1_a0.25",
+  "random_seed": 20260909,
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit_before": "2011-01-01",
+      "evaluation_start": "2011-01-01",
+      "evaluation_end": "2011-12-31"
+    },
+    {
+      "year": 2012,
+      "fit_before": "2012-01-01",
+      "evaluation_start": "2012-01-01",
+      "evaluation_end": "2012-12-31"
+    },
+    {
+      "year": 2013,
+      "fit_before": "2013-01-01",
+      "evaluation_start": "2013-01-01",
+      "evaluation_end": "2013-12-31"
+    },
+    {
+      "year": 2014,
+      "fit_before": "2014-01-01",
+      "evaluation_start": "2014-01-01",
+      "evaluation_end": "2014-12-31"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "start": "2015-01-01",
+    "end": "2016-03-31",
+    "previously_seen": true,
+    "unused_holdout": false,
+    "reselection": false,
+    "only_saved_family_representatives": true
+  },
+  "max_trials": 18,
+  "trials": [
+    {
+      "trial_id": "baseline",
+      "family": "baseline",
+      "lambda_": 0.0
+    },
+    {
+      "trial_id": "A_heavy_0.25",
+      "family": "A",
+      "weights": "heavy",
+      "lambda_": 0.25,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_heavy_0.5",
+      "family": "A",
+      "weights": "heavy",
+      "lambda_": 0.5,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_heavy_0.75",
+      "family": "A",
+      "weights": "heavy",
+      "lambda_": 0.75,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_heavy_1",
+      "family": "A",
+      "weights": "heavy",
+      "lambda_": 1.0,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_equal_0.25",
+      "family": "A",
+      "weights": "equal",
+      "lambda_": 0.25,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_equal_0.5",
+      "family": "A",
+      "weights": "equal",
+      "lambda_": 0.5,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_equal_0.75",
+      "family": "A",
+      "weights": "equal",
+      "lambda_": 0.75,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_equal_1",
+      "family": "A",
+      "weights": "equal",
+      "lambda_": 1.0,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "A_final_ewma",
+      "family": "A_smooth",
+      "inherits": "selected_raw_A",
+      "smoothing": "final"
+    },
+    {
+      "trial_id": "B_0.25",
+      "family": "B",
+      "inherits": "selected_A",
+      "gamma": 0.25
+    },
+    {
+      "trial_id": "B_0.5",
+      "family": "B",
+      "inherits": "selected_A",
+      "gamma": 0.5
+    },
+    {
+      "trial_id": "C_0.25",
+      "family": "C",
+      "inherits": "selected_B",
+      "delta": 0.25
+    },
+    {
+      "trial_id": "C_0.5",
+      "family": "C",
+      "inherits": "selected_B",
+      "delta": 0.5
+    },
+    {
+      "trial_id": "Event_0.25",
+      "family": "Event",
+      "lambda_": 0.25,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "Event_0.5",
+      "family": "Event",
+      "lambda_": 0.5,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "Event_0.75",
+      "family": "Event",
+      "lambda_": 0.75,
+      "smoothing": "long"
+    },
+    {
+      "trial_id": "Event_1",
+      "family": "Event",
+      "lambda_": 1.0,
+      "smoothing": "long"
+    }
+  ],
+  "feature_definitions": {
+    "source": "docs/strategies/投資戦略仮説0909.md",
+    "momentum": "existing res60s1 centered rank, segment reset, min60, alpha .25",
+    "fiscal_periods": {
+      "1Q": [
+        80,
+        100
+      ],
+      "2Q": [
+        170,
+        195
+      ],
+      "3Q": [
+        260,
+        285
+      ],
+      "FY": [
+        350,
+        380
+      ]
+    },
+    "duration_inclusive": false,
+    "yoy_tolerance_days": 7,
+    "freshness_calendar_days": 450,
+    "availability": "strictly after disclosure local calendar date",
+    "financial_missing": "component contribution zero; no reweight; keep previous complete ratio without refreshing timestamp",
+    "noncomparable_yoy": "new valid CFO report invalidates prior YoY when no match",
+    "event": "YoY CFOAssets negative crossing; latest comparable nonbad clears; correction never renews age",
+    "event_decay": [
+      [
+        20,
+        1.0
+      ],
+      [
+        40,
+        0.5
+      ],
+      [
+        60,
+        0.25
+      ]
+    ],
+    "net_cash_proxy": "(CashAndEquivalents-(TotalAssets-Equity))/TotalAssets",
+    "weights": {
+      "heavy": [
+        0.5,
+        0.3,
+        0.2
+      ],
+      "equal": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "rank": "average percentile; CFO and YoY grouped by Date and period; net cash by Date",
+    "vacuum": "negative residual[t] * positive-only rank(impact[t]) * positive-only rank(-liquidity_shock[t-1])",
+    "participation": "residual[t]<0 and volume_shock[t-1]>0 and liquidity_shock[t-1]>=0 and impact[t]<=0",
+    "impact": "existing annual prior-year ridge1 model; every fifth past date; min126 days; historical60 fallback; lag1 activity inputs"
+  },
+  "model": "fixed formula S0/S1/S2 and CFO negative-crossing Event; expected impact annual cross-fit ridge",
+  "parameters": {
+    "alpha": 0.25,
+    "lambdas": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "gammas": [
+      0.25,
+      0.5
+    ],
+    "deltas": [
+      0.25,
+      0.5
+    ]
+  },
+  "selection_rule": {
+    "purpose": "screening_only",
+    "joint_improved_folds": 3,
+    "median_delta_net_sr_min": 0.05,
+    "worst_delta_net_sr_min": -0.25,
+    "median_turnover_ratio_max": 1.25,
+    "median_delta_annual_long_net_min": -0.005,
+    "tail_separation_folds": 3,
+    "near_tie_net_sr": 0.05,
+    "order": "passing first; joint improvements; median delta NetSR; within .05 prefer simple, smaller lambda/gamma/delta, lower turnover",
+    "bootstrap": {
+      "block": 20,
+      "reps": 1000,
+      "seed": 20260909
+    },
+    "uncertain_ci": "passing with bootstrap low<=0 is hold, not continuation; gates use screening pass before CI",
+    "tail_population": "momentum available and any financial component valid; average-rank 20/80 quantile boundaries include ties; high requires positive S; Event same population",
+    "confirmation_effect": "descriptive only, never reselect"
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "data_directory": "stock_comp_2026/input"
+}

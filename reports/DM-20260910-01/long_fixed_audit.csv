@@ -1,0 +1,5 @@
+trial,membership_diff_count,long_weight_diff_max,long_gross_pl_diff_max,long_gross_pl_diff_sum,long_preserved
+H0,0,0.0,0.0,0.0,True
+V1,0,0.0,0.0,0.0,True
+V2,0,0.0,0.0,0.0,True
+V3,0,0.0,0.0,0.0,True

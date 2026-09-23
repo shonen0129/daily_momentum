@@ -1,0 +1,34 @@
+{
+  "T0": {
+    "low": 0.0,
+    "high": 0.0,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 1000,
+    "block": 20,
+    "seed": 20260909
+  },
+  "T1": {
+    "low": 0.028080480350532486,
+    "high": 0.6834010316397741,
+    "bootstrap_positive_fraction": 0.981,
+    "reps": 1000,
+    "block": 20,
+    "seed": 20260909
+  },
+  "T2": {
+    "low": -0.09814958426198463,
+    "high": 0.3621349120428364,
+    "bootstrap_positive_fraction": 0.866,
+    "reps": 1000,
+    "block": 20,
+    "seed": 20260909
+  },
+  "T3": {
+    "low": -0.7633385592471845,
+    "high": -0.10232161249257887,
+    "bootstrap_positive_fraction": 0.003,
+    "reps": 1000,
+    "block": 20,
+    "seed": 20260909
+  }
+}

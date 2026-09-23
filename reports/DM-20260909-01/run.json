@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260909-01",
+  "run_id": "run-20260908T154054Z",
+  "status": "completed",
+  "created_at_utc": "2026-09-08T15:40:54.453656+00:00",
+  "snapshot_sha256": {
+    "plan.md": "12707d95a9d79224ef1b5f2ba6fabe6bc7167b122ea851bcd5ae23415c643763",
+    "config.json": "de3f4798f0376f831875077ad5b9586cd063f80c3fa162b5654b265edc2f4c51",
+    "experiment.json": "41c3ce2528a8792817e8cbb1f4238af5a63d59cc92f7d5b61451ea98af437926"
+  },
+  "command": [
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/research/experiments/asymmetric_fundamental.py",
+    "--config",
+    "artifacts/DM-20260909-01/run-20260908T154054Z/config.json",
+    "--output",
+    "artifacts/DM-20260909-01/run-20260908T154054Z"
+  ],
+  "code_sha256": {
+    "stock_comp_2026/strategies/dm_asymmetric_fundamental/submission.py": "48c8019f163cd454292dd1aa281c25b869821c4b650332c88ee3bf421236b844",
+    "stock_comp_2026/strategies/dm_asymmetric_fundamental/__init__.py": "6c623d53710128c38f9f48bc1a3817d0e5efbb2694e625ea5053aa0a959ec9ef",
+    "stock_comp_2026/strategies/dm_asymmetric_fundamental/features.py": "4f97fa3e637593c96e46c363a7730c5e87bc994d9b38d43f9bb7adeed9b11bf1",
+    "stock_comp_2026/strategies/dm_asymmetric_fundamental/core.py": "f456be0d3083ae568b9ccae06b75f54b3b72cec1fa3c9e0a9de180a77f9840b8",
+    "stock_comp_2026/strategies/dm_asymmetric_fundamental/research_config.json": "b66cf360d9379c4ecdcb85127b97a4ca2876612e5d1e893ee90d06a4189351c5",
+    "research/experiments/asymmetric_fundamental.py": "2cf6b18ccfaa578fe18b874395498d45ad7e49cd8b72de2e4df40816b12bac3e",
+    "research/experiments/asymmetric_evaluation.py": "f97102c7dc2e18068a180a9f4e730f20759690d4fa59ba25322cf121f2efda0e",
+    "research/experiments/asymmetric_audit.py": "01026fd1dcdf2197c24575016fb90289f6ede74e83b0c0f4b2982d58be11f9e2",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "063b1d56042bbe71fa043edba9a1f1eb78d8cbf15145415abdc0a01208ae99ec",
+    "tools/run_bounded.py": "63588baf1e7dc7c528f6e8892199db9a24bf879e35202bead9fb81f37128e3c1",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "AGENTS.md": "47a2afa9bd5f98fe973f2175afb4ef169aa3198894302e9af718f4bd2f6b2de1",
+    "docs/strategies/投資戦略仮説0909.md": "c8e6d6a8e4006af867a1338fdd74a4997ec7dce92757fd44b0191f9168f4c5ab",
+    "tests/strategies/dm_asymmetric_fundamental/test_asymmetric.py": "8ea5d774478b782782457e65c5881d0bdea39db07464dd4ea34e388b17e49311"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "pyarrow": "24.0.0",
+    "sklearn": "1.9.0",
+    "platform": "macOS-27.0-arm64-arm-64bit"
+  },
+  "train_data_sha256": {
+    "raw_return_1day_train.parquet": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "beta_1day_train.parquet": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "topix_return_1day_train.parquet": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "prices_daily_quotes_train.parquet": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5",
+    "listed_info_train.parquet": "8654e3072ddc33da28ea925f2d6ec0cae7c73356ceb27349f0d304aa956a9e76",
+    "fins_statements_train.parquet": "9ea128c62be97316f7bcc3f6ec9b0e38953901ac0c1ad3268e91bfb436670cd6",
+    "target_1day_train.parquet": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16"
+  },
+  "completed_at_utc": "2026-09-08T15:42:52.584894+00:00",
+  "exit_code": 0,
+  "actual_trials": 14,
+  "started_at_utc": "2026-09-08T15:41:04.660730+00:00",
+  "elapsed_seconds": 107.92349841698888,
+  "max_rss_bytes": 4536713216
+}

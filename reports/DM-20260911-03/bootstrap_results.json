@@ -1,0 +1,106 @@
+{
+  "R_RAW": {
+    "total": {
+      "low": -3.803934767614287,
+      "high": -0.1522793584681242,
+      "bootstrap_positive_fraction": 0.015,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "short": {
+      "low": -2.0618867412115147,
+      "high": -0.32948668050126484,
+      "bootstrap_positive_fraction": 0.003,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "long": {
+      "low": -1.5376070567195588,
+      "high": 0.08803377699296602,
+      "bootstrap_positive_fraction": 0.047,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  },
+  "R_RES": {
+    "total": {
+      "low": -4.37348330340959,
+      "high": -0.6248693465940934,
+      "bootstrap_positive_fraction": 0.003,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "short": {
+      "low": -2.284846745222143,
+      "high": -0.47164615315818814,
+      "bootstrap_positive_fraction": 0.001,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "long": {
+      "low": -1.948210959581742,
+      "high": -0.1435006530342125,
+      "bootstrap_positive_fraction": 0.01,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  },
+  "E_RAW": {
+    "total": {
+      "low": -5.236998844623343,
+      "high": -1.4389295938528892,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "short": {
+      "low": -2.3470939953966012,
+      "high": -0.7156240695657994,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "long": {
+      "low": -2.052709396161988,
+      "high": -0.40678620634164975,
+      "bootstrap_positive_fraction": 0.001,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  },
+  "E_RES": {
+    "total": {
+      "low": -4.434030971962113,
+      "high": -0.574305437499583,
+      "bootstrap_positive_fraction": 0.003,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "short": {
+      "low": -2.2196116290127605,
+      "high": -0.43836663119527797,
+      "bootstrap_positive_fraction": 0.001,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "long": {
+      "low": -1.8886604692859503,
+      "high": -0.06256826220970918,
+      "bootstrap_positive_fraction": 0.019,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  }
+}

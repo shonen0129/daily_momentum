@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-03",
+  "run_id": "run-20260911T043254Z",
+  "status": "completed",
+  "created_at_utc": "2026-09-11T04:32:54.759896+00:00",
+  "snapshot_sha256": {
+    "plan.md": "08aab92e78d4ee2cb81b45a04bd6199dc5e62cc974a40c7f4adf532d7dfaf0aa",
+    "config.json": "23bef248baf19c074a2165bd6e1ee1815f79f214d470336652c15b3b99bad62a",
+    "experiment.json": "3e8a28e559df0647dfe3b2596550c2c8855959a34d3d98f80015e5de0cfc4296"
+  },
+  "command": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/research/experiments/dri_regularization.py",
+    "--config",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20260911-03/run-20260911T043254Z/config.json",
+    "--output",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20260911-03/run-20260911T043254Z"
+  ],
+  "code_sha256": {
+    "research/__init__.py": "4e7a46da385d79145bf1de6e5558ed19f190defff89acc6978ef2390191c3bac",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/experiments/__init__.py": "0b0fb3c9123fa53254e3133358e81f9de3e9d4822778de795d4bf9cec3978444",
+    "research/experiments/asymmetric_evaluation.py": "1a867db730c473390abc6f70bf121e299ae722eeaae452ba8d361353abd7f695",
+    "research/experiments/dri_long_short.py": "8d135834629684c6601c95adb3eec13433a1f5fb905b5a589b1041a4cba330d2",
+    "research/experiments/dri_regularization.py": "f7bcdab54bc91722f417244636547e6ee55f9a55d9b9fe12ae9b00f5566da22b",
+    "research/experiments/dri_regularization_smoke.py": "93e469c4519a2ce288704b52d322afc40b3c7242d6cee3bf97ce3a43ee436116",
+    "research/experiments/fixed_long_short.py": "c719128475bb929aa7a4be2ada1cc17df084b9c2227981ebc5b91055dead4783",
+    "research/firewall.py": "063b1d56042bbe71fa043edba9a1f1eb78d8cbf15145415abdc0a01208ae99ec",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_dri_long_short/__init__.py": "d34eb380a046c22bfcc434060a8af5c608fac23f7b9fb63718fe422879e368df",
+    "stock_comp_2026/strategies/dm_dri_long_short/features.py": "930d440284ec43fc24478ffa84c76b469254c3d27caf6edc0d983e0f98b56977",
+    "stock_comp_2026/strategies/dm_dri_regularization/__init__.py": "a2e4e00f1fdf493d2df88f16c79d80ab71a47783627d6529c019397a4d4980b3",
+    "stock_comp_2026/strategies/dm_dri_regularization/features.py": "c39ae702aaa69bdb31cf495bb9a6e7ac521a47abdff6ddb1a1d172375213889d",
+    "stock_comp_2026/strategies/dm_dri_regularization/models.py": "21a94ffeaead57c09a2b405705c151ec2d6adc465228063badea81508e72bbeb",
+    "stock_comp_2026/strategies/dm_dri_regularization/submission.py": "fa3f309442dbad4ae12a8f6372cc7abeb55695117a58f104d57341ec743d7dc9",
+    "stock_comp_2026/strategies/dm_fixed_long_short/__init__.py": "eb12e53db53bad1811e265a241754f64502dd278a915f68843cb0fb06d46a5f2",
+    "stock_comp_2026/strategies/dm_fixed_long_short/core.py": "32ca27ecc787ccd7ffdc29f26739e28bdfccf009fe6f221829888cdd463c40ce",
+    "stock_comp_2026/strategies/dm_fixed_long_short/features.py": "648a11f26972c21793763f4622afba04e44b91e93e9d9b13fe315e45da2b3f79",
+    "stock_comp_2026/strategies/dm_independent_short/__init__.py": "f104288e97fd41cac552d1a2fe42fe453d121aebd3fe16563fccadf874c6242d",
+    "stock_comp_2026/strategies/dm_independent_short/features.py": "beadbefdd613eb0711c0693b43ffd7858abe8692f9141bd81ce445ab667a99ac",
+    "tests/strategies/dm_dri_regularization/test_regularization.py": "a5e24756932dfbe0733eb66c185c199fe8f5048bc7528ae9cac93628004d91fd",
+    "tools/run_bounded.py": "63588baf1e7dc7c528f6e8892199db9a24bf879e35202bead9fb81f37128e3c1"
+  },
+  "environment": {
+    "python": "3.11.13 (main, Aug 25 2026, 00:50:06) [Clang 21.0.0 (clang-2100.3.30.1)]",
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "pyarrow": "24.0.0"
+  },
+  "train_data_sha256": {
+    "raw_return_1day_train.parquet": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "beta_1day_train.parquet": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "topix_return_1day_train.parquet": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "target_1day_train.parquet": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16"
+  },
+  "completed_at_utc": "2026-09-11T04:34:27.013129+00:00",
+  "exit_code": 0,
+  "actual_trials": 8,
+  "started_at_utc": "2026-09-11T04:33:15.077445+00:00",
+  "reference_sha256": {
+    "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/H0.parquet": "38995fd2e6afbe60209d7925424a066d175921d9bbd756ed9b134aeabb7264c2",
+    "artifacts/DM-20260909-02/run-20260909T061458Z/predictions/B0.parquet": "2ba447dac0f82c7dd75e8e5c59e4a17d63174ec7373021aa9489ca1339e6bda4",
+    "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/D2.parquet": "822e0e0188d10ad204ccfbe6915aaae6a999cec0dff767a6c27c801f7317fba1",
+    "artifacts/DM-20260910-02/run-20260909T161108Z/predictions/D3.parquet": "2903a922b440d2c1dfefdf1168d2859565aacefc3e67ba75cba57aac58ca72df"
+  },
+  "elapsed_seconds": 71.93698562507052,
+  "max_rss_bytes": 3657465856,
+  "actual_cv_fits": 24,
+  "actual_new_model_families": 4,
+  "cumulative_known_scoring_trials": 83
+}

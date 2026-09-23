@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "experiment_id": "__EXPERIMENT_ID__",
+  "strategy": "__STRATEGY__",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260908-v1:M_res60s1_a0.25",
+  "random_seed": null,
+  "train_window": null,
+  "walk_forward_folds": [],
+  "purge_trading_days": 2,
+  "confirmation_policy": null,
+  "max_trials": null,
+  "trials": [],
+  "feature_definitions": null,
+  "model": null,
+  "parameters": null,
+  "selection_rule": null,
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

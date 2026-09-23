@@ -1,0 +1,17 @@
+.DS_Store
+._*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+/stock_comp_2026/input/*.parquet
+/stock_comp_2026/strategies/*.zip
+/artifacts/*/
+/releases/*/
+*.log

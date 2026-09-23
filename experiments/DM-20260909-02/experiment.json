@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260909-02",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_fixed_long_short",
+  "valid_evaluation": false
+}

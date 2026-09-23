@@ -1,0 +1,106 @@
+{
+  "M0": {
+    "delta_total_net_sr": {
+      "low": -3.303950402266479,
+      "high": 0.20034567077091514,
+      "bootstrap_positive_fraction": 0.037,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_long_net_sr": {
+      "low": -1.5466239239989068,
+      "high": 0.10821967822468609,
+      "bootstrap_positive_fraction": 0.037,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net_sr": {
+      "low": -1.8843529917096853,
+      "high": -0.10178403364784433,
+      "bootstrap_positive_fraction": 0.017,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  },
+  "T1": {
+    "delta_total_net_sr": {
+      "low": -14.446996312146354,
+      "high": -9.839274706075228,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_long_net_sr": {
+      "low": -4.012271514377895,
+      "high": -2.440535210197694,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net_sr": {
+      "low": -3.8094736321931597,
+      "high": -2.508015886784121,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  },
+  "T2": {
+    "delta_total_net_sr": {
+      "low": -12.691480495916524,
+      "high": -8.780515227722894,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_long_net_sr": {
+      "low": -3.7204016593279285,
+      "high": -2.235111272910576,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net_sr": {
+      "low": -3.2687815081200084,
+      "high": -1.9563460359941314,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  },
+  "T3": {
+    "delta_total_net_sr": {
+      "low": -5.238462895311357,
+      "high": -2.2894387808748187,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_long_net_sr": {
+      "low": -1.914330584459172,
+      "high": -0.6381490447862316,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net_sr": {
+      "low": -1.5041920316010482,
+      "high": -0.44450669170087637,
+      "bootstrap_positive_fraction": 0.0,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  }
+}

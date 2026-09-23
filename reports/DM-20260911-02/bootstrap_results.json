@@ -1,0 +1,38 @@
+{
+  "I1": {
+    "delta_short_net_sr": {
+      "low": -0.8749246229109863,
+      "high": -0.11328870393964449,
+      "bootstrap_positive_fraction": 0.009,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "delta_total_net_sr": {
+      "low": -0.993326668554947,
+      "high": -0.22339615930830667,
+      "bootstrap_positive_fraction": 0.001,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  },
+  "K1": {
+    "delta_short_net_sr": {
+      "low": -0.43787421381828834,
+      "high": 0.13992670488406853,
+      "bootstrap_positive_fraction": 0.157,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    },
+    "delta_total_net_sr": {
+      "low": -0.4129648568245424,
+      "high": 0.17351858023095276,
+      "bootstrap_positive_fraction": 0.232,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260911
+    }
+  }
+}

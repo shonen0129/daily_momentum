@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-02",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_intraday_skewness_short",
+  "valid_evaluation": false
+}

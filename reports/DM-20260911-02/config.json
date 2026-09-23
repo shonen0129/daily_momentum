@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-02",
+  "strategy": "dm_intraday_skewness_short",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "H0 current Champion C0/T1: M60 residual momentum EWMA(0.25) Long + equal-weight FD Short",
+  "random_seed": 20260911,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 3,
+  "trials": [
+    {"trial_id": "H0", "description": "Current Champion exact C0/T1 reproduction"},
+    {"trial_id": "I1", "description": "Fixed H0 Long; intraday-only 60-day momentum EWMA(0.25) Short"},
+    {"trial_id": "K1", "description": "Fixed H0 Long; equal FD rank times low expected-skewness preference Short"}
+  ],
+  "feature_definitions": {
+    "h0": "exact dm_fixed_long_short T1",
+    "intraday_return": "RawClose_t / RawOpen_t - 1 where both values are finite and strictly positive; signal-date t included",
+    "intraday_momentum": "60 observed rows per listing segment, simple sum, min_periods=60; daily percentile rank mapped to [-1,1]; missing history neutral 0; EWMA alpha=0.25 adjust=False",
+    "expected_skewness": "monthly residual-return sample skewness/std/prior-month sum with at least 15 daily observations; MOM12_1 is monthly residual sum m-12 through m-2; OLS RS_m on complete X_(m-1), forecast X_m to m+1",
+    "skewness_predictors": ["realized_skewness", "realized_volatility", "prior_month_residual_return", "mom12_1"],
+    "size_and_industry": "omitted: no additional already-audited PIT predictor is required",
+    "k1": "daily FD percentile-rank * (1 - monthly ExpectedSkew percentile-rank); missing ExpectedSkew receives low-skew preference 0.5"
+  },
+  "model": "No fitted alpha model. K1 expected-skewness uses deterministic monthly intercept-plus-four-predictor ordinary least squares with numpy.linalg.lstsq; rank-deficient or insufficient cross-sections forecast missing.",
+  "parameters": {"intraday_horizon": 60, "intraday_ewma_alpha": 0.25, "intraday_ewma_adjust": false, "monthly_min_observations": 15, "mom12_1_months": "m-12 through m-2", "expected_skewness_regression": "OLS", "minimum_regression_rows": 6, "bootstrap_repetitions": 1000, "bootstrap_block_days": 20},
+  "selection_rule": {"short_success": "Short improvement folds >=3/4; median delta Short annual Net >0; pooled Short Net >H0", "strong_success": "pooled Short Net >0; Short-positive folds >=3/4", "champion_replacement": "Total pooled Net SR >H0; Total Net SR improvement folds >=3/4; long exact", "no_post_result_candidates": true},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

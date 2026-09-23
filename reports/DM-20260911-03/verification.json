@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "artifact_hashes": 113,
+  "code_hashes": 23,
+  "reference_hashes": 4,
+  "report_csv_identical": true,
+  "completed_run_unchanged": true,
+  "tests_passed": 76,
+  "new_tests_passed": 10,
+  "valid_evaluation": false
+}

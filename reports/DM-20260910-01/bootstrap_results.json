@@ -1,0 +1,56 @@
+{
+  "V1": {
+    "delta_net_sharpe": {
+      "low": -0.7516923113834447,
+      "high": -0.032609623042941696,
+      "bootstrap_positive_fraction": 0.019,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net": {
+      "low": -0.7659273841946398,
+      "high": -0.09074559781183675,
+      "bootstrap_positive_fraction": 0.006,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  },
+  "V2": {
+    "delta_net_sharpe": {
+      "low": -0.6263684033782884,
+      "high": 0.0023477970799322336,
+      "bootstrap_positive_fraction": 0.026,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net": {
+      "low": -0.6476901479667578,
+      "high": -0.05354123698925771,
+      "bootstrap_positive_fraction": 0.012,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  },
+  "V3": {
+    "delta_net_sharpe": {
+      "low": -0.6713839734191442,
+      "high": -0.04750430800454564,
+      "bootstrap_positive_fraction": 0.009,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    },
+    "delta_short_net": {
+      "low": -0.5853344185852735,
+      "high": -0.023835435472152725,
+      "bootstrap_positive_fraction": 0.014,
+      "reps": 1000,
+      "block": 20,
+      "seed": 20260910
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "baseline_bitwise": true,
+  "source_files": [
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/strategies/dm_asymmetric_fundamental/__init__.py",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/strategies/dm_asymmetric_fundamental/core.py",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/strategies/dm_asymmetric_fundamental/features.py",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/strategies/dm_asymmetric_fundamental/submission.py"
+  ],
+  "prefix_tests": [
+    {
+      "cutoff": "2010-12-30",
+      "rows": 227601,
+      "features": 50,
+      "prediction_formulas": 16,
+      "bitwise": true,
+      "mutation": true,
+      "truncation": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "rows": 389444,
+      "features": 50,
+      "prediction_formulas": 16,
+      "bitwise": true,
+      "mutation": true,
+      "truncation": true
+    },
+    {
+      "cutoff": "2014-12-30",
+      "rows": 667086,
+      "features": 50,
+      "prediction_formulas": 16,
+      "bitwise": true,
+      "mutation": true,
+      "truncation": true
+    }
+  ]
+}

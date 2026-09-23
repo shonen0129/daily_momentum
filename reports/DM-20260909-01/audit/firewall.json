@@ -1,0 +1,29 @@
+{
+  "opened_parquets": [
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_equal_0.25.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_equal_0.5.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_equal_0.75.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_equal_1.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_final_ewma.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_heavy_0.25.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_heavy_0.5.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_heavy_0.75.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/A_heavy_1.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/Event_0.25.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/Event_0.5.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/Event_0.75.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/Event_1.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/baseline.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/submission_1.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/artifacts/DM-20260909-01/run-20260908T154054Z/predictions/submission_2.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/beta_1day_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/fins_statements_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/prices_daily_quotes_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/target_1day_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/topix_return_1day_train.parquet"
+  ],
+  "valid_evaluation": false,
+  "raw_target_reads": false
+}

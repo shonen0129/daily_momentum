@@ -1,0 +1,26 @@
+{
+  "raw_return_1day_train.parquet": {
+    "sha256": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "matches_distribution": true
+  },
+  "beta_1day_train.parquet": {
+    "sha256": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "matches_distribution": true
+  },
+  "topix_return_1day_train.parquet": {
+    "sha256": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "matches_distribution": true
+  },
+  "prices_daily_quotes_train.parquet": {
+    "sha256": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5",
+    "matches_distribution": true
+  },
+  "listed_info_train.parquet": {
+    "sha256": "8654e3072ddc33da28ea925f2d6ec0cae7c73356ceb27349f0d304aa956a9e76",
+    "matches_distribution": true
+  },
+  "target_1day_train.parquet": {
+    "sha256": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16",
+    "matches_distribution": true
+  }
+}

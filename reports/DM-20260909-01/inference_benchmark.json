@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "isolated_copy": true,
+  "train_only": true,
+  "default_config": true,
+  "rows": 809636,
+  "elapsed_seconds": 7.77207045799878,
+  "max_rss_bytes": 1933115392
+}

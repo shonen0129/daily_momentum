@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-03",
+  "kind": "experiment",
+  "status": "planned",
+  "strategy": "dm_dri_regularization",
+  "valid_evaluation": false
+}

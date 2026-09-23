@@ -1,0 +1,12 @@
+{
+  "rows": 809636,
+  "dates": 1814,
+  "codes": 473,
+  "missing_predictions": 0,
+  "full_60day_momentum_history_fraction": 0.955893759664837,
+  "last_two_train_signal_dates_excluded": [
+    "2016-03-30 00:00:00",
+    "2016-03-31 00:00:00"
+  ],
+  "reason_last_two_excluded": "label t+2 crosses Train feature boundary even if supplied label is finite"
+}

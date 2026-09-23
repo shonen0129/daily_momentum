@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260908",
+  "kind": "legacy",
+  "status": "frozen",
+  "strategy": "dm_trainonly",
+  "strategy_id": "DM-20260908-v1",
+  "plan": "experiments/DM-20260908/plan.md",
+  "report": "reports/DM-20260908/REPORT.md",
+  "freeze_manifest": "reports/DM-20260908/freeze_manifest.json",
+  "valid_evaluation": false,
+  "freeze_root": "releases/DM-20260908-v1/snapshot",
+  "freeze_manifest_sha256": "1daf6e2882edc5b4498d4928e0ae359134ad0ba10e50a1e748e4864f0e2971b2"
+}

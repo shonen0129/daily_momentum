@@ -1,0 +1,18 @@
+# Observed research/test environment for DM-20260908, Python 3.11.15.
+cloudpickle==3.1.2
+iniconfig==2.3.0
+joblib==1.6.0
+lightgbm==4.6.0
+narwhals==2.25.0
+numpy==2.4.6
+packaging==26.3
+pandas==3.0.3
+pluggy==1.6.0
+pyarrow==24.0.0
+pygments==2.21.0
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+scikit-learn==1.9.0
+scipy==1.17.1
+six==1.17.0
+threadpoolctl==3.6.0

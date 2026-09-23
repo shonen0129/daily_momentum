@@ -1,0 +1,351 @@
+{
+  "folds": [
+    {
+      "year": 2011,
+      "rows": 178342,
+      "min_fit_signal": "2009-02-04",
+      "max_fit_signal": "2010-12-28",
+      "max_label_available": "2010-12-30",
+      "feature_names": [
+        "liquidity_level",
+        "liquidity_shock",
+        "volume_shock",
+        "pwv",
+        "vwp",
+        "am",
+        "pm",
+        "intraday_range",
+        "volume_ratio",
+        "m_pwv",
+        "m_vwp",
+        "m_liquidity",
+        "m_volume",
+        "vwp_intraday"
+      ],
+      "importance_gain": [
+        31.513124108314514,
+        13.654880046844482,
+        12.658859968185425,
+        13.785060167312622,
+        23.247314155101776,
+        16.539244949817657,
+        7.130239963531494,
+        4.715089917182922,
+        40.50321960449219,
+        76.09206765890121,
+        8.167531073093414,
+        29.884329915046692,
+        17.32969105243683,
+        19.597889840602875
+      ],
+      "parameters": {
+        "objective": "regression",
+        "max_depth": 2,
+        "num_leaves": 4,
+        "n_estimators": 60,
+        "min_child_samples": 400,
+        "learning_rate": 0.05,
+        "reg_lambda": 10.0,
+        "random_state": 20260908,
+        "n_jobs": 2,
+        "verbosity": -1,
+        "deterministic": true,
+        "force_col_wise": true
+      }
+    },
+    {
+      "year": 2012,
+      "rows": 273756,
+      "min_fit_signal": "2009-02-04",
+      "max_fit_signal": "2011-12-28",
+      "max_label_available": "2011-12-30",
+      "feature_names": [
+        "liquidity_level",
+        "liquidity_shock",
+        "volume_shock",
+        "pwv",
+        "vwp",
+        "am",
+        "pm",
+        "intraday_range",
+        "volume_ratio",
+        "m_pwv",
+        "m_vwp",
+        "m_liquidity",
+        "m_volume",
+        "vwp_intraday"
+      ],
+      "importance_gain": [
+        3.7681798934936523,
+        72.99809241294861,
+        13.19073212146759,
+        26.204500913619995,
+        12.401880025863647,
+        32.99924826622009,
+        16.626030206680298,
+        2.77183598279953,
+        6.081850051879883,
+        46.8201642036438,
+        14.708249986171722,
+        28.245776772499084,
+        16.690030217170715,
+        22.814055025577545
+      ],
+      "parameters": {
+        "objective": "regression",
+        "max_depth": 2,
+        "num_leaves": 4,
+        "n_estimators": 60,
+        "min_child_samples": 400,
+        "learning_rate": 0.05,
+        "reg_lambda": 10.0,
+        "random_state": 20260908,
+        "n_jobs": 2,
+        "verbosity": -1,
+        "deterministic": true,
+        "force_col_wise": true
+      }
+    },
+    {
+      "year": 2013,
+      "rows": 371279,
+      "min_fit_signal": "2009-02-04",
+      "max_fit_signal": "2012-12-26",
+      "max_label_available": "2012-12-28",
+      "feature_names": [
+        "liquidity_level",
+        "liquidity_shock",
+        "volume_shock",
+        "pwv",
+        "vwp",
+        "am",
+        "pm",
+        "intraday_range",
+        "volume_ratio",
+        "m_pwv",
+        "m_vwp",
+        "m_liquidity",
+        "m_volume",
+        "vwp_intraday"
+      ],
+      "importance_gain": [
+        9.839563012123108,
+        59.331107795238495,
+        45.96321803331375,
+        15.914247930049896,
+        2.1228299140930176,
+        43.16986930370331,
+        23.96650981903076,
+        6.780400037765503,
+        0.0,
+        28.390473067760468,
+        21.932030737400055,
+        25.779114186763763,
+        18.47154998779297,
+        43.765570402145386
+      ],
+      "parameters": {
+        "objective": "regression",
+        "max_depth": 2,
+        "num_leaves": 4,
+        "n_estimators": 60,
+        "min_child_samples": 400,
+        "learning_rate": 0.05,
+        "reg_lambda": 10.0,
+        "random_state": 20260908,
+        "n_jobs": 2,
+        "verbosity": -1,
+        "deterministic": true,
+        "force_col_wise": true
+      }
+    },
+    {
+      "year": 2014,
+      "rows": 468989,
+      "min_fit_signal": "2009-02-04",
+      "max_fit_signal": "2013-12-26",
+      "max_label_available": "2013-12-30",
+      "feature_names": [
+        "liquidity_level",
+        "liquidity_shock",
+        "volume_shock",
+        "pwv",
+        "vwp",
+        "am",
+        "pm",
+        "intraday_range",
+        "volume_ratio",
+        "m_pwv",
+        "m_vwp",
+        "m_liquidity",
+        "m_volume",
+        "vwp_intraday"
+      ],
+      "importance_gain": [
+        26.02374005317688,
+        106.43976986408234,
+        24.87982976436615,
+        53.77300977706909,
+        9.134289741516113,
+        42.41492998600006,
+        12.265300273895264,
+        6.658120155334473,
+        1.1408699750900269,
+        21.302330136299133,
+        19.64443016052246,
+        35.79309010505676,
+        36.04874002933502,
+        11.446030020713806
+      ],
+      "parameters": {
+        "objective": "regression",
+        "max_depth": 2,
+        "num_leaves": 4,
+        "n_estimators": 60,
+        "min_child_samples": 400,
+        "learning_rate": 0.05,
+        "reg_lambda": 10.0,
+        "random_state": 20260908,
+        "n_jobs": 2,
+        "verbosity": -1,
+        "deterministic": true,
+        "force_col_wise": true
+      }
+    }
+  ],
+  "calibration": [
+    {
+      "year": 2010,
+      "max_fit_signal": "2009-12-28",
+      "max_label_available": "2009-12-30",
+      "model": {
+        "mean": [
+          1.2475846953413556e-05
+        ],
+        "scale": [
+          0.5098416110860013
+        ],
+        "coef": [
+          1.5580372727376093e-17,
+          -0.0028979611190227384
+        ]
+      }
+    },
+    {
+      "year": 2011,
+      "max_fit_signal": "2010-12-28",
+      "max_label_available": "2010-12-30",
+      "model": {
+        "mean": [
+          1.6826906674951798e-06
+        ],
+        "scale": [
+          0.5416912292085239
+        ],
+        "coef": [
+          -3.4042893465256963e-18,
+          -0.005250628592290331
+        ]
+      }
+    },
+    {
+      "year": 2012,
+      "max_fit_signal": "2011-12-28",
+      "max_label_available": "2011-12-30",
+      "model": {
+        "mean": [
+          5.648595242797515e-06
+        ],
+        "scale": [
+          0.5526569696767337
+        ],
+        "coef": [
+          -9.181193994789601e-18,
+          -0.002652624341227099
+        ]
+      }
+    },
+    {
+      "year": 2013,
+      "max_fit_signal": "2012-12-26",
+      "max_label_available": "2012-12-28",
+      "model": {
+        "mean": [
+          7.858821282828722e-06
+        ],
+        "scale": [
+          0.5583412275344067
+        ],
+        "coef": [
+          -1.1705745415379754e-17,
+          -0.00047977067471985266
+        ]
+      }
+    },
+    {
+      "year": 2014,
+      "max_fit_signal": "2013-12-26",
+      "max_label_available": "2013-12-30",
+      "model": {
+        "mean": [
+          6.300485902578931e-06
+        ],
+        "scale": [
+          0.5619203912156839
+        ],
+        "coef": [
+          -9.02181535853564e-18,
+          0.00037642109757618855
+        ]
+      }
+    },
+    {
+      "year": 2015,
+      "max_fit_signal": "2014-12-26",
+      "max_label_available": "2014-12-30",
+      "model": {
+        "mean": [
+          5.238944930151907e-06
+        ],
+        "scale": [
+          0.5642704345864997
+        ],
+        "coef": [
+          -2.5046527018011913e-18,
+          0.0014445830587435878
+        ]
+      }
+    },
+    {
+      "year": 2016,
+      "max_fit_signal": "2014-12-30",
+      "max_label_available": "2015-01-06",
+      "model": {
+        "mean": [
+          5.2316854002497305e-06
+        ],
+        "scale": [
+          0.5642887669470243
+        ],
+        "coef": [
+          -2.3499028883200478e-18,
+          0.0013549060664015036
+        ]
+      }
+    }
+  ],
+  "parameters": {
+    "objective": "regression",
+    "max_depth": 2,
+    "num_leaves": 4,
+    "n_estimators": 60,
+    "min_child_samples": 400,
+    "learning_rate": 0.05,
+    "reg_lambda": 10.0,
+    "random_state": 20260908,
+    "n_jobs": 2,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  }
+}

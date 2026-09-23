@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "columns": 1,
+  "coverage": 1.0,
+  "bitwise_research": true,
+  "deterministic": true,
+  "independent_processes": 2
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-01",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_advanced_dti",
+  "valid_evaluation": false
+}

@@ -1,0 +1,8 @@
+{
+  "opened_parquets": [
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/reports/DM-20260908/selected_train_predictions.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/target_1day_train.parquet"
+  ],
+  "valid_evaluation": false,
+  "raw_target_reads": false
+}

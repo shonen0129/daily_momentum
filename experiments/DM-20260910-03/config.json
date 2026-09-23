@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260910-03",
+  "strategy": "dm_dti_long_short",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260909-02:T1 / DM-20260910-01:H0 (current Champion)",
+  "random_seed": 20260910,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 5,
+  "trials": [
+    {"trial_id": "H0", "description": "Current Champion: M60 residual-momentum Long + equal fundamental-deterioration Short"},
+    {"trial_id": "M0", "description": "21-observed-day raw turnover arithmetic mean; high turnover Long"},
+    {"trial_id": "T1", "description": "DTI raw target, no smoothing"},
+    {"trial_id": "T2", "description": "DTI daily CS-rank target, no smoothing"},
+    {"trial_id": "T3", "description": "T2 score with EWMA alpha=0.25, adjust=False"}
+  ],
+  "feature_definitions": {"turnover": "raw Volume_t / last strictly-prior disclosed NumberOfIssuedAndOutstandingSharesAtTheEndOfFiscalYearIncludingTreasuryStock; shares age <=450 calendar days; raw scale, no log transform", "window": 21, "chronological": "[TO_t, TO_t-1, ..., TO_t-20] within independent listing segments", "sorted": "ascending sort of the same 21 values", "missing_history": "nonfinite/zero-volume/insufficient 21 observations score 0.0 neutral; no rows dropped", "timing": "t-day Volume is permitted by competition timing"},
+  "model": "StandardScaler + ElasticNet, annual expanding refits; T1 raw target and T2/T3 daily cross-sectional percentile-rank target",
+  "parameters": {"alpha_grid": [0.000001, 0.000003, 0.00001, 0.00003, 0.0001, 0.0003, 0.001], "l1_ratio_grid": [0.1, 0.5, 0.9], "initial_cv": [{"train_end": "2009-12-31", "validation_start": "2010-01-01", "validation_end": "2010-06-30"}, {"train_end": "2010-06-30", "validation_start": "2010-07-01", "validation_end": "2010-12-31"}], "raw_selection_metric": "pooled MSE", "rank_selection_metric": "mean daily Spearman RankIC", "rank_tiebreak": ["lower turnover proxy", "stronger regularization", "lexicographic alpha/l1_ratio"], "ewma_alpha": 0.25, "elasticnet_max_iter": 10000, "shares_max_age_days": 450},
+  "selection_rule": {"total_pooled_net_sharpe_gt_h0": true, "total_net_sharpe_improved_folds_min": 3, "long_pooled_net_and_sharpe_gt_h0": true, "long_improved_folds_min": 3, "short_pooled_net_gt_h0": true, "short_improved_folds_min": 3, "short_median_delta_net_gt_zero": true, "preflight_required": "PIT denominator coverage, strict disclosure timing, and raw-volume/share corporate-action compatibility"},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

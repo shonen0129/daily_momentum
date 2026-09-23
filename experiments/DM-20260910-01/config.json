@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260910-01",
+  "strategy": "dm_independent_short",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260909-03:C0 (DM-20260909-02:T1 Champion)",
+  "random_seed": 20260910,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"windows": [{"name": "2015-2016-03", "years": [2015, 2016]}, {"name": "2008-2010", "years": [2008, 2009, 2010]}], "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 4,
+  "trials": [
+    {"trial_id": "H0", "family": "Champion", "description": "C0/T1 equal fundamental deterioration Short control"},
+    {"trial_id": "V1", "family": "Valuation", "description": "low PIT annualized CFO yield Short"},
+    {"trial_id": "V2", "family": "EarningsQuality", "description": "high same-period accrual Short"},
+    {"trial_id": "V3", "family": "Lottery", "description": "high lagged residual MAX20 Short"}
+  ],
+  "feature_definitions": {
+    "long": "exact C0/T1 M60 residual momentum, skip 1, EWMA alpha=0.25",
+    "V1": "annualized CFO / (raw Close * PIT disclosed issued shares), disclosure age <=450 calendar days; invalid values neutral",
+    "V2": "(Profit-CFO)/TotalAssets from one valid same-period disclosed record, disclosure age <=450 calendar days; invalid values neutral",
+    "V3": "max of residual returns t-20 through t-1, 20 observed days required; missing history neutral",
+    "rank_and_ties": "daily percentile; missing=0.5; stitch tie-break by fixed Long rank then Code",
+    "idio_vol": "lagged residual 20-day standard deviation, diagnostics only"
+  },
+  "model": "Fixed rule-based 40% C0/T1 Long plus independent 40% Short / 20% neutral ranking over the remaining 60%",
+  "parameters": {"alpha": 0.25, "long_pool_pct": 0.4, "short_pool_pct": 0.4, "neutral_pool_pct": 0.2, "financial_freshness_calendar_days": 450, "max_window": 20, "bootstrap_reps": 1000, "bootstrap_block_days": 20},
+  "selection_rule": {"pooled_short_annual_net_gt_zero": true, "short_positive_folds_min": 3, "short_improved_folds_min": 3, "median_delta_short_annual_net_gt_zero": true, "net_sharpe_not_below_h0": true, "long_fixed_preservation": true},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

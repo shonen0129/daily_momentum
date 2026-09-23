@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260911-01",
+  "strategy": "dm_advanced_dti",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "H0 current Champion; D0 DM-20260910-03 T3 exact reproduction",
+  "random_seed": 20260911,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 7,
+  "trials": [
+    {"trial_id": "H0", "description": "Current Champion, exact artifact reproduction"},
+    {"trial_id": "D0", "description": "Original DTI RANK, EWMA alpha=0.25"},
+    {"trial_id": "S0", "description": "Original DTI RANK, EWMA alpha=0.05"},
+    {"trial_id": "A1", "description": "Abnormal DTI, EWMA alpha=0.05"},
+    {"trial_id": "S1", "description": "Signed abnormal DTI, EWMA alpha=0.05"},
+    {"trial_id": "U1", "description": "Up/down abnormal DTI, EWMA alpha=0.05"},
+    {"trial_id": "R1", "description": "Return-conditioned abnormal DTI, EWMA alpha=0.05"}
+  ],
+  "feature_definitions": {
+    "turnover": "raw Volume_t / last strictly-prior disclosed issued-and-outstanding shares including treasury stock; shares age <=450 days",
+    "log_turnover": "log(TO + 1e-12), only where TO is finite",
+    "abnormal_turnover": "log TO_t minus median(log TO_t-1 ... log TO_t-60), strictly-prior 60-row rolling median",
+    "residual_return": "raw_return_t minus beta_t times TOPIX_return_t",
+    "window": 21,
+    "representations": {"D0": "raw TO chronological + sorted", "A1": "ATO chronological + sorted", "S1": "ATO*sign(residual) chronological + sorted", "U1": "ATO*I(residual>0) and ATO*I(residual<0), each chronological + sorted", "R1": "ATO and ATO*residual, each chronological + sorted"},
+    "missing_history": "incomplete/nonfinite feature vector is neutral 0; no row is dropped"
+  },
+  "model": "daily cross-sectional percentile-rank target; StandardScaler + ElasticNet; annual expanding fits; same finite DM-20260910-03 past-only RankIC selection",
+  "parameters": {"fixed_alpha": 0.0003, "fixed_l1_ratio": 0.1, "hyperparameter_source": "DM-20260910-03 RANK selected by preregistered past-only RankIC grid", "d0_ewma_alpha": 0.25, "candidate_ewma_alpha": 0.05, "elasticnet_max_iter": 10000, "shares_max_age_days": 450},
+  "selection_rule": {"dti_salvage": "pooled Net SR > 0; positive Net-SR folds >=3/4; annual Net >0", "champion_replacement": "pooled Net SR > H0 and improved Net-SR folds >=3/4", "long_success": "pooled Long Net SR >0 and positive Long folds >=3/4", "short_success": "pooled Short Net SR >0 and positive Short folds >=3/4", "no_post_result_candidates": true},
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

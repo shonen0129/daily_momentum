@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260910-02",
+  "strategy": "dm_dri_long_short",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260909-02:T1 (current Champion H0)",
+  "random_seed": 20260910,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [{"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}],
+  "purge_trading_days": 2,
+  "confirmation_policy": {"start": "2015-01-01", "end": "2016-03-31", "previously_seen": true, "descriptive_only": true, "reselection": false},
+  "max_trials": 4,
+  "trials": [
+    {"trial_id": "H0", "description": "Current Champion: M60 residual momentum Long + equal fundamental-deterioration Short"},
+    {"trial_id": "D1", "description": "RAW DRI, no smoothing"},
+    {"trial_id": "D2", "description": "RAW DRI, EWMA alpha=0.25"},
+    {"trial_id": "D3", "description": "residual DRI, EWMA alpha=0.25"}
+  ],
+  "feature_definitions": {
+    "window": 21,
+    "chronological": "[r_t, r_t-1, ..., r_t-20], complete 21 observed returns required; each code/relisting segment is independent",
+    "sorted": "ascending sort of the same complete 21-return chronological vector",
+    "raw": "provided raw_return_1day",
+    "residual": "raw_return_1day - beta_1day * topix_return_1day",
+    "missing_history": "current incomplete/nonfinite 21-day vector receives score 0.0 (neutral); no prediction row is dropped"
+  },
+  "model": "ElasticNet regression with StandardScaler, separate RAW and RES annual expanding fits",
+  "parameters": {
+    "l1_ratio": 0.5,
+    "alpha_grid": [0.0000001, 0.000001, 0.00001, 0.0001, 0.001],
+    "initial_cv": [
+      {"train_end": "2009-12-31", "validation_start": "2010-01-01", "validation_end": "2010-06-30"},
+      {"train_end": "2010-06-30", "validation_start": "2010-07-01", "validation_end": "2010-12-31"}
+    ],
+    "selection_metric": "mean squared error pooled across the two chronological date-block validations; ties choose smaller alpha",
+    "ewma_alpha": 0.25,
+    "elasticnet_max_iter": 10000
+  },
+  "selection_rule": {
+    "total_pooled_net_sharpe_gt_h0": true,
+    "total_net_sharpe_improved_folds_min": 3,
+    "long_pooled_net_and_sharpe_gt_h0": true,
+    "long_improved_folds_min": 3,
+    "short_pooled_net_gt_h0": true,
+    "short_improved_folds_min": 3,
+    "short_median_delta_net_gt_zero": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}
