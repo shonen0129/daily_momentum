@@ -1,0 +1,10 @@
+{
+  "python": "3.12.11 (main, Jun 27 2025, 16:11:50) [Clang 17.0.0 (clang-1700.3.9.908)]",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "2.3.2",
+    "pandas": "2.3.0",
+    "scipy": "1.16.0",
+    "pyarrow": "22.0.0"
+  }
+}

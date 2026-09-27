@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260927-03",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "D_LOW_FAST_ONLY",
+    "BOX_ORIGINAL"
+  ],
+  "diagnostic_control_only": [
+    "B00"
+  ],
+  "random_seed": 20260925,
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "evaluation_window": [
+    "2011-01-04",
+    "2016-03-29"
+  ],
+  "partial_2016_window": [
+    "2016-01-04",
+    "2016-03-29"
+  ],
+  "walk_forward_folds": [
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016
+  ],
+  "purge_trading_days": 2,
+  "max_candidate_trials": 2,
+  "intervention_plan": "reports/DM-20260927-03/SHORT_NIGHT_INTERVENTION_PLAN.md",
+  "intervention_plan_sha256": "84c3a051556e2ee02a8744e521ed22f1c600c357c4b9caccc6cb4414111ca621",
+  "candidates": [
+    {
+      "trial_id": "SIDE_SOURCE_SEPARATION",
+      "formula": "low_state when low_state<0; else high_state when high_state>0; else saved D score"
+    },
+    {
+      "trial_id": "HIGH_AGE5_SHORT_VETO",
+      "formula": "daily ordinal by (not high_age_5_plus dominant, D score ascending, Code ascending)"
+    }
+  ],
+  "fixed": {
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "official_quintiles": 5,
+    "one_way_cost": 0.001,
+    "annualization_days": 252,
+    "bootstrap": {
+      "method": "existing paired circular block bootstrap",
+      "block_days": 20,
+      "repetitions": 1000,
+      "seed": 20260925
+    }
+  },
+  "no_search": [
+    "alpha",
+    "holding_period",
+    "threshold",
+    "lambda",
+    "features",
+    "model",
+    "smoothing",
+    "session_specific_trading"
+  ],
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "valid_accessed": false,
+    "raw_target_accessed": false,
+    "submission_evaluation": false,
+    "post_result_trials": false
+  }
+}

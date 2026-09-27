@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260927-03",
+  "mode": "single_frozen_valid_evaluation",
+  "selection_eligible": false,
+  "valid_access_count": 1,
+  "candidate_ids": [
+    "D_LOW_FAST_ONLY",
+    "SIDE_SOURCE_SEPARATION"
+  ],
+  "production_default_candidate": "SIDE_SOURCE_SEPARATION",
+  "strategy_code": "stock_comp_2026/strategies/dm_variable_box_breakout",
+  "signal": {
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "raw_reconstruction_zero_noise_floor": 1e-12,
+    "upstream_model": "annual expanding High/Low Ridge; unchanged",
+    "ridge_lambda": 1.0,
+    "minimum_training_rows_per_side_fold": 500,
+    "purge_trading_days": 2,
+    "directional_feature_columns": [
+      "box_duration",
+      "box_width_atr",
+      "oriented_close_position",
+      "oriented_relative_strength_60",
+      "distance_to_prior_extreme"
+    ],
+    "source_transform": "SN1 = D; replace by low_state if low_state < 0; replace by high_state if low_state == 0 and high_state > 0"
+  },
+  "portfolio": {
+    "universe": "existing competition point-in-time input rows",
+    "quintiles": 5,
+    "rank_method": "first after sorting (Date, Code)",
+    "bucket_method": "pandas qcut(5)",
+    "weight_formula": "(quintile_index - 2) / daily_name_count / 1.2",
+    "one_way_cost": 0.001,
+    "annualization_days": 252
+  },
+  "valid_outcome": {
+    "file": "target_1day_valid.parquet",
+    "column": "Return",
+    "read_count": 1,
+    "excluded_inputs": [
+      "raw_target_1day_valid.parquet"
+    ],
+    "subperiods": "full plus calendar year; first/last partial buckets labeled partial"
+  },
+  "metrics": {
+    "framework": "research.evaluation and research.experiments.box_asymmetry_gate.account_from_weights",
+    "bootstrap": {
+      "method": "existing paired circular block bootstrap",
+      "block_days": 20,
+      "repetitions": 1000,
+      "seed": 20260925,
+      "interval": "2.5%, 97.5%"
+    }
+  },
+  "prohibitions": [
+    "valid-driven parameter or rule changes",
+    "candidate addition or blend",
+    "session-specific trading",
+    "threshold or tie-break changes",
+    "any second Valid evaluation"
+  ]
+}

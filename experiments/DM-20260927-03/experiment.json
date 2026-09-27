@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260927-03",
+  "status": "rejected",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "D_LOW_FAST_ONLY",
+    "BOX_ORIGINAL"
+  ],
+  "candidates": [
+    "SIDE_SOURCE_SEPARATION",
+    "HIGH_AGE5_SHORT_VETO"
+  ],
+  "candidate_budget": 2,
+  "post_result_trials": false,
+  "intervention_plan": "reports/DM-20260927-03/SHORT_NIGHT_INTERVENTION_PLAN.md",
+  "plan_hash_pending": false,
+  "intervention_plan_sha256": "84c3a051556e2ee02a8744e521ed22f1c600c357c4b9caccc6cb4414111ca621",
+  "frozen_at_utc": "2026-09-26T19:05:06Z",
+  "result_run_id": "run-20260926T191539Z",
+  "structural_run_id": "run-20260926T185654Z",
+  "decision": "No surviving lever; close this Train-only intervention series.",
+  "completed_at_utc": "2026-09-26T19:16:55Z",
+  "kind": "experiment",
+  "strategy": "dm_variable_box_breakout"
+}

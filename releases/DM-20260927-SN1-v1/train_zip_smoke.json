@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "split": "train",
+  "valid_accessed": false,
+  "valid_target_accessed": false,
+  "raw_target_accessed": false,
+  "one_column_contract": true,
+  "unique_index": true,
+  "finite": true,
+  "research_parity_rows": 576535,
+  "research_sn1_bitwise_equal": true,
+  "prediction_rows_full_train": 809636
+}
