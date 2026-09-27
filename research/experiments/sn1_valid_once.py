@@ -179,12 +179,22 @@ def score_quality(name: str, score_frame: pd.DataFrame) -> tuple[dict, pd.Series
     return metrics, q, weight
 
 
-def metric_record(name: str, score: pd.Series, weight: pd.Series, q: pd.Series,
-                  target: pd.Series, period: str) -> tuple[dict, pd.DataFrame]:
+def build_daily_account(name: str, score: pd.Series, weight: pd.Series,
+                        target: pd.Series) -> tuple[pd.DataFrame, float]:
+    if not score.index.equals(target.index) or not score.index.equals(weight.index):
+        raise ValueError(f"{name}: score, weight, and target indexes must match exactly")
     daily = evaluation.daily_account(score, target)
     expected_dates = pd.DatetimeIndex(target.index.get_level_values("Date").unique()).sort_values()
     if not daily.index.equals(expected_dates):
         raise AssertionError(f"{name}: research daily account dates differ from target")
+    if not np.array_equal(
+        weight.to_numpy(), evaluation.weights(score)[0].reindex(weight.index).to_numpy()
+    ):
+        raise AssertionError(f"{name}: saved official weights differ from research evaluator")
+    daily["gross_exposure"] = weight.abs().groupby(level="Date").sum()
+    daily["net_exposure"] = weight.groupby(level="Date").sum()
+    daily["long_exposure"] = weight.clip(lower=0.0).groupby(level="Date").sum()
+    daily["short_exposure"] = -weight.clip(upper=0.0).groupby(level="Date").sum()
     for side, side_weight in (("long", weight.clip(lower=0.0)),
                               ("short", weight.clip(upper=0.0))):
         side_turnover = side_weight.groupby(level="Code").diff().abs().fillna(side_weight.abs())
@@ -194,12 +204,12 @@ def metric_record(name: str, score: pd.Series, weight: pd.Series, q: pd.Series,
         daily[f"{side}_cost"] = side_cost_i.groupby(level="Date").sum()
         daily[f"{side}_net"] = (side_gross_i - side_cost_i).groupby(level="Date").sum()
         daily[f"{side}_turnover"] = side_turnover.groupby(level="Date").sum()
-        daily[f"{side}_exposure"] = side_weight.groupby(level="Date").sum()
+        daily[f"{side}_exposure"] = (
+            side_weight.groupby(level="Date").sum()
+            if side == "long" else -side_weight.groupby(level="Date").sum()
+        )
     if float((daily.long_net + daily.short_net - daily.net).abs().max()) > 1e-12:
         raise AssertionError(f"{name}: Long/Short accounting does not reconcile to total net")
-    stats = evaluation.metrics(daily)
-    gross_vol = float(daily.gross.std(ddof=1) * np.sqrt(ANNUALIZATION))
-    net_vol = float(daily.net.std(ddof=1) * np.sqrt(ANNUALIZATION))
     official_frame = score.rename("Return").to_frame()
     official_target = target.rename("Return").to_frame()
     official_pl = compute_pl(official_frame, official_target)
@@ -208,7 +218,19 @@ def metric_record(name: str, score: pd.Series, weight: pd.Series, q: pd.Series,
         raise AssertionError(f"{name}: evaluator and research daily indexes differ")
     if float((official_net - daily.net).abs().max()) > 1e-12:
         raise AssertionError(f"{name}: evaluator and research net returns do not reconcile")
+    return daily, compute_sr(official_pl)
 
+
+def metric_record(name: str, daily: pd.DataFrame, period: str,
+                  official_sr_ddof0: float | None = None) -> dict:
+    stats = evaluation.metrics(daily)
+    gross_vol = float(daily.gross.std(ddof=1) * np.sqrt(ANNUALIZATION))
+    net_vol = float(daily.net.std(ddof=1) * np.sqrt(ANNUALIZATION))
+    if official_sr_ddof0 is None:
+        std = daily.net.std(ddof=0)
+        official_sr_ddof0 = float(
+            daily.net.mean() / std * np.sqrt(ANNUALIZATION)
+        ) if std > 0.0 else 0.0
     row = {
         "candidate": name,
         "period": period,
@@ -233,7 +255,7 @@ def metric_record(name: str, score: pd.Series, weight: pd.Series, q: pd.Series,
         "mean_short_exposure": float(daily.short_exposure.mean()),
         "mean_gross_exposure": float(daily.gross_exposure.mean()),
         "mean_net_exposure": float(daily.net_exposure.mean()),
-        "official_evaluator_net_sr_ddof0": compute_sr(official_pl),
+        "official_evaluator_net_sr_ddof0": official_sr_ddof0,
         "research_net_sr_ddof1": evaluation.sharpe(daily.net),
     }
     for side in ("long", "short"):
@@ -245,7 +267,7 @@ def metric_record(name: str, score: pd.Series, weight: pd.Series, q: pd.Series,
     row["long_short_net_correlation"] = float(
         daily.long_net.corr(daily.short_net)
     ) if daily.long_net.std() > 0.0 and daily.short_net.std() > 0.0 else np.nan
-    return row, daily
+    return row
 
 
 def fixed_existing_paired_bootstrap(baseline: pd.Series, candidate: pd.Series) -> dict:
@@ -275,6 +297,62 @@ def fixed_existing_paired_bootstrap(baseline: pd.Series, candidate: pd.Series) -
         "repetitions": repetitions,
         "block_days": block_days,
         "seed": seed,
+    }
+
+
+def classify_result(overall: pd.DataFrame, annual: pd.DataFrame, bootstrap: dict) -> dict:
+    """Apply only the thresholds and calendar buckets fixed in the plan."""
+    table = overall.set_index("candidate")
+    base = table.loc["D_LOW_FAST_ONLY"]
+    sn1 = table.loc["SIDE_SOURCE_SEPARATION"]
+    delta_net_return = float(sn1.annual_net_return - base.annual_net_return)
+    delta_net_sr = float(sn1.net_sharpe - base.net_sharpe)
+    delta_gross_return = float(sn1.annual_gross_return - base.annual_gross_return)
+    delta_gross_sr = float(sn1.gross_sharpe - base.gross_sharpe)
+    delta_long_net = float(sn1.annual_long_net - base.annual_long_net)
+    delta_long_sr = float(sn1.long_net_sharpe - base.long_net_sharpe)
+    annual_wide = annual.pivot(index="period", columns="candidate", values="annual_net_return")
+    year_deltas = annual_wide["SIDE_SOURCE_SEPARATION"] - annual_wide["D_LOW_FAST_ONLY"]
+    positive_years = int(year_deltas.gt(0.0).sum())
+    total_years = int(year_deltas.notna().sum())
+    majority_years_positive = bool(total_years and positive_years > total_years / 2.0)
+    bootstrap_clear = bool(
+        bootstrap["delta_net_sharpe_ci_low"] > 0.0
+        and bootstrap["delta_net_annual_return_ci_low"] > 0.0
+    )
+    operational_pass = True  # Fatal contract failures abort before this function is reached.
+    net_both_down = delta_net_return < 0.0 and delta_net_sr < 0.0
+    pass_conditions = all((
+        operational_pass,
+        delta_net_return > 0.0,
+        delta_net_sr > 0.0,
+        delta_gross_return > 0.0 or delta_gross_sr > 0.0,
+        delta_long_net > 0.0,
+        delta_long_sr > 0.0,
+        majority_years_positive,
+        bootstrap_clear,
+    ))
+    if net_both_down:
+        decision = "FAIL"
+    elif pass_conditions:
+        decision = "PASS"
+    else:
+        decision = "MIXED"
+    return {
+        "category": decision,
+        "operational_checks": "PASS",
+        "delta_net_annual_return": delta_net_return,
+        "delta_net_sharpe": delta_net_sr,
+        "delta_gross_annual_return": delta_gross_return,
+        "delta_gross_sharpe": delta_gross_sr,
+        "delta_long_annual_net": delta_long_net,
+        "delta_long_net_sharpe": delta_long_sr,
+        "positive_calendar_year_buckets": positive_years,
+        "calendar_year_buckets": total_years,
+        "majority_calendar_year_buckets_positive": majority_years_positive,
+        "bootstrap_lower_bounds_both_positive": bootstrap_clear,
+        "bootstrap_ci_crosses_zero": not bootstrap_clear,
+        "valid_target_read_count": 1,
     }
 
 
@@ -393,11 +471,10 @@ def evaluate_once(args) -> Path:
             aligned = align_prediction(ordered_scores[name], target_frame)
             if not aligned.index.equals(target.index):
                 raise AssertionError(f"{name}: evaluator alignment changed index order")
-            record, daily = metric_record(
-                name, aligned.iloc[:, 0].rename("Return"), weights[name],
-                quintiles[name], target, "full_valid",
+            daily, official_sr = build_daily_account(
+                name, aligned.iloc[:, 0].rename("Return"), weights[name], target,
             )
-            daily_rows.append(record)
+            daily_rows.append(metric_record(name, daily, "full_valid", official_sr))
             daily_by_candidate[name] = daily
             for year in sorted(pd.Index(target.index.get_level_values("Date").year).unique()):
                 selected = daily.loc[daily.index.year == int(year)]
@@ -408,13 +485,7 @@ def evaluate_once(args) -> Path:
                     int(target.index.get_level_values("Date").max().year),
                 } and (target.index.get_level_values("Date").min().month != 1
                        or target.index.get_level_values("Date").max().month != 12) else str(year)
-                local_row, _ = metric_record(
-                    name, aligned.iloc[:, 0].loc[aligned.index.get_level_values("Date").year == int(year)].rename("Return"),
-                    weights[name].loc[weights[name].index.get_level_values("Date").year == int(year)],
-                    quintiles[name].loc[quintiles[name].index.get_level_values("Date").year == int(year)],
-                    target.loc[target.index.get_level_values("Date").year == int(year)], period_name,
-                )
-                annual_rows.append(local_row)
+                annual_rows.append(metric_record(name, selected, period_name))
 
         overall = pd.DataFrame(daily_rows)
         annual = pd.DataFrame(annual_rows)
@@ -446,6 +517,7 @@ def evaluate_once(args) -> Path:
             annual_wide["SIDE_SOURCE_SEPARATION"] - annual_wide["D_LOW_FAST_ONLY"]
         )
         annual_wide.to_csv(output / "metrics" / "annual_net_return_deltas.csv")
+        decision = classify_result(overall, annual, bootstrap)
 
         run.update({
             "status": "completed",
@@ -460,6 +532,7 @@ def evaluate_once(args) -> Path:
             "valid_periods": list(annual.period.drop_duplicates()),
             "bootstrap": {"method": "existing paired circular block bootstrap", "block_days": 20,
                           "repetitions": 1000, "seed": 20260925},
+            "decision": decision,
             "score_quality_rows": quality_rows,
         })
         write_json(output / "run.json", run)
@@ -469,6 +542,7 @@ def evaluate_once(args) -> Path:
             "completed_at_utc": datetime.now(timezone.utc).isoformat(),
             "valid_target_read_count": 1,
             "valid_pnl_accessed": True,
+            "decision": decision["category"],
             "output": str(output.relative_to(ROOT)),
         })
         return output

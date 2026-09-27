@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "strategy_id": "DM-20260927-SN1-v1",
-  "source_parent_head": "0b8341c3c0051db4b1a54040a6c4d85847bca8ec",
+  "source_parent_head": "f23ae60fc8f532522fb50a3c177b726c70dc4daa",
   "source_sha256": {
     "stock_comp_2026/strategies/dm_variable_box_breakout/__init__.py": "cae7cbdb3b7175d80d8ff9f08335721dc4d526f7fd2e3bcca7037dfcd947e853",
     "stock_comp_2026/strategies/dm_variable_box_breakout/features.py": "3c2066557ad566556bf9ed6f21910926a36e59979dafef18369090b53ca5dc0a",
@@ -10,9 +10,10 @@
     "stock_comp_2026/strategies/dm_variable_box_breakout/sn1.py": "55f95ab669e506d61a1d20442efe9b266b56ab14737a7d46b666fee7c0f9c7ae",
     "stock_comp_2026/strategies/dm_variable_box_breakout/submission.py": "943feac6a150148cd162b7ba96adff343de8643c2940343be307aae5649dfa32",
     "research/experiments/short_night_root_cause.py": "82a9defa364f34e9c4c0bbf4392dd2257e6ef85306ad6e8cd675c41031402588",
-    "research/experiments/sn1_valid_once.py": "508c30ec344ac2974d80de789c69902697affab44c3c9ee2e830dc4ccf29e149",
+    "research/experiments/sn1_valid_once.py": "becbd2e370a630b6c1c106dc740cf9c881dafe46afd4be4cadcb1abe2a5b537d",
     "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
-    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818"
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "tests/strategies/dm_variable_box_breakout/test_sn1.py": "ce184da050abd0dfda8aea31b62934c931f40d2f0b7ddefb8105f3e2b1d25c87"
   },
   "plan_sha256": "680b0a2b7c0b6e8de089cfeee530ffa3b155bd27705152b167943affce67da9d",
   "evaluation_config_sha256": "5efd7a38137edc7773fef9ee0507bfe848d40845693f26f667a7cfcd592356ac",
@@ -34,5 +35,6 @@
     "D_LOW_FAST_ONLY",
     "SIDE_SOURCE_SEPARATION"
   ],
-  "valid_accessed": false
+  "valid_accessed": false,
+  "initial_head_before_freeze_work": "0b8341c3c0051db4b1a54040a6c4d85847bca8ec"
 }
