@@ -95,6 +95,39 @@ def test_configuration_identity_must_match_registry(tmp_path):
         validate_experiment(tmp_path, folder)
 
 
+def test_archived_historical_diagnostic_is_auditable_but_cannot_be_rerun(tmp_path):
+    folder = tmp_path / 'experiments/DM-20260928-01'
+    folder.mkdir(parents=True)
+    plan = tmp_path / 'experiments/DM-20260928-01/plan.md'
+    result = tmp_path / 'reports/DM-20260928-01/decision.md'
+    result.parent.mkdir(parents=True)
+    plan.write_text('Train and previously viewed Valid; descriptive diagnosis only.')
+    result.write_text('Candidate rejected. Valid is not an independent holdout.')
+    evidence = [
+        {'path': str(path.relative_to(tmp_path)), 'sha256': digest(path)}
+        for path in (plan, result)
+    ]
+    meta = {
+        'schema_version': 1,
+        'experiment_id': folder.name,
+        'kind': 'historical_diagnostic',
+        'status': 'archived',
+        'historical_valid_accessed': True,
+        'valid_is_holdout': False,
+        'rerunnable': False,
+        'references': evidence,
+    }
+    (folder / 'experiment.json').write_text(json.dumps(meta))
+
+    assert validate_experiment(tmp_path, folder)['kind'] == 'historical_diagnostic'
+    with pytest.raises(ValueError, match='cannot reserve or execute'):
+        validate_experiment(tmp_path, folder, ready=True)
+
+    result.write_text('Changed historical report')
+    with pytest.raises(ValueError, match='evidence mismatch'):
+        validate_experiment(tmp_path, folder)
+
+
 def test_check_detects_modified_frozen_evidence(tmp_path):
     for path in ('experiments', 'artifacts', 'reports/test', 'releases', 'research/experiments',
                  'tests/workspace', 'tests/strategies', 'stock_comp_2026/strategies', 'docs'):

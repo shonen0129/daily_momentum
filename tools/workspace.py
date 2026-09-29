@@ -69,6 +69,24 @@ def validate_experiment(root, folder, ready=False):
     meta = read_json(folder / 'experiment.json')
     if meta.get('schema_version') != 1 or meta.get('experiment_id') != folder.name:
         raise ValueError(f'{folder}: schema/experiment_id mismatch')
+    if meta.get('kind') == 'historical_diagnostic':
+        validate_id(folder.name, EXPERIMENT_ID)
+        if meta.get('status') != 'archived' or meta.get('rerunnable') is not False:
+            raise ValueError(f'{folder}: historical diagnostics must be archived and non-rerunnable')
+        if meta.get('historical_valid_accessed') is not True or meta.get('valid_is_holdout') is not False:
+            raise ValueError(f'{folder}: historical-valid access must remain explicit and non-holdout')
+        if ready:
+            raise ValueError('Archived historical diagnostics cannot reserve or execute a new run')
+        references = meta.get('references')
+        if not isinstance(references, list) or not references:
+            raise ValueError(f'{folder}: archived diagnostics need hashed source and result references')
+        for item in references:
+            if not isinstance(item, dict) or not isinstance(item.get('path'), str):
+                raise ValueError(f'{folder}: invalid diagnostic evidence reference')
+            path = inside(root, item['path'])
+            if not path.is_file() or digest(path) != item.get('sha256'):
+                raise ValueError(f'{folder}: historical diagnostic evidence mismatch: {item.get("path")}')
+        return meta
     if meta.get('kind') == 'legacy':
         if ready:
             raise ValueError('Legacy experiments cannot reserve new runs')

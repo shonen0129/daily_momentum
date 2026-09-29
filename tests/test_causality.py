@@ -126,4 +126,99 @@ def test_runtime_firewall_denies_labels(tmp_path):
     import subprocess,sys
     script="from research.firewall import install; install(); import pandas as pd; pd.read_parquet('target_1day_valid.parquet')"
     result=subprocess.run([sys.executable,'-c',script],capture_output=True,text=True,timeout=30)
-    assert result.returncode!=0 and 'Train-only parquet loader denied' in result.stderr
+    assert result.returncode!=0 and 'Train-only parquet guard denied' in result.stderr
+
+
+def test_runtime_firewall_guards_pyarrow_and_valid_symlinks(tmp_path):
+    import subprocess
+    import sys
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+
+    valid = tmp_path / "target_1day_valid.parquet"
+    train = tmp_path / "target_1day_train.parquet"
+    alias = tmp_path / "looks_like_train_train.parquet"
+    artifact_dir = tmp_path / "CaseSensitiveArtifact"
+    artifact_dir.mkdir()
+    artifact = artifact_dir / "paired_scores.parquet"
+    table = pa.table({"Return": [0.01, -0.02]})
+    pq.write_table(table, valid)
+    pq.write_table(table, train)
+    pq.write_table(table, artifact)
+    alias.symlink_to(valid)
+
+    script = (
+        "from research.firewall import install; install(); "
+        "import pyarrow.parquet as pq; import sys; "
+        "pq.read_table(sys.argv[1])"
+    )
+    denied_valid = subprocess.run(
+        [sys.executable, "-c", script, str(valid)], capture_output=True, text=True, timeout=30
+    )
+    assert denied_valid.returncode != 0
+    assert "Train-only parquet guard denied target_1day_valid.parquet" in denied_valid.stderr
+
+    guarded_file_script = (
+        "from research.firewall import install; install(); "
+        "import pyarrow.parquet as pq; import sys; pq.ParquetFile(sys.argv[1])"
+    )
+    denied_alias = subprocess.run(
+        [sys.executable, "-c", guarded_file_script, str(alias)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert denied_alias.returncode != 0
+    assert "Train-only parquet guard denied target_1day_valid.parquet" in denied_alias.stderr
+
+    dataset_script = (
+        "from research.firewall import install; install(); "
+        "import pyarrow.dataset as ds; import sys; ds.dataset(sys.argv[1]).to_table()"
+    )
+    denied_dataset = subprocess.run(
+        [sys.executable, "-c", dataset_script, str(valid)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert denied_dataset.returncode != 0
+    assert "Train-only parquet guard denied target_1day_valid.parquet" in denied_dataset.stderr
+
+    allowed = subprocess.run(
+        [sys.executable, "-c", script, str(train)], capture_output=True, text=True, timeout=30
+    )
+    assert allowed.returncode == 0, allowed.stderr
+
+    allowed_dataset = subprocess.run(
+        [sys.executable, "-c", dataset_script, str(train)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert allowed_dataset.returncode == 0, allowed_dataset.stderr
+
+    pandas_script = (
+        "from research.firewall import install; install(); "
+        "import pandas as pd; import sys; pd.read_parquet(sys.argv[1])"
+    )
+    allowed_pandas = subprocess.run(
+        [sys.executable, "-c", pandas_script, str(train)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert allowed_pandas.returncode == 0, allowed_pandas.stderr
+
+    artifact_script = (
+        "from research.firewall import install; import sys; install([sys.argv[1]]); "
+        "import pyarrow.parquet as pq; pq.read_table(sys.argv[1])"
+    )
+    allowed_artifact = subprocess.run(
+        [sys.executable, "-c", artifact_script, str(artifact)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert allowed_artifact.returncode == 0, allowed_artifact.stderr
+
+    file_like_script = (
+        "from research.firewall import install; install(); "
+        "import pyarrow as pa; import pyarrow.parquet as pq; import sys; "
+        "source = pa.BufferReader(open(sys.argv[1], 'rb').read()); pq.read_table(source)"
+    )
+    denied_file_like = subprocess.run(
+        [sys.executable, "-c", file_like_script, str(train)],
+        capture_output=True, text=True, timeout=30,
+    )
+    assert denied_file_like.returncode != 0
+    assert "rejects unverified file-like sources" in denied_file_like.stderr
