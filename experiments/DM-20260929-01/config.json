@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260929-01",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": "pre-fix feature builder: releases/DM-20260927-SN1-v1/snapshot/strategy/features.py",
+  "random_seed": 20260929,
+  "train_window": "2008-11-04 through 2016-03-31; annual expanding folds 2011-2016",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "before 2011-01-01, two trading days purged", "evaluation": "2011 dates except final two"},
+    {"year": 2012, "train": "before 2012-01-01, two trading days purged", "evaluation": "2012 dates except final two"},
+    {"year": 2013, "train": "before 2013-01-01, two trading days purged", "evaluation": "2013 dates except final two"},
+    {"year": 2014, "train": "before 2014-01-01, two trading days purged", "evaluation": "2014 dates except final two"},
+    {"year": 2015, "train": "before 2015-01-01, two trading days purged", "evaluation": "2015 dates except final two"},
+    {"year": 2016, "train": "before 2016-01-01, two trading days purged", "evaluation": "2016 dates except final two"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "No holdout, tuning, model choice, or adoption decision; this is a one-time Train-only implementation regression replay over known data.",
+  "max_trials": 1,
+  "trials": [{"trial_id": "ATR_SPLIT_CORRECTION_REPLAY", "comparison": "pre-fix versus corrected feature builder under identical fixed models"}],
+  "feature_definitions": "Existing variable-duration box features; only prior-close True Range share-unit handling changes.",
+  "model": "Existing bidirectional annual expanding Ridge(lambda=1.0), followed by existing event ranking and EWMA score smoothing(alpha=0.25).",
+  "parameters": {},
+  "selection_rule": "None. Verify the accounting identity, causal/data contracts, finite coverage and deterministic execution. Report descriptive Train metrics without selecting or tuning a candidate.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -77,6 +77,42 @@ def test_variable_duration_and_split_unit_are_causal():
     assert result.index.equals(inputs["raw_return_1day"].index)
 
 
+def test_feature_builder_is_invariant_to_equivalent_split_representations():
+    split_inputs = synthetic_inputs()
+    unsplit_inputs = {name: frame.copy() for name, frame in split_inputs.items()}
+
+    prices = unsplit_inputs["prices_daily_quotes"]
+    dates = prices.index.get_level_values("Date")
+    codes = prices.index.get_level_values("Code")
+    split_date = dates.unique().sort_values()[280]
+    rows_after_split = (codes == "10000") & (dates >= split_date)
+    prices.loc[rows_after_split, ["High", "Low", "Close"]] = (
+        prices.loc[rows_after_split, ["High", "Low", "Close"]] * 2.0
+    )
+    split_day = (codes == "10000") & (dates == split_date)
+    prices.loc[split_day, "AdjustmentFactor"] = 1.0
+
+    expected = features.build_features(split_inputs)
+    actual = features.build_features(unsplit_inputs)
+    pd.testing.assert_frame_equal(actual, expected, check_exact=True)
+
+
+def test_full_feature_builder_future_mutation_and_truncation_are_prefix_invariant():
+    inputs = synthetic_inputs(days=390)
+    original = features.build_features(inputs)
+    cutoffs = (pd.Timestamp("2009-12-01"), pd.Timestamp("2010-01-29"))
+    dates = original.index.get_level_values("Date")
+    for cutoff in cutoffs:
+        prefix = dates <= cutoff
+        for truncate in (False, True):
+            changed = features.build_features(mutate_after(inputs, cutoff, truncate=truncate))
+            pd.testing.assert_frame_equal(
+                original.loc[prefix],
+                changed.loc[original.index[prefix]],
+                check_exact=True,
+            )
+
+
 def test_features_are_prefix_invariant_under_future_mutation_and_truncation():
     inputs = synthetic_inputs()
     original = features.build_features(inputs)

@@ -116,8 +116,10 @@ def build_features(inputs):
     high, low, close = prices["high"], prices["low"], prices["close"]
 
     prior_close = close.groupby(groups, sort=False).shift(1)
-    # Re-express the previous close in today's share unit at a split event.
-    prev_close_for_tr = close.groupby(groups, sort=False).shift(1) / prices["event_factor"]
+    # `close` has already been expressed in one common share unit by
+    # split_safe_prices. Applying today's event factor again would distort the
+    # split-day gap and depress ATR for the following ATR_WINDOW observations.
+    prev_close_for_tr = prior_close
     true_range = pd.concat(
         [
             high - low,
