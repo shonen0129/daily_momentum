@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-03",
+  "strategy": "dm_breakout_base_momentum_overlay",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": "B00: pure 250-observation new-high Long and new-low Short; compare momentum overlays against this breakout-only base",
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011}, {"year": 2012}, {"year": 2013}, {"year": 2014}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "start": "2015-01-01",
+    "end": "2016-03-31",
+    "previously_seen": true,
+    "descriptive_only": true,
+    "reselection": false
+  },
+  "max_trials": 4,
+  "new_candidate_budget": 3,
+  "trials": [
+    {"trial_id": "B00", "description": "Pure breakout base: new-high Long and new-low Short; momentum off on both sides"},
+    {"trial_id": "M10", "description": "Add 50% res60s1 momentum only to active new-high Long breakouts; Short remains pure new-low breakout"},
+    {"trial_id": "M01", "description": "Add 50% res60s1 momentum only to active new-low Short breakouts; Long remains pure new-high breakout"},
+    {"trial_id": "M11", "description": "Add 50% res60s1 momentum to both active Long and Short breakout legs"}
+  ],
+  "feature_definitions": {
+    "residual_return": "raw_return_1day - beta_1day * topix_return_1day",
+    "res60s1": "centered cross-sectional rank in [-1,1] of preceding 60 observed residual-return rows per listing segment; excludes current row; min_periods=60",
+    "corporate_action_scale": "Within a listing segment, cumulative product of observed AdjustmentFactor event multipliers; divide raw High, Low, and Close by the scale before comparisons.",
+    "prior_high_low": "Rolling max of split-safe raw High and rolling min of split-safe raw Low over exactly the prior 250 observed rows, excluding signal-day High/Low; require 250 valid observations.",
+    "long_breakout": "active when Close_t > prior_high_250; within each date rank only active positive (Close_t/prior_high_250 - 1) excesses by percentile; score strength = 0.5 + 0.5*percentile, else 0.",
+    "short_breakout": "active when Close_t < prior_low_250; within each date rank only active positive (prior_low_250/Close_t - 1) excesses by percentile; signed score = -(0.5 + 0.5*percentile), else 0.",
+    "momentum_overlay": "For active side breakouts only, M10/M01/M11 replace that side score with sign-preserving clip of 0.5*breakout_score + 0.5*res60s1 to [0,+infinity) for Long or (-infinity,0] for Short. No breakout means score remains 0 even when momentum is on.",
+    "smoothing": "EWMA alpha=0.25, adjust=False per listing segment after score composition.",
+    "portfolio": "Existing official-compatible five-quintile score weights and one-way 10 bps cost, unchanged across all four variants."
+  },
+  "model": "Deterministic rule-based signed breakout score with independent Long/Short momentum overlays; no fitted parameters",
+  "parameters": {
+    "momentum_horizon": 60,
+    "breakout_window_observations": 250,
+    "breakout_min_periods": 250,
+    "breakout_window_excludes_signal_day_extrema": true,
+    "active_breakout_percentile_floor": 0.5,
+    "breakout_base_weight": 0.5,
+    "momentum_overlay_weight": 0.5,
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20
+  },
+  "selection_rule": {
+    "primary": "Descriptive comparison of exactly four pre-registered combinations; M10/M01/M11 compared against breakout-only B00. No adoption or reselection from known data.",
+    "report_each_fold_and_year": true,
+    "selection_eligible": false,
+    "no_post_result_candidates": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

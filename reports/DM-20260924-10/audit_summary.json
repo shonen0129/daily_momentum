@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "source_scan": [
+    "stock_comp_2026/strategies/dm_variable_box_breakout/features.py",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/models.py",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/submission.py"
+  ],
+  "cutoffs": [
+    {
+      "cutoff": "2010-12-30",
+      "prefix_rows": 227601,
+      "checks": {
+        "mutation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact",
+        "truncation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact"
+      }
+    },
+    {
+      "cutoff": "2012-12-28",
+      "prefix_rows": 444771,
+      "checks": {
+        "mutation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact",
+        "truncation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact"
+      }
+    },
+    {
+      "cutoff": "2015-12-30",
+      "prefix_rows": 780844,
+      "checks": {
+        "mutation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact",
+        "truncation": "features, H0/B00, mature-label refit and candidate prefix bitwise exact"
+      }
+    }
+  ],
+  "valid_accessed": false
+}

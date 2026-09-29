@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from test_causality import fixture_inputs
+from tests.test_causality import fixture_inputs
 import submission
 from features import smooth,build_momentum
 

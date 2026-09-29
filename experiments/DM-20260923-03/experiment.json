@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260923-03",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_high_proximity_momentum",
+  "valid_evaluation": false
+}

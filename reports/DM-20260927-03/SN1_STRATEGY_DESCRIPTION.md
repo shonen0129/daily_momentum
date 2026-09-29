@@ -6,7 +6,7 @@
 
 ## B. 300〜500字 — 一般的な説明欄用
 
-本戦略は、株価が過去250営業日の高値または安値を終値で更新した事象を、上方向と下方向に分けて評価します。各方向について、過去に確定したデータから年次walk-forwardのRidgeモデルで事象の強さを推定し、上方向は正、下方向は負のスコアにします。銘柄ごとにHigh状態はalpha 0.25、Low状態はalpha 0.50のEWMAで平滑化します。最終スコアは、負のLow状態がある銘柄ではそのLow状態を採用し、Low状態がゼロで正のHigh状態がある銘柄ではHigh状態を採用し、それ以外は両状態の合計を使います。日次スコアを公式の5分位に分け、Q4/Q5をLong、Q1/Q2をShort、Q3を中立とします。重み・売買コストはコンペの評価仕様に合わせ、片道10bpを控除します。特徴量とモデルは過去時点の情報だけで計算し、学習ラベルは2営業日purgeしてから利用します。候補はTrain内で事前登録した比較に限り、Validは未使用です。この説明はTrain由来の研究仮説であり、OOS確認を意味しません。
+本戦略は、株価が過去250営業日の高値または安値を終値で更新した事象を、上方向と下方向に分けて評価します。各方向について、過去に確定したデータから年次walk-forwardのRidgeモデルで事象の強さを推定し、上方向は正、下方向は負のスコアにします。銘柄ごとにHigh状態はalpha 0.25、Low状態はalpha 0.50のEWMAで平滑化します。最終スコアは、負のLow状態がある銘柄ではそのLow状態を採用し、Low状態がゼロで正のHigh状態がある銘柄ではHigh状態を採用し、それ以外は両状態の合計を使います。日次スコアを公式の5分位に分け、Q4/Q5をLong、Q1/Q2をShort、Q3を中立とします。重み・売買コストはコンペの評価仕様に合わせ、片道10bpを控除します。特徴量とモデルは過去時点の情報だけで計算し、学習ラベルは2営業日purgeしてから利用します。Validは固定候補の評価に一度だけ使用し、結果はMixedでした。Train由来の仮説であり、必ずgeneralizeする証明ではありません。
 
 ## C. 1ページ程度 — 技術審査用
 
@@ -32,11 +32,15 @@ High raw scoreは非負、Low raw scoreは非正です。High状態はalpha=0.25
 
 ### Leak prevention and research discipline
 
-全特徴量はsignal dateまでに観測可能な価格・リターンから計算します。250観測のHigh/Low基準は過去にshiftし、未来値の補完や将来targetを特徴量として使いません。walk-forward学習ではラベル成熟に2日purgeを入れます。保存済みTrain runではsuffix mutationによるprefix-invarianceが3 cutoffで一致し、Validは開いていません。SN1の条件は、既に認識されていたTrainのShort × Night損失構造を受けて候補planに記録し、そのplan hashを固定して2候補のみを比較しました。Train全体はすでに既知だったので、この結果をOOS性能や独立した因果証明とは呼びません。
+全特徴量はsignal dateまでに観測可能な価格・リターンから計算します。250観測のHigh/Low基準は過去にshiftし、未来値の補完や将来targetを特徴量として使いません。walk-forward学習ではラベル成熟に2日purgeを入れます。保存済みTrain runではsuffix mutationによるprefix-invarianceが3 cutoffで一致しました。SN1の条件は既に認識されていたTrainのShort × Night損失構造を受けて候補planに記録し、そのplan hashを固定してDとSN1の2候補のみを一度評価しました。Valid targetは特徴量・モデルfit・ルール選択に使っていません。Train全体はすでに既知だったため、Validの一回評価もOOSで必ず再現する証明や独立した因果証明とは呼びません。
 
 ### 検証上の限界
 
 既知TrainではNet SharpeがDの0.808から1.063へ上がりましたが、Short全体はNet-negativeのままで、Short × Night Net寄与は−5.483%から−6.001%へ悪化しました。改善は主に低turnover/costとLong側に現れます。保存scoreの多くはゼロ近傍にあり、5分位tie-boundaryの一部がCode順に依存します。従って、この説明を用いる場合も「Short × Nightを解決した」「独立検証済み」「全スコアが経済的に明確な強度を表す」とは述べません。
+
+### Valid検証状況（2026-09-27）
+
+固定したValid評価では、SN1のNet年率は0.244%、Net SRは0.052、Dはそれぞれ−0.623%、−0.112でした。GrossとLong側もSN1で改善しましたが、Short NetはDより悪化し、2026 partialではSN1がDを下回りました。事前登録したpaired bootstrapは評価runnerの後段チェックで完了せず、信頼区間はありません。判定はMixedであり、結果を使った戦略変更・再評価はしていません。詳細は `SN1_VALID_RESULTS.md` に記録しました。
 
 ## 図解
 
@@ -67,7 +71,7 @@ flowchart LR
 
 - 「Short × Nightの損失を解決した」— SN1は同セルを0.517 pp悪化させた。
 - 「Short alphaを改善した」— Short Netは−1.591%から−1.644%へ悪化した。
-- 「OOSで確認済み」「独立検証済み」— 全結果は既知のTrain期間。
+- 「Validで合格した」「必ずgeneralizeする」— 1回のValid評価はMixedで、paired-bootstrap区間も得られていません。
 - 「turnover低下は情報が安定した証拠」— 順位固定化と極小scoreの影響を分離できていない。
 - 「ticker順に依存しない」— 同点を逆Code順にするだけでSN1の5.29%のquintile labelsが変わった。
 - 「全スコアに明瞭な経済的な強度がある」— SN1の絶対scoreの81.11%が`1e-8`未満。

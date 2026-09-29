@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260923-02",
+  "strategy": "dm_high_proximity_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "DM-20260908-v1:M_res60s1_a0.25",
+  "random_seed": 20260923,
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "walk_forward_folds": [
+    {"year": 2011},
+    {"year": 2012},
+    {"year": 2013},
+    {"year": 2014}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "start": "2015-01-05",
+    "end": "2016-03-31",
+    "previously_seen": true,
+    "descriptive_only": true,
+    "reselection": false
+  },
+  "max_trials": 2,
+  "new_candidate_budget": 1,
+  "selection_eligible": false,
+  "claim_scope": "Post-hoc exploratory Train-only diagnostic on previously used dates; no candidate selection, adoption, or independent OOS claim.",
+  "trials": [
+    {
+      "trial_id": "H0",
+      "description": "Champion baseline reproduction: res60s1 EWMA(0.25)"
+    },
+    {
+      "trial_id": "C6",
+      "description": "Equal blend of C2 and C3: 0.5*res60s1 + 0.25*prox60 + 0.25*prox250 EWMA(0.25)"
+    }
+  ],
+  "feature_definitions": {
+    "raw_return_1day": "Return column from raw_return_1day_train.parquet",
+    "beta_1day": "Return column from beta_1day_train.parquet",
+    "topix_return_1day": "Return column from topix_return_1day_train.parquet",
+    "residual_return": "raw_return_1day - beta_1day * topix_return_1day",
+    "res60s1": "lag 1 sum of 60 observed residual returns per listing segment, min_periods=60, centered percentile rank in [-1, 1]",
+    "prox60": "centered daily rank of Close_t / rolling_max(High_t, 60), min_periods=60",
+    "prox250": "centered daily rank of Close_t / rolling_max(High_t, 250), min_periods=120",
+    "C6": "0.5*res60s1 + 0.25*prox60 + 0.25*prox250",
+    "smoothing": "EWMA alpha=0.25, adjust=False per listing segment"
+  },
+  "model": "Deterministic equal blend of the previously evaluated C2/C3 score definitions; no fitted parameters.",
+  "parameters": {
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20
+  },
+  "selection_rule": {
+    "diagnostic_screen": "Net Sharpe improvement folds >= 3/4; median delta Net Sharpe > 0; pooled Net Sharpe > H0",
+    "turnover_control": "Turnover must not exceed 1.5x of H0 baseline",
+    "bootstrap_interpretation": "Descriptive, unadjusted for candidate selection; not confirmatory inference",
+    "selection_eligible": false,
+    "post_result_trials": 0
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

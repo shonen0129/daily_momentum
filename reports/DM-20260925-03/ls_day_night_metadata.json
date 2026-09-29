@@ -1,0 +1,23 @@
+{
+  "experiment_id": "DM-20260925-03",
+  "source_run_id": "run-20260926T063602Z",
+  "score_path": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/signals.parquet",
+  "score_sha256": "3d1b9896ae6e4518aad9f8d0fb6f2a28d269d16f5122b175ccab52162f8cd064",
+  "evaluation_span": [
+    "2011-01-04",
+    "2016-03-29"
+  ],
+  "evaluation_days": 1275,
+  "metric_definition": {
+    "day": "t+1 Open to t+1 Close",
+    "night": "t+1 Close to t+2 Open",
+    "raw_o2o_date": "signal date t+2",
+    "market_adjustment": "beta[t+2] * TOPIX[t+2]; 50% assigned to each session in primary attribution",
+    "cross_term": "raw_day * raw_night; 50% assigned to each session",
+    "transaction_cost": "0.001 * side turnover; 50% assigned to each session"
+  },
+  "official_target_reconstruction_max_abs_error": 0.0,
+  "four_cell_net_reconciliation_max_abs_error": 1.0177947894207673e-17,
+  "valid_accessed": false,
+  "source_script_sha256": "907dcfe4b04209795a4723a1c8e057eae0722b6982f24c726c4825ab116da2c8"
+}

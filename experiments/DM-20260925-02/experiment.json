@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260925-02",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_nh_rev",
+  "valid_evaluation": false,
+  "release_id": "NH_REV_001-v1",
+  "hypothesis_status": "CLOSED",
+  "valid_record": "releases/NH_REV_001-v1/valid-evaluation/decision_result.json"
+}

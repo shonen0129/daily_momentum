@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-09",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_channel_volume_change",
+  "valid_evaluation": false
+}

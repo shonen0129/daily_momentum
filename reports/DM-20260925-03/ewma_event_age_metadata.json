@@ -1,0 +1,36 @@
+{
+  "experiment_id": "DM-20260925-03",
+  "source_run_id": "run-20260926T063602Z",
+  "score_path": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/signals.parquet",
+  "score_sha256": "3d1b9896ae6e4518aad9f8d0fb6f2a28d269d16f5122b175ccab52162f8cd064",
+  "evaluation_span": [
+    "2011-01-04",
+    "2016-03-29"
+  ],
+  "evaluation_days": 1275,
+  "alpha": 0.25,
+  "age_bins_trading_rows": {
+    "event_day": [
+      0,
+      0
+    ],
+    "age_1_4": [
+      1,
+      4
+    ],
+    "age_5_plus": [
+      5,
+      null
+    ]
+  },
+  "holding_pnl_allocation": "actual full-score long/short gross PnL allocated by absolute component-score share; zero-residual holdings separate",
+  "score_reconstruction_max_abs_error": 1.1102230246251565e-16,
+  "age_component_sum_max_abs_error": 2.220446049250313e-16,
+  "holding_contribution_reconciliation_max_abs_error": {
+    "gross": 1.734723475976807e-18,
+    "long": 1.734723475976807e-18,
+    "short": 3.469446951953614e-18
+  },
+  "valid_accessed": false,
+  "source_script_sha256": "43c9bd73eaf497b3655b9fae28a333454e2c227c3a8e30be4115fd72026019d1"
+}

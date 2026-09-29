@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-01",
+  "strategy": "dm_high_proximity_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": "DM-20260908-v1:M_res60s1_a0.25",
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011},
+    {"year": 2012},
+    {"year": 2013},
+    {"year": 2014}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "start": "2015-01-01",
+    "end": "2016-03-31",
+    "previously_seen": true,
+    "descriptive_only": true,
+    "reselection": false
+  },
+  "max_trials": 2,
+  "new_candidate_budget": 1,
+  "trials": [
+    {
+      "trial_id": "H0",
+      "description": "Champion baseline reproduction: res60s1 EWMA(0.25)"
+    },
+    {
+      "trial_id": "C3S",
+      "description": "Split-safe full-window 250-day proximity: 0.5*res60s1 + 0.5*prox250_split_safe EWMA(0.25)"
+    }
+  ],
+  "feature_definitions": {
+    "raw_return_1day": "Return column from raw_return_1day_train.parquet",
+    "beta_1day": "Return column from beta_1day_train.parquet",
+    "topix_return_1day": "Return column from topix_return_1day_train.parquet",
+    "residual_return": "raw_return_1day - beta_1day * topix_return_1day",
+    "res60s1": "lag 1 sum of 60 observed residual returns per listing segment, min_periods=60, centered percentile rank in [-1, 1]",
+    "corporate_action_scale": "Within each listing segment, cumulative product of observed AdjustmentFactor values; rows with factor 1 contribute a multiplier of 1",
+    "prox250_split_safe": "centered percentile rank in [-1, 1] of (Close / corporate_action_scale) divided by the rolling maximum of (High / corporate_action_scale), using raw Close/High and a 250-row window with 250 valid High observations required",
+    "smoothing": "EWMA alpha=0.25, adjust=False per listing segment",
+    "C3S_signal": "EWMA(0.25, 0.5*res60s1 + 0.5*prox250_split_safe)"
+  },
+  "model": "Deterministic equal-weight blend; no fitted parameters",
+  "parameters": {
+    "momentum_horizon": 60,
+    "proximity_window": 250,
+    "proximity_min_periods": 250,
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20
+  },
+  "selection_rule": {
+    "primary": "For descriptive comparison only: 3/4 fold net Sharpe improvement, median delta > 0, pooled delta > 0",
+    "turnover_control": "Report turnover and cost; no post-result threshold or parameter change",
+    "selection_eligible": false,
+    "no_post_result_candidates": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

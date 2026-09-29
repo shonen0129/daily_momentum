@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from features import build_features, centered_rank
 from models import fit_predict_family, calibrated_oof, training_mask
-from test_causality import fixture_inputs
+from tests.test_causality import fixture_inputs
 
 
 def test_model_prediction_future_mutation_and_determinism():

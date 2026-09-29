@@ -1,0 +1,114 @@
+{
+  "strategy": "C3S / DM-20260924-C3S-v1",
+  "period": "2016-04-01 through 2026-07-31; previously accessed Valid, not independent OOS",
+  "release_zip_sha256": "3a941803f5b8d49f14194c26b18fc6a3e92e6fdf0faf8ecf19caf435599272be",
+  "target_sha256": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64",
+  "scoring": "official compute_weight / compute_pl / compute_sr; one-way cost 10 bps; annualization 252",
+  "leg_definition": "Long uses positive official quintile weights; Short uses negative official quintile weights. Each leg is a contribution to the full portfolio, not a separately rescaled portfolio.",
+  "cost_allocation": "Turnover and costs are computed separately on each leg weight. Long and short costs and turnover add back to the official full-portfolio values.",
+  "target_rows": 1227148,
+  "target_coverage": 0.9971030389162513,
+  "combined_official_net_sharpe": -0.24090007775265898,
+  "legs": {
+    "long": {
+      "gross_sharpe": 0.27409330547941674,
+      "net_sharpe": 0.12968387307328982,
+      "annual_gross_pl": 0.01348938787201329,
+      "annual_cost": 0.0071075151758770005,
+      "annual_net_pl": 0.0063818726961362895,
+      "average_daily_turnover": 0.028235990345469038
+    },
+    "short": {
+      "gross_sharpe": -0.25828976413135146,
+      "net_sharpe": -0.37203917718949375,
+      "annual_gross_pl": -0.014050086359226834,
+      "annual_cost": 0.006185348391585291,
+      "annual_net_pl": -0.020235434750812128,
+      "average_daily_turnover": 0.024578599826649315
+    }
+  },
+  "annual": [
+    {
+      "year": 2016,
+      "long_net_sharpe": -0.13347749697458153,
+      "long_annual_net_pl": -0.00756315430071488,
+      "short_net_sharpe": -2.137908553439252,
+      "short_annual_net_pl": -0.10352801541637854
+    },
+    {
+      "year": 2017,
+      "long_net_sharpe": 0.7223171004616361,
+      "long_annual_net_pl": 0.025741987792954196,
+      "short_net_sharpe": -0.19923910095370517,
+      "short_annual_net_pl": -0.005656408434725769
+    },
+    {
+      "year": 2018,
+      "long_net_sharpe": 0.7187664723255295,
+      "long_annual_net_pl": 0.03254069203679086,
+      "short_net_sharpe": -0.6960850457655162,
+      "short_annual_net_pl": -0.03665386013670723
+    },
+    {
+      "year": 2019,
+      "long_net_sharpe": -0.7006530614237172,
+      "long_annual_net_pl": -0.027975753278505374,
+      "short_net_sharpe": -0.46925956926007295,
+      "short_annual_net_pl": -0.0191073132693432
+    },
+    {
+      "year": 2020,
+      "long_net_sharpe": 0.43467742561177647,
+      "long_annual_net_pl": 0.027117098337870855,
+      "short_net_sharpe": 0.3124619852923391,
+      "short_annual_net_pl": 0.025979920093978266
+    },
+    {
+      "year": 2021,
+      "long_net_sharpe": -1.157160880855523,
+      "long_annual_net_pl": -0.054091841225698684,
+      "short_net_sharpe": -1.1309810436520273,
+      "short_annual_net_pl": -0.04893614844037097
+    },
+    {
+      "year": 2022,
+      "long_net_sharpe": -0.14352135563915314,
+      "long_annual_net_pl": -0.006287775137231969,
+      "short_net_sharpe": -1.2491377666270598,
+      "short_annual_net_pl": -0.07148488130999976
+    },
+    {
+      "year": 2023,
+      "long_net_sharpe": 0.06508283238135466,
+      "long_annual_net_pl": 0.002460311645658126,
+      "short_net_sharpe": 0.28789258648884286,
+      "short_annual_net_pl": 0.011190682183066103
+    },
+    {
+      "year": 2024,
+      "long_net_sharpe": 0.1826458743623083,
+      "long_annual_net_pl": 0.009263773276935111,
+      "short_net_sharpe": 0.35053404324035664,
+      "short_annual_net_pl": 0.019305949815500892
+    },
+    {
+      "year": 2025,
+      "long_net_sharpe": 0.6947926513808917,
+      "long_annual_net_pl": 0.03775895113324615,
+      "short_net_sharpe": 0.05044788229737931,
+      "short_annual_net_pl": 0.003215037954429104
+    },
+    {
+      "year": 2026,
+      "long_net_sharpe": 0.6155683923725164,
+      "long_annual_net_pl": 0.04311060569422675,
+      "short_net_sharpe": -0.2099483222493745,
+      "short_annual_net_pl": -0.015193254786335202
+    }
+  ],
+  "checks": {
+    "legs_add_to_official_daily_net_pnl": true,
+    "leg_turnover_adds_to_official_turnover": true
+  },
+  "elapsed_seconds": 8.689125541000976
+}

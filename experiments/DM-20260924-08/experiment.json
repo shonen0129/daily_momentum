@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-08",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_slope_range_volume_ml",
+  "valid_evaluation": false
+}

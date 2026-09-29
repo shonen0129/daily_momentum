@@ -1,0 +1,353 @@
+{
+  "evaluation": "one-time frozen H0 vs C3S comparison",
+  "valid_independence": "not independent OOS; the same Valid period had previously been accessed for DM-20260912-01-v1",
+  "freeze_checks": {
+    "C3S_zip_sha256": "3a941803f5b8d49f14194c26b18fc6a3e92e6fdf0faf8ecf19caf435599272be",
+    "H0_zip_sha256": "2147545f8ded90a9fd147d3a6b7745ee85d5b1d4875a366352b37c400638e1b3",
+    "H0_trial_id": "M_res60s1_a0.25",
+    "train_inputs_match_freeze": true
+  },
+  "scorer": "stock_comp_2026/evaluate_script.py functions: load_prediction, align_prediction, compute_weight, compute_pl, compute_sr",
+  "transaction_cost_rate_one_way": 0.001,
+  "annualization": 252,
+  "valid_period": {
+    "start": "2016-04-01",
+    "end": "2026-07-31",
+    "trading_days": 2523,
+    "target_rows": 1227148,
+    "target_coverage": 0.9971030389162513
+  },
+  "valid_input_sha256": {
+    "raw_return_1day_valid.parquet": "02ac09a359d8e519691f980ce86dc8b6c7fb57cc0a7ca011302929cea1d1fed9",
+    "beta_1day_valid.parquet": "b186fc50d9ddcab59d283ea12eacd9f8893f826cc8aa340933d8ae1e77e656f9",
+    "topix_return_1day_valid.parquet": "8cc4c53fd75bdda8f9491c0c094195403f69e14f755c5cb2e6fff5ed84ae28eb",
+    "prices_daily_quotes_valid.parquet": "2483fa5fcd4d1fbac032ae779e8a26186297862ba75be6a7b41b1c8bbfc99c05",
+    "target_1day_valid.parquet": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64"
+  },
+  "strategies": {
+    "H0": {
+      "prediction_rows": 1227148,
+      "target_coverage": 0.9971030389162513,
+      "official_net_sharpe": -0.38986641138426675,
+      "gross_sharpe_official_weights": -0.07062398486326708,
+      "annual_gross_pl": -0.003615049611028371,
+      "annual_cost": 0.01633311077976816,
+      "annual_net_pl": -0.019948160390796534,
+      "average_daily_turnover": 0.06490120463518663,
+      "max_additive_drawdown": -0.29590230263689665,
+      "mean_rank_ic": 0.0026952996520578612,
+      "rank_ic_hac5_t": 0.8308386013266765,
+      "rank_ic_hit_ratio": 0.5315351051170171,
+      "q1_to_q5_mean_return": [
+        0.0001452507461167501,
+        0.00011455072330099808,
+        7.578115947220255e-05,
+        5.995462295365808e-06,
+        0.0001568240502942548
+      ],
+      "q1_q5_monotonicity_spearman": 0.0,
+      "annual": [
+        {
+          "year": 2016,
+          "days": 184,
+          "gross_sharpe": -1.2954167173492246,
+          "official_net_sharpe": -1.6773200814362406,
+          "annual_gross_pl": -0.06351017373467518,
+          "annual_cost": 0.018540665906928433,
+          "annual_net_pl": -0.08205083964160362,
+          "average_daily_turnover": 0.0735740710592398,
+          "mean_rank_ic": -0.011203701185743976,
+          "rank_ic_hit_ratio": 0.45652173913043476
+        },
+        {
+          "year": 2017,
+          "days": 247,
+          "gross_sharpe": 1.1012272120789968,
+          "official_net_sharpe": 0.6759857332036996,
+          "annual_gross_pl": 0.04094934870603883,
+          "annual_cost": 0.01584710798397262,
+          "annual_net_pl": 0.025102240722066193,
+          "average_daily_turnover": 0.06288534914274849,
+          "mean_rank_ic": 0.010442912827030672,
+          "rank_ic_hit_ratio": 0.5668016194331984
+        },
+        {
+          "year": 2018,
+          "days": 245,
+          "gross_sharpe": -0.0711891396076554,
+          "official_net_sharpe": -0.4583047873637761,
+          "annual_gross_pl": -0.002906485614419822,
+          "annual_cost": 0.015798431904872463,
+          "annual_net_pl": -0.01870491751929228,
+          "average_daily_turnover": 0.06269219009870024,
+          "mean_rank_ic": 0.004859477273528128,
+          "rank_ic_hit_ratio": 0.5183673469387755
+        },
+        {
+          "year": 2019,
+          "days": 241,
+          "gross_sharpe": -0.6305953578994994,
+          "official_net_sharpe": -1.1488938755482991,
+          "annual_gross_pl": -0.020891462193468015,
+          "annual_cost": 0.017171206927656505,
+          "annual_net_pl": -0.03806266912112451,
+          "average_daily_turnover": 0.06813971003038295,
+          "mean_rank_ic": 0.0024100892304034804,
+          "rank_ic_hit_ratio": 0.5394190871369294
+        },
+        {
+          "year": 2020,
+          "days": 242,
+          "gross_sharpe": 0.4146874713546346,
+          "official_net_sharpe": 0.19573271482007557,
+          "annual_gross_pl": 0.03186100166198574,
+          "annual_cost": 0.01682709038128649,
+          "annual_net_pl": 0.01503391128069923,
+          "average_daily_turnover": 0.06677416817970834,
+          "mean_rank_ic": 0.013267300564563829,
+          "rank_ic_hit_ratio": 0.5537190082644629
+        },
+        {
+          "year": 2021,
+          "days": 245,
+          "gross_sharpe": -1.6499067803841871,
+          "official_net_sharpe": -2.018633162908777,
+          "annual_gross_pl": -0.07524816001792377,
+          "annual_cost": 0.016805893273545654,
+          "annual_net_pl": -0.09205405329146941,
+          "average_daily_turnover": 0.06669005267280023,
+          "mean_rank_ic": -0.011983884582091051,
+          "rank_ic_hit_ratio": 0.49795918367346936
+        },
+        {
+          "year": 2022,
+          "days": 244,
+          "gross_sharpe": -1.4725163473500993,
+          "official_net_sharpe": -1.8231354126996386,
+          "annual_gross_pl": -0.07353648261702911,
+          "annual_cost": 0.017460021521324028,
+          "annual_net_pl": -0.09099650413835313,
+          "average_daily_turnover": 0.06928579968779376,
+          "mean_rank_ic": -0.012013551520324555,
+          "rank_ic_hit_ratio": 0.4918032786885246
+        },
+        {
+          "year": 2023,
+          "days": 246,
+          "gross_sharpe": 0.5682268443796971,
+          "official_net_sharpe": 0.20747502984122704,
+          "annual_gross_pl": 0.024420400920414493,
+          "annual_cost": 0.015506099568446915,
+          "annual_net_pl": 0.008914301351967574,
+          "average_daily_turnover": 0.0615321411446306,
+          "mean_rank_ic": 0.012868983759361836,
+          "rank_ic_hit_ratio": 0.6016260162601627
+        },
+        {
+          "year": 2024,
+          "days": 245,
+          "gross_sharpe": 0.6821714066192824,
+          "official_net_sharpe": 0.3160558010474746,
+          "annual_gross_pl": 0.02902077026801482,
+          "annual_cost": 0.01558453080592299,
+          "annual_net_pl": 0.01343623946209182,
+          "average_daily_turnover": 0.061843376213980145,
+          "mean_rank_ic": 0.0007991300404586549,
+          "rank_ic_hit_ratio": 0.5306122448979592
+        },
+        {
+          "year": 2025,
+          "days": 243,
+          "gross_sharpe": 0.7291130629046138,
+          "official_net_sharpe": 0.38356440829340316,
+          "annual_gross_pl": 0.03336043698429215,
+          "annual_cost": 0.015809970408160994,
+          "annual_net_pl": 0.01755046657613115,
+          "average_daily_turnover": 0.06273797781016266,
+          "mean_rank_ic": 0.011983627424380366,
+          "rank_ic_hit_ratio": 0.5390946502057613
+        },
+        {
+          "year": 2026,
+          "days": 141,
+          "gross_sharpe": 0.4320184475899845,
+          "official_net_sharpe": 0.2827888381180237,
+          "annual_gross_pl": 0.040012688395744636,
+          "annual_cost": 0.0138259949376933,
+          "annual_net_pl": 0.026186693458051368,
+          "average_daily_turnover": 0.05642668836802889,
+          "mean_rank_ic": 0.006392962333120856,
+          "rank_ic_hit_ratio": 0.5323741007194245
+        }
+      ]
+    },
+    "C3S": {
+      "prediction_rows": 1227148,
+      "target_coverage": 0.9971030389162513,
+      "official_net_sharpe": -0.24090007775265898,
+      "gross_sharpe_official_weights": -0.009747636133578232,
+      "annual_gross_pl": -0.0005606984872135501,
+      "annual_cost": 0.013292863567462293,
+      "annual_net_pl": -0.013853562054675842,
+      "average_daily_turnover": 0.05281459017211835,
+      "max_additive_drawdown": -0.29690172623217537,
+      "mean_rank_ic": 0.005785620076249782,
+      "rank_ic_hac5_t": 1.607560866972254,
+      "rank_ic_hit_ratio": 0.5299484331614439,
+      "q1_to_q5_mean_return": [
+        0.00010942679748406299,
+        0.00011498429806000457,
+        9.270568209633097e-05,
+        4.197147786677001e-05,
+        0.00013899902589537948
+      ],
+      "q1_q5_monotonicity_spearman": 0.09999999999999999,
+      "annual": [
+        {
+          "year": 2016,
+          "days": 184,
+          "gross_sharpe": -1.5463632757144095,
+          "official_net_sharpe": -1.7645762410057884,
+          "annual_gross_pl": -0.09746611706165646,
+          "annual_cost": 0.013625052655436957,
+          "annual_net_pl": -0.11109116971709343,
+          "average_daily_turnover": 0.05406766926760695,
+          "mean_rank_ic": -0.015971321348400947,
+          "rank_ic_hit_ratio": 0.41847826086956524
+        },
+        {
+          "year": 2017,
+          "days": 247,
+          "gross_sharpe": 0.9818935639677163,
+          "official_net_sharpe": 0.5646893143674093,
+          "annual_gross_pl": 0.03494966759269844,
+          "annual_cost": 0.014864088234470033,
+          "annual_net_pl": 0.02008557935822842,
+          "average_daily_turnover": 0.05898447712091283,
+          "mean_rank_ic": 0.011114161007286197,
+          "rank_ic_hit_ratio": 0.5182186234817814
+        },
+        {
+          "year": 2018,
+          "days": 245,
+          "gross_sharpe": 0.1776787573869999,
+          "official_net_sharpe": -0.08604872843889123,
+          "annual_gross_pl": 0.008493926700678589,
+          "annual_cost": 0.012607094800594973,
+          "annual_net_pl": -0.0041131680999163785,
+          "average_daily_turnover": 0.05002815397061496,
+          "mean_rank_ic": 0.00837768861450752,
+          "rank_ic_hit_ratio": 0.5551020408163265
+        },
+        {
+          "year": 2019,
+          "days": 241,
+          "gross_sharpe": -0.8260691748681441,
+          "official_net_sharpe": -1.1233892485093588,
+          "annual_gross_pl": -0.034652974539910626,
+          "annual_cost": 0.01243009200793794,
+          "annual_net_pl": -0.047083066547848586,
+          "average_daily_turnover": 0.04932576193626167,
+          "mean_rank_ic": 0.0015815285439422868,
+          "rank_ic_hit_ratio": 0.5684647302904564
+        },
+        {
+          "year": 2020,
+          "days": 242,
+          "gross_sharpe": 0.6640375507736221,
+          "official_net_sharpe": 0.5406637929453749,
+          "annual_gross_pl": 0.06521063653106741,
+          "annual_cost": 0.012113618099218272,
+          "annual_net_pl": 0.05309701843184914,
+          "average_daily_turnover": 0.04806991309213605,
+          "mean_rank_ic": 0.02091454247045267,
+          "rank_ic_hit_ratio": 0.5371900826446281
+        },
+        {
+          "year": 2021,
+          "days": 245,
+          "gross_sharpe": -1.9434169646932495,
+          "official_net_sharpe": -2.2533086188091414,
+          "annual_gross_pl": -0.08885077476136198,
+          "annual_cost": 0.01417721490470767,
+          "annual_net_pl": -0.10302798966606964,
+          "average_daily_turnover": 0.05625878930439553,
+          "mean_rank_ic": -0.012671568080009894,
+          "rank_ic_hit_ratio": 0.45714285714285713
+        },
+        {
+          "year": 2022,
+          "days": 244,
+          "gross_sharpe": -1.1411357317882682,
+          "official_net_sharpe": -1.3668337470915348,
+          "annual_gross_pl": -0.06493803947284954,
+          "annual_cost": 0.012834616974382195,
+          "annual_net_pl": -0.07777265644723175,
+          "average_daily_turnover": 0.0509310197396119,
+          "mean_rank_ic": -0.00551610933138613,
+          "rank_ic_hit_ratio": 0.5081967213114754
+        },
+        {
+          "year": 2023,
+          "days": 246,
+          "gross_sharpe": 0.6151868582556755,
+          "official_net_sharpe": 0.30641031391981915,
+          "annual_gross_pl": 0.027411857744134873,
+          "annual_cost": 0.013760863915410669,
+          "annual_net_pl": 0.013650993828724228,
+          "average_daily_turnover": 0.05460660283893122,
+          "mean_rank_ic": 0.014907100144913712,
+          "rank_ic_hit_ratio": 0.5934959349593496
+        },
+        {
+          "year": 2024,
+          "days": 245,
+          "gross_sharpe": 0.9321748767895299,
+          "official_net_sharpe": 0.6388926711083743,
+          "annual_gross_pl": 0.041723868776972164,
+          "annual_cost": 0.013154145684536175,
+          "annual_net_pl": 0.028569723092435995,
+          "average_daily_turnover": 0.0521989908116515,
+          "mean_rank_ic": 0.0072676140056765325,
+          "rank_ic_hit_ratio": 0.5510204081632653
+        },
+        {
+          "year": 2025,
+          "days": 243,
+          "gross_sharpe": 1.0270754608934913,
+          "official_net_sharpe": 0.782132597248469,
+          "annual_gross_pl": 0.05381258093409682,
+          "annual_cost": 0.01283859184642159,
+          "annual_net_pl": 0.040973989087675224,
+          "average_daily_turnover": 0.050953893155809366,
+          "mean_rank_ic": 0.0195773046112993,
+          "rank_ic_hit_ratio": 0.5555555555555556
+        },
+        {
+          "year": 2026,
+          "days": 141,
+          "gross_sharpe": 0.4908188892625894,
+          "official_net_sharpe": 0.32487663507976,
+          "annual_gross_pl": 0.04217826644078341,
+          "annual_cost": 0.014260915532891938,
+          "annual_net_pl": 0.027917350907891526,
+          "average_daily_turnover": 0.057744137675724984,
+          "mean_rank_ic": 0.011003884697217206,
+          "rank_ic_hit_ratio": 0.5467625899280576
+        }
+      ]
+    }
+  },
+  "delta_C3S_minus_H0": {
+    "official_net_sharpe": 0.14896633363160777,
+    "gross_sharpe_official_weights": 0.06087634872968885,
+    "annual_gross_pl": 0.003054351123814821,
+    "annual_cost": -0.0030402472123058685,
+    "annual_net_pl": 0.006094598336120692,
+    "average_daily_turnover": -0.01208661446306828,
+    "mean_rank_ic": 0.0030903204241919204
+  },
+  "post_freeze_code_or_parameter_change": false,
+  "elapsed_seconds": 14.746659374999581,
+  "peak_rss_platform_units": 1072168960
+}

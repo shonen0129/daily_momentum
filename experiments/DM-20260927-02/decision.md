@@ -1,0 +1,10 @@
+# DM-20260927-02: Low-fast-only EWMA — decision
+
+- **Status:** completed; fixed diagnostic only; not selection-eligible.
+- **Run:** `run-20260926T174234Z`; 7 pre-specified comparisons; Train evaluation 2011-01-04–2016-03-29. Valid not accessed.
+- **Fixed change:** High alpha 0.25 held equal to BOX/B00; only Low alpha changed to 0.50. No refit, feature, event, universe, portfolio, cost, or execution change.
+- **Result:** Interpretation **A, weak descriptive support**. D_BOX vs BOX has +0.084 annual Gross points, +0.074 selection points, +0.067 annual Net points, +0.0231 Net Sharpe, and +0.0262 ex-2016 Net Sharpe. Turnover is close to BOX (0.03252 vs 0.03185/day). Versus A_LOW_NO_CARRY, D cuts turnover 0.04589→0.03252/day, Q1 zero-score weight 51.87%→10.13%, and Short zero-score weight 46.86%→8.48%.
+- **Limitations:** D does not reduce ties versus BOX: Short zero-score weight is 8.48% vs 8.05%, and zero-code-order Spearman is 0.811 vs 0.812. 2014 underperforms BOX, 2016 partial Net return is lower though Sharpe is nearly unchanged, and all paired bootstrap intervals include zero. B00 control gains more than BOX (+0.0518 Net SR vs B00_BASE), so the effect is not BOX-specific. The high pooled Train 2016 return is not independent validation.
+- **Decision:** The fixed low-fast continuous decay avoids most of A's discontinuous turnover/tie behavior and modestly improves BOX point estimates, but the result is uncertain and not a basis for adoption. Close this Train diagnostic series; no additional alpha values or follow-up parameter search.
+- **Report:** [LOW_FAST_ONLY_RESULTS.md](../../reports/DM-20260927-02/LOW_FAST_ONLY_RESULTS.md).
+- **Verification:** 7 focused tests passed; `make check` passed (30 experiments, 129 frozen hashes); 809,636/809,636 score rows per strategy, 100% PIT-sector join; exact prior score/weight/account replay; D High state max error 0; official quintiles, component additivity, Train firewall, and side-wise EWMA prefix-invariance passed. Bounded run exit 0 in 72.2 seconds. Valid access false.

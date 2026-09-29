@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260927-04",
+  "status": "archived",
+  "hypothesis": "Long holding persistence in fixed SN1 may be better matched by Ridge targets over H5/H20 than the current H1 target.",
+  "change_from_baseline": "Only Ridge target horizon (H1/H5/H20); all model, feature, event, signal, portfolio and cost specifications fixed.",
+  "decision": "pending",
+  "train_period": "2008-11-04 through 2016-03-31 feature calendar; annual evaluation folds 2011-2016",
+  "historical_valid_period": "2016-04-01 through 2026-07-31; previously opened and treated as development",
+  "notes": "No historical Sharpe 1.0 gate; future paper observations are final forward OOS.",
+  "kind": "historical_diagnostic",
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "archive_outcome": "H1 retained as the fixed paper reference; H5 and H20 produced no challenger.",
+  "references": [
+    {
+      "path": "experiments/DM-20260927-04/plan.md",
+      "sha256": "6472f0d761eaa073748bb94d1faac7b58d3142a169e422487c836f173d9f417e"
+    },
+    {
+      "path": "experiments/DM-20260927-04/config.json",
+      "sha256": "60de01773ed417ea56868a48f27ff7bbd60a959e8356ad819a79954f5d7fd457"
+    },
+    {
+      "path": "experiments/DM-20260927-04/pre_result_lock.json",
+      "sha256": "367d0a1340c5928541937adff90f3f6c8527298d2c377c3f8dd67469cc29aecc"
+    },
+    {
+      "path": "reports/DM-20260927-04/MULTI_HORIZON_RESULTS.md",
+      "sha256": "a68aaaaa96fd350cd85ea559e6a3d48bf7782d24146535722119f2a6b9acfac1"
+    },
+    {
+      "path": "reports/DM-20260927-04/PAPER_HORIZON_DECISION.md",
+      "sha256": "4ffcb921c51b58298b0045955239707f631f6842a7e218ea66ad66138ec61d44"
+    },
+    {
+      "path": "artifacts/DM-20260927-04/run-20260927T101500Z/run.json",
+      "sha256": "ba7149069860ff7a2bb8f858780a0a5c36a3c7a735f79048c5f41246181c2b0f"
+    }
+  ],
+  "strategy": "dm_variable_box_breakout"
+}

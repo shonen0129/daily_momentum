@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-08",
+  "strategy": "dm_slope_range_volume_ml",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "H0: existing residual momentum EWMA alpha=0.25",
+    "B00: existing prior-only 250-observation high-breakout Long / low-breakout Short, EWMA alpha=0.25",
+    "CHANNEL_250_001: signed 250-observation channel position, EWMA alpha=0.25"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "evaluation_window": ["2010-01-04", "2016-03-29"],
+  "walk_forward_folds": [
+    {"year": 2010, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2011, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2012, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2013, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2014, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2015, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2016, "role": "January-March partial; previously seen Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "used_in_current_descriptive_comparison": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false
+  },
+  "max_trials": 2,
+  "new_candidate_budget": 2,
+  "trials": [
+    {"trial_id": "B00_ABS", "description": "Absolute value of the existing smoothed B00 score"},
+    {"trial_id": "CHANNEL_250_ABS", "description": "Absolute value of the existing smoothed channel-position score"}
+  ],
+  "transform_definition": {
+    "order": "Apply abs after the existing EWMA alpha=0.25 score. Do not smooth again.",
+    "B00_ABS": "abs(B00 EWMA score); both new-high and new-low breakouts are positive, non-breakout zero remains zero.",
+    "CHANNEL_250_ABS": "abs(channel_position_250 EWMA score); both high-side and low-side channel extremes are positive.",
+    "portfolio_interpretation": "The existing five-quantile portfolio engine ranks the positive transformed scores. High absolute tails can enter Long; low-absolute middle/zero rows can enter Short."
+  },
+  "feature_definitions": {
+    "B00": "Existing prior-only split-safe 250-observation high breakout Long / low breakout Short score, smoothed with EWMA alpha=0.25.",
+    "channel_position_250": "Existing prior-only 250-observation channel-position score, high=+1 and low=-1, smoothed with EWMA alpha=0.25.",
+    "absolute_transform": "Elementwise absolute value of the existing smoothed score. No new feature calculation or target input."
+  },
+  "model": "No fitted predictor. Use abs of the already smoothed signed score as cross-sectional score; same official five-quantile portfolio evaluation.",
+  "parameters": {
+    "ewma_alpha": 0.25,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "max_runtime_seconds": 1800
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only comparison; no selection because all periods are known.",
+    "no_post_result_trials": true,
+    "selection_eligible": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

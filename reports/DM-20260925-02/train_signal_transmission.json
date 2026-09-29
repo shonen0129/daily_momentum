@@ -1,0 +1,15 @@
+{
+  "mean_absolute_weight_difference": 5.6554175698539553e-05,
+  "changed_weight_fraction": 0.030863694311707008,
+  "event_score_final_weight_spearman": -0.02110596653088145,
+  "event_daily_score_weight_mean_rankic": 0.2880883203032891,
+  "short_mean_absolute_weight_difference": 1.4158715789196104e-05,
+  "stage_daily_rankic": {
+    "relative_strength_60": -0.042671775650482455,
+    "score": 0.042671775650482455,
+    "event_rank": 0.042671775650482455,
+    "combined_score": 0.042671775650482455,
+    "ewma_score": 0.012807814435573186,
+    "final_weight": 0.0014293461976309996
+  }
+}

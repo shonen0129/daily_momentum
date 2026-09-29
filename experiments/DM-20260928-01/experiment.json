@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260928-01",
+  "kind": "historical_diagnostic",
+  "status": "archived",
+  "strategy": "dm_variable_box_breakout",
+  "valid_evaluation": false,
+  "note": "Post-submission paper research. Train and historical Valid are development; no paper data. Phase 1 is target/P&L-free. At most three exact state interventions will be fixed and hashed before candidate P/L.",
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "archive_outcome": "The fixed persistence intervention was rejected; there is no paper challenger.",
+  "references": [
+    {
+      "path": "experiments/DM-20260928-01/plan.md",
+      "sha256": "96fa47fc5d3be7ba837f393047e636998be791aa420048431fd33fa6285594fa"
+    },
+    {
+      "path": "experiments/DM-20260928-01/config.json",
+      "sha256": "8fd12cc903bdd52a3c9cffe372c993fc008d732e9636c5a63d2a9fb1324b4d59"
+    },
+    {
+      "path": "experiments/DM-20260928-01/decision.md",
+      "sha256": "bb38baa85f11afbd375f1bf17e42d60a569dffc5d7f598bd98b7ef6703605c9c"
+    },
+    {
+      "path": "reports/DM-20260928-01/STATE_INTERVENTION_RESULTS.md",
+      "sha256": "3f051e056959476ffd4ed5899f45fbbca1e858260ea1f5ce1e92781c45876378"
+    },
+    {
+      "path": "reports/DM-20260928-01/PAPER_STATE_DECISION.md",
+      "sha256": "3797eedd40c2d84bc36273b49beb2312f33589a318880d8297142442687d5214"
+    },
+    {
+      "path": "artifacts/DM-20260928-01/run-20260927T161843Z/audit/phase2_manifest.json",
+      "sha256": "d51767de5623467280f1bd6515198b90a987206236120c152c2d0393f0c608c0"
+    }
+  ]
+}

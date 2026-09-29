@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-04",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_breakout_momentum_volume_lgbm",
+  "valid_evaluation": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-07",
+  "strategy": "dm_slope_range_volume_ml",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "H0: existing 60-observation residual momentum, EWMA alpha=0.25",
+    "B00: prior-only 250-observation new-high Long / new-low Short, EWMA alpha=0.25"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2010, "role": "descriptive evaluation"},
+    {"year": 2011, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2012, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2013, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2014, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2015, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2016, "role": "January-March partial; previously seen Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "used_in_current_descriptive_comparison": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false
+  },
+  "max_trials": 1,
+  "new_candidate_budget": 1,
+  "trials": [
+    {"trial_id": "CHANNEL_250_001", "description": "The 250-observation channel-position score alone with common EWMA alpha=0.25"}
+  ],
+  "feature_definitions": {
+    "channel_position_250": "2*(Close(t-1)-min(Low(t-251:t-2)))/(max(High(t-251:t-2))-min(Low(t-251:t-2)))-1; prior 250 observations exclude t-1, High maps to +1, Low to -1, out-of-range values are not clipped.",
+    "missing_history": "Neutral score 0 when a full 250-observation range or positive range width is unavailable.",
+    "price_basis": "Raw OHLC converted to a causal common share unit by cumulative observed AdjustmentFactor events; no retrospectively adjusted OHLC levels."
+  },
+  "model": "No fitted predictor. Use channel_position_250 as the sole daily cross-sectional score, then apply common EWMA alpha=0.25.",
+  "parameters": {
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "max_runtime_seconds": 1800
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only comparison; no selection because all periods are known.",
+    "comparison_baselines": ["H0", "B00"],
+    "no_post_result_trials": true,
+    "selection_eligible": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -1,0 +1,48 @@
+{
+  "experiment_id": "DM-20260928-01",
+  "phase": "phase1_structural_only_locked_before_phase2_target_pnl_reads",
+  "locked_at_utc": "2026-09-27T15:56:38Z",
+  "git_head": "09920d4221594b961a5793be02baab9214382f4e",
+  "worktree": "already dirty before this experiment; unrelated changes preserved",
+  "reference_experiment": "DM-20260927-04",
+  "reference_run": "run-20260927T101500Z",
+  "phase1_run": "run-20260927T154814Z",
+  "train_period": "2011-01-04 through 2016-03-31 signal dates; performance attribution in prior H1 study ended 2016-03-29",
+  "historical_valid_period": "2016-04-01 through 2026-07-31; previously opened, development only",
+  "paper_data_accessed": false,
+  "target_read": false,
+  "pnl_calculated": false,
+  "rankic_calculated": false,
+  "fixed_specification": {
+    "ridge_horizon": 1,
+    "ridge_lambda": 1.0,
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "official_quintile": "research.evaluation.weights; daily rank(method='first')",
+    "cost_one_way": 0.001,
+    "new_candidates_evaluated": 0
+  },
+  "hashes": {
+    "experiment_plan_sha256": "96fa47fc5d3be7ba837f393047e636998be791aa420048431fd33fa6285594fa",
+    "config_sha256": "8fd12cc903bdd52a3c9cffe372c993fc008d732e9636c5a63d2a9fb1324b4d59",
+    "state_table_sha256": "f23415b0544c866fe57de74e8a16c3b31cda7b260f90cd768614e4f070a809d6",
+    "phase1_manifest_sha256": "053bb545eaa0b4aa1019aa309621c7dcb5f9d4531834080236a68ccbcf3dea03",
+    "official_assignment_replay_sha256": "3fe9f51d300dab8b33b1c9765a9f51bf113628764d766d2631aa601019e5eaa3",
+    "sleeve_age_distribution_sha256": "2e30d7d8d752a188d5cfef774e56be3457d0ccc008aef36f391f2b6551ab13d2",
+    "no_event_recurrence_sha256": "dfd4d05e1f350d4dabd8c55d31a25ab6aa24903f6fc3a48b60e29208a3c52a80",
+    "split_state_summary_sha256": "02f106c4952d97cdc1f72e216e0463da45651ab8c2dcda6d78a0f2fc4e83c187",
+    "phase1_report_sha256": "db88d21c6244ad585cfb6b34b5b4c70cc8e7e9782bfb37d01269a94d2fa4aa4a",
+    "structural_driver_sha256": "c3a26c7697f440c690e3f9f8d8b67f48b266f150dc8ed684dd58a8d8611e2458",
+    "assignment_replay_driver_sha256": "7925f9066efe9f58a0a5991784e9606f68565f054eb8a9a97734295a623a4ed4"
+  },
+  "reconstruction_result": {
+    "max_score_error_train": 2.220446049250313e-16,
+    "max_score_error_historical_valid": 3.3306690738754696e-16,
+    "quintile_rows_changed_train": 0,
+    "quintile_rows_changed_historical_valid": 0,
+    "weight_rows_changed_train": 0,
+    "weight_rows_changed_historical_valid": 0,
+    "five_quintiles_every_date": true
+  },
+  "prepare_run_note": "tools/workspace.py prepare-run rejects historical Valid under its Train-only schema. The user explicitly designated already-opened historical Valid as development data, so the run used an isolated manual artifact directory with target-read guard; no CLI policy code was modified."
+}

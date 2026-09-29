@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-10",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "H0: DM-20260908-v1 60-observation residual momentum, EWMA alpha=0.25",
+    "B00: prior-only 250-observation new-high Long / new-low Short breakout, EWMA alpha=0.25"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2012, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2013, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2014, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2015, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2016, "role": "January-March partial; previously seen Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "used_in_current_descriptive_comparison": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false
+  },
+  "max_trials": 1,
+  "new_candidate_budget": 1,
+  "trials": [
+    {
+      "trial_id": "BOX_RIDGE_001",
+      "description": "Annual expanding Ridge on five box/pre-breakout features for prior-only 250-observation new-high events; 50/50 Long score blend with B00, Short leg retained"
+    }
+  ],
+  "feature_definitions": {
+    "box_duration": "Largest L in {5,10,...,120} with prior-only High-Max minus Low-Min divided by prior ATR20 below 3; windows end at t-1.",
+    "box_width_atr": "Selected longest qualifying box range divided by prior ATR20; missing when no L qualifies.",
+    "close_position": "(Close(t-1)-box lower)/(box upper-box lower) for the selected box; no clipping.",
+    "relative_strength_60": "60-observation skip-one market residual return rank, identical to H0.",
+    "distance_to_prior_high": "Close(t-1)/max(High(t-251:t-2))-1 using 250 prior observations.",
+    "breakout_event": "At t, Close_t exceeds the maximum High from t-250 through t-1; raw OHLC is converted to common share units using observed AdjustmentFactor events.",
+    "missing_history": "No qualifying box is box_duration=0 and missing width/position; Ridge imputation uses training rows only."
+  },
+  "model": "Fit an expanding annual Ridge (lambda=1.0) on high-breakout rows only, using daily centered full-cross-section target ranks and the five independent box/context features. Rank predictions among same-day high-breakout rows and blend 50/50 with B00's Long event score; preserve B00 Short score.",
+  "parameters": {
+    "ridge_lambda": 1.0,
+    "box_atr_limit": 3.0,
+    "box_windows": "5 to 120 observations, step 5",
+    "ewma_alpha": 0.25,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "max_runtime_seconds": 3600
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only diagnostics. No selection or adoption because all Train periods are known.",
+    "comparison_baselines": ["H0", "B00"],
+    "no_post_result_trials": true,
+    "selection_eligible": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

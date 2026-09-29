@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260927-01",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "B00_BASE: existing saved B00 score and official five-quintile portfolio",
+    "BOX_ORIGINAL: existing saved BOX score and official five-quintile portfolio"
+  ],
+  "random_seed": 20260925,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011, "role": "descriptive known-Train evaluation"},
+    {"year": 2012, "role": "descriptive known-Train evaluation"},
+    {"year": 2013, "role": "descriptive known-Train evaluation"},
+    {"year": 2014, "role": "descriptive known-Train evaluation"},
+    {"year": 2015, "role": "descriptive known-Train evaluation"},
+    {"year": 2016, "start": "2016-01-04", "end": "2016-03-29", "role": "partial known-Train evaluation"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false,
+    "post_result_trials": false
+  },
+  "max_trials": 5,
+  "new_candidate_budget": 2,
+  "trials": [
+    {"trial_id": "B00_BASE", "description": "Saved baseline score; replay unchanged"},
+    {"trial_id": "BOX_ORIGINAL", "description": "Saved original BOX score; replay unchanged"},
+    {"trial_id": "A_LOW_NO_CARRY", "description": "Existing fixed diagnostic: High alpha 0.25; Low event-day only"},
+    {"trial_id": "C_ASYM_EWMA", "description": "One fixed asymmetric EWMA pair applied to BOX: High alpha 0.15, Low alpha 0.50"},
+    {"trial_id": "C_B00_ASYM_EWMA", "description": "Same fixed asymmetric EWMA pair applied to B00 as the rule control"}
+  ],
+  "feature_definitions": {
+    "saved_signal_source": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/signals.parquet",
+    "high_low_raw_stream": "Exact inverse of the existing adjust=False alpha=0.25 EWMA on saved B00 and BOX scores, split into positive High and negative Low streams",
+    "point_in_time_sector": "listed_info_train joined on same (Date, Code)"
+  },
+  "model": "No retraining. Replay existing scores; apply existing listing-segment adjust=False EWMA separately to High and Low raw streams, then sum signed states.",
+  "parameters": {
+    "baseline_ewma_alpha": 0.25,
+    "candidate_c_alpha_high": 0.15,
+    "candidate_c_alpha_low": 0.5,
+    "one_way_transaction_cost": 0.001,
+    "annualization_days": 252,
+    "official_quintiles": 5,
+    "first_observation_initialization": "raw score, matching pandas ewm(adjust=False)",
+    "ewma_segment_definition": "existing features.segment_keys listing-segment logic"
+  },
+  "selection_rule": {
+    "primary": "Fixed known-Train diagnosis only; no selection or adoption",
+    "comparison_baselines": ["A_LOW_NO_CARRY", "BOX_ORIGINAL", "B00_BASE", "C_B00_ASYM_EWMA"],
+    "candidate_score_uses_baseline": false,
+    "no_post_result_trials": true,
+    "valid_accessed": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

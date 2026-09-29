@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-06",
+  "strategy": "dm_slope_range_volume_ml",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "H0: existing 60-observation residual momentum centered rank with EWMA(0.25)",
+    "B00: prior-only 250-observation new-high Long / new-low Short breakout with EWMA(0.25)"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2010, "role": "development evaluation; first full 250-observation fit history"},
+    {"year": 2011, "role": "development evaluation"},
+    {"year": 2012, "role": "development evaluation; previously seen Train"},
+    {"year": 2013, "role": "development evaluation; previously seen Train"},
+    {"year": 2014, "role": "development evaluation; previously seen Train"},
+    {"year": 2015, "role": "partial/previously seen Train; descriptive only"},
+    {"year": 2016, "role": "January-March partial/previously seen Train; descriptive only"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "previously_seen_periods": ["2011-01-01 through 2014-12-31", "2015-01-01 through 2016-03-31"],
+    "all_periods_are_known": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false
+  },
+  "max_trials": 2,
+  "new_candidate_budget": 2,
+  "trials": [
+    {"trial_id": "RIDGE_001", "description": "Ridge lambda=1.0 on the three fixed slope, channel-position and volume-zscore features"},
+    {"trial_id": "LGBM_001", "description": "Fixed shallow LightGBM on the same three features and target"}
+  ],
+  "feature_definitions": {
+    "log_price_slope_60_bps_day": "OLS slope of log(split-safe raw Close) over the 60 observations t-60 through t-1, times 10000; no signal-date t prices.",
+    "channel_position_250": "2*(Close(t-1)-min(Low(t-251:t-2)))/(max(High(t-251:t-2))-min(Low(t-251:t-2)))-1. Prior 250 valid observations exclude t-1; High maps to +1, Low to -1, and out-of-range values are not clipped.",
+    "volume_zscore_60": "(Volume(t-1)-mean(Volume(t-61:t-2)))/population_std(Volume(t-61:t-2)), using 60 strictly earlier split-safe raw Volume observations; zero standard deviation is missing.",
+    "corporate_actions": "Raw OHLCV only. AdjustmentFactor event multipliers are cumulated causally within listing segments to express prices and volume in a common share unit.",
+    "missing_values": "Feature histories require complete 60/250-observation windows. Each fold computes feature imputation means and standard deviations using only complete mature Train rows. Predictions impute missing values using those fitted means.",
+    "model_target": "Daily centered cross-sectional percentile rank of official Train target Return, identical for Ridge and LightGBM."
+  },
+  "model": "Annual expanding-window Ridge and LightGBM regressions using identical feature transforms, target ranks, evaluation dates and EWMA smoothing.",
+  "parameters": {
+    "ridge_lambda": 1.0,
+    "ridge_intercept_unpenalized": true,
+    "lightgbm": {
+      "objective": "regression",
+      "max_depth": 2,
+      "num_leaves": 4,
+      "n_estimators": 60,
+      "min_child_samples": 500,
+      "learning_rate": 0.05,
+      "reg_lambda": 10.0,
+      "random_state": 20260924,
+      "n_jobs": 2,
+      "deterministic": true,
+      "force_col_wise": true
+    },
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "max_runtime_seconds": 3600
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only comparison; no adoption or reselection because all Train periods are known.",
+    "comparison_baselines": ["H0", "B00"],
+    "report_all_year_folds": true,
+    "post_result_trials": false,
+    "selection_eligible": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-02",
+  "strategy": "dm_breakout_side_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": "DM-20260908-v1:M_res60s1_a0.25",
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011},
+    {"year": 2012},
+    {"year": 2013},
+    {"year": 2014}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "start": "2015-01-01",
+    "end": "2016-03-31",
+    "previously_seen": true,
+    "descriptive_only": true,
+    "reselection": false
+  },
+  "max_trials": 4,
+  "new_candidate_budget": 3,
+  "trials": [
+    {"trial_id": "M00", "description": "Pure res60s1 momentum; new-high long off; new-low short off"},
+    {"trial_id": "H10", "description": "Long: 50/50 res60s1 and 250-observation new-high breakout; Short: pure res60s1"},
+    {"trial_id": "L01", "description": "Long: pure res60s1; Short: 50/50 res60s1 and 250-observation new-low breakout"},
+    {"trial_id": "HL11", "description": "Long and Short each blend res60s1 50/50 with their own 250-observation breakout"}
+  ],
+  "feature_definitions": {
+    "residual_return": "raw_return_1day - beta_1day * topix_return_1day",
+    "res60s1": "centered cross-sectional rank in [-1,1] of the preceding 60 observed residual-return rows per listing segment, excluding current row; min_periods=60",
+    "corporate_action_scale": "Within a listing segment, cumulative product of observed AdjustmentFactor event multipliers; factor 1 contributes 1. Divide raw High, Low, and Close by the scale before comparing prices.",
+    "prior_high_250": "Rolling max of split-safe raw High for exactly the prior 250 observed rows, excluding date t; require 250 valid High values.",
+    "prior_low_250": "Rolling min of split-safe raw Low for exactly the prior 250 observed rows, excluding date t; require 250 valid Low values.",
+    "new_high_excess": "max(Close_t / prior_high_250 - 1, 0)",
+    "new_low_excess": "max(prior_low_250 / Close_t - 1, 0)",
+    "breakout_ranks": "Daily centered percentile ranks in [-1,1] of new_high_excess and new_low_excess separately; missing 250-row history falls back to pure momentum for that side.",
+    "side_ensemble": "Toggle-on Long rows with res60s1 > 0: max(0, 0.5*res60s1 + 0.5*new_high_rank). Toggle-on Short rows with res60s1 < 0: min(0, 0.5*res60s1 - 0.5*new_low_rank). The other side is unchanged. Toggle-off is pure res60s1.",
+    "smoothing": "EWMA alpha=0.25, adjust=False per listing segment, after side-specific composition.",
+    "portfolio": "Existing official-compatible five-quintile score weights; unchanged for all four variants."
+  },
+  "model": "Deterministic rule-based signal blend; no fitted parameters",
+  "parameters": {
+    "momentum_horizon": 60,
+    "breakout_window_observations": 250,
+    "breakout_min_periods": 250,
+    "breakout_window_excludes_signal_day_extrema": true,
+    "side_blend_weight_momentum": 0.5,
+    "side_blend_weight_breakout": 0.5,
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only comparison of exactly four pre-registered combinations against M00; no adoption or reselection from these known data.",
+    "report_each_fold_and_year": true,
+    "selection_eligible": false,
+    "no_post_result_candidates": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

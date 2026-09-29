@@ -1,0 +1,40 @@
+{
+  "experiment_id": "DM-20260927-04",
+  "created": "2026-09-27",
+  "objective": "SN1-only Ridge target horizon study for paper investment; Train and previously opened Valid are development data",
+  "candidates": [
+    {"id": "SN1_H1", "horizon_trading_days": 1},
+    {"id": "SN1_H5", "horizon_trading_days": 5},
+    {"id": "SN1_H20", "horizon_trading_days": 20}
+  ],
+  "target": {
+    "entry": "Open(t+1)",
+    "exit": "Open(t+H+1)",
+    "daily_residual": "raw_return[u] - beta[u] * topix_return[u]",
+    "aggregate": "compound daily residual returns for u=t+2..t+H+1",
+    "cross_sectional_treatment": "existing date-wise average percentile rank centered at cross-sectional mean, scaled by 2",
+    "h1_source": "official target_1day split parquet"
+  },
+  "fixed_model": {
+    "ridge_lambda": 1.0,
+    "minimum_training_event_rows_per_side": 500,
+    "training": "existing annual expanding folds 2011-2016; Valid uses one mature Train fit per side",
+    "features": "existing directional box feature set unchanged",
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "source_transform": "existing SIDE_SOURCE_SEPARATION SN1"
+  },
+  "portfolio": {
+    "construction": "existing official five quintile weights",
+    "daily_pnl_target": "official one-day residual target",
+    "one_way_cost": 0.001
+  },
+  "purge": {
+    "rule": "maturity position = signal position + H + 1; include training signal only if maturity is before prediction start",
+    "signal_calendar_positions": {"H1": 2, "H5": 6, "H20": 21}
+  },
+  "uncertainty": {"method": "existing circular paired block bootstrap", "block_days": 20, "replications": 1000, "seed": 20260908},
+  "allowed_data": ["Train features and Train labels", "previously opened historical Valid features and labels for development evaluation"],
+  "forbidden": ["new horizons", "parameter search", "feature/event/portfolio changes", "paper-period data"],
+  "decision": "SUPPORTED/MIXED/REJECT from structural replication, not historical maximum Sharpe"
+}

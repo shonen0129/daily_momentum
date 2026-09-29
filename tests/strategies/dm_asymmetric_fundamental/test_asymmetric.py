@@ -6,7 +6,7 @@ import sys
 import numpy as np
 import pandas as pd
 import pytest
-from test_causality import fixture_inputs
+from tests.test_causality import fixture_inputs
 from stock_comp_2026.strategies.dm_asymmetric_fundamental import core, features as f, submission
 from research.experiments import asymmetric_evaluation as ev
 from evaluate_script import compute_weight, compute_pl

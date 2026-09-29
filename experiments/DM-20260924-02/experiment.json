@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-02",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_breakout_side_momentum",
+  "valid_evaluation": false
+}

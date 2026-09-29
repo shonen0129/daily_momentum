@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "source_scan": [
+    "stock_comp_2026/strategies/dm_variable_box_breakout/features.py",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/bidirectional.py"
+  ],
+  "cutoffs": [
+    {
+      "cutoff": "2010-12-30",
+      "prefix_rows": 227601,
+      "checks": {
+        "mutation": "features, baselines, side-specific mature-label refits and scores bitwise exact",
+        "truncation": "features, baselines, side-specific mature-label refits and scores bitwise exact"
+      }
+    },
+    {
+      "cutoff": "2012-06-29",
+      "prefix_rows": 389444,
+      "checks": {
+        "mutation": "features, baselines, side-specific mature-label refits and scores bitwise exact",
+        "truncation": "features, baselines, side-specific mature-label refits and scores bitwise exact"
+      }
+    },
+    {
+      "cutoff": "2014-12-30",
+      "prefix_rows": 667086,
+      "checks": {
+        "mutation": "features, baselines, side-specific mature-label refits and scores bitwise exact",
+        "truncation": "features, baselines, side-specific mature-label refits and scores bitwise exact"
+      }
+    }
+  ],
+  "valid_accessed": false,
+  "standalone_score_uses_b00": false
+}

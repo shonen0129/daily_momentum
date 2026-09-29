@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "verification_performed_before_valid_evaluation": true,
+  "candidate_release": "DM-20260924-C3S-v1",
+  "candidate_zip_sha256": "3a941803f5b8d49f14194c26b18fc6a3e92e6fdf0faf8ecf19caf435599272be",
+  "baseline_release": "DM-20260908-v1",
+  "baseline_trial": "M_res60s1_a0.25",
+  "baseline_zip_sha256": "2147545f8ded90a9fd147d3a6b7745ee85d5b1d4875a366352b37c400638e1b3",
+  "train_prediction_rows": 809636,
+  "train_prediction_dates": 1814,
+  "candidate_matches_existing_research_prediction": true,
+  "baseline_matches_existing_research_prediction": true,
+  "max_absolute_prediction_difference_for_both": 0.0,
+  "unique_indices": true,
+  "all_scores_finite": true,
+  "train_input_hashes_match_candidate_freeze_manifest": true,
+  "valid_inputs_or_targets_opened": false
+}

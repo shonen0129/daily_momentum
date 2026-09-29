@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260925-03",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_variable_box_breakout",
+  "valid_evaluation": false
+}

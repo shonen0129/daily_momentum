@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260928-02",
+  "kind": "historical_diagnostic",
+  "status": "archived",
+  "strategy": "dm_variable_box_breakout",
+  "valid_evaluation": false,
+  "note": "Final structural audit completed. Phase 0 parity passed; Low branch integrity passed; no structurally justified candidate passed the eligibility gate. Submit fixed SN1_H1 unchanged. Train and already-open historical Valid are development data; no paper data was accessed.",
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "archive_outcome": "The final structural audit found no eligible rule change; retain fixed SN1_H1.",
+  "references": [
+    {
+      "path": "experiments/DM-20260928-02/plan.md",
+      "sha256": "3d8d4936ab29a3ab3e8fa68d105a667c5c8f67726cd84440d6c52ee8c6b1b8e7"
+    },
+    {
+      "path": "experiments/DM-20260928-02/config.json",
+      "sha256": "fcaba4b88ec72296313ff78b2f10eddacd904ad5228c2c4ec32b0db3caeb403b"
+    },
+    {
+      "path": "experiments/DM-20260928-02/decision.md",
+      "sha256": "266a24287cc5bccd9fe7a59d81715bc586858c0a1378078092ec3c016ccc2365"
+    },
+    {
+      "path": "reports/DM-20260928-02/SUBMISSION_DECISION.md",
+      "sha256": "5d1d7782b8ad5f564818dec498b6561cb8bd10ecf82e00f9d5839287613199b9"
+    },
+    {
+      "path": "reports/DM-20260928-02/SN1_ROBUSTNESS_FINAL.md",
+      "sha256": "f8bc5935c171bfd855f1b226e9250f85ee70bdb566f2074be014bddb8789710e"
+    },
+    {
+      "path": "artifacts/DM-20260928-02/run-20260928T103320Z/audit/final_diagnostics_manifest.json",
+      "sha256": "5d7be545cd475a95aadd2eb6a72ef200cf7c1ae1ee5c9eb5328476d1b7e48824"
+    }
+  ]
+}

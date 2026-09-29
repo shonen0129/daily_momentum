@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260925-02",
+  "strategy": "dm_nh_rev",
+  "hypothesis_id": "NH_REV_001",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "random_seed": 20260925,
+  "baseline": [
+    "B00 breakout-only, EWMA alpha=0.25"
+  ],
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "role": "known Train diagnostic; no fitting"
+    },
+    {
+      "year": 2012,
+      "role": "known Train diagnostic; no fitting"
+    },
+    {
+      "year": 2013,
+      "role": "known Train diagnostic; no fitting"
+    },
+    {
+      "year": 2014,
+      "role": "known Train diagnostic; no fitting"
+    },
+    {
+      "year": 2015,
+      "role": "known Train diagnostic; no fitting"
+    },
+    {
+      "year": 2016,
+      "role": "known Train diagnostic; no fitting"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "train_previously_seen": true,
+    "valid_previously_seen": true,
+    "valid_independent": false,
+    "authorized_frozen_valid_evaluation": true,
+    "valid_window": [
+      "2016-04-01",
+      "2026-07-31"
+    ],
+    "full_year_diagnostics": "2017-2025; 2016 and 2026 partial",
+    "prior_disclosure": "releases/DM-20260924-C3S-v1/VALID_EVALUATION.md"
+  },
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "NH_REV_001",
+      "description": "negative RS60, full replacement of B00 high-event score"
+    }
+  ],
+  "feature_definitions": {
+    "event": "Close_t/common_share_scale > max(High/common_share_scale over previous 250 listing observations); strict; all 250 required",
+    "rs60": "e_i,s=raw_return_i,s-beta_i,s*topix_return_s; M_i,t=sum(e_i,t-j,j=1..60); RS=2*(daily average-tie percentile_rank(M)-daily mean percentile_rank(M)); missing RS filled 0, exactly inherited",
+    "share_scale": "cumulative observed AdjustmentFactor since listing segment; raw H/L/C divided by scale",
+    "listing_segment": "reset when absence exceeds 20 observed market dates",
+    "missing": "nonpositive/nonfinite raw price -> NaN; invalid AdjustmentFactor -> error; missing 60-window -> centered RS=0; missing event history -> no event"
+  },
+  "model": "No fitting, single negative RS60 rank",
+  "parameters": {
+    "score_sign": -1,
+    "ewma_alpha": 0.25,
+    "event_replacement": 1.0,
+    "rs_window": 60,
+    "event_window": 250,
+    "cost_oneway": 0.001,
+    "annualization": 252,
+    "hac_lag": 5,
+    "information_timestamp": "t Close for event; RS ends t-1; no future input",
+    "entry": "t+1 Open",
+    "exit": "t+2 Open",
+    "injection": "non-event raw B00; high event 0.5+0.5*pct_rank(-RS60 within daily high events); per-listing EWM adjust=False alpha=.25",
+    "short_policy": "B00 low-event raw scores unchanged; no short redesign. Official all-universe ranking may indirectly change final short weights; quantify it.",
+    "evaluation_calendar": "Train 2011-2016; Valid 2016-2026. Remove final 2 signal dates of each calendar-year/split group before metrics. Compute continuous portfolio first, retaining turnover across omitted dates.",
+    "valid_history": "concatenate Train feature history with Valid feature inputs, no Train labels in Valid inference"
+  },
+  "selection_rule": {
+    "primary_variable": "raw relative_strength_60 daily event Spearman vs official target; equal-weight mean across eligible dates, not row-pooled correlation",
+    "raw_rankic_max": -0.02,
+    "raw_hac_t_max": -1.645,
+    "raw_quintile_monotonicity_max": -0.5,
+    "raw_q5_minus_q1_max_exclusive": 0.0,
+    "min_ic_days": 252,
+    "minimum_negative_full_year_fraction": 0.6,
+    "robustness": "remove most supportive 1% of daily raw IC values: remaining mean <= -0.01; drop largest absolute 1% daily Q5-Q1 spreads: remaining mean < 0",
+    "train_direction": "raw IC<0 and raw Q5-Q1<0 required for Train/Valid consistency; Train size is not evidence",
+    "go": "all frozen signal criteria pass; numerical GO only, independent confirmation unavailable because Valid already disclosed",
+    "no_go": "any signal criterion fails -> CLOSED; no portfolio rescue",
+    "secondary": "portfolio metrics only interpreted if primary passes; mechanical ledgers saved regardless to fulfill audit artifacts",
+    "no_post_result_trials": true
+  },
+  "prohibited": [
+    "BOX/duration/threshold/k/Lmax",
+    "Ridge/LightGBM/interactions/multifeature",
+    "RS-window/sign/alpha tuning",
+    "execution/target/horizon changes",
+    "Short redesign",
+    "same-Valid rescue",
+    "next phase in this run"
+  ]
+}

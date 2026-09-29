@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260926-01",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "BOX_ORIGINAL: saved BOX_BIDIR_STANDALONE score and official five-quintile portfolio",
+    "B00_BASE: prior-only 250-observation high/low breakout score and official five-quintile portfolio"
+  ],
+  "random_seed": 20260925,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011, "role": "descriptive evaluation; known Train"},
+    {"year": 2012, "role": "descriptive evaluation; known Train"},
+    {"year": 2013, "role": "descriptive evaluation; known Train"},
+    {"year": 2014, "role": "descriptive evaluation; known Train"},
+    {"year": 2015, "role": "descriptive evaluation; known Train"},
+    {"year": 2016, "role": "partial evaluation 2016-01-04 through 2016-03-29; known Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false
+  },
+  "max_trials": 12,
+  "new_candidate_budget": 10,
+  "trials": [
+    {"trial_id": "B00_BASE", "description": "Candidate B1 and short-scale gamma 1.00 baseline"},
+    {"trial_id": "BOX_ORIGINAL", "description": "Current saved BOX score and official portfolio"},
+    {"trial_id": "A_LOW_NO_CARRY", "description": "Keep High EWMA alpha 0.25; Low event-day contribution retained, Low age 1+ carry removed"},
+    {"trial_id": "A_B00_LOW_NO_CARRY", "description": "Apply the exact Candidate A Low-no-carry rule to B00 for the required same-rule comparison"},
+    {"trial_id": "A_BOX_SHORT_GAMMA_050", "description": "Current BOX weights with negative weights scaled by 0.50; non-official"},
+    {"trial_id": "A_BOX_SHORT_GAMMA_025", "description": "Current BOX weights with negative weights scaled by 0.25; non-official"},
+    {"trial_id": "A_BOX_SHORT_GAMMA_000", "description": "Current BOX weights with negative weights scaled by 0.00; non-official"},
+    {"trial_id": "A_B00_SHORT_GAMMA_050", "description": "B00 weights with negative weights scaled by 0.50; non-official"},
+    {"trial_id": "A_B00_SHORT_GAMMA_025", "description": "B00 weights with negative weights scaled by 0.25; non-official"},
+    {"trial_id": "A_B00_SHORT_GAMMA_000", "description": "B00 weights with negative weights scaled by 0.00; non-official"},
+    {"trial_id": "B_BOX_GATE_B00_SCORE", "description": "B2: eligible Box event gate, B00 event scores, unchanged EWMA and portfolio"},
+    {"trial_id": "B_BOX_GATE_RIDGE", "description": "B3: same eligible Box events, existing side-oriented Ridge, eligible-only annual fits"}
+  ],
+  "feature_definitions": {
+    "saved_signal_source": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/signals.parquet",
+    "saved_event_source": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/event_predictions.parquet",
+    "saved_box_source": "artifacts/DM-20260925-03/run-20260926T063602Z/predictions/box_features.parquet",
+    "eligible_box": "box_duration > 0 and finite box_width_atr and box_width_atr < 3.0",
+    "high_event": "Existing split-safe close above prior 250-observation High barrier",
+    "low_event": "Existing split-safe close below prior 250-observation Low barrier",
+    "point_in_time_sector": "listed_info_train.Sector33Code and Sector17Code matched on same (Date, Code)"
+  },
+  "model": "Candidate A uses the saved BOX event score streams. Candidate B2 uses B00 side-specific event excess ranks on the eligible Box event set. Candidate B3 uses the existing five oriented features and annual expanding Ridge lambda=1.0, fitted only on mature eligible events for the applicable side; all B candidates use EWMA alpha=0.25. Gamma diagnostics scale only existing negative portfolio weights and are non-official.",
+  "parameters": {
+    "one_way_transaction_cost": 0.001,
+    "annualization_days": 252,
+    "ewma_alpha_high": 0.25,
+    "ewma_alpha_low": 0.25,
+    "low_age_1_plus_carry": 0.0,
+    "ridge_lambda": 1.0,
+    "eligible_box_width_atr_strict_upper_bound": 3.0,
+    "eligible_box_duration_min_exclusive": 0.0,
+    "short_scale_gamma": [1.0, 0.5, 0.25, 0.0],
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "bootstrap_seed": 20260925,
+    "annual_fold_tail_purge_dates": 2
+  },
+  "selection_rule": {
+    "primary": "Descriptive Train-only diagnostics; no candidate selection or adoption because all Train periods are known.",
+    "comparison_baselines": ["BOX_ORIGINAL", "B00_BASE"],
+    "candidate_score_uses_baseline": false,
+    "no_post_result_trials": true,
+    "selection_eligible": false
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

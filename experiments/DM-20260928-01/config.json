@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260928-01",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train_and_historical_valid_development",
+  "valid_evaluation": false,
+  "baseline": "SN1_H1:DM-20260927-04/run-20260927T101500Z",
+  "random_seed": null,
+  "train_window": "2011-01-04 through 2016-03-29; old Valid 2016-04-01 through 2026-07-31 as development",
+  "walk_forward_folds": [],
+  "purge_trading_days": null,
+  "confirmation_policy": "Historical Valid is already opened and development data; paper OOS is future-only.",
+  "max_trials": 3,
+  "trials": [
+    "Phase 1: fixed H1 mechanical audit only; no target/P&L/RankIC reads",
+    "Phase 2: fixed age/event-lag descriptive diagnostics; no threshold selection",
+    "Phase 3: at most 3 exact interventions preregistered and hash-locked before candidate P&L"
+  ],
+  "feature_definitions": "Existing dm_variable_box_breakout features, event masks, and fixed H1 score stream; no new predictor.",
+  "model": "Existing yearly walk-forward Ridge H1, lambda=1.0; stored models reused without refit.",
+  "parameters": {
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "sn1_source_precedence": "negative low_state, else positive high_state only when low_state==0, else D",
+    "cost_one_way": 0.001,
+    "official_quintiles": "existing evaluation.weights rank(method='first')"
+  },
+  "selection_rule": "Structural mechanism and P/L attribution must agree; Train and historical Valid direction broadly consistent; no retrospective threshold search. If no intervention survives, retain SN1_H1.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "allowed_inputs": [
+    "fixed H1 model artifacts",
+    "saved SN1_H1 scores",
+    "Train and historical-Valid feature panels",
+    "PIT listed-info metadata",
+    "Train and historical-Valid one-day targets only after Phase 1 lock"
+  ],
+  "forbidden_inputs": ["paper data", "new horizons", "parameter search", "Valid-as-holdout claims"]
+}

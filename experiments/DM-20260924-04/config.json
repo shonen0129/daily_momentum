@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-04",
+  "strategy": "dm_breakout_momentum_volume_lgbm",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "H0: res60s1 with causal EWMA alpha=0.25",
+    "B00: prior-only split-safe 250-observation new-high Long and new-low Short breakout"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2014-12-31"],
+  "walk_forward_folds": [
+    {"year": 2010, "role": "portfolio turnover warm-up only"},
+    {"year": 2011, "role": "development evaluation"},
+    {"year": 2012, "role": "development evaluation"},
+    {"year": 2013, "role": "development evaluation"},
+    {"year": 2014, "role": "development evaluation"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "periods": [],
+    "previously_seen_reference": "2015-01-01 through 2016-03-31",
+    "used": false,
+    "reselection": false
+  },
+  "max_trials": 1,
+  "new_candidate_budget": 1,
+  "trials": [
+    {
+      "trial_id": "LGBM_001",
+      "description": "One shallow LightGBM regressor using high/low breakout ranks, res60s1 and split-safe relative volume change"
+    }
+  ],
+  "feature_definitions": {
+    "res60s1": "Prior 60 observed residual-return rows per listing segment, excluding signal day; centered cross-sectional rank.",
+    "new_high_rank": "Centered cross-sectional rank of max(split-safe Close_t / prior 250-observation split-safe High - 1, 0); rolling barrier excludes signal-day High and requires 250 observations.",
+    "new_low_rank": "Centered cross-sectional rank of max(prior 250-observation split-safe Low / split-safe Close_t - 1, 0); rolling barrier excludes signal-day Low and requires 250 observations.",
+    "relative_volume_change_rank": "log(split-safe raw Volume_t / median of the prior 20 split-safe raw Volume observations); centered cross-sectional rank; current-day Volume is available at signal close, prior median excludes current day.",
+    "split_safe_volume": "Raw Volume multiplied by cumulative AdjustmentFactor events within the listing segment; no AdjustmentVolume levels.",
+    "missing_values": "Keep unavailable 250-observation breakout and 20-observation volume history as NaN for native LightGBM missing-value routing; no backward fill."
+  },
+  "model": "LightGBM LGBMRegressor on the official Train target Return; annual expanding-window refit, no hyperparameter search.",
+  "parameters": {
+    "objective": "regression",
+    "max_depth": 2,
+    "num_leaves": 4,
+    "n_estimators": 60,
+    "min_child_samples": 500,
+    "learning_rate": 0.05,
+    "reg_lambda": 10.0,
+    "random_state": 20260924,
+    "n_jobs": 2,
+    "deterministic": true,
+    "force_col_wise": true,
+    "ewma_alpha": 0.25,
+    "ewma_adjust": false,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_days": 20,
+    "max_runtime_seconds": 1800
+  },
+  "selection_rule": {
+    "primary": "Descriptive comparison only. No candidate adoption or reselection from known data.",
+    "comparison_baselines": ["H0", "B00"],
+    "diagnostic_stability": "Report fold deltas; at least 3/4 improved folds would be needed for further consideration, not sufficient for adoption.",
+    "selection_eligible": false,
+    "no_post_result_candidates": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

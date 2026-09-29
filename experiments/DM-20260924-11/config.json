@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260924-11",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "selection_eligible": false,
+  "baseline": [
+    "B00: prior-only 250-observation high/low breakout with EWMA alpha=0.25",
+    "DM-20260924-10 BOX_RIDGE_001: annual expanding Ridge, 5 features, lambda=1.0"
+  ],
+  "random_seed": 20260924,
+  "train_window": ["2008-11-04", "2016-03-31"],
+  "walk_forward_folds": [
+    {"year": 2011, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2012, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2013, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2014, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2015, "role": "descriptive evaluation; previously seen Train"},
+    {"year": 2016, "role": "Jan-Mar partial; report separately; previously seen Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": {
+    "all_train_periods_previously_seen": true,
+    "selection_or_reselection": false,
+    "valid_accessed": false,
+    "purpose": "signal transmission and hypothesis identification diagnostics only"
+  },
+  "max_trials": 6,
+  "trials": [
+    {"trial_id": "BLEND_0_A025", "description": "BOX blend 0%, EWMA alpha 0.25"},
+    {"trial_id": "BLEND_50_A025", "description": "BOX blend 50%, EWMA alpha 0.25"},
+    {"trial_id": "BLEND_100_A025", "description": "BOX blend 100%, EWMA alpha 0.25"},
+    {"trial_id": "BLEND_0_A100", "description": "BOX blend 0%, EWMA alpha 1.0"},
+    {"trial_id": "BLEND_50_A100", "description": "BOX blend 50%, EWMA alpha 1.0"},
+    {"trial_id": "BLEND_100_A100", "description": "BOX blend 100%, EWMA alpha 1.0"}
+  ],
+  "feature_definitions": {
+    "box_duration": "Largest L in {5,10,...,120} with prior-only High-Max minus Low-Min divided by prior ATR20 below 3; window ends at t-1.",
+    "box_width_atr": "Selected prior box width divided by prior ATR20; evaluate tightness as its negative rank.",
+    "close_position": "Prior close position inside the selected prior-only box.",
+    "relative_strength_60": "Existing 60-observation skip-one market-residual momentum rank.",
+    "distance_to_prior_high": "Prior close divided by high maximum over observations t-251 through t-2, minus one.",
+    "breakout_volume_ratio_diagnostic": "Raw Volume[t] in common share units divided by the prior 20-observation median, ending t-1; event-only univariate diagnostic, not a model feature.",
+    "upper_touch_density_diagnostic": "Among selected box observations ending t-1, share with High within 1% of that box's Upper; event-only univariate diagnostic, not a model feature.",
+    "t_close_timing_diagnostics": "One model-free comparison of existing t-1 box_duration/width/close_position versus the same fixed windows recomputed through t High/Low/Close; does not alter the fitted model or create extra ablation trials.",
+    "event": "Close[t] exceeds prior 250-observation High, with 250-row history available.",
+    "matched_control": "A = event and box_duration>0; B = same-date event set with box_duration=0; equal-weight daily means over dates with both groups."
+  },
+  "model": "Unchanged annual expanding Ridge (lambda=1.0) trained on mature prior high-breakout rows and daily centered full-cross-section target ranks; same five existing features. Reuse the fixed walk-forward predictions across all six score ablations. No new model feature or target horizon.",
+  "parameters": {
+    "ridge_lambda": 1.0,
+    "box_atr_limit": 3.0,
+    "box_windows": "5 to 120 observations, step 5",
+    "box_blend_weights": [0.0, 0.5, 1.0],
+    "ewma_alphas": [0.25, 1.0],
+    "short_signal": "preserve B00 score for all ablations",
+    "diagnostic_only_features": ["breakout_volume_ratio", "upper_touch_density", "box_duration_through_t", "box_width_atr_through_t", "close_position_through_t"],
+    "official_holding_period": "t+1 Open to t+2 Open",
+    "diagnostic_day": "t+1 Open to t+1 Close",
+    "diagnostic_night": "t+1 Close to t+2 Open",
+    "transaction_cost_oneway": 0.001
+  },
+  "selection_rule": {
+    "primary": "Descriptive event-only prediction quality and score-to-weight-to-Net transmission; no candidate selection/adoption.",
+    "ablation_budget": 6,
+    "no_post_result_trials": true,
+    "phase2_conditional": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}
