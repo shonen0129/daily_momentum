@@ -7,9 +7,10 @@ import numpy as np
 import pandas as pd
 import pytest
 from tests.test_causality import fixture_inputs
+from tests.legacy_dm_trainonly import load_modules
 from stock_comp_2026.strategies.dm_asymmetric_fundamental import core, features as f, submission
 from research.experiments import asymmetric_evaluation as ev
-from evaluate_script import compute_weight, compute_pl
+from stock_comp_2026.evaluate_script import compute_weight, compute_pl
 
 
 def report(date, code='0', end='2008-12-31', start='2008-01-01', cfo=10., assets=100., **kw):
@@ -135,7 +136,9 @@ def test_all_inputs_future_mutation_truncation_prediction(cutoff):
 
 
 def test_baseline_order_missing_relisting():
-    from features import build_momentum, smooth
+    with load_modules() as dm_trainonly:
+        build_momentum = dm_trainonly.features.build_momentum
+        smooth = dm_trainonly.features.smooth
     d=inputs(820)
     before=f.build_features(d)
     pd.testing.assert_series_equal(before.L.rename('res60s1'),smooth(build_momentum(d),.25),check_exact=True)

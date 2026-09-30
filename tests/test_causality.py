@@ -3,10 +3,20 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
-from features import build_features, build_momentum, smooth, segment_keys, INPUT_COLUMNS, centered_rank
-from models import calibrated_oof, training_mask
+from tests.legacy_dm_trainonly import load_modules
 from research.evaluation import daily_account, weights
-from evaluate_script import compute_weight, compute_pl
+from stock_comp_2026.evaluate_script import compute_weight, compute_pl
+
+
+with load_modules() as _dm:
+    build_features = _dm.features.build_features
+    build_momentum = _dm.features.build_momentum
+    smooth = _dm.features.smooth
+    segment_keys = _dm.features.segment_keys
+    INPUT_COLUMNS = _dm.features.INPUT_COLUMNS
+    centered_rank = _dm.features.centered_rank
+    calibrated_oof = _dm.models.calibrated_oof
+    training_mask = _dm.models.training_mask
 
 
 def fixture_inputs(n=560, codes=6):

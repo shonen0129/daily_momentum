@@ -47,6 +47,9 @@
   推論は引数なし `predict()`、`(Date, Code)` MultiIndex、予測1列の公式契約を守る。
 - 新しい戦略はpackageとしてimportし、複数戦略の `features.py` を同じトップレベル名で
   `sys.path` に差し込まない。提出時のimportも別プロセスで検証する。
+- 凍結済み `dm_trainonly` は採点契約のためトップレベルimportを使う。テスト時の一時的な
+  strategy pathは `tests/legacy_dm_trainonly.py` のcontext managerか隔離subprocessに限定し、
+  `tests/conftest.py` からpytest全体へ注入しない。`pytest.ini` はimportlib modeを指定する。
 - Notebookは可視化・調査用。採用する処理はPythonモジュールとテストへ移す。
 - 複数の実験で必要になった処理だけを共通化する。将来のためだけの抽象クラス、
   特徴量登録機構、巨大な汎用pipelineは先に作らない。
@@ -88,6 +91,8 @@ Validやラベルは配置しない。データ本体は元の `stock_comp_2026/
 
 コード・計画・設定・軽量レポート・manifestはGit管理、配布parquet・仮想環境・cache・
 新しい実行成果物・zipは `.gitignore` で除外する。既存Freezeの証拠は削除しない。
+releaseディレクトリ全体はignoreせず、manifest・文書・source snapshotを通常の `git add` で
+追跡できるようにする。zip、model/artifact directory、parquet等の生成データだけを個別に除外する。
 新しい成果物のローカル保管先は `artifacts/` と `releases/`。これらはGitだけでは復元できないため、
 重要runとリリースはデータ配布物とともに別媒体にも保管する。
 現状はGit未初期化。`.gitignore` は導入済みで、初期化・初回コミットは別作業として行う。

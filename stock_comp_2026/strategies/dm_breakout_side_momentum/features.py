@@ -73,7 +73,7 @@ def build_momentum(inputs):
 
 def split_safe_prices(inputs):
     """Convert raw OHLC levels to a common within-listing-segment share unit."""
-    index = inputs["raw_return_1day"].index
+    index = inputs["raw_return_1day"].index.sort_values()
     prices = inputs["prices_daily_quotes"].reindex(index)
     groups = segment_keys(index)
     factor = pd.to_numeric(prices["AdjustmentFactor"], errors="coerce")
@@ -92,7 +92,7 @@ def split_safe_prices(inputs):
 
 def build_features(inputs, window=250):
     """Build momentum and prior-only 250-observation breakout magnitudes/ranks."""
-    index = inputs["raw_return_1day"].index
+    index = inputs["raw_return_1day"].index.sort_values()
     prices = split_safe_prices(inputs)
     groups = segment_keys(index)
     prior_high = prices["high"].groupby(groups, sort=False).transform(

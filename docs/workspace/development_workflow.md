@@ -40,6 +40,11 @@ make test
 make check-freeze
 ```
 
+GitHub Actions の `.github/workflows/ci.yml` は push と pull request で Python 3.11.15 と
+`requirements-research.txt` の固定依存を使い、`make check` と `make test` を実行する。
+`make check-freeze` はFreeze済み提出zipをTrainデータで実行するため、配布parquetを含まないCIでは実行しない。
+Freeze後は配布Train parquetがあるローカル環境で `make check-freeze` を実行し、zipの予測一致を確認する。
+
 ## 3. Train-only実行
 
 計画を記入し、`experiment.json` の `status` を `planned` にする。
