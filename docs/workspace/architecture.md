@@ -97,3 +97,5 @@ releaseディレクトリ全体はignoreせず、manifest・文書・source snap
 DM-20260908の凍結snapshot内にある同形式のファイルは上記の履歴資料として扱う。
 新しい成果物のローカル保管先は `artifacts/` と `releases/`。これらはGitだけでは復元できないため、
 重要runとリリースはデータ配布物とともに別媒体にも保管する。
+historical diagnosticが `artifacts/` 内のrun記録を参照する場合、ファイルがあればhashを照合する。
+生成物を含まないcheckoutでは欠けた参照を `make check` が列挙し、他の証拠とFreeze hashは引き続き検査する。
