@@ -1,0 +1,21 @@
+{
+  "feature_scope": "new dm_trainonly feature builders (all 24 columns) and selected predictor",
+  "source_firewall": "PASS",
+  "future_mutation": "PASS",
+  "index_nan_coverage_determinism": "PASS",
+  "purged_model_fold_records": 32,
+  "calibration_audit_records": 56,
+  "impact_years": 7,
+  "official_smoke": "PASS",
+  "unit_tests": 11,
+  "valid_evaluation": "NOT RUN",
+  "upstream_distribution_builder": "NOT AUDITED",
+  "inference_resources": {
+    "rows": 809636,
+    "seconds": 0.5364790419989731,
+    "peak_rss_bytes_macos": 361512960,
+    "split": "Train",
+    "labels_read": false,
+    "gpu_required": false
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "future_mutation": [
+    {
+      "cutoff": "2010-12-30",
+      "prefix_rows": 227601,
+      "features": 24,
+      "features_bitwise_equal": true,
+      "selected_predictions_bitwise_equal": true,
+      "mutated_inputs": [
+        "raw_return_1day",
+        "beta_1day",
+        "topix_return_1day",
+        "prices_daily_quotes",
+        "listed_info"
+      ]
+    },
+    {
+      "cutoff": "2012-06-29",
+      "prefix_rows": 389444,
+      "features": 24,
+      "features_bitwise_equal": true,
+      "selected_predictions_bitwise_equal": true,
+      "mutated_inputs": [
+        "raw_return_1day",
+        "beta_1day",
+        "topix_return_1day",
+        "prices_daily_quotes",
+        "listed_info"
+      ]
+    },
+    {
+      "cutoff": "2014-12-30",
+      "prefix_rows": 667086,
+      "features": 24,
+      "features_bitwise_equal": true,
+      "selected_predictions_bitwise_equal": true,
+      "mutated_inputs": [
+        "raw_return_1day",
+        "beta_1day",
+        "topix_return_1day",
+        "prices_daily_quotes",
+        "listed_info"
+      ]
+    }
+  ],
+  "train_prediction_rows": 809636,
+  "train_prediction_dates": 1814,
+  "train_codes": 473,
+  "prediction_finite": true,
+  "research_submission_bitwise_equal": true,
+  "deterministic_bitwise": true,
+  "inference_seconds_train": 0.514108582996414,
+  "validation_seconds": 27.091173000007984,
+  "peak_rss_bytes_macos": 2019393536,
+  "smoke": {
+    "official_api": "load_prediction -> align_prediction -> compute_pl -> compute_sr",
+    "target": "sanitized target_1day_train, final two Train signal dates excluded",
+    "evaluated_rows": 808692,
+    "prediction_rows": 809636,
+    "descriptive_full_train_sharpe_not_used_for_selection": -0.23662611227068797,
+    "scorer_daily_parity": true,
+    "valid_visible": false
+  }
+}

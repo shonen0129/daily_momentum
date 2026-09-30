@@ -82,6 +82,7 @@ DM-20260908の計画は `experiments/DM-20260908/plan.md`、却下索引は
 凍結当時の証拠を検証する。現行ワークスペースの文書は新しい配置に合わせて更新できる。
 snapshotには推論smokeに必要な3つのTrain特徴量への相対symlinkだけを追加し、
 Validやラベルは配置しない。データ本体は元の `stock_comp_2026/input/` で保持する。
+この129対象ファイルとsnapshot内のmanifestは、旧FreezeをCIでも検証できるよう履歴資料としてGit管理する。
 
 新しいFreezeは提出ファイルと実験再現に必要な依存ファイルを明示列挙し、
 変化するワークスペース全体をglobで凍結しない。コードsnapshotをリリースに同梱し、
@@ -92,7 +93,7 @@ Validやラベルは配置しない。データ本体は元の `stock_comp_2026/
 コード・計画・設定・軽量レポート・manifestはGit管理、配布parquet・仮想環境・cache・
 新しい実行成果物・zipは `.gitignore` で除外する。既存Freezeの証拠は削除しない。
 releaseディレクトリ全体はignoreせず、manifest・文書・source snapshotを通常の `git add` で
-追跡できるようにする。zip、model/artifact directory、parquet等の生成データだけを個別に除外する。
+追跡できるようにする。zip、model/artifact directory、parquet等の新しい生成データだけを個別に除外する。
+DM-20260908の凍結snapshot内にある同形式のファイルは上記の履歴資料として扱う。
 新しい成果物のローカル保管先は `artifacts/` と `releases/`。これらはGitだけでは復元できないため、
 重要runとリリースはデータ配布物とともに別媒体にも保管する。
-現状はGit未初期化。`.gitignore` は導入済みで、初期化・初回コミットは別作業として行う。
