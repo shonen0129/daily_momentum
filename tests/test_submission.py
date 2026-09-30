@@ -1,8 +1,13 @@
 import numpy as np
 import pandas as pd
 from tests.test_causality import fixture_inputs
-import submission
-from features import smooth,build_momentum
+from tests.legacy_dm_trainonly import load_modules
+
+
+with load_modules() as _dm:
+    submission = _dm.submission
+    smooth = _dm.features.smooth
+    build_momentum = _dm.features.build_momentum
 
 
 def test_later_split_contract_using_only_synthetic_inputs(monkeypatch):

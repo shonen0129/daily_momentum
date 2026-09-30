@@ -65,7 +65,8 @@ def new_experiment(root, experiment_id, strategy):
     return destination
 
 
-def validate_experiment(root, folder, ready=False):
+def validate_experiment(root, folder, ready=False, *, allow_missing_artifacts=False,
+                        missing_artifact_references=None):
     meta = read_json(folder / 'experiment.json')
     if meta.get('schema_version') != 1 or meta.get('experiment_id') != folder.name:
         raise ValueError(f'{folder}: schema/experiment_id mismatch')
@@ -83,8 +84,18 @@ def validate_experiment(root, folder, ready=False):
         for item in references:
             if not isinstance(item, dict) or not isinstance(item.get('path'), str):
                 raise ValueError(f'{folder}: invalid diagnostic evidence reference')
+            expected = item.get('sha256')
+            if not isinstance(expected, str) or not re.fullmatch(r'[0-9a-f]{64}', expected):
+                raise ValueError(f'{folder}: invalid diagnostic evidence hash')
             path = inside(root, item['path'])
-            if not path.is_file() or digest(path) != item.get('sha256'):
+            if not path.is_file():
+                is_artifact = Path(item['path']).parts[:1] == ('artifacts',)
+                if allow_missing_artifacts and is_artifact:
+                    if missing_artifact_references is not None:
+                        missing_artifact_references.append(item['path'])
+                    continue
+                raise ValueError(f'{folder}: historical diagnostic evidence mismatch: {item["path"]}')
+            if digest(path) != expected:
                 raise ValueError(f'{folder}: historical diagnostic evidence mismatch: {item.get("path")}')
         return meta
     if meta.get('kind') == 'legacy':
@@ -174,9 +185,13 @@ def check_workspace(root):
             raise ValueError(f'Missing workspace path: {relative}')
     count = 0
     frozen_roots = {}
+    missing_artifact_references = []
     for folder in sorted((root / 'experiments').iterdir()):
         if folder.is_dir():
-            meta = validate_experiment(root, folder)
+            meta = validate_experiment(
+                root, folder, allow_missing_artifacts=True,
+                missing_artifact_references=missing_artifact_references,
+            )
             if 'freeze_root' in meta:
                 manifest_path = inside(root, meta['freeze_manifest'])
                 snapshot = inside(root, meta['freeze_root'])
@@ -195,7 +210,13 @@ def check_workspace(root):
                 if not target.is_file() or digest(target) != expected:
                     raise ValueError(f'Freeze mismatch: {relative}')
                 checked += 1
-    return f'PASS: {count} experiments; {checked} frozen file hashes; no input data opened'
+    result = f'PASS: {count} experiments; {checked} frozen file hashes; no input data opened'
+    if missing_artifact_references:
+        result += (
+            f'; {len(missing_artifact_references)} ignored diagnostic artifact references unavailable in this checkout: '
+            + ', '.join(missing_artifact_references)
+        )
+    return result
 
 
 def main():

@@ -1,1 +1,1 @@
-"""Project regression tests."""
+"""Repository test package for explicit cross-test imports."""

@@ -128,6 +128,55 @@ def test_archived_historical_diagnostic_is_auditable_but_cannot_be_rerun(tmp_pat
         validate_experiment(tmp_path, folder)
 
 
+def test_workspace_check_reports_missing_ignored_artifact_evidence(tmp_path):
+    required_dirs = (
+        'experiments', 'artifacts', 'reports/DM-20260928-01', 'releases',
+        'research/experiments', 'tests/workspace', 'tests/strategies',
+        'stock_comp_2026/strategies', 'docs/workspace', 'docs/strategies',
+    )
+    for relative in required_dirs:
+        (tmp_path / relative).mkdir(parents=True, exist_ok=True)
+    for relative in (
+        'WORKSPACE.md', 'docs/README.md', 'docs/workspace/architecture.md',
+        'docs/workspace/development_workflow.md', 'docs/strategies/momentum_liquidity.md',
+        'experiments/GRAVEYARD.md',
+    ):
+        (tmp_path / relative).write_text('synthetic workspace metadata')
+
+    folder = tmp_path / 'experiments/DM-20260928-01'
+    folder.mkdir()
+    result = tmp_path / 'reports/DM-20260928-01/decision.md'
+    result.write_text('Historical diagnostic decision.')
+    artifact_ref = 'artifacts/DM-20260928-01/run-20260928T103320Z/run.json'
+    metadata = {
+        'schema_version': 1,
+        'experiment_id': folder.name,
+        'kind': 'historical_diagnostic',
+        'status': 'archived',
+        'historical_valid_accessed': True,
+        'valid_is_holdout': False,
+        'rerunnable': False,
+        'references': [
+            {'path': 'reports/DM-20260928-01/decision.md', 'sha256': digest(result)},
+            {'path': artifact_ref, 'sha256': 'a' * 64},
+        ],
+    }
+    metadata_path = folder / 'experiment.json'
+    metadata_path.write_text(json.dumps(metadata))
+
+    with pytest.raises(ValueError, match='evidence mismatch'):
+        validate_experiment(tmp_path, folder)
+
+    checked = check_workspace(tmp_path)
+    assert '1 ignored diagnostic artifact references unavailable' in checked
+
+    artifact = tmp_path / artifact_ref
+    artifact.parent.mkdir(parents=True)
+    artifact.write_text('mismatched archived run')
+    with pytest.raises(ValueError, match='evidence mismatch'):
+        check_workspace(tmp_path)
+
+
 def test_check_detects_modified_frozen_evidence(tmp_path):
     for path in ('experiments', 'artifacts', 'reports/test', 'releases', 'research/experiments',
                  'tests/workspace', 'tests/strategies', 'stock_comp_2026/strategies', 'docs'):

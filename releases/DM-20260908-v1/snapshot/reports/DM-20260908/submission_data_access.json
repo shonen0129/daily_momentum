@@ -1,0 +1,9 @@
+{
+  "opened_parquets": [
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/beta_1day_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet",
+    "/Users/shonen/Library/Mobile Documents/com~apple~CloudDocs/\u500b\u5225\u682a/daily_momentum/stock_comp_2026/input/topix_return_1day_train.parquet"
+  ],
+  "valid_evaluation": false,
+  "raw_target_reads": false
+}

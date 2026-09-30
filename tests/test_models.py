@@ -1,8 +1,15 @@
 import numpy as np
 import pandas as pd
-from features import build_features, centered_rank
-from models import fit_predict_family, calibrated_oof, training_mask
+from tests.legacy_dm_trainonly import load_modules
 from tests.test_causality import fixture_inputs
+
+
+with load_modules() as _dm:
+    build_features = _dm.features.build_features
+    centered_rank = _dm.features.centered_rank
+    fit_predict_family = _dm.models.fit_predict_family
+    calibrated_oof = _dm.models.calibrated_oof
+    training_mask = _dm.models.training_mask
 
 
 def test_model_prediction_future_mutation_and_determinism():

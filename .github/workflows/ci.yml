@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  data-free-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11.15"
+          cache: pip
+          cache-dependency-path: requirements-research.txt
+      - name: Install fixed research and test dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements-research.txt
+      - name: Check workspace and frozen hashes
+        run: make check
+      - name: Run full pytest suite
+        run: make test
