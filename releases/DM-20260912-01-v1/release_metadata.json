@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "strategy_id": "DM-20260912-01-v1",
+  "freeze_manifest": "freeze_manifest.json",
+  "freeze_manifest_sha256": "c5d74949c7d670a79e2715b29827c986d812929c1f76c9e1b1be9d875e38daa6",
+  "valid_evaluation": "VALID_EVALUATION.md",
+  "valid_evaluated": true,
+  "valid_result_used_for_strategy_change": false
+}

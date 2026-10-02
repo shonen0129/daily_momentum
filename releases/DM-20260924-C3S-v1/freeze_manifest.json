@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "strategy_id": "DM-20260924-C3S-v1",
+  "frozen_on": "2026-09-24",
+  "frozen_before_valid_comparison": true,
+  "candidate": "C3S",
+  "baseline_release": "DM-20260908-v1",
+  "valid_history": "Previously accessed under DM-20260912-01-v1; evaluation is not independent OOS.",
+  "valid_evaluation_status_at_freeze": "not yet run for this release",
+  "submission_zip": "dm_c3s_submission.zip",
+  "code_sha256": {
+    "snapshot/submission/__init__.py": "b1af7c479be385c5ff72416f2d61b28c7e911f892511eaaa6ca46085ec661981",
+    "snapshot/submission/README.md": "535ed96b74f813bbe81bc350fa45865e94f99d81738c8210a6d8d41a61e8c7a4",
+    "snapshot/submission/features.py": "ed609df992dc896acdee89bca441f7599064ed77210fc217d48cf7b7d2a4cc1e",
+    "snapshot/submission/models.py": "bab067ce2b6e1603bfc35724976eed97dcf13ea4ec5150a832fbb6cf318afa75",
+    "snapshot/submission/submission.py": "5f677b8d684bb6d3d7cdcf4ad3e328090d009f583bde4059beef85887cc9e4b7",
+    "snapshot/submission/frozen_config.json": "6906644a77cb0de7e03b6d95939ad9637dc430a64f783153f42c08c040c8e2a2"
+  },
+  "submission_zip_sha256": "3a941803f5b8d49f14194c26b18fc6a3e92e6fdf0faf8ecf19caf435599272be",
+  "train_input_sha256": {
+    "raw_return_1day_train.parquet": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "beta_1day_train.parquet": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "topix_return_1day_train.parquet": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "prices_daily_quotes_train.parquet": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "pyarrow": "24.0.0"
+  }
+}

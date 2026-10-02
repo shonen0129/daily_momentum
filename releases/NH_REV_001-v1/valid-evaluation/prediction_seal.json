@@ -1,0 +1,10 @@
+{
+  "created_before_target_read": "2026-09-25T06:40:29.583308+00:00",
+  "sha256": {
+    "signal_stages.parquet": "2db6d34cc9f2b4e9d0a75b29e0023fde0688cd48171f84a8b9daeb89ad73821d",
+    "event_ranks.parquet": "06ba6ad0be8488c53da3224e1b370939a8b6aba3a83f2485a43f6957e59d7b1e",
+    "portfolio_weights.parquet": "be1326b93cb393e41739c86988a37786e6d5020108820adf7b43655a4b05c149",
+    "event_predictions.parquet": "c13e0a56b25225247245b360de957120d8abdc2aee0cb6b87e734ddeabdc8c14",
+    "predictions.parquet": "5929c975550a13b070c15bbf7710d7b0075ad987aca8179277cd55bd4ae093f7"
+  }
+}

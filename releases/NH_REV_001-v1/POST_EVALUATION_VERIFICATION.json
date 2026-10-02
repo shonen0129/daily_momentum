@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-09-25T06:42:29.172185+00:00",
+  "freeze_hashes": "PASS",
+  "prediction_seals": "PASS",
+  "required_machine_artifacts": "PASS",
+  "official_input_hashes": {
+    "raw_return_1day_train.parquet": "PASS",
+    "beta_1day_train.parquet": "PASS",
+    "topix_return_1day_train.parquet": "PASS",
+    "prices_daily_quotes_train.parquet": "PASS",
+    "target_1day_train.parquet": "PASS",
+    "raw_return_1day_valid.parquet": "PASS",
+    "beta_1day_valid.parquet": "PASS",
+    "topix_return_1day_valid.parquet": "PASS",
+    "prices_daily_quotes_valid.parquet": "PASS",
+    "target_1day_valid.parquet": "PASS"
+  },
+  "valid_portfolio_summary_absent": true,
+  "decision": "NO-GO",
+  "status": "CLOSED"
+}

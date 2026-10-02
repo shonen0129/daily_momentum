@@ -1,0 +1,16 @@
+{
+  "status": "failed_no_retry",
+  "stage": "valid_target_read_once",
+  "created_at_utc": "2026-09-27T06:45:31.934367+00:00",
+  "freeze_source_commit": "09920d4221594b961a5793be02baab9214382f4e",
+  "manifest_sha256": "a252dab98382694d6bb580fa0e1bfea965f0c22df077dbf45ec9b8fba2dc5a00",
+  "plan_sha256": "680b0a2b7c0b6e8de089cfeee530ffa3b155bd27705152b167943affce67da9d",
+  "candidate_ids": [
+    "D_LOW_FAST_ONLY",
+    "SIDE_SOURCE_SEPARATION"
+  ],
+  "valid_target_read_count": 1,
+  "valid_target_rows": 1227148,
+  "failure": "AssertionError: Paired daily accounts are not aligned",
+  "failed_at_utc": "2026-09-27T06:46:16.065617+00:00"
+}

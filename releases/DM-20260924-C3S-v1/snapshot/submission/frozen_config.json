@@ -1,0 +1,24 @@
+{
+  "strategy_id": "DM-20260924-C3S-v1",
+  "parent_experiment": "DM-20260924-01",
+  "candidate": "C3S",
+  "status": "research candidate; not an economic adoption decision",
+  "signal": "EWMA(alpha=0.25, 0.5*res60s1 + 0.5*prox250_split_safe)",
+  "res60s1": "rank of sum of preceding 60 observed residual-return rows; residual=raw_return-beta*topix_return; current row excluded",
+  "prox250_split_safe": "centered daily rank of Close divided by trailing maximum High, with raw High/Close divided by within-listing-segment cumulative product of observed non-unit AdjustmentFactor event multipliers; exactly 250 valid High observations required; window includes signal date t",
+  "relisting_reset": "reset rolling and EWMA state after more than 20 absent exchange-date ordinal steps",
+  "inputs": [
+    "raw_return_1day",
+    "beta_1day",
+    "topix_return_1day",
+    "prices_daily_quotes: High, Close, AdjustmentFactor"
+  ],
+  "valid_policy": "Freeze predates this release evaluation. Valid was previously accessed for DM-20260912-01-v1; this comparison is not independent OOS. Do not tune from it.",
+  "python": "3.11.15",
+  "libraries_inference": [
+    "numpy==2.4.6",
+    "pandas==3.0.3",
+    "pyarrow==24.0.0"
+  ],
+  "portfolio_cost_convention": "Official evaluator: five quintiles, one-way transaction cost 10 bps, annualization 252."
+}

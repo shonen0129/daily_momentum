@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260925-02",
+  "run_id": "run-20260925T063642Z",
+  "status": "completed",
+  "created_at_utc": "2026-09-25T06:36:42.003670+00:00",
+  "snapshot_sha256": {
+    "plan.md": "f104a1ac933d63fc54534610dc59c29712341033320a7f0c3693d661813ec84b",
+    "config.json": "75cddeb167a8b6c0534422d8fa46a1221dd9ceb69ae4a867b5a20d963b9c76cd",
+    "experiment.json": "dd02b724739e92689d1639464ce6681985ff5065b71341b460e9215a9e08cf9b"
+  },
+  "command": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/research/experiments/nh_rev.py",
+    "--config",
+    "artifacts/DM-20260925-02/run-20260925T063642Z/config.json",
+    "--output",
+    "artifacts/DM-20260925-02/run-20260925T063642Z"
+  ],
+  "code_sha256": {
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/research/experiments/nh_rev.py": "9a797df5cd0e1730e8334f5fad6b64b31d6fa11adedf2dbb35582c3ca6968f9a",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/strategies/dm_nh_rev/features.py": "8777a3e7c65f8e36ef9af03b30feb42c3c63427a0688eb1d34e1b1c05bad809a",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e"
+  },
+  "environment": {
+    "python": "3.11.13 (main, Aug 25 2026, 00:50:06) [Clang 21.0.0 (clang-2100.3.30.1)]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "platform": "macOS-27.2-arm64-arm-64bit"
+  },
+  "train_data_sha256": null,
+  "completed_at_utc": "2026-09-25T06:37:06.585011+00:00",
+  "exit_code": 0,
+  "actual_trials": 1,
+  "started_at_utc": "2026-09-25T06:36:50.053434+00:00",
+  "elapsed_seconds": 16.531908625009237,
+  "peak_rss_bytes": 1139343360,
+  "input_sha256": {
+    "raw_return_1day_train.parquet": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "beta_1day_train.parquet": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "topix_return_1day_train.parquet": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "prices_daily_quotes_train.parquet": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5"
+  },
+  "target_sha256": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16"
+}

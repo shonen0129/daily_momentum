@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "zip_prediction_parity": "bitwise, all Train rows",
+  "deterministic_replay": "bitwise",
+  "rows": 809636,
+  "columns": [
+    "Return"
+  ],
+  "index_names": [
+    "Date",
+    "Code"
+  ],
+  "elapsed_seconds_two_predictions": 2.781987415990443,
+  "peak_rss_bytes": 650166272,
+  "dependencies": [
+    "Python stdlib",
+    "numpy",
+    "pandas",
+    "parquet engine from official environment"
+  ],
+  "runtime_external_dependencies": false,
+  "target_read_during_inference": false,
+  "zip_sha256": "c4ae1e81c09951a734ae3aa0e39d28ab1d0a5574a09f65460ec544b023428460"
+}

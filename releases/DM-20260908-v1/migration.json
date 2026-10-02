@@ -1,0 +1,12 @@
+{
+  "strategy_id": "DM-20260908-v1",
+  "snapshot_root": "snapshot",
+  "original_manifest": "snapshot/reports/DM-20260908/freeze_manifest.json",
+  "original_manifest_sha256": "1daf6e2882edc5b4498d4928e0ae359134ad0ba10e50a1e748e4864f0e2971b2",
+  "frozen_files_verified": 129,
+  "additional_files_sha256": {
+    "stock_comp_2026/strategies/dm_trainonly/README.md": "8f4e05bc5c597441cd9ef8a907bde9c8f58fe97989f8838b37f4f0ac223216c9",
+    "docs/experiment_graveyard.md": "b2a5820aa7def298c1ac203a3e655342b2678170b2589620bca2f180fe2d7b94"
+  },
+  "input_policy": "Only three Train feature symlinks for zip smoke; distribution stays outside snapshot"
+}

@@ -1,0 +1,46 @@
+{
+  "status": "completed",
+  "split": "valid",
+  "freeze_manifest_sha256": "018c3bd0e3d68e3088de9a2946894bc9fd12327ac9b15d9fd778b9ef53f73f02",
+  "started_at_utc": "2026-09-25T06:40:20.163064+00:00",
+  "command": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/releases/NH_REV_001-v1/snapshot/research/experiments/nh_rev.py",
+    "--config",
+    "config.json",
+    "--output",
+    "../valid-evaluation",
+    "--valid",
+    "--freeze",
+    "..",
+    "--root",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum"
+  ],
+  "actual_trials": 1,
+  "environment": {
+    "python": "3.11.13 (main, Aug 25 2026, 00:50:06) [Clang 21.0.0 (clang-2100.3.30.1)]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "platform": "macOS-27.2-arm64-arm-64bit"
+  },
+  "completed_at_utc": "2026-09-25T06:40:31.879843+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 11.718518332985695,
+  "peak_rss_bytes": 1756348416,
+  "input_sha256": {
+    "raw_return_1day_train.parquet": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c",
+    "beta_1day_train.parquet": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551",
+    "topix_return_1day_train.parquet": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4",
+    "prices_daily_quotes_train.parquet": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5",
+    "raw_return_1day_valid.parquet": "02ac09a359d8e519691f980ce86dc8b6c7fb57cc0a7ca011302929cea1d1fed9",
+    "beta_1day_valid.parquet": "b186fc50d9ddcab59d283ea12eacd9f8893f826cc8aa340933d8ae1e77e656f9",
+    "topix_return_1day_valid.parquet": "8cc4c53fd75bdda8f9491c0c094195403f69e14f755c5cb2e6fff5ed84ae28eb",
+    "prices_daily_quotes_valid.parquet": "2483fa5fcd4d1fbac032ae779e8a26186297862ba75be6a7b41b1c8bbfc99c05"
+  },
+  "target_sha256": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64",
+  "code_sha256": {
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/releases/NH_REV_001-v1/snapshot/research/experiments/nh_rev.py": "9a797df5cd0e1730e8334f5fad6b64b31d6fa11adedf2dbb35582c3ca6968f9a",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/releases/NH_REV_001-v1/snapshot/stock_comp_2026/strategies/dm_nh_rev/features.py": "8777a3e7c65f8e36ef9af03b30feb42c3c63427a0688eb1d34e1b1c05bad809a",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/releases/NH_REV_001-v1/snapshot/research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e"
+  }
+}
