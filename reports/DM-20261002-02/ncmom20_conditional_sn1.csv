@@ -1,0 +1,6 @@
+SN1_score_quintile,days,mean_network_covered_names,mean_ncmom_rankic,ncmom_rankic_hac5_t,ncmom_rankic_hit_ratio,mean_ncmom_q5_minus_q1,ncmom_q5_minus_q1_hac5_t,ncmom_q5_minus_q1_positive_day_share,q_monotonicity_daily_share,mean_ncmom_q1,mean_ncmom_q2,mean_ncmom_q3,mean_ncmom_q4,mean_ncmom_q5
+1,0,2.18106995885,,,0,,,0,,,,,,
+2,0,1.94238683128,,,0,,,0,,,,,,
+3,0,1.1975308642,,,0,,,0,,,,,,
+4,184,4.67901234568,-0.000155279503106,-0.0047408022036,0.382716049383,-0.00200079938698,-1.01479462682,0.38683127572,0.0108695652174,0.00316759806338,0.00200200336525,0.000448808107179,0.000955965635529,0.0011667986764
+5,0,1,,,0,,,0,,,,,,

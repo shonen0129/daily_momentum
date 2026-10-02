@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-01",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_network_momentum",
+  "valid_evaluation": false,
+  "decision": "PIT INSUFFICIENT; stop before Phase 2",
+  "candidate_fits": 0,
+  "historical_valid_accessed": false,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "archive_outcome": "Phase 0/1 audit complete; no NCMOM diagnostics or candidate evaluation",
+  "references": [
+    {"path": "experiments/DM-20261002-01/plan.md"},
+    {"path": "experiments/DM-20261002-01/config.json"},
+    {"path": "experiments/DM-20261002-01/decision.md"},
+    {"path": "reports/DM-20261002-01/REPORT.md"}
+  ]
+}

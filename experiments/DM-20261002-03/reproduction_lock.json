@@ -1,0 +1,42 @@
+{
+  "archive_experiment_id": "DM-20261002-03",
+  "source_execution_experiment_id": "DM-20261002-02",
+  "lock_type": "post-result reproduction lock; original pre-result scope and lock are preserved as source_* files",
+  "created_after_outcome_access": true,
+  "reproduction_scope": "Recompute the same fixed 2025 NCMOM20 diagnostic to complete conditional RankIC for groups with n>=3; quintile spreads require n>=5. No signal, relation filter, sample, cost, or portfolio changes.",
+  "sha256": {
+    "plan": "54aedae77169b9c2b01f156e74ce1e87ef494a2374f4e5c3feaf57a9e4f8f99a",
+    "config": "fcf5e1fd688420dd5d4a5b73ea4a4bbf0b72ff057716bbda4bea3f47f7728ef8",
+    "script": "c52327075dc7e5688ad9c26fc4e3ab0e5e6b745b166ba857b6587b26c1acac0e",
+    "graph_m5": "d68ba3563d827cdfd06f66c7df9a7bc262ae666fb00c884e334b337fa19d8541",
+    "company_m4": "8c89278d79d6fbf4ab0100b16d0b687604fdb96a757d4479c50e8a6324ae4d5e",
+    "input_manifest": "62ec8e2f18b4523541c8f7623793f74eeed3f21af2c8ab43b74b1d71cf283c58",
+    "baseline": "3c77f02cc6c248917a0cae924603c2cba2c860b40b086551dfba0eef76916f23",
+    "selected_edges": "e2d6b7593f1385fc046a874c022bf5e21fcc15e27fffa8da567a12d88eedae26",
+    "graph_audit": "2a18f9e657efddbb96d62930626a293b09a8842dbe7106fc3fdcee2fbbfac345",
+    "code_mapping_audit": "f5c591f934ae7ef8847f6a73b223ff1076ce4c23c40f9fedab19148624f0dbfd"
+  },
+  "market_input_sha256_from_frozen_input_manifest": {
+    "listed_info_valid.parquet": "8598b1b3534c33996ff60fc2c101cee293a4ce5b4c23dc5590b4e8bce372ade7",
+    "raw_return_1day_valid.parquet": "02ac09a359d8e519691f980ce86dc8b6c7fb57cc0a7ca011302929cea1d1fed9",
+    "beta_1day_valid.parquet": "b186fc50d9ddcab59d283ea12eacd9f8893f826cc8aa340933d8ae1e77e656f9",
+    "topix_return_1day_valid.parquet": "8cc4c53fd75bdda8f9491c0c094195403f69e14f755c5cb2e6fff5ed84ae28eb",
+    "target_1day_valid.parquet": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64"
+  },
+  "source_pre_result_lock_sha256": "1e30e9d661437a9927f7b99e8bd834768e09aecc81ea06ede250662902038a98",
+  "source_recorded_pre_result_plan_sha256": "5eceb1429766e20c182838eed057db8e342a490c0dce2318c945cc976de0c79f",
+  "source_recorded_pre_result_config_sha256": "8fed7f9e03c5add7e51e5e73ef8c347fb3edc5b9f7a6106a3aa9c68cc4bb7f19",
+  "source_plan_reconstruction_sha256": "7cf8a3690f96f7713f626952ee3b9a6f2243ddd974bd99d5a6415fac775f47c5",
+  "source_config_copy_sha256": "8fed7f9e03c5add7e51e5e73ef8c347fb3edc5b9f7a6106a3aa9c68cc4bb7f19",
+  "raw_target_accessed": false,
+  "candidate_fits": 0,
+  "post_run_reporting_fixes": [
+    {
+      "script_sha256": "c52327075dc7e5688ad9c26fc4e3ab0e5e6b745b166ba857b6587b26c1acac0e",
+      "scope": "Conditional RankIC hit ratios now divide by dates with valid n>=3 observations; Q-spread hit ratios divide by valid n>=5 observations. No input, feature, edge filter, or portfolio changes."
+    }
+  ],
+  "archive_updates": [
+    "Archive note added after reproduction; locked feature, data and portfolio definitions are unchanged."
+  ]
+}

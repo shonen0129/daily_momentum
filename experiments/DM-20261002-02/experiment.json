@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-02",
+  "kind": "historical_diagnostic",
+  "status": "archived",
+  "strategy": "dm_network_momentum",
+  "valid_evaluation": false,
+  "decision": "MIXED; retain the first 2024 descriptive run as non-rerunnable history; canonical reconciled result is DM-20261002-04",
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "source_execution_experiment_id": "DM-20261002-02",
+  "archive_outcome": "First 2024 descriptive NCMOM20 run, written under an ID initially used for a 2025 diagnostic. Its pre_result_lock.json belongs to the 2025 spec; final reconciled 2024 archive is DM-20261002-04. Original 2025 materials are preserved under DM-20261002-03.",
+  "candidate_fits": 0,
+  "target_values_accessed": true,
+  "raw_target_accessed": false,
+  "pre_result_lock_matches_current_plan": false,
+  "references": [
+    {
+      "path": "experiments/DM-20261002-02/plan.md",
+      "sha256": "605c0d4aea433235de4403233be22d3b0f92a7d1b0d6e31c5936a1cc6e0c1a63"
+    },
+    {
+      "path": "experiments/DM-20261002-02/config.json",
+      "sha256": "4d058de4b5d27ff7099d3377c1b8520dfbd107a95d3ecdd91fc5c00d3265d2c3"
+    },
+    {
+      "path": "experiments/DM-20261002-02/decision.md",
+      "sha256": "d972dc0bc44c8165f8685190f3749d20b51af44225c1b059475212d6e83ca9a4"
+    },
+    {
+      "path": "experiments/DM-20261002-02/pre_result_lock.json",
+      "sha256": "1e30e9d661437a9927f7b99e8bd834768e09aecc81ea06ede250662902038a98"
+    },
+    {
+      "path": "research/experiments/ncmom20_current_graph_2024.py",
+      "sha256": "4e1437a65498905773973d2969795eacd510cf5873f6a177a9d1b875841c50f7"
+    },
+    {
+      "path": "reports/DM-20261002-02/REPORT.md",
+      "sha256": "61bfac7315fdac5ac12b6454e405bce79aa93d32592eac2c2042ab11af1f7b66"
+    },
+    {
+      "path": "reports/DM-20261002-02/audit/run_manifest.json",
+      "sha256": "0d2de5835474347a61dff70dd0a3c73bf935f219d6c3cd60ba0b2aa82ad39b22"
+    },
+    {
+      "path": "reports/DM-20261002-02/audit/official_accounting_parity.json",
+      "sha256": "05663ebf213be47ef2b487b12e84befc1c0cccc624136abc4083b479eb40dd71"
+    },
+    {
+      "path": "reports/DM-20261002-02/network_prefix_invariance.json",
+      "sha256": "d0bc2327a6b6ceddad7740f3eab6ee8745148faf34bf8e5807080135ceb728fd"
+    },
+    {
+      "path": "reports/DM-20261002-02/metrics/ncmom20_diagnostics.csv",
+      "sha256": "49c77d7a858492939c5908099af0ccfda9d1e70af707fd707e63e40e5909759b"
+    },
+    {
+      "path": "reports/DM-20261002-02/metrics/incremental_vs_matched_sn1.csv",
+      "sha256": "c2a5fe131ab510bbee041a4fd4af5bd9b25932a338163a80f5ad0fe8cca66f18"
+    }
+  ]
+}

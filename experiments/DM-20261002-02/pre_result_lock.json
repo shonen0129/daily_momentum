@@ -1,0 +1,63 @@
+{
+  "experiment_id": "DM-20261002-02",
+  "locked_at_utc": "2026-10-01T16:51:57Z",
+  "lock_state": "Research choices and edge selection frozen before outcome access; follow-up changes corrected execution/report calculations only and did not alter feature, filters, universe, horizon, cost, or portfolio rules.",
+  "window_inclusive": [
+    "2025-01-04",
+    "2025-12-30"
+  ],
+  "feature": "NCMOM20 equal-weight mean of confirmed primary-EDINET major_customer listed-list edges; 20 prior TOPIX residual returns ending t-1",
+  "graph_held_constant_from": "2026-09-22",
+  "mapped_edges": 609,
+  "unique_suppliers": 508,
+  "unique_customers": 259,
+  "sha256": {
+    "plan": "5eceb1429766e20c182838eed057db8e342a490c0dce2318c945cc976de0c79f",
+    "config": "8fed7f9e03c5add7e51e5e73ef8c347fb3edc5b9f7a6106a3aa9c68cc4bb7f19",
+    "script": "ae32e65320b67593778354d0c34e451faed85b826dd8ecb0baf35f9f7cc28c1e",
+    "graph_m5": "d68ba3563d827cdfd06f66c7df9a7bc262ae666fb00c884e334b337fa19d8541",
+    "company_m4": "8c89278d79d6fbf4ab0100b16d0b687604fdb96a757d4479c50e8a6324ae4d5e",
+    "input_manifest": "62ec8e2f18b4523541c8f7623793f74eeed3f21af2c8ab43b74b1d71cf283c58",
+    "baseline": "3c77f02cc6c248917a0cae924603c2cba2c860b40b086551dfba0eef76916f23",
+    "selected_edges": "e2d6b7593f1385fc046a874c022bf5e21fcc15e27fffa8da567a12d88eedae26",
+    "graph_audit": "2a18f9e657efddbb96d62930626a293b09a8842dbe7106fc3fdcee2fbbfac345",
+    "code_mapping_audit": "f5c591f934ae7ef8847f6a73b223ff1076ce4c23c40f9fedab19148624f0dbfd"
+  },
+  "market_input_sha256_from_frozen_input_manifest": {
+    "listed_info_valid.parquet": "8598b1b3534c33996ff60fc2c101cee293a4ce5b4c23dc5590b4e8bce372ade7",
+    "raw_return_1day_valid.parquet": "02ac09a359d8e519691f980ce86dc8b6c7fb57cc0a7ca011302929cea1d1fed9",
+    "beta_1day_valid.parquet": "b186fc50d9ddcab59d283ea12eacd9f8893f826cc8aa340933d8ae1e77e656f9",
+    "topix_return_1day_valid.parquet": "8cc4c53fd75bdda8f9491c0c094195403f69e14f755c5cb2e6fff5ed84ae28eb",
+    "target_1day_valid.parquet": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64"
+  },
+  "baseline_score_sha256": "3c77f02cc6c248917a0cae924603c2cba2c860b40b086551dfba0eef76916f23",
+  "raw_target_accessed": false,
+  "candidate_fits": 0,
+  "initial_attempt": {
+    "status": "failed_before_metric_output",
+    "reason": "Pandas Date key was both a column and an index level during daily grouping; no metrics were written or inspected",
+    "plan_config_graph_and_parameters_changed": false
+  },
+  "execution_fix_sha256": "ae32e65320b67593778354d0c34e451faed85b826dd8ecb0baf35f9f7cc28c1e",
+  "execution_attempts": [
+    {
+      "status": "failed_before_metric_output",
+      "reason": "Pandas Code key was both a column and an index level when deterministic tie-breaking sorted daily ranks; no metrics were written or inspected",
+      "plan_config_graph_and_parameters_changed": false
+    }
+  ],
+  "post_result_technical_fixes": [
+    {
+      "sha256": "21bd25593a1d6785c6ff0bc75486231e0821e0b270c3005f7b758a3d34d92b37",
+      "scope": "Correct paired-difference reporting so HAC t-statistics are recomputed on paired daily deltas instead of subtracting t-statistics; NCMOM feature, filters, portfolio, dates and cost unchanged."
+    },
+    {
+      "sha256": "e01de70628c8f6baafd9f0bb76845345da36e3fe839ac3ba692c27eafce00eec",
+      "scope": "Serialize summary JSON with strict nulls for unavailable values; results and research rules unchanged."
+    },
+    {
+      "sha256": "ae32e65320b67593778354d0c34e451faed85b826dd8ecb0baf35f9f7cc28c1e",
+      "scope": "Conditional RankIC now uses the mathematical minimum of three observations; conditional five-quintile spread requires five. This completes the locked SN1-conditional summary, with no selection or strategy rule changes."
+    }
+  ]
+}

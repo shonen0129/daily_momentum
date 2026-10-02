@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-02",
+  "strategy": "dm_network_momentum",
+  "data_split": "historical_valid_descriptive_2024",
+  "valid_evaluation": true,
+  "baseline": "Current post-ATR-correction SN1_H1; fit/reproduced from Train only, evaluated on exactly the requested 2024 target dates",
+  "random_seed": null,
+  "train_window": "Existing SN1_H1 fixed Train route; baseline models use Train feature rows and Train H1 target only",
+  "walk_forward_folds": [
+    {"year": 2024, "train": "reuse current frozen SN1_H1 training contract on Train only; no network candidate fit", "evaluation": "descriptive historical Valid target, 2024-01-04 through 2024-12-30 inclusive"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "One-year historical Valid diagnostic explicitly requested by the user. Already-open development data, not holdout/OOS. Do not promote or retune a strategy from this slice.",
+  "max_trials": 1,
+  "trials": [
+    {"trial_id": "CURRENT_GRAPH_NCMOM20_2024", "kind": "fixed descriptive backtest", "candidate_model_fits": 0, "comparison": "NCMOM20-only official covered-universe account versus SN1_H1 on the same covered rows; also show full-universe SN1_H1."}
+  ],
+  "feature_definitions": {
+    "graph": "M5/M4 2026.09 current snapshot held fixed across 2024 under the user's persistence assumption; confirmed listed supplier to listed major_customer edges only",
+    "residual_return": "raw_return_1day - beta_1day * topix_return_1day",
+    "NCMOM20": "Equal-weight average of each mapped customer's last 20 finite observed residual returns with dates strictly earlier than supplier signal date; require full 20-observation history, reset after a >20 exchange-date-position listing gap, average available linked customers, leave feature missing if none are available",
+    "missing": "Do not impute missing NCMOM20 to zero; use covered suppliers only for NCMOM quintile/account and matched SN1 comparison",
+    "code_mapping": "M4 securities_code (four-character issue code) + trailing 0, validated against the exact 2024 market input panel"
+  },
+  "model": "No NCMOM model or combined SN1_H1 candidate is fitted. Current SN1_H1 baseline is regenerated with the current fixed Train-only H1 route.",
+  "parameters": {
+    "customer_window_observations": 20,
+    "customer_window_min_periods": 20,
+    "customer_prior_shift": "strictly earlier than signal date",
+    "listing_gap_reset_market_dates": 20,
+    "one_way_cost": 0.001,
+    "annualization": 252,
+    "rankic_hac_lag": 5,
+    "period_start": "2024-01-04",
+    "period_end": "2024-12-30",
+    "graph_snapshot": "JP_Market_Vis M5/M4 2026.09 generated 2026-09-22"
+  },
+  "selection_rule": "No strategy selection or model adoption from this already-open one-year Valid diagnostic. Report the observed descriptive metrics and graph/PIT limitation.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

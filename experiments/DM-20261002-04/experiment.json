@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-04",
+  "kind": "historical_valid_descriptive_backtest",
+  "status": "completed",
+  "strategy": "dm_network_momentum",
+  "valid_evaluation": true,
+  "decision": "MIXED; no combined strategy candidate; current 2026 graph is non-PIT for 2024",
+  "candidate_fits": 0,
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": true,
+  "target_values_accessed": true,
+  "raw_target_accessed": false,
+  "archive_outcome": "Completed fixed NCMOM20 descriptive portfolio backtest over the requested 2024 period. No OOS or competition-use claim.",
+  "references": [
+    {
+      "path": "experiments/DM-20261002-04/plan.md",
+      "sha256": "29f4bad020b5a48c460f44de31c2ea8dcd7d312c1cb20518b2c3824a2dc40db7"
+    },
+    {
+      "path": "experiments/DM-20261002-04/config.json",
+      "sha256": "90f069049e3f8b2948ca653d593fabdc67850e581ccd1a2476faad89cdf16fbd"
+    },
+    {
+      "path": "experiments/DM-20261002-04/spec_hash_record.json",
+      "sha256": "95e3758dbaaaef40af336d5cc1684e1f8f394247b7e176b081f8f4399d392198"
+    },
+    {
+      "path": "experiments/DM-20261002-04/decision.md",
+      "sha256": "5352fcdda000a1ea77fd902cc0e4ec6f7b55e07b744c4d1c21ca79553d26ea51"
+    },
+    {
+      "path": "reports/DM-20261002-04/REPORT.md",
+      "sha256": "644872dd205344b88400299f240b2c70bdb428c8ceca8313d92eb513407afb8a"
+    },
+    {
+      "path": "reports/DM-20261002-04/audit/run_manifest.json",
+      "sha256": "e95725addf366bd4ebf8d51cb44b5ede28d31cf1dec4000598de20fbb9ef7f8b"
+    },
+    {
+      "path": "reports/DM-20261002-04/audit/official_accounting_parity.json",
+      "sha256": "05663ebf213be47ef2b487b12e84befc1c0cccc624136abc4083b479eb40dd71"
+    }
+  ]
+}

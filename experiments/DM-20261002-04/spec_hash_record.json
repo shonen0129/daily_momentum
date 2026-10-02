@@ -1,0 +1,18 @@
+{
+  "experiment_id": "DM-20261002-04",
+  "recorded_after_execution_due_to_experiment_id_collision": true,
+  "plan_and_config_sha256": {
+    "plan.md": "29f4bad020b5a48c460f44de31c2ea8dcd7d312c1cb20518b2c3824a2dc40db7",
+    "config.json": "90f069049e3f8b2948ca653d593fabdc67850e581ccd1a2476faad89cdf16fbd"
+  },
+  "fixed_choices": [
+    "current JP_Market_Vis 2026.09 M5/M4 graph held fixed over 2024 under the explicit persistence assumption",
+    "confirmed listed-to-listed major_customer edges, supplier to customer",
+    "customer momentum from the prior 20 observed residual returns, equal weighted",
+    "no imputation of missing NCMOM20 to zero; use covered suppliers only and matched SN1_H1 account",
+    "official five-quantile weights and one-way 10bp costs",
+    "one 2024 diagnostic, no NCMOM model fit or parameter search"
+  ],
+  "target_scope": "target_1day_valid rows 2024-01-04 through 2024-12-30 inclusive only",
+  "baseline_fit": "current SN1_H1 Train features and Train target only"
+}

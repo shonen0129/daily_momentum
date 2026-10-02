@@ -1,0 +1,51 @@
+{
+  "experiment_id": "DM-20261002-01",
+  "audit_date": "2026-10-02",
+  "scope": "Phase 0 competition-use audit and Phase 1 source/PIT feasibility only",
+  "baseline_index": {
+    "path": "artifacts/DM-20260927-04/run-20260927T101500Z/predictions/SN1_H1_train.parquet",
+    "sha256": "279607e9fdfc8ab48d61ddd1263be7cd2b281a6151c354bdeda5eda280b015be",
+    "file_rows": 809636,
+    "columns_read": ["Date", "Code"],
+    "other_columns_read": false
+  },
+  "competition_documents": {
+    "stock_comp_2026/README.md": "d3c64be74f68d059afd9f84de048c9144f152dd1d1725362bf26af871fcb1352",
+    "stock_comp_2026/input_data_explorer.ipynb": "64826030551aabe782fc4e0164b11f4bae8e951c42c054f38eddbac286c2dbcf",
+    "stock_comp_2026/input_manifest.json": "62ec8e2f18b4523541c8f7623793f74eeed3f21af2c8ab43b74b1d71cf283c58"
+  },
+  "environment": {
+    "python": "3.11.13",
+    "pandas": "3.0.3",
+    "pyarrow": "24.0.0"
+  },
+  "period_summary": {
+    "2011": {"signal_days": 245, "scored_stock_days": 107526},
+    "2012": {"signal_days": 248, "scored_stock_days": 109644},
+    "2013": {"signal_days": 245, "scored_stock_days": 110241},
+    "2014": {"signal_days": 244, "scored_stock_days": 112074},
+    "2015": {"signal_days": 244, "scored_stock_days": 113758},
+    "2016_partial_through_2016-03-31": {"signal_days": 61, "scored_stock_days": 28792},
+    "total_2011_2016": {"signal_days": 1287, "scored_stock_days": 582035}
+  },
+  "data_access": {
+    "target_values_read": false,
+    "raw_target_file_read": false,
+    "valid_input_parquet_read": false,
+    "valid_target_read": false,
+    "edinet_history_present_locally": false,
+    "jp_market_vis_relation_json_present_locally": false,
+    "edinet_api_key_configured": false,
+    "eligible_jmv_train_edges": 0,
+    "eligible_edge_count_basis": "Published source filing window is post-Train; current relation rows were not locally materialized"
+  },
+  "public_primary_sources_reviewed": [
+    "https://github.com/mattyamonaca/JP_Market_Vis",
+    "https://github.com/mattyamonaca/JP_Market_Vis/blob/main/pipeline/README.md",
+    "https://disclosure2dl.edinet-fsa.go.jp/guide/static/submit/WZEK0030.html",
+    "https://disclosure2dl.edinet-fsa.go.jp/guide/static/disclosure/WZEK0110.html",
+    "https://doshisha.repo.nii.ac.jp/records/2000820",
+    "https://arxiv.org/abs/2301.11394"
+  ],
+  "decision": "PIT INSUFFICIENT; no Phase 2/3 work"
+}

@@ -1,0 +1,10 @@
+{
+  "days": 245,
+  "max_abs_net_daily_error": 9.974659986866641e-17,
+  "max_abs_gross_daily_error": 9.974659986866641e-17,
+  "max_abs_cost_daily_error": 8.955509944730267e-17,
+  "max_abs_turnover_daily_error": 9.540979117872439e-17,
+  "quintile_rows_changed": 0,
+  "official_target_missing_stock_days": 137,
+  "status": "PASS"
+}

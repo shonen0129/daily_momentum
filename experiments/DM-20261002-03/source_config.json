@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-02",
+  "strategy": "dm_network_momentum",
+  "data_split": "historical_valid_diagnostic",
+  "valid_evaluation": false,
+  "baseline": "Saved fixed SN1_H1 historical-valid scores from DM-20260927-04; no refit or score changes",
+  "random_seed": 20261002,
+  "evaluation_window": "2025-01-04 through 2025-12-30 inclusive; 2025 historic Valid/development dates",
+  "walk_forward_folds": [],
+  "confirmation_policy": "One hindsight descriptive run under explicit current-graph stability assumption. Current 2026.09 graph is held constant across 2025; results are not PIT, independent OOS, candidate selection, or strategy adoption. One locked edge filter and NCMOM20 horizon; no rescue variants.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "STATIC_CURRENT_GRAPH_NCMOM20_2025",
+      "kind": "fixed retrospective descriptive backtest",
+      "candidate_fits": 0,
+      "comparison": "NCMOM20 and saved SN1_H1 rankings on identical network-covered issuer-days; NCMOM RankIC/Q5-Q1 within daily SN1 quintiles; matched-subset Q5-long/Q1-short diagnostics. No blended candidate."
+    }
+  ],
+  "feature_definitions": {
+    "graph_snapshot": "JP_Market_Vis M5_company_relations / M4_companies version 2026.09, generated 2026-09-22, held unchanged over 2025",
+    "relation": "Directed supplier -> customer major_customer only; confirmed status and at least one primary EDINET evidence; unique listed endpoint mapping; de-duplicate supplier/customer pairs",
+    "ncmom20": "Equal mean across mapped customers of 20 finite preceding market-session sums of raw_return - beta * TOPIX; window ends at t-1; no signal-day/future return; missing if no customer has a complete window",
+    "target": "Official target_1day_valid Return on same Date/Code index for descriptive historic-valid analysis; raw_target prohibited",
+    "missing": "No zero fill; missing customer histories excluded and customer/edge coverage reported",
+    "crosswalk": "M4 securities_code to per-date listed_info_valid Code with unique exact documented relation and consistent company-name match only; no fuzzy match"
+  },
+  "model": "None; no model fit or SN1 score blend",
+  "parameters": {
+    "signal_start": "2025-01-04",
+    "signal_end": "2025-12-30",
+    "graph_as_of": "2026-09-22",
+    "ncmom_lookback_sessions": 20,
+    "minimum_complete_customer_sessions": 20,
+    "portfolio_long_weight": 0.5,
+    "portfolio_short_weight": -0.5,
+    "portfolio_construction": "Daily equal-weight top-quintile long / bottom-quintile short on same network-covered names for each signal; first date invested from cash",
+    "transaction_cost_oneway": 0.001,
+    "turnover": "sum(abs(daily target weights - prior target weights)), initialized from cash",
+    "annualization": 252,
+    "hac_lags": 5,
+    "candidate_fits": 0,
+    "target_values_accessed_after_lock": true,
+    "raw_target_accessed": false,
+    "valid_is_holdout": false
+  },
+  "selection_rule": "No adoption or pass/reject decision. Report fixed descriptive results and coverage; 2025 historic Valid plus postdated graph prevent PIT/OOS claims.",
+  "annualization": 252
+}

@@ -1,0 +1,13 @@
+{
+  "fixed_current_graph": true,
+  "graph_future_mutation": "not applicable to relationship timing; current 2026 graph intentionally held fixed over 2025, making the run hindsight/non-PIT",
+  "feature_prefix_invariance": "PASS",
+  "future_return_mutation_prefix_invariance": "PASS",
+  "signal_date_return_exclusion": "PASS",
+  "deterministic_rebuild": "PASS",
+  "cutoff": "2025-06-30",
+  "ncmom_formula": "rolling 20 finite TOPIX-residual customer returns, sum, then shift by one market session before aggregation",
+  "limitations": [
+    "This verifies only return-timing behavior under a fixed graph; it does not validate historical relationship availability or persistence."
+  ]
+}

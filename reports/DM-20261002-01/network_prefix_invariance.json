@@ -1,0 +1,29 @@
+{
+  "experiment_id": "DM-20261002-01",
+  "status": "NOT_RUN_GATE_FAILED",
+  "as_of": "2026-10-02",
+  "train_only": true,
+  "valid_input_parquet_read": false,
+  "valid_target_read": false,
+  "raw_target_file_read": false,
+  "target_values_read": false,
+  "feature_builder_created": false,
+  "jmv_2026_snapshot_train_edge_exclusion": {
+    "status": "PASS_BY_DOCUMENTED_PUBLICATION_WINDOW",
+    "result": "zero eligible current-snapshot edges for 2011-2016 when publication date controls availability",
+    "limitation": "No relation JSON rows were locally materialized; the conclusion is based on the published snapshot/file date range, not a per-edge replay."
+  },
+  "tests": {
+    "relationship_publication_date_causality": "NOT_RUN_NO_HISTORICAL_EDGE_TABLE",
+    "future_relationship_mutation": "NOT_RUN_NO_FEATURE_BUILDER",
+    "future_return_mutation": "NOT_RUN_NO_FEATURE_BUILDER",
+    "feature_prefix_invariance": "NOT_RUN_NO_FEATURE_BUILDER",
+    "pit_code_mapping_consistency": "NOT_RUN_NO_HISTORICAL_CODE_CROSSWALK",
+    "train_valid_firewall_runtime": "NOT_RUN_NO_TRAIN_FEATURE_STAGE",
+    "target_maturity_purge": "NOT_APPLICABLE_NO_MODEL_FIT",
+    "no_current_or_future_return_in_ncmom20": "NOT_APPLICABLE_FEATURE_NOT_BUILT",
+    "deterministic_network_construction": "NOT_RUN_NO_NETWORK_CONSTRUCTION",
+    "deterministic_prediction": "NOT_APPLICABLE_NO_PREDICTION_ROUTE"
+  },
+  "decision": "PIT INSUFFICIENT; stop before Phase 2"
+}

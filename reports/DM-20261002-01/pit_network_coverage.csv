@@ -1,0 +1,7 @@
+year,period_status,signal_days,baseline_scored_stock_days,source_snapshot_as_of,jmv_snapshot_eligible_train_edges,jmv_supplier_coverage,jmv_stock_day_coverage,jmv_customer_price_coverage,interpretation
+2011,complete,245,107526,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"
+2012,complete,248,109644,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"
+2013,complete,245,110241,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"
+2014,complete,244,112074,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"
+2015,complete,244,113758,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"
+2016,partial_through_2016-03-31,61,28792,2026-09-21,0,0.0,0.0,0.0,"All current snapshot evidence is post-Train; 0 means excluded by availability rule, not no historical business links"

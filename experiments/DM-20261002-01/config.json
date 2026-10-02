@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-01",
+  "strategy": "dm_network_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Fixed SN1_H1; no SN1 feature, model, score, portfolio, cost, or submission contract changes",
+  "random_seed": 20261002,
+  "train_window": "Train signal dates 2011-01-01 through 2016-03-31; 2011-2015 complete, 2016 partial. Use saved SN1_H1 prediction index only for yearly coverage denominators.",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only"},
+    {"year": 2012, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only"},
+    {"year": 2013, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only"},
+    {"year": 2014, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only"},
+    {"year": 2015, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only"},
+    {"year": 2016, "train": "not applicable; no fitting", "evaluation": "PIT relation feasibility only through 2016-03-31 (partial)"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "One fixed Phase 0/1 source and PIT audit. No Valid, Valid target, raw-target, or target values accessed. No candidate fit. Current 2025-2026 relationship membership must never be back-applied. Train history is known development history, not independent OOS.",
+  "max_trials": 1,
+  "trials": [
+    {"trial_id": "PIT_SOURCE_FEASIBILITY", "kind": "fixed source/availability audit", "candidate_strategy_fits": 0, "comparison": "Check whether the available major_customer source can establish archived, publication-time PIT edges for the Train period; stop if not."}
+  ],
+  "feature_definitions": {
+    "audited_relation": "Only directed supplier -> major_customer edges; no reverse, undirected, or multi-hop propagation.",
+    "availability": "Use first conservative public filing timestamp. Fiscal period end is descriptive only. Date-only public time is conservatively available from the next Japanese trading session.",
+    "pit_requirement": "An edge is eligible at signal date t only when its public availability is no later than t and the relation status is not superseded, ended, ambiguous, or unknown.",
+    "current_snapshot_exclusion": "JP_Market_Vis 2026 snapshot data may be used for taxonomy/evidence-schema review only; its relationship rows are not applied to 2011-2016.",
+    "unrun_feature": "If and only if a future Phase 1 audit passes, one candidate may be proposed under a new experiment ID: equal-weight NCMOM20 = mean over PIT customers of sum of 20 daily customer residual returns dated t-20..t-1. This experiment did not calculate it."
+  },
+  "model": "None. Phase 0/1 source-feasibility audit only; no diagnostics, fitting, or portfolio evaluation.",
+  "parameters": {
+    "baseline_index": "artifacts/DM-20260927-04/run-20260927T101500Z/predictions/SN1_H1_train.parquet",
+    "baseline_index_columns_read": ["Date", "Code"],
+    "phase2_authorized_in_this_run": false,
+    "candidate_fits": 0,
+    "source_review_as_of": "2026-10-02"
+  },
+  "selection_rule": "Pass Phase 1 only with empirical archived PIT edges, documented first-public timestamps, PIT-consistent supplier/customer mappings, measured Train customer-price coverage, and a defensible non-permanent update/termination rule. Otherwise classify PIT INSUFFICIENT and stop. The audit did not satisfy this gate.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

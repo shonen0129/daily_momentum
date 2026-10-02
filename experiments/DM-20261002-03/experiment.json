@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-03",
+  "kind": "historical_diagnostic",
+  "status": "archived",
+  "strategy": "dm_network_momentum",
+  "valid_evaluation": false,
+  "decision": "MIXED; retrospective NCMOM20 did not establish robust incremental value over SN1_H1; no candidate or baseline change",
+  "historical_valid_accessed": true,
+  "valid_is_holdout": false,
+  "rerunnable": false,
+  "source_execution_experiment_id": "DM-20261002-02",
+  "archive_outcome": "Fixed 2025 diagnostic using a postdated current graph, archived separately after DM-20261002-02 was concurrently changed to a 2024 task; 2.22% basket coverage; costed diagnostic net negative.",
+  "candidate_fits": 0,
+  "target_values_accessed": true,
+  "raw_target_accessed": false,
+  "references": [
+    {
+      "path": "experiments/DM-20261002-03/plan.md",
+      "sha256": "54aedae77169b9c2b01f156e74ce1e87ef494a2374f4e5c3feaf57a9e4f8f99a"
+    },
+    {
+      "path": "experiments/DM-20261002-03/config.json",
+      "sha256": "fcf5e1fd688420dd5d4a5b73ea4a4bbf0b72ff057716bbda4bea3f47f7728ef8"
+    },
+    {
+      "path": "experiments/DM-20261002-03/decision.md",
+      "sha256": "1bc11bf49ca9c1c7e3870309b608e2adabdf88fb7f8ff66d9844e2d0b8a6e078"
+    },
+    {
+      "path": "experiments/DM-20261002-03/source_plan.md",
+      "sha256": "7cf8a3690f96f7713f626952ee3b9a6f2243ddd974bd99d5a6415fac775f47c5"
+    },
+    {
+      "path": "experiments/DM-20261002-03/source_config.json",
+      "sha256": "8fed7f9e03c5add7e51e5e73ef8c347fb3edc5b9f7a6106a3aa9c68cc4bb7f19"
+    },
+    {
+      "path": "experiments/DM-20261002-03/source_pre_result_lock.json",
+      "sha256": "1e30e9d661437a9927f7b99e8bd834768e09aecc81ea06ede250662902038a98"
+    },
+    {
+      "path": "experiments/DM-20261002-03/reproduction_lock.json",
+      "sha256": "a68a3b0ac7c5cecf68353bd3f17bdf85d1a144398b223cc88eba8d91a3df30af"
+    },
+    {
+      "path": "research/experiments/dm_network_momentum/static_graph_2025.py",
+      "sha256": "c52327075dc7e5688ad9c26fc4e3ab0e5e6b745b166ba857b6587b26c1acac0e"
+    },
+    {
+      "path": "reports/DM-20261002-03/REPORT.md",
+      "sha256": "76efc6063aa838ab9a3a3191f4d8194cb8626540548b85d2cd767e4dfd576616"
+    },
+    {
+      "path": "reports/DM-20261002-03/input_manifest.json",
+      "sha256": "286fdaa725bc246c9556380c03a8c5bb5ecd1e2d153454089e52e72d33f8e792"
+    },
+    {
+      "path": "reports/DM-20261002-03/code_mapping_audit.csv",
+      "sha256": "f5c591f934ae7ef8847f6a73b223ff1076ce4c23c40f9fedab19148624f0dbfd"
+    },
+    {
+      "path": "reports/DM-20261002-03/ncmom20_daily.csv",
+      "sha256": "765ef9270a06ad5aa2bc705ad123ef949b93e6db3d5e0adc91df9d359d7c5876"
+    },
+    {
+      "path": "reports/DM-20261002-03/ncmom20_diagnostics.csv",
+      "sha256": "e9e34f5b824cbff99cf7895f8105c2574722a92536a90a0796cc0b7df4b359ea"
+    },
+    {
+      "path": "reports/DM-20261002-03/ncmom20_vs_sn1_matched.csv",
+      "sha256": "b9529beaabd6a5be234cc650bfe954862446e17989044a64410007d74129545c"
+    },
+    {
+      "path": "reports/DM-20261002-03/ncmom20_yearly.csv",
+      "sha256": "f2b76a1a93394878b61d270e9ea033f3b3fdb9ae6ee1ae444d0c1a094a29b80a"
+    },
+    {
+      "path": "reports/DM-20261002-03/ncmom20_conditional_sn1.csv",
+      "sha256": "07b73fcc019ce46c5ae5cf9839fc68b61d84e1f9b37d14d2284c30fadada25a2"
+    },
+    {
+      "path": "reports/DM-20261002-03/network_prefix_invariance.json",
+      "sha256": "d0bc2327a6b6ceddad7740f3eab6ee8745148faf34bf8e5807080135ceb728fd"
+    },
+    {
+      "path": "artifacts/DM-20261002-03/static_graph_2025/selected_edges.csv",
+      "sha256": "e2d6b7593f1385fc046a874c022bf5e21fcc15e27fffa8da567a12d88eedae26"
+    },
+    {
+      "path": "artifacts/DM-20261002-03/static_graph_2025/graph_audit.json",
+      "sha256": "2a18f9e657efddbb96d62930626a293b09a8842dbe7106fc3fdcee2fbbfac345"
+    },
+    {
+      "path": "artifacts/DM-20261002-03/static_graph_2025/ncmom20_2025.parquet",
+      "sha256": "f1c04ec337ceb41db72cbfcce00fb6ec4778da4dfd9e7b1cf9ca284bc345d5db"
+    },
+    {
+      "path": "artifacts/DM-20261002-03/static_graph_2025/conditional_sn1_daily.csv",
+      "sha256": "a0cba11681326f1718d98722bdb7ff43c0ad5eb640fea335ee6867f8464675f0"
+    },
+    {
+      "path": "artifacts/DM-20261002-03/static_graph_2025/run_summary.json",
+      "sha256": "8a5378e2458d0192ae518b963a5557852b5cb9e77e08da7a5b54a974f04a0705"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+year,period_status,jmv_listed_listed_relation_reference_count,jmv_train_eligible_edges,baseline_scored_stock_days,supplier_code_pit_matches,customer_code_pit_matches,ambiguous_matches,unmatched_matches,code_mapping_status,notes
+2011,complete,656,0,107526,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"
+2012,complete,656,0,109644,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"
+2013,complete,656,0,110241,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"
+2014,complete,656,0,112074,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"
+2015,complete,656,0,113758,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"
+2016,partial_through_2016-03-31,656,0,28792,0,0,NA,NA,NOT_RUN,"656 is README reference count across current snapshot, not Train overlap; endpoint rows not locally available"

@@ -1,0 +1,73 @@
+{
+  "JP_Market_Vis": {
+    "repository": "https://github.com/mattyamonaca/JP_Market_Vis",
+    "relation_file": "public/M5_company_relations.json",
+    "company_file": "public/M4_companies.json",
+    "version": "2026.09",
+    "generated_at": "2026-09-22",
+    "dataset_id": "5278282db4948452a2fc50ec",
+    "M5_sha256": "d68ba3563d827cdfd06f66c7df9a7bc262ae666fb00c884e334b337fa19d8541",
+    "M4_sha256": "8c89278d79d6fbf4ab0100b16d0b687604fdb96a757d4479c50e8a6324ae4d5e",
+    "local_source_paths": [
+      "/private/tmp/DM-20261002-02-M5_company_relations.json",
+      "/private/tmp/DM-20261002-02-M4_companies.json"
+    ]
+  },
+  "competition_inputs": {
+    "split": "historical Valid/development; not holdout",
+    "input_manifest_path": "stock_comp_2026/input_manifest.json",
+    "input_manifest_sha256": "62ec8e2f18b4523541c8f7623793f74eeed3f21af2c8ab43b74b1d71cf283c58",
+    "hashes": {
+      "listed_info_valid.parquet": "8598b1b3534c33996ff60fc2c101cee293a4ce5b4c23dc5590b4e8bce372ade7",
+      "raw_return_1day_valid.parquet": "02ac09a359d8e519691f980ce86dc8b6c7fb57cc0a7ca011302929cea1d1fed9",
+      "beta_1day_valid.parquet": "b186fc50d9ddcab59d283ea12eacd9f8893f826cc8aa340933d8ae1e77e656f9",
+      "topix_return_1day_valid.parquet": "8cc4c53fd75bdda8f9491c0c094195403f69e14f755c5cb2e6fff5ed84ae28eb",
+      "target_1day_valid.parquet": "e91d4cbcebbd01d25e6028b5815a4d82cee733c8f521cfe487e3d8b09d82bd64"
+    },
+    "target_file_read": "target_1day_valid.parquet; Return column only; 2025 date window",
+    "raw_target_accessed": false
+  },
+  "baseline": {
+    "path": "artifacts/DM-20260927-04/run-20260927T101500Z/predictions/SN1_H1_historical_valid.parquet",
+    "sha256": "3c77f02cc6c248917a0cae924603c2cba2c860b40b086551dfba0eef76916f23",
+    "no_refit": true
+  },
+  "locked_selection": {
+    "pre_result_lock_path": "experiments/DM-20261002-02/pre_result_lock.json",
+    "pre_result_lock_sha256": "cfbc2c4c51ff493410fec429a26730359cad0df4230d2eb0f27ee0148563adbd",
+    "mapped_edges_sha256": "e2d6b7593f1385fc046a874c022bf5e21fcc15e27fffa8da567a12d88eedae26",
+    "graph_audit_sha256": "2a18f9e657efddbb96d62930626a293b09a8842dbe7106fc3fdcee2fbbfac345",
+    "edges": 609,
+    "suppliers": 508,
+    "customers": 259
+  },
+  "implementation": {
+    "script": "research/experiments/dm_network_momentum/static_graph_2025.py",
+    "script_sha256": "e01de70628c8f6baafd9f0bb76845345da36e3fe839ac3ba692c27eafce00eec",
+    "command": ".venv/bin/python tools/run_bounded.py --seconds 1800 .venv/bin/python research/experiments/dm_network_momentum/static_graph_2025.py run",
+    "exit_code": 0,
+    "candidate_fits": 0
+  },
+  "environment": {
+    "python": "3.11.13",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "pyarrow": "24.0.0",
+    "scipy": "1.17.1"
+  },
+  "artifacts": {
+    "reports/DM-20261002-02/code_mapping_audit.csv": "f5c591f934ae7ef8847f6a73b223ff1076ce4c23c40f9fedab19148624f0dbfd",
+    "reports/DM-20261002-02/ncmom20_daily.csv": "765ef9270a06ad5aa2bc705ad123ef949b93e6db3d5e0adc91df9d359d7c5876",
+    "reports/DM-20261002-02/ncmom20_diagnostics.csv": "e9e34f5b824cbff99cf7895f8105c2574722a92536a90a0796cc0b7df4b359ea",
+    "reports/DM-20261002-02/ncmom20_vs_sn1_matched.csv": "b9529beaabd6a5be234cc650bfe954862446e17989044a64410007d74129545c",
+    "reports/DM-20261002-02/ncmom20_yearly.csv": "f2b76a1a93394878b61d270e9ea033f3b3fdb9ae6ee1ae444d0c1a094a29b80a",
+    "reports/DM-20261002-02/ncmom20_conditional_sn1.csv": "c6a1a697760961754a807ec6bc8244e03e1ba7560c86e1880cc42f89cb3d6623",
+    "reports/DM-20261002-02/network_prefix_invariance.json": "d0bc2327a6b6ceddad7740f3eab6ee8745148faf34bf8e5807080135ceb728fd",
+    "reports/DM-20261002-02/REPORT.md": "9d570be446576868f2b2a6bc69334dd4783694608efbe900be36a6aab1faf119",
+    "artifacts/DM-20261002-02/static_graph_2025/selected_edges.csv": "e2d6b7593f1385fc046a874c022bf5e21fcc15e27fffa8da567a12d88eedae26",
+    "artifacts/DM-20261002-02/static_graph_2025/graph_audit.json": "2a18f9e657efddbb96d62930626a293b09a8842dbe7106fc3fdcee2fbbfac345",
+    "artifacts/DM-20261002-02/static_graph_2025/ncmom20_2025.parquet": "f1c04ec337ceb41db72cbfcce00fb6ec4778da4dfd9e7b1cf9ca284bc345d5db",
+    "artifacts/DM-20261002-02/static_graph_2025/conditional_sn1_daily.csv": "1948d637311953144e4f78d19d0fee2522de0822f3d88af756fa3d10a1b92ff8",
+    "artifacts/DM-20261002-02/static_graph_2025/run_summary.json": "8a5378e2458d0192ae518b963a5557852b5cb9e77e08da7a5b54a974f04a0705"
+  }
+}

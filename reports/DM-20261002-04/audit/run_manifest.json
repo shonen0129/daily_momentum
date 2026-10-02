@@ -1,0 +1,181 @@
+{
+  "experiment_id": "DM-20261002-04",
+  "run_id": "current_graph_2024_descriptive",
+  "state": "completed",
+  "period": {
+    "start_inclusive": "2024-01-04",
+    "end_inclusive": "2024-12-30",
+    "signal_dates": 245
+  },
+  "valid_target_access": {
+    "file": "stock_comp_2026/input/target_1day_valid.parquet",
+    "rows_read": 121087,
+    "date_filter": [
+      "2024-01-04",
+      "2024-12-30"
+    ],
+    "raw_target_read": false,
+    "other_valid_target_dates_read": false
+  },
+  "baseline": {
+    "id": "SN1_H1",
+    "code": "current dm_variable_box_breakout code after split-safe ATR correction",
+    "model_fit_data": "Train target and Train feature rows only",
+    "valid_prices_after_end_read": false,
+    "prediction_rows": 121087,
+    "prediction_index_exactly_aligned": true,
+    "target_nonmissing_stock_days": 120950,
+    "target_missing_stock_days": 137,
+    "target_coverage": 0.9988685820938664
+  },
+  "network_assumption": "M5 2026.09 current major_customer graph held fixed through 2024; not PIT and not submission-usable evidence",
+  "network_snapshot": {
+    "m5_path": "/private/tmp/jp_market_m5.json",
+    "m4_path": "/private/tmp/jp_market_m4.json",
+    "m5_sha256": "d68ba3563d827cdfd06f66c7df9a7bc262ae666fb00c884e334b337fa19d8541",
+    "m4_sha256": "8c89278d79d6fbf4ab0100b16d0b687604fdb96a757d4479c50e8a6324ae4d5e"
+  },
+  "inputs": {
+    "valid_date_filter_inclusive_end": "2024-12-30",
+    "files": {
+      "raw_return_1day_train.parquet": {
+        "source": "stock_comp_2026/input/raw_return_1day_train.parquet",
+        "mode": "Train input; baseline fitting only",
+        "sha256": "0cd61264af2f455cf3e177b5c0464b523c88f9a6123bc57bede7c6dcb7f1158c"
+      },
+      "raw_return_1day_valid.parquet": {
+        "source": "stock_comp_2026/input/raw_return_1day_valid.parquet",
+        "mode": "feature input, rows Date <= 2024-12-30",
+        "rows": 1036755,
+        "max_date": "2024-12-30",
+        "sha256_projected": "02e44d61686f1bd8be6ab898f10c7cfdeeb4d9ce6b9cdfd4879cd210a68c8ff6"
+      },
+      "beta_1day_train.parquet": {
+        "source": "stock_comp_2026/input/beta_1day_train.parquet",
+        "mode": "Train input; baseline fitting only",
+        "sha256": "0294d5032f151bf28e06a2e890704a080c9aebb326673f864541892095167551"
+      },
+      "beta_1day_valid.parquet": {
+        "source": "stock_comp_2026/input/beta_1day_valid.parquet",
+        "mode": "feature input, rows Date <= 2024-12-30",
+        "rows": 1036755,
+        "max_date": "2024-12-30",
+        "sha256_projected": "7778e8764130fca17ce9976aac5481ca5ef6f4b015d99f62343212b240806a36"
+      },
+      "topix_return_1day_train.parquet": {
+        "source": "stock_comp_2026/input/topix_return_1day_train.parquet",
+        "mode": "Train input; baseline fitting only",
+        "sha256": "1b680ff903c6ee42ec5812a78ad46314273e4c9caffbf729a6c247b22a0047d4"
+      },
+      "topix_return_1day_valid.parquet": {
+        "source": "stock_comp_2026/input/topix_return_1day_valid.parquet",
+        "mode": "feature input, rows Date <= 2024-12-30",
+        "rows": 2139,
+        "max_date": "2024-12-30",
+        "sha256_projected": "1db13657b8c09bb92bd7e546019eb97f4c0a4dd8d72c3bf4008da24d8eae04d5"
+      },
+      "prices_daily_quotes_train.parquet": {
+        "source": "stock_comp_2026/input/prices_daily_quotes_train.parquet",
+        "mode": "Train input; baseline fitting only",
+        "sha256": "9b29e69925660d376e6d30c70d3a8db8379f414745898aed8b864634dd7686a5"
+      },
+      "prices_daily_quotes_valid.parquet": {
+        "source": "stock_comp_2026/input/prices_daily_quotes_valid.parquet",
+        "mode": "feature input, rows Date <= 2024-12-30",
+        "rows": 1036755,
+        "max_date": "2024-12-30",
+        "sha256_projected": "ce15c3ad21b79f6b110f529af83ff61de7c37c63ec6f3f7f5aa842019c6464a7"
+      }
+    },
+    "train_target": {
+      "source": "stock_comp_2026/input/target_1day_train.parquet",
+      "mode": "Train-only labels for fixed baseline reproduction",
+      "sha256": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16"
+    }
+  },
+  "code_sha256": {
+    "research/experiments/ncmom20_current_graph_2024.py": "4e1437a65498905773973d2969795eacd510cf5873f6a177a9d1b875841c50f7",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/features.py": "d2e4adba62a3c0497d36241c5fde8d7709e727ad7c9b2a01842809964adf46e3",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/bidirectional.py": "7cec7be6d45bfba9debee9c07af6d6abf5229961014654de17b23b88b145e287",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/sn1.py": "55f95ab669e506d61a1d20442efe9b266b56ab14737a7d46b666fee7c0f9c7ae",
+    "stock_comp_2026/strategies/dm_variable_box_breakout/submission.py": "943feac6a150148cd162b7ba96adff343de8643c2940343be307aae5649dfa32"
+  },
+  "python": "3.12.11 (main, Jun 27 2025, 16:11:50) [Clang 17.0.0 (clang-1700.3.9.908)]",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.3.2",
+  "pandas": "2.3.0",
+  "graph_and_coverage": {
+    "m5_version": "2026.09",
+    "m5_generated_at": "2026-09-22",
+    "m5_dataset_id": "5278282db4948452a2fc50ec",
+    "m4_version": "2026.09",
+    "m4_generated_at": "2026-09-22",
+    "total_relations": 93223,
+    "major_customer_all_status": 2369,
+    "major_customer_confirmed_listed_to_listed": 652,
+    "mapped_confirmed_listed_to_listed_edges_before_dedup": 652,
+    "deduplicated_mapped_edges": 652,
+    "unmapped_confirmed_listed_to_listed_edges": 0,
+    "mapping_failure_examples": [],
+    "m4_security_code_collisions": 0,
+    "mapped_supplier_codes_present_in_2024_price_panel": 17,
+    "mapped_customer_codes_present_in_2024_price_panel": 493,
+    "edges_with_as_of_after_2024": 652,
+    "edges_with_no_as_of": 0,
+    "edge_evidence_has_published_timestamp": false,
+    "mapped_edges_with_supplier_in_target_panel": 17,
+    "mapped_edges_with_customer_price_history": 493,
+    "unique_mapped_graph_suppliers_in_target_panel": 14,
+    "unique_target_suppliers_with_at_least_one_mapped_customer": 14,
+    "customer_to_supplier_covered_stock_days": 2695,
+    "official_target_stock_days": 121087,
+    "customer_to_supplier_stock_day_coverage": 0.02225672450386912,
+    "covered_supplier_count_2024": 11,
+    "target_supplier_count_2024": 496,
+    "mean_customer_count_when_covered": 1.2727272727272727,
+    "mean_total_graph_customers_for_panel_suppliers": 0.034274193548387094
+  },
+  "network_prefix_invariance": {
+    "diagnostic_scope": "fixed M5 2026.09 graph and 2024 price/target window",
+    "deterministic_network_feature_replay": "PASS",
+    "future_return_mutation_prefix_invariance": {
+      "status": "PASS",
+      "cutoff_inclusive": "2024-06-28",
+      "future_residual_rows_mutated": 61750,
+      "feature_rows_compared_through_cutoff": 59280,
+      "features_checked": [
+        "ncmom20",
+        "own_rs60",
+        "reverse_supplier_mom20"
+      ],
+      "max_abs_difference": 0.0,
+      "prefix_unchanged": true
+    },
+    "relationship_publication_causality": "NOT_PIT_SAFE_BY_USER_REQUESTED_FIXED_GRAPH_ASSUMPTION",
+    "relationship_reason": "The 2026 snapshot is applied to 2024; edge evidence has as_of but no published timestamp, and the current source provides no 2024-vintage graph. No PIT relationship-mutation pass is claimed.",
+    "edges_with_as_of_after_2024": 652,
+    "mapped_current_edges": 652
+  },
+  "correlation_summary": {
+    "mean_daily_spearman_ncmom20_own_rs60": 0.1066433895045309,
+    "mean_daily_spearman_ncmom20_sn1_h1": -0.046618130337900424,
+    "median_daily_spearman_ncmom20_own_rs60": 0.10933969141876927,
+    "median_daily_spearman_ncmom20_sn1_h1": -0.027334922854692318
+  },
+  "output_sha256": {
+    "code_mapping_audit.csv": "37b31e98b8c3860253c73c0b3107836ddab4593eab2c5877c0f0f1d379339d82",
+    "daily_account_2024.csv": "eb6ca17ceedaf6bc0a270d1979130234a66f29733229cfcdd805f498d099599c",
+    "direction_sanity_check.csv": "598f1c7e21a24f23e3d20605514c937af9c2f19bbdd838534e0e60c4d28bdd84",
+    "incremental_vs_matched_sn1.csv": "c2a5fe131ab510bbee041a4fd4af5bd9b25932a338163a80f5ad0fe8cca66f18",
+    "ncmom20_conditional_rs60.csv": "21ff92204803b480f959ed2742b4b88074b1933b43736f35657a575e5315d9b9",
+    "ncmom20_conditional_sn1.csv": "75e06c81e354319884ac460f0c916450c305121fde6c30d8675e248c226da85c",
+    "ncmom20_daily_correlations.csv": "fa3b6671ea92178db3a765aaf5f3dffac97335f2371396a090f61265d03e4220",
+    "ncmom20_diagnostics.csv": "49c77d7a858492939c5908099af0ccfda9d1e70af707fd707e63e40e5909759b",
+    "ncmom20_yearly.csv": "0742ca1462706780a7e2da4981c80fd886b014fce9852a9f7d970c2581595694",
+    "network_coverage_daily.csv": "f29197eafb0fba622b7aee4d12b3695ace00842ef696256fa74e4cbbae083dab",
+    "prediction_panel_2024.parquet": "1d35dcd12cc0e9c04f1b4038c3043fe80e9306bd4cfbc2805687091273fbf000"
+  },
+  "elapsed_seconds": 34.438
+}

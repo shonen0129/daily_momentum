@@ -1,0 +1,7 @@
+year,period_status,train_available_edges,age_mean_days,age_median_days,age_p90_days,new_edges,continued_edges,ended_edges,successor_disclosure_rate,notes
+2011,complete,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"
+2012,complete,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"
+2013,complete,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"
+2014,complete,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"
+2015,complete,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"
+2016,partial_through_2016-03-31,0,NA,NA,NA,NA,NA,NA,NA,"Not estimable: no eligible JMV edges; historical EDINET successor filings were not extracted"

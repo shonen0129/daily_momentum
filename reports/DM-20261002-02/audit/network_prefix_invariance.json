@@ -1,0 +1,21 @@
+{
+  "diagnostic_scope": "fixed M5 2026.09 graph and 2024 price/target window",
+  "deterministic_network_feature_replay": "PASS",
+  "future_return_mutation_prefix_invariance": {
+    "status": "PASS",
+    "cutoff_inclusive": "2024-06-28",
+    "future_residual_rows_mutated": 61750,
+    "feature_rows_compared_through_cutoff": 59280,
+    "features_checked": [
+      "ncmom20",
+      "own_rs60",
+      "reverse_supplier_mom20"
+    ],
+    "max_abs_difference": 0.0,
+    "prefix_unchanged": true
+  },
+  "relationship_publication_causality": "NOT_PIT_SAFE_BY_USER_REQUESTED_FIXED_GRAPH_ASSUMPTION",
+  "relationship_reason": "The 2026 snapshot is applied to 2024; edge evidence has as_of but no published timestamp, and the current source provides no 2024-vintage graph. No PIT relationship-mutation pass is claimed.",
+  "edges_with_as_of_after_2024": 652,
+  "mapped_current_edges": 652
+}
