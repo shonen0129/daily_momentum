@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261001-03",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Current SN1_H1 after split-date ATR correction; fixed annual expanding Ridge predictions, official quintiles/weights, and official H1 Train target. Current and independent routes must bitwise match saved current and DM-20260930-02 streams.",
+  "random_seed": 20260928,
+  "train_window": "Train only, 2008-11-04 through 2016-03-31; descriptive evaluation years 2011-2016, where 2016 is partial.",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target in calendar 2011"},
+    {"year": 2012, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target in calendar 2012"},
+    {"year": 2013, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target in calendar 2013"},
+    {"year": 2014, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target in calendar 2014"},
+    {"year": 2015, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target in calendar 2015"},
+    {"year": 2016, "train": "reuse existing baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic fit", "evaluation": "reproduced SN1_H1 and official Train H1 target through 2016-03-31 (partial)"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All periods are known Train development history. No Valid/raw-target access, strategy change, candidate score, candidate fit, freeze, external submission, or OOS claim. Phase 1 is fixed attribution only; Phase 2 requires a new experiment ID.",
+  "max_trials": 1,
+  "trials": [
+    {"trial_id": "SOURCE_MAGNITUDE_VOL20_ATTRIBUTION", "kind": "fixed descriptive diagnostic only", "candidate_strategy_fits": 0, "comparison": "Describe unchanged SN1_H1 ranking quality and official portfolio accounting over the frozen selected-source × score-magnitude × VOL20 cells."}
+  ],
+  "feature_definitions": {
+    "selected_source": "Existing SN1 contract: Low if low_state<0; else High if low_state==0 and high_state>0; else D fallback. Reconstruct from Train baseline only.",
+    "score_magnitude": "Near-zero iff abs(score)<1e-12; Non-near-zero iff abs(score)>=1e-12.",
+    "vol20": "Exact DM-20261001-02 definition: sample SD (ddof=1) of raw_return_1day - PIT beta_1day * TOPIX return over prior 20 stock observations ending t-1, with existing features.segment_keys reset and exactly 20 finite observations; no imputation.",
+    "vol_quintile": "Within signal date average percentile rank among finite VOL20; q=clip(ceil(5*pct)-1,0,4), V1 lowest to V5 highest.",
+    "age_and_renewal": "Existing fixed Train reconstruction buckets only: event_age (event_day, age_1_4, age_5_plus, no_prior_event_in_segment), sleeve_age (under_20, 20_plus, not_held), recent same-side renewal (recurrent_same_side, single_same_side, no_recent_same_side). No new thresholds.",
+    "boundary_sensitivity": "Reuse 1e-12 * full daily score SD * BLAKE2b(Code, digest_size=8, key=SN1-20260928) mapped to [-0.5,0.5); no perturbation search.",
+    "forbidden": ["score change", "source-specific adjustment", "volatility adjustment", "filter/veto", "clipping", "rescaling", "threshold optimization", "candidate refit", "portfolio membership change"]
+  },
+  "model": "No diagnostic model is fit. Replay the unchanged annual expanding Ridge SN1_H1 route only to reproduce the saved baseline; all subgroup results are descriptive attribution.",
+  "parameters": {
+    "volatility_window_observations": 20,
+    "volatility_min_periods": 20,
+    "volatility_ddof": 1,
+    "prior_shift_observations": 1,
+    "one_way_cost": 0.001,
+    "annualization": 252,
+    "rankic_hac_lag": 5,
+    "near_zero_abs_score_threshold": 1e-12,
+    "tiny_perturbation_daily_sd_multiplier": 1e-12,
+    "tiny_perturbation_blake2b_key": "SN1-20260928",
+    "future_mutation_cutoffs": ["2012-06-29", "2014-06-30", "2015-06-30"]
+  },
+  "selection_rule": "Descriptive label only. SUPPORT iff High or Low selected source independently shows both pooled non-near-zero V1>V5 and near-zero V5>=V1 on RankIC and Q5-Q1 spread, and the corresponding directional ordering holds in at least 3 of 5 complete years (2011-2015). MIXED iff any pooled comparison has its preregistered direction but the paired/year-stability rule fails or RankIC and spread conflict. NOT SUPPORTED iff neither High nor Low has the paired pooled reversal. Report all values; no label authorizes a candidate within this run.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

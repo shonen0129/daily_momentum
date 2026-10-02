@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261001-02",
+  "strategy": "dm_variable_box_breakout",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Current SN1_H1 after split-date ATR correction; fixed score, annual expanding Ridge predictions, official quintiles/weights, target, and 10 bp one-way cost. Reproduce through current and independent code paths and match saved current and DM-20260930-02 score streams before diagnosis.",
+  "random_seed": 20260928,
+  "train_window": "Train only, 2008-11-04 through 2016-03-31; diagnostic account/evaluation uses existing expanding SN1_H1 prediction years 2011 through 2016 (2016 is partial).",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in calendar 2011"},
+    {"year": 2012, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in calendar 2012"},
+    {"year": 2013, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in calendar 2013"},
+    {"year": 2014, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in calendar 2014"},
+    {"year": 2015, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in calendar 2015"},
+    {"year": 2016, "train": "reuse baseline annual expanding fit with two-position H1 label maturity purge; no diagnostic model", "evaluation": "existing SN1_H1 Train predictions and official H1 targets in 2016 through 2016-03-31 (partial)"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All periods are known Train development history. No Valid evaluation, Valid target, raw-target access, candidate score, freeze, or external submission. Phase 1 is a fixed descriptive diagnostic; Phase 2 requires a new experiment ID.",
+  "max_trials": 1,
+  "trials": [
+    {"trial_id": "VOL20_PHASE1_DIAGNOSTIC", "kind": "fixed diagnostic only", "candidate_strategy_fits": 0, "comparison": "Describe unmodified SN1_H1 quality and official portfolio attribution over fixed prior-only residual-volatility quintiles V1-V5."}
+  ],
+  "feature_definitions": {
+    "new_diagnostic_variable": "VOL20[i,t] = sample standard deviation (ddof=1) of residual returns over the previous 20 stock observations ending at t-1.",
+    "residual_return": "raw_return_1day_train[i,tau] - beta_1day_train[i,tau] * topix_return_1day_train[tau], aligned on signal date using the current PIT input definitions.",
+    "listing_gap": "Use stock_comp_2026.strategies.dm_variable_box_breakout.features.segment_keys unchanged; rolling state resets after a gap greater than 20 market-date positions.",
+    "rolling": "Shift residual series one stock observation before rolling(window=20,min_periods=20); sample standard deviation ddof=1. No imputation; unavailable VOL20 rows excluded from V1-V5 and reported as VOL_MISSING for portfolio attribution.",
+    "cross_sectional_rank": "Within each signal date, average percentile rank over finite VOL20 only; quintile = clip(ceil(5 * percentile_rank) - 1, 0, 4), labeled V1 lowest through V5 highest.",
+    "score_magnitude": "Fixed near-zero split abs(SN1_H1 score) < 1e-12 versus >= 1e-12; no threshold search.",
+    "boundary_sensitivity": "Reuse deterministic Code perturbation: score + 1e-12 * daily cross-sectional score SD * u(Code), where u uses BLAKE2b digest_size=8 and key SN1-20260928; no magnitude or ordering search.",
+    "forbidden": ["score adjustment", "quintile/weight change", "volatility filter", "score/vol", "score shrinkage", "alternate volatility window/definition", "threshold search", "regression neutralization", "candidate fit"]
+  },
+  "model": "No model is fit for the diagnostic. Use exactly reproduced current SN1_H1 scores and official H1 Train targets; official portfolio membership and weights remain unchanged.",
+  "parameters": {
+    "volatility_window_observations": 20,
+    "volatility_min_periods": 20,
+    "volatility_ddof": 1,
+    "prior_shift_observations": 1,
+    "one_way_cost": 0.001,
+    "annualization": 252,
+    "rankic_hac_lag": 5,
+    "near_zero_abs_score_threshold": 1e-12,
+    "tiny_perturbation_daily_sd_multiplier": 1e-12,
+    "tiny_perturbation_blake2b_key": "SN1-20260928",
+    "future_mutation_cutoffs": ["2012-06-29", "2014-06-30", "2015-06-30"]
+  },
+  "selection_rule": "SUPPORT iff pooled RankIC(V1)>RankIC(V5) and Q5-Q1(V1)>Q5-Q1(V5), both comparisons hold in at least 3 of five complete years 2011-2015, and either annualized Short gross contribution(V5) is more negative than V1 or near-zero-score RankIC(V5) is lower than V1. MIXED if pooled primary directions are mixed or both align but stability/corroboration does not satisfy that rule. NOT SUPPORTED if neither pooled primary measure is in the predicted direction. Report all values; labels are descriptive and do not trigger strategy changes.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260930-01",
+  "strategy": "dm_event_box",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "20-session Donchian breakout for BO; analytical driftless first-passage p0 for MR; DM-20260908-v1 is reported only as context because this event PnL is not a daily score replacement",
+  "random_seed": 20260930,
+  "train_window": "Train only: 2008-11-04 through 2016-03-31; event entry cohorts 2011 through 2016",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2011; mature before Train end"},
+    {"year": 2012, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2012; mature before Train end"},
+    {"year": 2013, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2013; mature before Train end"},
+    {"year": 2014, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2014; mature before Train end"},
+    {"year": 2015, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2015; mature before Train end"},
+    {"year": 2016, "train": "causal state history through each signal date; no fitted model", "evaluation": "episodes entered 2016-01-01 through 2016-03-31, mature within Train"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "No holdout or candidate selection: all historical Train outcomes are known and results are descriptive; do not tune or extend the fixed trial after seeing results.",
+  "max_trials": 1,
+  "trials": [{"trial_id": "EVENT_BOX_FIXED_001", "comparison": "one fixed event-state configuration; BO vs prior-20-session Donchian; MR episode p and net expectancy vs analytical driftless p0"}],
+  "feature_definitions": "Split-safe raw OHLC. Initial box uses the prior 20 sessions, prior-only ATR20, width 0.5–3.0 ATR, and current close inside fixed prior boundaries. Subsequent state transitions are EXTEND -> ANCHOR -> BOX after one ATR reversal. Invalid or missing OHLC resets the state and history; no imputation.",
+  "model": "Deterministic per-security event state machine; no fitted model.",
+  "parameters": {"seed_window": 20, "atr_window": 20, "box_width_atr_min": 0.5, "box_width_atr_max": 3.0, "k_sl": 0.5, "k_bo": 1.0, "k_fail": 0.5, "reversal_atr": 1.0, "formation_timeout_sessions": 40, "mr_entry_x": 0.8, "mr_take_profit_x": 0.0, "mr_stop_x": 1.2, "mr_max_hold_sessions": 5, "max_mr_entries_per_box_side": 1, "transaction_cost_oneway": 0.001},
+  "selection_rule": "No model selection. Continue MR only if pooled post-cost episode expectancy and p-p0 are positive, the date-clustered 95% interval for p-p0 is above zero, and the effect is not isolated to one entry year. Compare BO separately with the fixed Donchian reference. Do not integrate if either leg fails.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

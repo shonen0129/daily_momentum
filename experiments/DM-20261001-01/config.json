@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261001-01",
+  "strategy": "dm_eventbox_sn1",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Current SN1_H1 after the split-date ATR correction: separate High/Low Ridge with the existing five directional features, fixed score mapping/source separation/side-specific smoothing, and official portfolio accounting. Two current-code reconstructions and the saved DM-20260930-02 SN1_H1 score must match bit for bit before candidate fitting.",
+  "random_seed": 20261001,
+  "train_window": "Train only, 2008-11-04 through 2016-03-31; expanding evaluation folds 2011 through 2016 (2016-01-01 through 2016-03-31 is partial)",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "all prior High/Low event rows with H1 labels mature before 2011 fold start under the existing two-position purge", "evaluation": "Train observations in 2011"},
+    {"year": 2012, "train": "all prior High/Low event rows with H1 labels mature before 2012 fold start under the existing two-position purge", "evaluation": "Train observations in 2012"},
+    {"year": 2013, "train": "all prior High/Low event rows with H1 labels mature before 2013 fold start under the existing two-position purge", "evaluation": "Train observations in 2013"},
+    {"year": 2014, "train": "all prior High/Low event rows with H1 labels mature before 2014 fold start under the existing two-position purge", "evaluation": "Train observations in 2014"},
+    {"year": 2015, "train": "all prior High/Low event rows with H1 labels mature before 2015 fold start under the existing two-position purge", "evaluation": "Train observations in 2015"},
+    {"year": 2016, "train": "all prior High/Low event rows with H1 labels mature before 2016 fold start under the existing two-position purge", "evaluation": "Train observations from 2016-01-01 through 2016-03-31 (partial year)"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train dates and the UPSTATE=1,x<0 attribution have already been inspected and are known development history, not independent OOS evidence. No Valid target, raw target, Valid evaluation, Freeze, or external submission. If either current-code baseline reproduction fails, stop before candidate fitting. No post-result rescue or tuning.",
+  "max_trials": 1,
+  "trials": [
+    {"trial_id": "UP_PULLBACK_SN1_H1", "comparison": "Current SN1_H1 versus the same annual expanding High/Low Ridge and score route with only UP_PULLBACK added as a sixth feature"}
+  ],
+  "feature_definitions": {
+    "baseline_features": ["box_duration", "box_width_atr", "oriented_close_position", "oriented_relative_strength_60", "distance_to_prior_extreme"],
+    "added_feature_only": "UP_PULLBACK = I(event_upstate == 1) * max(0, -event_box_position), exactly reusing the causal Event-Box implementation. event_box_position x = 2*(Close-Lower)/(Upper-Lower)-1 while the existing Event-Box state is BOX; otherwise it is missing. The UPSTATE and Box boundaries are the existing signal-date as-of states.",
+    "forbidden_additions": ["DOWNSTATE", "downtrend rebound", "box age", "structure age", "breakout strength", "failure flag", "other box geometry", "volume", "retest", "hazard", "interactions", "other horizon", "alternative smoothing", "threshold or regularization search", "feature selection", "ensemble", "Long/Short-specific model"]
+  },
+  "model": "H1: separate High and Low expanding Ridge models on existing breakout-event rows; High target is positive date-wise centered H1 residual rank, Low target is its negative. Candidate uses the same five baseline columns in the same order plus UP_PULLBACK as column six. Missing feature handling, standardization, score mapping, side-source separation, side-specific smoothing, official quintiles and portfolio weights follow the current SN1_H1 route.",
+  "parameters": {
+    "ridge_lambda": 1.0,
+    "minimum_training_event_rows_per_side": 500,
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "purge_trading_positions": 2,
+    "transaction_cost_oneway": 0.001,
+    "annualization": 252,
+    "random_seed": 20261001
+  },
+  "selection_rule": "Primary gates: strictly positive pooled 2011-2016 delta Mean RankIC, annualized gross return, and daily Q5-Q1. Any nonpositive primary gate means REJECT. SUPPORT additionally requires positive direction for all three gates when excluding partial 2016 and no material Long/Short cancellation, turnover/cost-only explanation, or attribution-direction conflict; mixed secondary evidence with primary gates passed is recorded MIXED. No threshold/model changes or follow-on candidate after results.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}

@@ -263,3 +263,32 @@ Fixed negative RS60 rank within new-high events, one candidate, B00 Short signal
 - **SN2 `HIGH_AGE5_SHORT_VETO`** — High-age-5+ dominantをShort rankingから外す固定ordinal。High-age-5+ source attributionは+0.680pp改善した一方、Short × Night全体は-0.070pp、Short × Day -1.208pp、turnover +0.0543/日、annual cost +1.369pp、Total Net -2.374pp、Net SR -0.489。zero-score rowsをCode順ordinalで埋めた`other`がShort gross weight 8.48%を占め、経済シグナルを作らなかった。
 
 双方ともrepo内のnumeric/index/coverage contract、公式5分位・weight・exposure検査をPASS。source firewall、P/L reconciliation、3 cutoff future-mutation prefix-invariance PASS。**No surviving lever**。当系列を閉じ、結果後のalpha/threshold/feature/lever追加をしない。
+# DM-20260930-01: Event-Driven Box MR / BO First Operationalization
+
+[採否](DM-20260930-01/decision.md) / [結果](../reports/DM-20260930-01/REPORT.md)。固定1候補、Train-only、2011–2016の既知確認期間。Valid未評価。
+
+- **MR fixed edge-entry episode** — 5,417 executed trades, 5,193 resolved. TP-first 29.23% vs mean driftless `p0` 29.71%; `p-p0=-0.475 pp`, date-clustered 95% CI `[-1.869,+1.077] pp`. Mean trade net `-0.1944%` after 10 bp each way. Reject the registered MR operationalization; do not integrate with BO.
+- **Event-box BO entry vs 20-session Donchian** — pooled entry-day Net Sharpe `-1.845` vs `-2.639`; event-box annualized net P/L `-19.85%` and annual cost `18.96%`. Gross result was weaker, and five-session raw trade net mean `+0.0377%` vs Donchian `+0.0917%`. No adoption; only the fixed entry-timing diagnostic was tested.
+- Source scan, Train firewall, coverage, determinism and one-cutoff future-mutation/truncation prefix invariance passed. Missing OHLC reset state without imputation. First two failed execution attempts are retained. No post-result parameter search, integration, Freeze, or Valid evaluation.
+
+This rejects only the fixed first operationalization. The `k_SL` no-position band, full event-state randomized null process, BO failure/new-box exit, MR+BO lifecycle, short-borrow costs, and independent OOS remain untested.
+
+# DM-20260930-02: Event Box Features Added to SN1_H1
+
+[Decision](DM-20260930-02/decision.md) / [results](../reports/DM-20260930-02/REPORT.md). One conditional Train-only candidate was evaluated; historical H1 reference was excluded because it predates the split-date ATR correction. Current-code SN1_H1 reproduced bit for bit before Candidate A evaluation.
+
+- **Candidate A: SN1_H1 + Event-Box structure** — mean RankIC +0.000048 and annualized gross +1.11 bp, but Q5−Q1 fell 0.051 bp/day; quintile monotonicity was unchanged and annual gross improved in 4/6 folds, with the largest gain in a 61-session 2016 partial. Net Sharpe rose only +0.0018, while turnover/cost rose slightly. Reject under the pre-registered gate.
+- **Candidate B: Candidate A + UPSTATE pullback** — not run because Candidate A failed the Q5−Q1 gate. No result claim.
+- Train firewall, source/leak scan, full feature/score prefix-invariance, current baseline reproduction, coverage, and five strategy tests passed. No Valid, Freeze, or follow-up tuning.
+
+This rejects only the registered Candidate A integration at this fixed feature/model route. The pullback extension remains untested; the positive UPSTATE/lower-Box attribution is descriptive only.
+
+# DM-20261001-01: SN1_H1 + UP_PULLBACK
+
+[採否](DM-20261001-01/decision.md) / [結果](../reports/DM-20261001-01/REPORT.md)。Train-only、単一固定特徴、全期間既知の開発履歴。Valid未読。
+
+- **UP_PULLBACK** — 現行SN1_H1の5入力へ `UPSTATE × max(0, -x)` だけを追加。pooled Mean RankICは0.012506495→0.012505239（Δ−0.000001256）で非正のため、主判定によりREJECT。年率grossは+0.464 bp、Q5−Q1は+0.00979 bp/dayと僅かに上がったが、2016の61営業日partialを除くとRankIC・gross・Q5−Q1の差は全て負。
+- `UPSTATE=1,x<0` のscore平均は増えたものの、Q4/Q5行は6,394→6,393で純移行なし（−1）。同bucketの年率gross寄与差は+0.138 bp。
+- Current baselineの独立再構築とDM-20260930-02保存値は809,636行でbitwise一致。source scan、全Train入力とtargetのfuture-mutation prefix-invariance、coverage、finite score、決定性、2位置purge、Train firewallはPASS。出力レポートの技術失敗は同じ保存済み候補artifactからreport-only復旧し、追加fitなし。
+
+これは固定 `UP_PULLBACK` のSN1_H1への追加のみを棄却する。Event Box全般、pullback一般、trend following一般の否定ではない。

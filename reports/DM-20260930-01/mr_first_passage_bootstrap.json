@@ -1,0 +1,9 @@
+{
+  "trades": 5193,
+  "low": -0.018692359066132695,
+  "high": 0.010770565732916562,
+  "positive_fraction": 0.281,
+  "seed": 20260930,
+  "repetitions": 1000,
+  "block_days": 20
+}

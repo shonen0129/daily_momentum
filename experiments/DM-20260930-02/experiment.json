@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260930-02",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_eventbox_sn1",
+  "valid_evaluation": false
+}

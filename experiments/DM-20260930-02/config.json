@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20260930-02",
+  "strategy": "dm_eventbox_sn1",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Current SN1_H1 code after DM-20260929-01 split-date ATR correction: annual expanding separate High/Low Ridge, fixed event-percentile EWMA and SIDE_SOURCE_SEPARATION transform; independently rebuilt current-code path must reproduce bit for bit. DM-20260927-04 saved H1 was generated with the pre-correction feature hash and is historical context only.",
+  "random_seed": 20260930,
+  "train_window": "Train only: 2008-11-04 through 2016-03-31; evaluation folds 2011 through 2016",
+  "walk_forward_folds": [
+    {"year": 2011, "train": "all prior High/Low event rows with H1 labels mature before the 2011 fold start", "evaluation": "Train observations in 2011"},
+    {"year": 2012, "train": "all prior High/Low event rows with H1 labels mature before the 2012 fold start", "evaluation": "Train observations in 2012"},
+    {"year": 2013, "train": "all prior High/Low event rows with H1 labels mature before the 2013 fold start", "evaluation": "Train observations in 2013"},
+    {"year": 2014, "train": "all prior High/Low event rows with H1 labels mature before the 2014 fold start", "evaluation": "Train observations in 2014"},
+    {"year": 2015, "train": "all prior High/Low event rows with H1 labels mature before the 2015 fold start", "evaluation": "Train observations in 2015"},
+    {"year": 2016, "train": "all prior High/Low event rows with H1 labels mature before the 2016 fold start", "evaluation": "Train observations from 2016-01-01 through 2016-03-31"}
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train periods are previously inspected development data. Baseline is a current-code reproduction control. The archived DM-20260927-04 H1 score is not comparable because its directional feature code predates the split-date ATR correction; verify this with the recorded source hashes. Candidate B is run only if Candidate A passes the pre-registered information gate. No holdout, Valid evaluation, or post-result tuning.",
+  "max_trials": 2,
+  "trials": [
+    {"trial_id": "EVENTBOX_SN1_A", "comparison": "SN1_H1 baseline vs same side-specific Ridge with fixed Event-Box structural features added"},
+    {"trial_id": "EVENTBOX_SN1_B", "comparison": "Candidate A vs Candidate A plus UPSTATE × max(0, -box_position); run only if A improves pooled RankIC, gross performance, and Q5-Q1"}
+  ],
+  "feature_definitions": "Existing five directional SN1 inputs plus causal Event-Box features computed from raw OHLC in a split-safe share unit: UP/DOWN structure, persistent last breakout strength by direction, current/last confirmed box width in prior ATR units, box age, structure age, breakout age, failure pulse, and normalized box position. Candidate B adds pullback_up = upstate * max(0, -x). Prior-only ATR20; seed box from prior 20 sessions; width 0.5-3.0 prior ATR; k_bo=1, k_fail=0.5, reversal=1 ATR, formation timeout=40; confirmed_at is signal-date only. Invalid OHLC and listing gaps over 20 sessions reset state.",
+  "model": "Separate High and Low expanding Ridge on their existing 250-session breakout-event rows; High target is positive date-wise centered H1 residual rank, Low target is its negative. Standardization/imputation and score transformations match SN1_H1.",
+  "parameters": {
+    "ridge_lambda": 1.0,
+    "minimum_training_event_rows_per_side": 500,
+    "high_ewma_alpha": 0.25,
+    "low_ewma_alpha": 0.5,
+    "seed_window": 20,
+    "atr_window": 20,
+    "box_width_atr_min": 0.5,
+    "box_width_atr_max": 3.0,
+    "k_bo": 1.0,
+    "k_fail": 0.5,
+    "reversal_atr": 1.0,
+    "formation_timeout_sessions": 40,
+    "listing_gap_reset_sessions": 20,
+    "candidate_a_added_features": 10,
+    "candidate_b_added_features": 1
+  },
+  "selection_rule": "Candidate A is allowed to proceed to B only with positive pooled delta RankIC, positive pooled delta gross return, and positive mean Q5-Q1 change vs baseline. A candidate is supported only if mean RankIC, Q5-Q1, and annual gross improve; gross uplift is positive in at least 4/6 yearly folds; Net Sharpe is no lower; the result is not cost-only or concentrated in one year; and for B the UPSTATE=1,x<0 bucket has positive incremental target-rank information vs UPSTATE=0,x<0. Otherwise reject or classify mixed, with no tuning.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252
+}
