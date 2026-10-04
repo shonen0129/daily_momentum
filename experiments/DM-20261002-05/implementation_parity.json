@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "economic_spec_change": false,
+  "failed_run": "artifacts/DM-20261002-05/run-20261002T044135Z",
+  "cases": [
+    {
+      "sector": false,
+      "rows": 809636,
+      "columns": 19,
+      "feature_bitwise": true,
+      "base_and_revision_score_bitwise": true,
+      "original_seconds": 6.192181708058342,
+      "optimized_seconds": 1.866366917034611
+    },
+    {
+      "sector": true,
+      "rows": 809636,
+      "columns": 19,
+      "feature_bitwise": true,
+      "base_and_revision_score_bitwise": true,
+      "original_seconds": 117.14446754101664,
+      "optimized_seconds": 2.7010163749800995
+    }
+  ]
+}

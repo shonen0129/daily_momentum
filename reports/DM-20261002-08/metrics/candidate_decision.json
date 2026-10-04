@@ -1,0 +1,68 @@
+{
+  "SECTOR_CONFIRM": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_RankIC_positive": true,
+      "pooled_GrossSR_positive": true,
+      "ex2016_GrossSR_positive": true,
+      "gross_positive_3of5": true,
+      "raw_context_coverage_ge95pct": false,
+      "turnover_le1p25_MOM60": true
+    },
+    "adoption": {
+      "pooled_NetSR_beats_MOM60": true,
+      "ex2016_NetSR_beats_MOM60": true,
+      "NetSR_improvement_4of5": false,
+      "bootstrap_lower_gt0": false,
+      "annualNet_beats_MOM60": true,
+      "turnover_le1p25_MOM60": true,
+      "Shortgross_ge_MOM60": true,
+      "Shortnet_ge_MOM60": true,
+      "Longnet_positive": true,
+      "Qmonotonicity_positive": true
+    },
+    "failed_checks": [
+      "raw_context_coverage_ge95pct",
+      "NetSR_improvement_4of5",
+      "bootstrap_lower_gt0"
+    ],
+    "full_year_netSR_improvements": 2,
+    "raw_context_coverage": 0.9388987659031975,
+    "delta_annual_short_gross": 0.0070124299115134885,
+    "delta_annual_short_net": 0.00724235947632193,
+    "gross_share_of_short_net_improvement": 0.9682521192768503
+  },
+  "SHORT_DISAGREE_VETO": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_RankIC_positive": true,
+      "pooled_GrossSR_positive": true,
+      "ex2016_GrossSR_positive": true,
+      "gross_positive_3of5": true,
+      "raw_context_coverage_ge95pct": false,
+      "turnover_le1p25_MOM60": true
+    },
+    "adoption": {
+      "pooled_NetSR_beats_MOM60": true,
+      "ex2016_NetSR_beats_MOM60": true,
+      "NetSR_improvement_4of5": false,
+      "bootstrap_lower_gt0": true,
+      "annualNet_beats_MOM60": true,
+      "turnover_le1p25_MOM60": true,
+      "Shortgross_ge_MOM60": true,
+      "Shortnet_ge_MOM60": true,
+      "Longnet_positive": true,
+      "Qmonotonicity_positive": true,
+      "Shortnet_improvement_positive_gross_share_ge50pct": true
+    },
+    "failed_checks": [
+      "raw_context_coverage_ge95pct",
+      "NetSR_improvement_4of5"
+    ],
+    "full_year_netSR_improvements": 3,
+    "raw_context_coverage": 0.9388987659031975,
+    "delta_annual_short_gross": 0.004798418180988851,
+    "delta_annual_short_net": 0.004621781423774618,
+    "gross_share_of_short_net_improvement": 1.038218327743845
+  }
+}

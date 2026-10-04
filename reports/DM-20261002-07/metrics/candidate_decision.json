@@ -1,0 +1,63 @@
+{
+  "HIER33_SECTOR": {
+    "decision": "DESCRIPTIVE_COMPONENT_ONLY",
+    "feasibility": {
+      "pooled_RankIC_positive": true,
+      "pooled_GrossSR_positive": true,
+      "ex2016_GrossSR_positive": true,
+      "gross_positive_3of5": true,
+      "raw_coverage_ge95pct": true,
+      "turnover_le1p25_MOM60": true
+    },
+    "adoption": {},
+    "failed_checks": [],
+    "no_release_adoption": true,
+    "raw_coverage": 0.9502129098840487
+  },
+  "HIER33_WITHIN": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_RankIC_positive": true,
+      "pooled_GrossSR_positive": true,
+      "ex2016_GrossSR_positive": true,
+      "gross_positive_3of5": true,
+      "raw_coverage_ge95pct": false,
+      "turnover_le1p25_MOM60": true
+    },
+    "adoption": {},
+    "failed_checks": [
+      "raw_coverage_ge95pct"
+    ],
+    "no_release_adoption": true,
+    "raw_coverage": 0.9388987659031975
+  },
+  "HIER33_COMBINED": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_RankIC_positive": true,
+      "pooled_GrossSR_positive": true,
+      "ex2016_GrossSR_positive": true,
+      "gross_positive_3of5": true,
+      "raw_coverage_ge95pct": false,
+      "turnover_le1p25_MOM60": true
+    },
+    "adoption": {
+      "pooled_NetSR_gt_MOM60": true,
+      "ex2016_NetSR_gt_MOM60": true,
+      "NetSR_improvement_4of5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net_gt_MOM60": true,
+      "turnover_le1p25_MOM60": true,
+      "Short_gross_ge_MOM60": true,
+      "Short_net_ge_MOM60": true,
+      "Q_monotonicity_positive": true
+    },
+    "failed_checks": [
+      "raw_coverage_ge95pct",
+      "NetSR_improvement_4of5",
+      "bootstrap_lower_gt0"
+    ],
+    "no_release_adoption": true,
+    "raw_coverage": 0.9388987659031975
+  }
+}

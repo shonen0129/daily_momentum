@@ -1,0 +1,18 @@
+{
+  "SECTOR_CONFIRM": {
+    "low": -0.0990982723355385,
+    "high": 0.3113543562915052,
+    "bootstrap_positive_fraction": 0.857,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002
+  },
+  "SHORT_DISAGREE_VETO": {
+    "low": 0.003352035993600556,
+    "high": 0.2894728973922245,
+    "bootstrap_positive_fraction": 0.978,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002
+  }
+}

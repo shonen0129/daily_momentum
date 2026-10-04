@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "method": "hash-verified saved-result finalization; no fit/backtest",
+  "scientific_source_run": "artifacts/DM-20261002-05/run-20261002T045605Z",
+  "scientific_source_status": "failed only during final artifact-hash bookkeeping",
+  "evaluated_candidates": [
+    "SLOW_MF_BASE",
+    "SLOW_MF_SECTOR"
+  ],
+  "new_candidate_trials": 0,
+  "unchanged_plan_and_config": true,
+  "unchanged_scientific_sources": true,
+  "all_saved_files_copied_hash_exact": true,
+  "copied_files": 32,
+  "full_prediction_rows": 809636,
+  "prediction_finite": true,
+  "driver_sha256": "a29e589295ea75ea99ecaac78a17866c08ff0c6321456ee31638f53750d86c3e",
+  "prior_technical_failure": "run-20261002T044135Z: projected quantile-audit timeout; retained"
+}

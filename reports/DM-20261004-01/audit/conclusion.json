@@ -1,0 +1,12 @@
+{
+  "phase": "diagnostic_conclusion",
+  "at_utc": "2026-10-03T17:43:26.410401+00:00",
+  "classification": "F. Inconclusive",
+  "interpretation": "Portfolio closely follows Size; Long profits concentrate in common Small+Illiquid; conditional Illiquidity inside Small remains positive; no unique economic source or interaction necessity identified",
+  "performance_candidates": 0,
+  "diagnostic_bundles": 1,
+  "strategy_changed": false,
+  "valid_accessed": false,
+  "report_sha256": "259973aa918509e9bea47b5e4e5d0a74487020501a915a0ef3c7a8e3f68061ce",
+  "decision_sha256": "0c54fb2058b3ceaea3a31a2353e826ff427473dc8444aa007b893871b7ddbf44"
+}

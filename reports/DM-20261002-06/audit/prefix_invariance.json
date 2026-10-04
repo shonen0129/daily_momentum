@@ -1,0 +1,476 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "ResidualReturn",
+        "StockMom60",
+        "Sector17Code",
+        "Sector17Mom",
+        "Peer17Count",
+        "Breadth17",
+        "Rel17Mom",
+        "Sector33Code",
+        "Sector33Mom",
+        "Peer33Count",
+        "Breadth33",
+        "Rel33Mom"
+      ],
+      "scores": [
+        "SECTOR17_MOM",
+        "SECTOR33_MOM",
+        "RELATIVE33_MOM"
+      ]
+    }
+  ],
+  "deterministic_rebuild": true,
+  "row_shuffle": true,
+  "method": "numeric float64 uint64 bit patterns including NaN; string/dtype/index exact; suffix extreme/NaN, row deletion, changed sector and new future-only stocks"
+}

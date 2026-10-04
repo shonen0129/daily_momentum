@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "bitwise": true,
+  "source": "artifacts/DM-20261002-06/run-20261002T053435Z/predictions/scores.parquet",
+  "source_sha256": "08e5841dca16ce6424d65dac21fb1cbebcf580ec435fb794a97bac9a548ae6df",
+  "no_old_candidate_rerun": true
+}

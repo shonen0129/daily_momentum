@@ -1,0 +1,35 @@
+{
+  "RAW_EWMA_CONTROL": {
+    "decision": "DIAGNOSTIC_NEGATIVE_CONTROL",
+    "failed_checks": []
+  },
+  "RAW_EWMA_SHORT_VETO": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_NetSR_beats_RAW": true,
+      "ex2016_NetSR_beats_RAW": true,
+      "primary_annualNet_beats_RAW": true,
+      "primary_Shortgross_ge_RAW": true,
+      "primary_Shortnet_ge_RAW": true,
+      "primary_turnover_le1p25_RAW": true,
+      "primary_Longnet_positive": true,
+      "primary_Qmonotonicity_positive": true,
+      "NetSR_improvements_4of5": false,
+      "primary_bootstrap_lower_gt0": false,
+      "primary_deltaShortnet_positive": true,
+      "primary_gross_improvement_share_ge50pct": true
+    },
+    "failed_checks": [
+      "NetSR_improvements_4of5",
+      "primary_bootstrap_lower_gt0"
+    ],
+    "full_year_netSR_improvements": 3,
+    "primary_delta_short_gross": 0.004002212360048992,
+    "primary_delta_short_net": 0.003694142433841918,
+    "primary_short_cost_effect": -0.00030806992620707394,
+    "primary_gross_share_of_short_net_improvement": 1.0833941656891342,
+    "control_raw_coverage": 0.98807152347331,
+    "veto_raw_context_coverage": 0.9394408834180508,
+    "coverage_gate": false
+  }
+}

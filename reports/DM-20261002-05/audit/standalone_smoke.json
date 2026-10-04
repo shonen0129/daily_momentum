@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "entrypoint": "isolated top-level submission.predict() without arguments",
+  "rows": 809636,
+  "bitwise_research_parity": true,
+  "finite_coverage": true,
+  "elapsed_seconds": 2.315566790988669,
+  "peak_rss_bytes": 1113227264,
+  "opened_parquets": [
+    "fins_statements_train.parquet",
+    "listed_info_train.parquet",
+    "prices_daily_quotes_train.parquet",
+    "raw_return_1day_train.parquet"
+  ],
+  "scope": "Train-only smoke; no later-split release or zip"
+}

@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "all_features_including_EWMA_Z_control": true
+    }
+  ],
+  "row_shuffle": true,
+  "deterministic_rebuild": true,
+  "comparison": "Exact index/columns/dtypes/string values, float64 uint64 bits including NaN; no tolerance",
+  "suffix_mutation": "Each/joint returns beta TOPIX, PIT sector/member changes, row deletion, future-only added stocks, full input truncation"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "codes": 473,
+  "dates": 1814,
+  "all_signals_finite": true,
+  "index_alignment": true,
+  "deterministic_replay_bitwise": true,
+  "shuffle_bitwise": true,
+  "research_adapter_bitwise": true,
+  "raw_feature_missing_rates": {
+    "raw_size": 0.03472548157443592,
+    "raw_amihud": 0.023909509952620683,
+    "raw_cf_assets": 0.05679589346323533,
+    "raw_roe": 0.03365710022775667,
+    "raw_equity_assets": 0.03365710022775667,
+    "raw_bp": 0.03472548157443592,
+    "raw_ey": 0.04631464015928145,
+    "raw_eps_revision_yield": 0.09798600852728881
+  }
+}

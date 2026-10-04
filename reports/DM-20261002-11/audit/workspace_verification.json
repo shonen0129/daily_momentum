@@ -1,0 +1,14 @@
+{
+  "status": "PARTIAL_WORKSPACE_CHECK_EXISTING_FAILURE",
+  "tests": "PASS",
+  "total_tests": 284,
+  "new_tests": 24,
+  "test_seconds": 47.55,
+  "test_log_sha256": "10dffe9743c26273824ae2dce4e74332dbbd1da0c6b0c8f353d66872a613fbc4",
+  "new_experiment_metadata": "PASS",
+  "old_freeze_hashes": "PASS",
+  "old_freeze_hash_count": 129,
+  "make_check": "FAIL",
+  "make_check_reason": "Existing experiments/DM-20261002-04: unknown experiment kind",
+  "prior_metadata_modified": false
+}

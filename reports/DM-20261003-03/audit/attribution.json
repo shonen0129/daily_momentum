@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "exclusive_reconciliation_atol": 1e-15,
+  "both_neutral_exit_costs_retained": true,
+  "marginal_view_overlaps": true,
+  "signal_disagreement": "opposite official portfolio side; no veto"
+}

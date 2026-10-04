@@ -1,0 +1,111 @@
+{
+  "SECTOR17_MOM": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_rankic_positive": true,
+      "pooled_grossSR_positive": true,
+      "ex2016_grossSR_positive": true,
+      "positive_full_year_gross_3of5": true,
+      "raw_finite_coverage_95pct": true,
+      "turnover_le_MOM60": false
+    },
+    "short_gate": {
+      "short_gross_positive": false,
+      "short_gross_ge_MOM60": false,
+      "short_net_ge_MOM60": false
+    },
+    "next_stage": {
+      "pooled_netSR_positive": false,
+      "ex2016_netSR_positive": false,
+      "pooled_netSR_beats_MOM60": false,
+      "netSR_improvement_4of5": false,
+      "bootstrap_lower_positive": false,
+      "quintile_monotonicity_positive": true
+    },
+    "failed_checks": [
+      "turnover_le_MOM60",
+      "short_gross_positive",
+      "short_gross_ge_MOM60",
+      "short_net_ge_MOM60",
+      "pooled_netSR_positive",
+      "ex2016_netSR_positive",
+      "pooled_netSR_beats_MOM60",
+      "netSR_improvement_4of5",
+      "bootstrap_lower_positive"
+    ],
+    "no_release_adoption": true
+  },
+  "SECTOR33_MOM": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_rankic_positive": true,
+      "pooled_grossSR_positive": true,
+      "ex2016_grossSR_positive": true,
+      "positive_full_year_gross_3of5": true,
+      "raw_finite_coverage_95pct": false,
+      "turnover_le_MOM60": false
+    },
+    "short_gate": {
+      "short_gross_positive": false,
+      "short_gross_ge_MOM60": true,
+      "short_net_ge_MOM60": false
+    },
+    "next_stage": {
+      "pooled_netSR_positive": false,
+      "ex2016_netSR_positive": false,
+      "pooled_netSR_beats_MOM60": false,
+      "netSR_improvement_4of5": false,
+      "bootstrap_lower_positive": false,
+      "quintile_monotonicity_positive": true
+    },
+    "failed_checks": [
+      "raw_finite_coverage_95pct",
+      "turnover_le_MOM60",
+      "short_gross_positive",
+      "short_net_ge_MOM60",
+      "pooled_netSR_positive",
+      "ex2016_netSR_positive",
+      "pooled_netSR_beats_MOM60",
+      "netSR_improvement_4of5",
+      "bootstrap_lower_positive"
+    ],
+    "no_release_adoption": true
+  },
+  "RELATIVE33_MOM": {
+    "decision": "REJECT",
+    "feasibility": {
+      "pooled_rankic_positive": true,
+      "pooled_grossSR_positive": true,
+      "ex2016_grossSR_positive": true,
+      "positive_full_year_gross_3of5": true,
+      "raw_finite_coverage_95pct": false,
+      "turnover_le_MOM60": false
+    },
+    "short_gate": {
+      "short_gross_positive": false,
+      "short_gross_ge_MOM60": false,
+      "short_net_ge_MOM60": false
+    },
+    "next_stage": {
+      "pooled_netSR_positive": false,
+      "ex2016_netSR_positive": false,
+      "pooled_netSR_beats_MOM60": false,
+      "netSR_improvement_4of5": false,
+      "bootstrap_lower_positive": false,
+      "quintile_monotonicity_positive": true
+    },
+    "failed_checks": [
+      "raw_finite_coverage_95pct",
+      "turnover_le_MOM60",
+      "short_gross_positive",
+      "short_gross_ge_MOM60",
+      "short_net_ge_MOM60",
+      "pooled_netSR_positive",
+      "ex2016_netSR_positive",
+      "pooled_netSR_beats_MOM60",
+      "netSR_improvement_4of5",
+      "bootstrap_lower_positive"
+    ],
+    "no_release_adoption": true
+  }
+}

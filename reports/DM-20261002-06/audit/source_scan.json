@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_sector_momentum/submission.py",
+    "stock_comp_2026/strategies/dm_sector_momentum/features.py",
+    "dm_trainonly.features.build_momentum",
+    "dm_trainonly.features.segment_keys",
+    "dm_trainonly.features.centered_rank",
+    "dm_trainonly.features.smooth"
+  ],
+  "findings": [],
+  "manual_review": "Only same-date peer grouping, exact PIT joins, historical residual60 lag1. Full listed universe projected to present raw-return rows; no label dependency."
+}

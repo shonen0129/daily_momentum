@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "bitwise": true,
+  "rows": 809636,
+  "finite": true,
+  "exact_input_output_index": true,
+  "self_contained_label_free": true,
+  "stage_files": [
+    "beta_1day_train.parquet",
+    "fins_statements_train.parquet",
+    "listed_info_train.parquet",
+    "prices_daily_quotes_train.parquet",
+    "raw_return_1day_train.parquet",
+    "topix_return_1day_train.parquet"
+  ],
+  "no_target_in_stage": true,
+  "deterministic_rebuild": true
+}

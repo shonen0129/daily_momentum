@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "client_date_JST": "2026-10-03",
+  "new_performance_trials": 0,
+  "cumulative_performance_trials": 3,
+  "scope": "Only default adapter input directory changed from input child to grader current directory; smoke driver cwd corrected likewise. Feature definitions, raw features, ranks, parameters, signs, weights and all3 scores unchanged bitwise. No target read or new performance comparison.",
+  "scientific_run": "artifacts/DM-20261003-01/run-20261002T205924Z",
+  "scientific_run_artifact_hashes_verified": 49,
+  "feature_source_hash_unchanged": true,
+  "plan_config_hash_unchanged": true,
+  "memory_rebuild_all_intermediates_bitwise": true,
+  "saved_features_finite_bitwise_and_NaN_masks_equal": true,
+  "parquet_nan_normalization": [
+    {
+      "column": "FLOW_REV_raw",
+      "nan_representation_changes": 6161,
+      "finite_bit_changes": 0,
+      "NaN_mask_changes": 0
+    }
+  ],
+  "all3_scores_bitwise": true,
+  "official_load_prediction_no_argument_bitwise": true,
+  "exact_original_raw_index": true,
+  "rows": 809636,
+  "current_code_sha256": {
+    "stock_comp_2026/strategies/dm_decline_causes/features.py": "0491a358327c1584adfe2b085893433eaec0f58fb8241dbb218b95edf471ad90",
+    "stock_comp_2026/strategies/dm_decline_causes/primitives.py": "4807ca75e92adcfbe70699499b0879680f1f899f6d6eecf714f815ad124052e3",
+    "stock_comp_2026/strategies/dm_decline_causes/submission.py": "c56352c1e47df599e4e7ef1fdd591dcc5104b0ff0acac7e8a7c4f6fb9dc512be",
+    "research/experiments/decline_causes.py": "820d357a18e3338fcf1b2166ba8ec691740fdb397b6d4a41c610a858eb757bc8",
+    "tests/strategies/dm_decline_causes/test_features.py": "aaaa1f5ea4f10258b01a42680e7e5ce24dfe5c24242bf012b02c0fa367a6abca"
+  },
+  "tests": "32 passed; bounded180s",
+  "source_scan": {
+    "status": "PASS",
+    "sources": [
+      "stock_comp_2026/strategies/dm_decline_causes/features.py",
+      "stock_comp_2026/strategies/dm_decline_causes/primitives.py",
+      "stock_comp_2026/strategies/dm_decline_causes/submission.py"
+    ],
+    "findings": [],
+    "manual_review": "No label fit. Fiscal/basis-key previous forecast; disclosure EOD backward asof <=prior session EOD. Raw20 volume excludes current. Exact historical PIT33 self-inclusive daily residual. Only same-date median/rank."
+  },
+  "prediction_sha256": "764e01619b155a45c3364ff25a327d3c3b99a4ba234fea66190fc4df04251b9e",
+  "elapsed_seconds": 6.647494000000734,
+  "peak_rss_bytes": 2098167808
+}

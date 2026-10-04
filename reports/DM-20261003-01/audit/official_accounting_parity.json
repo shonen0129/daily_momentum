@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "strategies": {
+    "FUND_REV": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "FLOW_REV": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "CAUSE_COMPOSITE": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "MOM60": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "SLOW_CONTROL": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    }
+  }
+}

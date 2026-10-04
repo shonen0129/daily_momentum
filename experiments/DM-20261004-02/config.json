@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261004-02",
+  "strategy": "dm_slow_rm_confirm",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Primary immutable SLOW_CONTROL; frozen MOM60 and prior SLOW_MOM60_EQUAL controls. Strict finite bits/raw missing positions, official weights/daily Net bits.",
+  "random_seed": 2026100402,
+  "train_window": "2008-11-04..2016-03-31 history; evaluate2011..2015 and2016 partial",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    },
+    {
+      "year": 2012,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    },
+    {
+      "year": 2013,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    },
+    {
+      "year": 2014,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    },
+    {
+      "year": 2015,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    },
+    {
+      "year": 2016,
+      "evaluation": "Calendar year; purge final2 exchange sessions; no return fit, no search"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is known development evidence. No untouched OOS claim. Historical Valid / Valid forbidden.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "SLOW_RM_CONFIRM",
+      "conditional_on_all_diagnostic_gates": true
+    }
+  ],
+  "feature_definitions": {
+    "components": "Unmodified existing SLOW Size/Amihud60 min40 normalization and residual60 skip1 centered-rank EWMA .25 MOM60",
+    "primary": "M=rank(MOM60), S=rank(Size), L=rank(Illiquidity), np.linalg.lstsq([1,S,L],M,rcond=None), then centered average-tie residual rank RM; no labels",
+    "rank": "2*(average-tie percentile minus same-date mean percentile), frozen component convention",
+    "robustness": "M~1+SLOW_RANK; within fixed Size x Illiq3 and5 cells rank MOM60; diagnostics only",
+    "candidate": "SLOW_RANK + abs(SLOW_RANK)*centered_rank(RM), official global ranking/quintile weights",
+    "conditional_bins": "ceil(n*average-tie pct) within descriptor/date using all finite components before target join; target missing rows never change bin boundaries",
+    "transition": "Previous exchange-date membership, absent=neutral. Current side entry has priority on side flip; exit flags saved separately. Exiting means previously in side, currently neutral; no forward membership.",
+    "regime": "Provided ETF TOPIX proxy is PIT-safe from official README. trailing60 vol(min40) split by lag1 expanding median(min252); trend60 sum(min40) sign split at zero. No global/future median.",
+    "support": "Descriptive cell support sufficient iff mean count>=10 and >=80% dates have >=10 stocks. Do not delete cells or filter strategy.",
+    "boundary": "Average-tie SLOW percentile vs boundaries20/40/60/80%; fixed nested distances <=.025,.05,.10; no band search"
+  },
+  "model": "Same-date unregularized target-free OLS; fixed nonlinearity, no learned return model",
+  "parameters": {
+    "coefficient": null,
+    "momentum_window": 60,
+    "skip": 1,
+    "ewma_alpha": 0.25,
+    "additional_smoothing": null,
+    "search": false
+  },
+  "selection_rule": "Exact conjunctive user Sections16,21 gates in REQUEST.md. Candidate0 if any diagnostic gate fails, otherwise exactly1 fixed candidate. No rescue.",
+  "primary_hypotheses": [
+    "H1 Long RM high-low>0",
+    "H2 Short RM high-low>0",
+    "H3 Small+Illiquid RM high-low>0"
+  ],
+  "diagnostic_sections": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "permutation": {
+    "reps": 2000,
+    "seed": 2026100413,
+    "shuffle": "within same-date Size3 x Illiq3 cells over all component rows incl target-missing; shared shuffle for all surfaces",
+    "statistics": "Mean daily High-Low tercile spread and mean daily within-group RankIC; surface max of absolute HAC5 spread t across all9/all25 cells separately; observed and placebo matched",
+    "circular_offsets": [
+      20,
+      60,
+      120,
+      252,
+      504
+    ],
+    "offset_units": "observed exchange rows within code (wrapped), diagnostic only; per-code missing/relisting caveat reported"
+  },
+  "bootstrap": {
+    "reps": 5000,
+    "blocks": [
+      10,
+      20,
+      40
+    ],
+    "primary_block": 20,
+    "seed": 2026100414,
+    "method": "paired circular moving-block on jointly aligned daily conditional statistics; same draws for all5 estimands; no model refit"
+  },
+  "gate": {
+    "positive_full_years_min": 4,
+    "full_years": [
+      2011,
+      2012,
+      2013,
+      2014,
+      2015
+    ],
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ],
+    "bootstrap_lower_gt": 0,
+    "robustness_variants": [
+      "RM",
+      "RM_CELL3",
+      "RM_SLOW"
+    ],
+    "robustness_regions": [
+      "LONG",
+      "SHORT",
+      "CELL3_9"
+    ],
+    "robustness_rule": "All3 definitions positive pooled and EX2016 in all3 primary regions (same hypothesized direction); no alternative adoption"
+  },
+  "cost_stress_bps": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "candidate_bootstrap": {
+    "reps": 5000,
+    "block": 20,
+    "seed": 2026100422
+  },
+  "saved_components": {
+    "slow_features": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/features_base.parquet",
+      "columns": [
+        "raw_size",
+        "raw_amihud",
+        "z_size",
+        "z_amihud",
+        "size_liquidity"
+      ],
+      "sha256": "8d19f220e66d8460f86c305b2a6c5cfcc1f51a9d6c919125d493357c288a89af"
+    },
+    "slow_scores": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "columns": [
+        "SLOW_CONTROL",
+        "MOM60"
+      ],
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    },
+    "frozen_momentum": {
+      "path": "releases/DM-20260908-v1/snapshot/reports/DM-20260908/selected_train_predictions.parquet",
+      "columns": [
+        "Return"
+      ],
+      "sha256": "58b803b31dc6d61c58d56f2a49c091eb55d481eacac2dffce3d5511df058f46c"
+    },
+    "component_scores": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/component_scores.parquet",
+      "sha256": "fa4ee8ecb49c60b48673cf2ba96b19ac344383d95c90f51c69f40c9f8153be59"
+    },
+    "intermediates": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/intermediates.parquet",
+      "sha256": "410d28e6606a9b7ec348e7c1e3a41235ac8a9b16865fc067acd328598034e1ae"
+    },
+    "strategy_scores": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/strategy_scores.parquet",
+      "sha256": "d73fdf4eae3255d5ced95d847c80e8426e4d9f5a40afc25f3deadbe100b28155"
+    },
+    "daily_SLOW_CONTROL": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_SLOW_CONTROL.csv",
+      "sha256": "cfc174037bd96abf8ed09dcfff01c8b03ab80e44a50f3bc7cf0e3974bac167ac"
+    },
+    "daily_MOM60": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_MOM60.csv",
+      "sha256": "7c13b07f38a52d24c5050e2a938885c51cade6221c78756a354109dfdb33ec53"
+    },
+    "daily_SLOW_MOM60_EQUAL": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_SLOW_MOM60_EQUAL.csv",
+      "sha256": "edb62070ec1fa0fd6331b98845aea024c4f9602fb4596435ed5a39673a2dd761"
+    }
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261004-02",
+  "prefix_cutoffs": [
+    "2009-03-31",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 10800,
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "prohibitions": [
+    "Historical Valid",
+    "Valid",
+    "parameter search",
+    "feature search",
+    "rescue",
+    "second candidate",
+    "post-result rule modification"
+  ],
+  "request_sha256": "cb125e453462d70ab81103331d99219f0c72ab69b5efa12c62d7ca2ebeec9ded"
+}

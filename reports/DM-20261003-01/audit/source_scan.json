@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_decline_causes/features.py",
+    "stock_comp_2026/strategies/dm_decline_causes/primitives.py",
+    "stock_comp_2026/strategies/dm_decline_causes/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "No label fit. Fiscal/basis-key previous forecast; disclosure EOD backward asof <=prior session EOD. Raw20 volume excludes current. Exact historical PIT33 self-inclusive daily residual. Only same-date median/rank."
+}

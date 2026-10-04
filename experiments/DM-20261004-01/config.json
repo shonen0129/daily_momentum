@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261004-01",
+  "strategy": "dm_slow_multifactor",
+  "diagnostic_only": true,
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Immutable SLOW_CONTROL; saved MOM60 reference only for AGENTS incremental accounting; no candidate adoption",
+  "random_seed": 20261004,
+  "train_window": "2008-11-04..2016-03-31 feature history; evaluate 2011..2015 and 2016 partial",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    },
+    {
+      "year": 2012,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    },
+    {
+      "year": 2013,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    },
+    {
+      "year": 2014,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    },
+    {
+      "year": 2015,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    },
+    {
+      "year": 2016,
+      "evaluation": "Calendar year; final two exchange sessions purged; no label fitting or selection"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is previously studied development evidence, not an unseen holdout. Historical Valid / Valid and saved Valid artifacts prohibited.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "SIZE_ILLIQ_SOURCE_DIAGNOSTIC",
+      "performance_candidate": false
+    }
+  ],
+  "performance_trial_budget": 0,
+  "diagnostic_run_budget": 1,
+  "feature_definitions": {
+    "Size": "Original z_size: -log(raw positive Close * backward EOD disclosed positive PIT shares), original 1/99 linear winsor, same-date median/0 imputation, sample z",
+    "Illiquidity": "Original z_amihud: abs(provided raw_return_1day)/positive raw TurnoverValue, trailing60 exchange-session mean/min40; original normalization unchanged",
+    "SLOW_CONTROL": "Original zscore(mean(z_size,z_amihud)); strict saved component/score and official weight/daily net bits",
+    "conditional_sorts": "Same-date average-tie percentile ceil(3*p), ties not split by Code; Size3=Small,2=Mid,1=Large; Illiq3=Illiquid,2=Mid,1=Liquid. Within fixed tercile re-rank other component into same3terciles; high-low equal-weight forward target mean; no portfolio costs/optimization.",
+    "double_sort": "Unconditional Size tercile x unconditional Illiquidity tercile 3x3, all normalized/imputed rows; raw missingness coverage separately recorded",
+    "residualization": "Daily intercept OLS normalized Size on normalized Illiquidity and reverse, analytic centered covariance/variance; zero-variance regressor slope0; target-free",
+    "common": "p=average-tie percentile per date; Rank=2*(p-mean(p)); COMMON=(SizeRank+IlliquidityRank)/2; DISAGREEMENT=(SizeRank-IlliquidityRank)/2. Check closeness vs SLOW, do not force parity between different definitions.",
+    "residual_diagnostics": "Daily average-tie quintiles ceil(5*p), equal-weight Q5-Q1 spread and gross Sharpe of spread (not official portfolio); no residual candidate",
+    "overlap_groups": "Exclusive: opposite signed official weights SIGNAL_DISAGREEMENT first; BOTH_LONG/BOTH_SHORT; SIZE_ONLY_LONG/ILLIQ_ONLY_LONG/SIZE_ONLY_SHORT/ILLIQ_ONLY_SHORT when other neutral; OTHER both neutral. All costs assigned current group incl exits.",
+    "side_attribution": "Original SLOW signed gross; cost per positive/negative sleeve turnover incl neutral exits. Current date bucket assigns exit cost even without active stock-day. Size,Illiquidity,joint are overlapping descriptors, never sum across descriptors.",
+    "rank_variation": "Daily mean absolute centered percentile rank change vs previous exchange date on common stock support; membership entries/exits on full date-code grid absent=neutral; daily contemporaneous correlations with original official SLOW turnover, not causal effects."
+  },
+  "model": "Fixed diagnostic-only target-free OLS/sorts; three official standalone books; no fitted return model",
+  "parameters": {
+    "terciles": 3,
+    "quintiles": 5,
+    "additional_smoothing": null,
+    "turnover_control": null,
+    "optimization": false
+  },
+  "selection_rule": "No adoption. Interpret A Size-dominant/B Illiquidity-dominant/C Complementary/D Common-factor dominant/E Interaction-dominant/F Inconclusive using all predefined diagnostics and stability. No numeric gate or tuning; allow qualified primary classification, do not force separation.",
+  "periods": [
+    "POOLED",
+    "EX2016",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016 partial"
+  ],
+  "saved_components": {
+    "slow_features": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/features_base.parquet",
+      "columns": [
+        "raw_size",
+        "raw_amihud",
+        "z_size",
+        "z_amihud",
+        "size_liquidity"
+      ],
+      "sha256": "8d19f220e66d8460f86c305b2a6c5cfcc1f51a9d6c919125d493357c288a89af"
+    },
+    "slow_scores": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "columns": [
+        "SLOW_CONTROL",
+        "MOM60"
+      ],
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    },
+    "slow_daily": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/metrics/daily_SLOW_CONTROL.csv",
+      "sha256": "cfc174037bd96abf8ed09dcfff01c8b03ab80e44a50f3bc7cf0e3974bac167ac",
+      "columns": [
+        "net"
+      ]
+    }
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261004-01",
+  "prefix_cutoffs": [
+    "2009-03-31",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800,
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "prohibitions": [
+    "weight/threshold/window/filter search",
+    "factor redefinition",
+    "nonlinear candidate",
+    "side filter",
+    "residual adoption",
+    "regime switching",
+    "extra smoothing",
+    "result-driven rescue",
+    "Historical Valid",
+    "Valid",
+    "submission candidate"
+  ]
+}

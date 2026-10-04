@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "prices_daily_quotes",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "fins_statements",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "rows": 68209,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "prices_daily_quotes",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "fins_statements",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "rows": 444771,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "prices_daily_quotes",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "fins_statements",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "source": "ROW_SHUFFLE",
+      "rows": 809636,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "source": "DETERMINISTIC_REBUILD",
+      "rows": 809636,
+      "status": "PASS",
+      "bitwise": true
+    }
+  ],
+  "comparison": "exact index/columns/dtype/float64 uint64 incl NaN, zero tolerance",
+  "all_input_sources": [
+    "prices_daily_quotes",
+    "raw_return_1day",
+    "fins_statements",
+    "listed_info",
+    "beta_1day",
+    "topix_return_1day"
+  ],
+  "no_learning_or_label_argument": true,
+  "mutations": "Each and all future suffixes: extreme/NaN/zero, deletions, future new-code/date addition; financial disclosure publication +1 day strictly after cutoff; separate truncation.",
+  "scope": "Both raw and normalized SLOW factors, pre-EWMA and final MOM, final ranks and candidate score. Tested inputs/cutoffs only, not a universal mathematical proof."
+}

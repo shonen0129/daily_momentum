@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "data_split": "train",
+  "valid_evaluation": false,
+  "random_seed": 20261003,
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is known development evidence; no unseen holdout claim. Historical Valid and Valid prohibited.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "input_dir": "stock_comp_2026/input",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800,
+  "experiment_id": "DM-20261003-02",
+  "strategy": "dm_cause_event_overlay",
+  "baseline": "Saved SLOW_CONTROL from DM-20261002-05; unchanged size_liquidity block, no smoothing. MOM60 descriptive only.",
+  "max_trials": 2,
+  "trials": [
+    {
+      "trial_id": "SLOW_FUND_EVENT"
+    },
+    {
+      "trial_id": "SLOW_CAUSE_AWARE"
+    }
+  ],
+  "report_dir": "reports/DM-20261003-02",
+  "slow_control": {
+    "role": "immutable primary anchor; rebuild bitwise with unchanged original module/inputs",
+    "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+    "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89",
+    "column": "SLOW_CONTROL"
+  },
+  "feature_definitions": {
+    "timing": "Signal t at start of exchange session (00:00 JST). Prices/Volume/Sector use tau=common previous exchange session as in prior experiment; absent tau stock row remains missing. Date-only financial disclosure available at 23:59:59 JST, earliest subsequent common signal session (including weekend disclosures before next session).",
+    "fundamental_column": "ForecastOperatingProfit only, total full-year management operating-profit forecast. CurrentFiscalYearStartDate and CurrentFiscalYearEndDate exact pair. No NextYearForecast, EPS, ordinary/net-income, nonconsolidated-field or performance-driven fallback.",
+    "revision_comparability": "Latest finite current full-year forecast minus previous finite forecast for same Code/fiscal start/end/accounting basis; divide by latest strictly-positive PIT TotalAssets at that disclosure. Basis inferred causally from TypeOfDocument financial statements; revisions inherit prior known basis; unknown basis cannot compare.",
+    "assets": "Use most recent finite positive TotalAssets already disclosed in same inherited accounting basis. Scale locked at revision disclosure; no future restatement.",
+    "FRESH_FUND_EVENT": "Each latest disclosure is queried backward at signal midnight; fresh iff available_at is strictly after previous signal midnight and before/equal signal midnight. A comparable finite nonzero FundDelta is an event, including if Assets unavailable; unknown/noncomparable/unchanged is not an event. No revision alpha state carry. If multiple disclosures between sessions, latest disclosure is authoritative. Missing scale gives zero overlay but a known fresh revision still excludes Flow. First-session cutoff uses negative infinity; all available prior disclosures eligible.",
+    "FUND_EVENT_RAW": "Fresh only: (ForecastOperatingProfit-current previous same fiscal/basis forecast)/PITAssets, else NaN; upward positive/downward negative.",
+    "SectorShock": "Residual=raw_return-beta*TOPIX on each historical date. Equal-weight mean of finite residuals in exact contemporaneous PIT33 membership within raw-return universe; self-inclusive, minimum1 finite member (no user-requested size threshold). Unknown9999/blank missing. Map own PIT33 at tau to daily return at tau; no17/fallback/LOO/blend/horizon.",
+    "AbnormalVolume": "log1p(raw Volume_tau >=0) minus median of log1p volumes on immediately preceding20 price-observation rows of that Code/relisting segment; all20 must be finite nonnegative, otherwise missing. Zero volume valid. Gap>20 absent calendar sessions resets. No window or threshold search.",
+    "WithinShock": "StockResidualReturn_tau-Sector33ResidualReturn_tau",
+    "FLOW_EVENT_RAW": "Only no FreshFundEvent AND finite WithinShock<0 AND finite AbnormalVolume>0: -WithinShock*max(AbnormalVolume,0); otherwise NaN. Fresh Fund priority including missing scale.",
+    "event_rank": "Only active finite event values: (2*average_rank-(n+1))/n, same-date event cross-section; all others exactly 0. Singleton/all ties give 0. Rank across all fund signs together. Centering may make smaller positive Flow negative; no post-result sign adjustment.",
+    "SlowRank": "Same-date centered average percentile rank of unchanged SLOW_CONTROL, exactly the existing centered_rank formula; prove identical official weights/P/L to saved SLOW_CONTROL.",
+    "SLOW_FUND_EVENT": "SlowRank+FundOverlay exactly 1:1; no re-EWMA.",
+    "SLOW_CAUSE_AWARE": "SlowRank+FundOverlay+FlowOverlay; event supports mutually exclusive; SectorShock never score-added.",
+    "anchor_inputs": "Original dm_slow_multifactor loader fields unchanged (including dormant Sector17Code); original global size_liquidity computation unchanged. Sector17 is never used by anchor global score or new overlay. Original normalization/imputation belongs only to frozen anchor; no overlay median imputation."
+  },
+  "model": "Two fixed label-free sparse overlays on immutable anchor. No fit, optimizer, candidate search.",
+  "parameters": {
+    "volume_window": 20,
+    "volume_min_periods": 20,
+    "sector33_min_finite_members": 1,
+    "relisting_gap": 20,
+    "weights": [
+      1,
+      1,
+      1
+    ],
+    "candidate_smoothing": null
+  },
+  "selection_rule": "Conjunction of all requested criteria versus SLOW_CONTROL; B additional A-relative gates. Stop after 2 trials. Eligibility means next-stage research only.",
+  "adoption": {
+    "pooled_net_sharpe_gt_control": true,
+    "ex2016_net_sharpe_gt_control": true,
+    "full_year_improvements_min": 4,
+    "bootstrap_delta_net_sharpe_lower_gt": 0,
+    "annual_net_gt_control": true,
+    "turnover_multiplier_max": 1.25,
+    "long_net_ge": 0,
+    "short_net_ge_control": true,
+    "B_net_sharpe_gt_A": true,
+    "B_annual_net_gt_A": true,
+    "B_incremental_cost_lt_gross": true
+  },
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261003,
+    "ci": 0.95,
+    "method": "paired circular moving-block on concatenated eligible sessions; no holding resets",
+    "primary": "SLOW_CAUSE_AWARE-SLOW_CONTROL",
+    "secondary": [
+      "SLOW_FUND_EVENT-SLOW_CONTROL",
+      "SLOW_CAUSE_AWARE-SLOW_FUND_EVENT"
+    ],
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "diagnostics": {
+    "horizons": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "cumulative": "sum of consecutive official residual targets t through t+h-1, require all finite and t+h+1 maturity within same fold; no stock-row compression or segment crossing",
+    "persistent": "Fresh revisions up/down separately, regardless magnitude availability; pooled/ex2016/year summaries and event-level panel. Observational diagnostic only.",
+    "industry": "Negative StockRawReturn at tau split SectorShock<0 versus >=0; missing separate. No sector portfolio.",
+    "pressure": "No FreshFundEvent and WithinShock<0 split AbnormalVolume>0 versus <=0; missing separate; no horizon candidate.",
+    "states": "Negative raw stock move only, ordered PERSISTENT_INFO fresh FundDelta<0; COMMON_INDUSTRY no fresh fund AND SectorShock<0; TRANSIENT_PRESSURE no fresh fund AND SectorShock>=0 AND WithinShock<0 AND AbnormalVolume>0; OTHER. Observed proxy classification, not causal identification. Save counts/next mean/HAC5 RankIC/Long/Short membership/gross contribution for each book.",
+    "turnover": "Full-panel continuous official stock weights. Sum |w-wprev| split CURRENT_EVENT/PRIOR_EVENT_ONLY/NON_EVENT (current and prior union event-active), further entry/exit/resize/sign-flip, and rank displacement versus immutable anchor membership. Rank displacement is an orthogonal attribution, not added to entry/exit. Missing-target official charged costs and all-position costs both reconcile. Save candidate minus anchor and B minus A decompositions."
+  },
+  "prohibitions": [
+    "Historical Valid",
+    "Valid",
+    "revision state carry",
+    "holding optimization",
+    "Sector17 overlay",
+    "LOO",
+    "sector blend",
+    "Sector Momentum",
+    "hard veto",
+    "overlay median imputation",
+    "Code-order event tie spreading",
+    "component weight search",
+    "volume definition/threshold search",
+    "horizon search",
+    "EWMA search",
+    "post-result state filtering",
+    "rescue candidate"
+  ]
+}

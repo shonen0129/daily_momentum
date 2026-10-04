@@ -1,0 +1,7 @@
+{
+  "new_experiment": "PASS",
+  "frozen_snapshot_hashes": "PASS",
+  "checked": 129,
+  "make_check": "FAIL_PREEXISTING",
+  "reason": "DM-20261002-04 unsupported existing metadata kind historical_valid_descriptive_backtest; left unchanged"
+}

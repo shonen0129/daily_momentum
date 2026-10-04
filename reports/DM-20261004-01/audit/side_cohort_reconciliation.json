@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "daily_reconciliation_max_abs": 1.1102230246251565e-16,
+  "summation_atol": 1e-14,
+  "partitions": [
+    "Size",
+    "Illiquidity",
+    "Joint"
+  ],
+  "overlap_between_partitions": true,
+  "never_sum_different_descriptors": true,
+  "neutral_exit_costs_in_current_bucket": true
+}

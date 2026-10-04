@@ -1,0 +1,15 @@
+# DM-20261004-02: conditional Momentum overnight bundle
+
+2026-10-04 JST. Full executable specification and fixed gates: [REQUEST.md](REQUEST.md), [config.json](config.json).
+H1/H2/H3 only primary; every other surface/transition/regime test secondary. No subgroup becomes strategy.
+
+Hypothesis: slow structural small/illiquid exposure may contain an independent momentum confirmation effect. Underreaction and gradual information diffusion could survive the next open. This is a distinct conditional hypothesis, not an amendment to the main Momentum strategy specification. Turnover may rise despite unchanged slow components; persistence and fixed transaction-cost stress quantify that risk. Complexity is same-date 3-regressor OLS plus fixed score, no target-fitting or optimization. PIT normalization and past-only state are audited dynamically.
+
+Known Train development sample, not untouched OOS. Same continuous official books then2011-2016 yearly two-session purge. All diagnostics run irrespective of signs; only performance is conditional on preregistered gates. At most one candidate and zero rescue. Wall budget10800 seconds, staged checkpoint hashes, intermediate parquet/CSV, failure histories, final report even on technical failure. Resume via new run importing only verified completed phase artifacts; config/strategy definition unchanged and observed outcomes retained. Statistical draws checkpoints per date chunk. No original run overwrite.
+
+Execution: `.venv/bin/python tools/run_bounded.py --seconds 10800 .venv/bin/python -m research.experiments.slow_rm_bundle --config <run>/config.json --output <run>`.
+Phases exactly follow user request: freeze, component parity, RM, unconditional, SLOW conditional, surfaces, asymmetry, transition/boundary, persistence, regime, placebo, bootstrap/FDR, gate, conditional candidate/accounting/cost/attribution/bootstrap, causality, report.
+
+Definitions resolved before results: component centered rank scale[-1,1] preserved; within-group bins use all names before label missingness. Spread is daily high-minus-low mean target, gross diagnostic, no tradability/cost claim. Pooled3x3 statistic daily stock-count-weighted mean of finite cell spreads. Bootstrap jointly resamples all5 statistics with same dates; rolling252 counts eligible sessions, sensitivity blocks10/40 descriptive. Permutation is restricted3x3 null, not universal no-association null; max-stat/FDR secondary descriptive. Circular shifts intentionally noncausal placebo and never inference. Boundary all four distances retained; long/short neutral boundaries40/60 shown separately. Transition entry/exit references only yesterday; direct flips saved in flags. Market-vol median is expanding past-only; trend sign threshold0.
+
+No Valid, external submission, release or zip. Submission inference benchmark is measured separately without target or candidate performance. Full source firewall, future mutation each input/ALL, truncation, row shuffle, deterministic rebuild, exact index/finite coverage and label maturity/purge required. Pre-registration source/config/plan/input/environment hashes precede first target read.

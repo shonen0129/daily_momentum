@@ -1,0 +1,6 @@
+{
+  "diagnostic_only": true,
+  "mean_rank_autocorrelation": 0.9775253395313399,
+  "new_performance_trials": 0,
+  "purpose": "Unsmoothed raw stock rank persistence separates control smoothing confound; no P/L or weight/cost strategy evaluation."
+}

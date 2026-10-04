@@ -1,0 +1,78 @@
+{
+  "FUND_REV": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_sharpe": false,
+      "ex2016_net_sharpe": false,
+      "full_year_improvements_4_of_5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net": false,
+      "turnover_le_1_25x": true,
+      "short_gross": false,
+      "short_net": false,
+      "long_net_positive": true
+    },
+    "failed_checks": [
+      "pooled_net_sharpe",
+      "ex2016_net_sharpe",
+      "full_year_improvements_4_of_5",
+      "bootstrap_lower_gt0",
+      "annual_net",
+      "short_gross",
+      "short_net"
+    ],
+    "full_year_improvements": 0
+  },
+  "FLOW_REV": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_sharpe": false,
+      "ex2016_net_sharpe": false,
+      "full_year_improvements_4_of_5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net": false,
+      "turnover_le_1_25x": false,
+      "short_gross": false,
+      "short_net": false,
+      "long_net_positive": false
+    },
+    "failed_checks": [
+      "pooled_net_sharpe",
+      "ex2016_net_sharpe",
+      "full_year_improvements_4_of_5",
+      "bootstrap_lower_gt0",
+      "annual_net",
+      "turnover_le_1_25x",
+      "short_gross",
+      "short_net",
+      "long_net_positive"
+    ],
+    "full_year_improvements": 0
+  },
+  "CAUSE_COMPOSITE": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_sharpe": false,
+      "ex2016_net_sharpe": false,
+      "full_year_improvements_4_of_5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net": false,
+      "turnover_le_1_25x": false,
+      "short_gross": false,
+      "short_net": false,
+      "long_net_positive": false
+    },
+    "failed_checks": [
+      "pooled_net_sharpe",
+      "ex2016_net_sharpe",
+      "full_year_improvements_4_of_5",
+      "bootstrap_lower_gt0",
+      "annual_net",
+      "turnover_le_1_25x",
+      "short_gross",
+      "short_net",
+      "long_net_positive"
+    ],
+    "full_year_improvements": 0
+  }
+}

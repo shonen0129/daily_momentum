@@ -1,0 +1,95 @@
+{
+  "decision": "REJECT",
+  "category": "C",
+  "interpretation": "Dilution",
+  "all_passed": false,
+  "checks": {
+    "full_year_net_sharpe_improvements_ge4": false,
+    "POOLED_net_sharpe_gt_slow": false,
+    "POOLED_annual_net_ge_slow": false,
+    "POOLED_long_net_gt0": true,
+    "POOLED_short_net_ge_slow": false,
+    "POOLED_maxdd_magnitude_le_slow": false,
+    "POOLED_turnover_le_1p50_slow": false,
+    "POOLED_incremental_gross_gt_incremental_cost": false,
+    "EX2016_net_sharpe_gt_slow": false,
+    "EX2016_annual_net_ge_slow": false,
+    "EX2016_long_net_gt0": true,
+    "EX2016_short_net_ge_slow": false,
+    "EX2016_maxdd_magnitude_le_slow": false,
+    "EX2016_turnover_le_1p50_slow": false,
+    "EX2016_incremental_gross_gt_incremental_cost": false,
+    "primary_bootstrap_lower_gt0": false
+  },
+  "evidence": {
+    "full_year_net_sharpe_improvements": 1,
+    "POOLED_net_sharpe_gt_slow": {
+      "candidate_value": 1.494423762716513,
+      "comparison_value": 2.0935381400076882
+    },
+    "POOLED_annual_net_ge_slow": {
+      "candidate_value": 0.056989883620767706,
+      "comparison_value": 0.07711905485643879
+    },
+    "POOLED_long_net_gt0": {
+      "candidate_value": 0.06515454499327869,
+      "comparison_value": 0.0
+    },
+    "POOLED_short_net_ge_slow": {
+      "candidate_value": -0.008164661372510977,
+      "comparison_value": 0.0020549406568860064
+    },
+    "POOLED_maxdd_magnitude_le_slow": {
+      "candidate_value": 0.03404427430129997,
+      "comparison_value": 0.022099202529359152
+    },
+    "POOLED_turnover_le_1p50_slow": {
+      "candidate_value": 0.026815093454860953,
+      "comparison_value": 0.019332250133802357
+    },
+    "POOLED_incremental_gross_gt_incremental_cost": {
+      "candidate_value": -0.01663265940923961,
+      "comparison_value": 0.0034965118264314835
+    },
+    "EX2016_net_sharpe_gt_slow": {
+      "candidate_value": 1.4658694792836513,
+      "comparison_value": 2.0971896971912014
+    },
+    "EX2016_annual_net_ge_slow": {
+      "candidate_value": 0.055978449321101624,
+      "comparison_value": 0.07715333464656915
+    },
+    "EX2016_long_net_gt0": {
+      "candidate_value": 0.06331238437509164,
+      "comparison_value": 0.0
+    },
+    "EX2016_short_net_ge_slow": {
+      "candidate_value": -0.007333935053990013,
+      "comparison_value": 0.0029957090701346165
+    },
+    "EX2016_maxdd_magnitude_le_slow": {
+      "candidate_value": 0.03404427430129997,
+      "comparison_value": 0.022099202529359152
+    },
+    "EX2016_turnover_le_1p50_slow": {
+      "candidate_value": 0.027372770849249856,
+      "comparison_value": 0.01935117942009481
+    },
+    "EX2016_incremental_gross_gt_incremental_cost": {
+      "candidate_value": -0.017540555595548527,
+      "comparison_value": 0.0036343297299189963
+    },
+    "primary_bootstrap_lower_gt0": {
+      "candidate_value": -1.2293962206035371,
+      "comparison_value": 0.0
+    }
+  },
+  "full_year_net_sharpe_improvements": 1,
+  "actual_trials": 1,
+  "rescue_trials": 0,
+  "scope_rule": "Annual/side/DD/turnover/gross-cost gates fixed on POOLED and EX2016; year gate only2011-2015.",
+  "candidate": "SLOW_MOM60_OLS",
+  "gate_source": "DM-20261003-05 unchanged conjunctive gates",
+  "primary_bootstrap_key": "POOLED:SLOW_MOM60_OLS-SLOW_CONTROL",
+  "secondary_comparison": "SLOW_MOM60_EQUAL"
+}

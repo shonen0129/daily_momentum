@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "all_prediction_finite": true,
+  "exact_index": true,
+  "financial_not_before_disclosure": true,
+  "comparable_events": 6747,
+  "scaled_events": 6747,
+  "same_fiscal_basis": true,
+  "MOM60_primitive_bitwise": true,
+  "tau_common_previous_exchange_session": true
+}

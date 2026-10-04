@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "books": {
+    "SN1_H1": {
+      "status": "PASS",
+      "official_weight_bits": true,
+      "official_net_bits": true,
+      "rows": 809636,
+      "attribution_reconciliation_atol": 1e-15,
+      "missing_target_official_cost_semantics": true
+    },
+    "SLOW_CONTROL": {
+      "status": "PASS",
+      "official_weight_bits": true,
+      "official_net_bits": true,
+      "rows": 809636,
+      "attribution_reconciliation_atol": 1e-15,
+      "missing_target_official_cost_semantics": true
+    },
+    "MOM60": {
+      "status": "PASS",
+      "official_weight_bits": true,
+      "official_net_bits": true,
+      "rows": 809636,
+      "attribution_reconciliation_atol": 1e-15,
+      "missing_target_official_cost_semantics": true
+    },
+    "SN1_SLOW_BLEND": {
+      "status": "PASS",
+      "official_weight_bits": true,
+      "official_net_bits": true,
+      "rows": 809636,
+      "attribution_reconciliation_atol": 1e-15,
+      "missing_target_official_cost_semantics": true
+    }
+  }
+}

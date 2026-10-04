@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "opened_before_returns": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/fins_statements_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/prices_daily_quotes_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet"
+  ],
+  "descriptors_ols_and_matching_complete": true,
+  "no_return_selection": true
+}

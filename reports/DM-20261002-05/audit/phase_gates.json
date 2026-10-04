@@ -1,0 +1,37 @@
+{
+  "phase2": {
+    "passed": true,
+    "checks": {
+      "pooled_gross_positive": true,
+      "ex2016_gross_positive": true,
+      "positive_full_year_gross": true,
+      "turnover_feasible": true
+    },
+    "full_year_positive_count": 5
+  },
+  "phase3_sources": {
+    "SLOW_MF_BASE": {
+      "passed": false,
+      "checks": {
+        "pooled_gross_positive": true,
+        "ex2016_gross_positive": true,
+        "positive_full_year_gross": true,
+        "long_gross_positive": true,
+        "short_gross_positive": false
+      },
+      "full_year_positive_count": 5
+    },
+    "SLOW_MF_SECTOR": {
+      "passed": false,
+      "checks": {
+        "pooled_gross_positive": true,
+        "ex2016_gross_positive": true,
+        "positive_full_year_gross": true,
+        "long_gross_positive": true,
+        "short_gross_positive": false
+      },
+      "full_year_positive_count": 5
+    }
+  },
+  "phase3_parent": null
+}

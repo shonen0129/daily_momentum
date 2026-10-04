@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 2703
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 17340
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 29801
+    }
+  ],
+  "row_shuffle": true,
+  "deterministic_rebuild": true,
+  "comparison": "Exact index/columns/dtype and numeric uint64 bits incl NaN, no tolerance",
+  "mutations": "All4 inputs individually/jointly: return/beta/TOPIX extremes+NaN, PIT17 changes, suffix row deletion, future-only stocks/new sectors, truncation",
+  "features": [
+    "ResidualReturn",
+    "Sector17Code",
+    "StockMom20",
+    "IndustryResidualReturn",
+    "IndustryMom20",
+    "FiniteMembers",
+    "Within17Mom20",
+    "Within17Rev20",
+    "IndustryComponent",
+    "WithinReversalComponent",
+    "CombinedRaw",
+    "IND17_MOM_WITHIN_REV20",
+    "StockMom60_raw",
+    "MOM60"
+  ],
+  "history": [
+    "IndustryResidualReturn",
+    "IndustryMom20",
+    "FiniteMembers"
+  ],
+  "scope": "Full Train3cutoffs, no fitting; empirical evidence on exercised inputs"
+}

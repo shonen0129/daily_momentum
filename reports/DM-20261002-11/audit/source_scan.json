@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal17/__init__.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal17/features.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal17/primitives.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal17/submission.py"
+  ],
+  "findings": [],
+  "review": "Historical PIT17 self-inclusive equal finite daily residual mean min5;20/skip1; unchanged rank/1:1/rerank/EWMA. No label/LOO/model/filter."
+}

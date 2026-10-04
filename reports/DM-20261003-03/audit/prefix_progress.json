@@ -1,0 +1,248 @@
+{
+  "status": "running",
+  "cases": [
+    {
+      "cutoff": "2012-06-29",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "beta_1day",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "fins_statements",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "listed_info",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "target_1day",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "ALL",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "rows": 389444,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "fins_statements",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "target_1day",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2014-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "rows": 609960,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "fins_statements",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": false,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "target_1day",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "rows": 780844,
+      "bitwise": true,
+      "SN1_refit": true,
+      "SLOW_rebuilt": true
+    }
+  ]
+}

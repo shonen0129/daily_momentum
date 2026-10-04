@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "related_tests": 36,
+  "test_log_sha256": "9f23f0c15aa151a07617c5f902c5d79b4855a3184e86d4542f71b3529fdb481d",
+  "required_output_groups": 9,
+  "supplemental_disclosure_audit": "PASS",
+  "source_result_finalization": "hash-verified, no added performance trials",
+  "original_score_rows": 809636,
+  "official_weight_and_net_bitwise": true,
+  "config_unchanged": true,
+  "report_references": "16 existing files",
+  "historical_valid_or_valid_used": false,
+  "performance_candidates": 0,
+  "make_check": "preexisting unsupported experiment kind; independent config/129freeze hashes PASS"
+}

@@ -1,0 +1,200 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "fins_statements",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "fins_statements",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "prices_daily_quotes",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "fins_statements",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "columns": 31,
+      "bitwise": true
+    }
+  ],
+  "deterministic_rebuild_bitwise": true,
+  "row_shuffle_bitwise": true,
+  "method": "All intermediate features and both candidate scores; float64 uint64 exact incl NaNs, strings/index/dtypes exact. Each-source and joint extremes/NaN/zero, suffix deletion/date shifts, fiscal/basis/sector changes, future-only stocks, separate truncation."
+}

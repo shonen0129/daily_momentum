@@ -1,0 +1,34 @@
+{
+  "SLOW_CONTROL": {
+    "status": "PASS",
+    "weight_bitwise": true,
+    "net_bitwise": true,
+    "side_account_tolerance": 1e-15,
+    "rows": 809636,
+    "min_quintiles_per_day": 5
+  },
+  "SLOW_MF_BASE": {
+    "status": "PASS",
+    "weight_bitwise": true,
+    "net_bitwise": true,
+    "side_account_tolerance": 1e-15,
+    "rows": 809636,
+    "min_quintiles_per_day": 5
+  },
+  "MOM60": {
+    "status": "PASS",
+    "weight_bitwise": true,
+    "net_bitwise": true,
+    "side_account_tolerance": 1e-15,
+    "rows": 809636,
+    "min_quintiles_per_day": 5
+  },
+  "SLOW_MF_SECTOR": {
+    "status": "PASS",
+    "weight_bitwise": true,
+    "net_bitwise": true,
+    "side_account_tolerance": 1e-15,
+    "rows": 809636,
+    "min_quintiles_per_day": 5
+  }
+}

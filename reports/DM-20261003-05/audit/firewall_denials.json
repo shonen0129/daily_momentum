@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "requested": "target_1day_valid.parquet",
+      "result": "DENIED",
+      "reason": "Train-only parquet guard denied target_1day_valid.parquet"
+    },
+    {
+      "requested": "raw_target_1day_train.parquet",
+      "result": "DENIED",
+      "reason": "Train-only parquet guard denied raw_target_1day_train.parquet"
+    }
+  ],
+  "values_parsed": false
+}

@@ -1,0 +1,9 @@
+{
+  "valid_rows": 535523,
+  "max_identity_error": 1.1102230246251565e-16,
+  "industry_within_sector_mean": 0.000881198404979614,
+  "industry_within_sector_std": 0.024823421103628486,
+  "sector33_sector17_corr": 0.9120907233632941,
+  "within_date_sector33_stock_peer_corr": -0.7967630000760241,
+  "interpretation": "Exact LOO algebra is sector_mean+(sector_mean-own)/(finite_count-1). It gives a negative within-sector stock coefficient; hierarchy difference is descriptive, not orthogonal extraction."
+}

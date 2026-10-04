@@ -1,0 +1,32 @@
+{
+  "status": "PASS_WITH_EXISTING_WORKSPACE_METADATA_FAILURE",
+  "own_metadata": "PASS",
+  "existing_freeze_hashes": 129,
+  "existing_freeze_hashes_status": "PASS",
+  "config_plan_code_and_computed_artifact_hashes": "PASS",
+  "required_metrics_3x8_finite": "PASS",
+  "SLOW_full_saved_daily_net_bits": "PASS",
+  "SLOW_full_saved_daily_net_dates": 1814,
+  "regression_tests": {
+    "diagnostics_and_original_slow": {
+      "passed": 16,
+      "seconds": 2.08
+    },
+    "runtime_firewall": {
+      "passed": 2,
+      "seconds": 4.62,
+      "deselected": 7
+    }
+  },
+  "make_check_returncode": 2,
+  "make_check_reason": "Preexisting DM-20261002-04 unknown experiment kind; unchanged; whole workspace check not passed",
+  "failed_run": {
+    "id": "run-20261003T172859Z",
+    "reason": "Target hash under firewall registered an open before target-free phase assertion",
+    "performance_evaluations": 0,
+    "retained": true
+  },
+  "performance_candidates": 0,
+  "completed_diagnostic_bundles": 1,
+  "result_driven_adjustments": 0
+}

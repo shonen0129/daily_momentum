@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "command": "make test",
+  "tests_passed": 235,
+  "elapsed_seconds": 35.26,
+  "deadline_seconds": 180,
+  "new_strategy_tests": 12,
+  "initial_new_strategy_only_seconds": 4.8
+}

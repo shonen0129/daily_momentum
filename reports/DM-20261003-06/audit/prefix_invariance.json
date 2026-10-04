@@ -1,0 +1,275 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "prices_daily_quotes",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "fins_statements",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "Train_labels",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "prefix_rows": 68209,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "prices_daily_quotes",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "fins_statements",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "Train_labels",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "prefix_rows": 444771,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "prices_daily_quotes",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "fins_statements",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": false
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "Train_labels",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "prefix_rows": 780844,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true,
+      "label_changes_by_t_plus_2_maturity": true
+    },
+    {
+      "source": "ROW_SHUFFLE",
+      "rows": 809636,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true
+    },
+    {
+      "source": "DETERMINISTIC_REBUILD",
+      "rows": 809636,
+      "status": "PASS",
+      "bitwise": true,
+      "training_refitted": true
+    }
+  ],
+  "comparison": "Exact index/columns/dtype/uint64 bits incl NaNs; full model records and coefficient bits",
+  "all_feature_sources": [
+    "prices_daily_quotes",
+    "raw_return_1day",
+    "fins_statements",
+    "listed_info",
+    "beta_1day",
+    "topix_return_1day"
+  ],
+  "training_included": true,
+  "label_mutation": "maturity>cutoff or unknown, including last2 prefix signal dates, extreme/NaN/zero",
+  "no_performance_trials_added": true,
+  "scope": "Tested inputs/cutoffs only; not a universal proof."
+}

@@ -1,0 +1,23 @@
+{
+  "at_utc": "2026-10-03T14:39:26.953600+00:00",
+  "plan_sha256": "9997df6f5827276f3ab13b48a1bcd89ff8501baf29755229fcda4b495388d28c",
+  "config_sha256": "f8d3abd9bd379024fc046b296809ab0c243e46e4eb160e1a698e6d2c93c9581f",
+  "code_sha256": {
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/component_momentum.py": "a7de4e22d69b75b1a7b19a456143cd75dfe6883aa07086a70052c4df2aaddbdd",
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/component_slow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/component_slow/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/features.py": "3ba3f04fc8a8030e2df291b447874d23292b596c01aa76398e6261e2d4b040fc",
+    "stock_comp_2026/strategies/dm_slow_mom60_equal/submission.py": "222e0c4ce61acb29c98078df033410799a0c7cc1203800f1f6485a769a716b6f",
+    "research/experiments/slow_mom60_equal.py": "c4c88ec4dae46832a3bd8dafdac3cc98379c1159762b42e2ff66cb30ecfc4fa7",
+    "research/experiments/slow_multifactor.py": "a29e589295ea75ea99ecaac78a17866c08ff0c6321456ee31638f53750d86c3e",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "tests/strategies/dm_slow_mom60_equal/test_three_factors.py": "06a1a9fa73fa6b87df3facad0725c8401b30f905cb284a5acea43f6d98f94ad1"
+  },
+  "max_trials": 1,
+  "target_parsed": false
+}

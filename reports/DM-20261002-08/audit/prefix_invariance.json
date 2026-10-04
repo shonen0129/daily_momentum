@@ -1,0 +1,423 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 68209,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 444771,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "prefix_rows": 780844,
+      "features": [
+        "StockMom60_raw",
+        "Sector33Code",
+        "FiniteMembers",
+        "Sector33Common_raw",
+        "State",
+        "Confirmed_raw",
+        "ShortVeto_raw",
+        "Confirmed_ewm",
+        "ShortVeto_ewm",
+        "MOM60"
+      ],
+      "scores": [
+        "SECTOR_CONFIRM",
+        "SHORT_DISAGREE_VETO"
+      ]
+    }
+  ],
+  "row_shuffle": true,
+  "deterministic_rebuild": true,
+  "comparison": "Exact index/columns/dtypes/string values; numeric uint64 bits including NaN, zero tolerance",
+  "mutation": "Each/joint suffix return,beta,TOPIX extreme/NaN; PIT changes; deletion; future-only codes; truncation"
+}

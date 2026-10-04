@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/__init__.py",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/features.py",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/primitives.py",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "All4 input sources exact PIT/date joins; finite inclusive historical-date stock residual60 means; unchanged centered rank/EWMA baseline, finite33 priority then17, strict sign-only veto on final score. No target or fit."
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-05",
+  "strategy": "dm_slow_mom60_equal",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Primary SLOW_CONTROL; secondary frozen MOM60 / DM-20260908-v1, same eligible sessions and official accounting.",
+  "random_seed": 20261003,
+  "train_window": "2008-11-04 through 2016-03-31 feature history; evaluation 2011-2015 and 2016 partial; no learning",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "past": "All past Train feature history; no label fit",
+      "evaluation": "This year excluding final two exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "Known Train research; no unseen holdout. Historical Valid / Valid prohibited, including saved scores or labels.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "SLOW_MOM60_EQUAL"
+    }
+  ],
+  "feature_definitions": {
+    "Size": "Original SLOW -log(raw Close*latest positive PIT disclosed shares), exact 1/99 winsor/median/zero/sample-z normalization; z_size.",
+    "Illiquidity": "Original SLOW abs(organizer raw_return)/positive raw TurnoverValue, trailing 60 exchange sessions, min40, same normalization; z_amihud.",
+    "SLOW_CONTROL": "Exact original size_liquidity = daily zscore(mean(z_size,z_amihud)), no smoothing.",
+    "MOM60": "Frozen res60s1: raw_return-beta*same-date topix, within-original relisting segment shift1, rolling60/min60 sum, same-date centered average rank, EWMA(.25,adjust=False).",
+    "rank": "p=same-date average-tie percentile rank; 2*(p-mean(p)). The factor2 is the existing centered-rank convention and has no effect on official ordering. All-tie/singleton=0.",
+    "SLOW_MOM60_EQUAL": "(SizeRank+IlliquidityRank+MOM60Rank)/3. Exactly three independent equally weighted final component ranks. No extra smoothing. Different from .5*SLOW_CONTROL+.5*MOM60."
+  },
+  "model": "One fixed label-free equal-factor rank combination; no fitted coefficients or selection",
+  "parameters": {
+    "factor_weights": [
+      1,
+      1,
+      1
+    ],
+    "momentum_window": 60,
+    "momentum_skip": 1,
+    "momentum_ewma_alpha": 0.25,
+    "additional_smoothing": null,
+    "turnover_control": null
+  },
+  "selection_rule": "All requested gates conjunctive vs SLOW. Annual net/Long/Short/MDD/turnover/incremental gross-cost gates checked on both POOLED and EX2016, conservatively fixed before trial. Net Sharpe improvement in >=4/5 full years; 2016 partial excluded. Primary pooled bootstrap lower>0; EX2016 secondary descriptive bootstrap also saved. Stop after one candidate, no rescue.",
+  "adoption": {
+    "improved_years_min": 4,
+    "turnover_ratio_max": 1.5,
+    "primary_bootstrap_lower_gt": 0,
+    "gate_scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261003,
+    "ci": 0.95,
+    "method": "paired circular moving-block across eligible sessions, percentile CI, ddof1 Sharpe",
+    "primary": "SLOW_MOM60_EQUAL-SLOW_CONTROL",
+    "secondary": "SLOW_MOM60_EQUAL-MOM60",
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "orthogonality": {
+    "score": "daily cross-sectional Spearman, daily-unweighted pooled/year means and matrices; stacked stock-day Spearman/Pearson separately labeled",
+    "pl": "gross/net Pearson, mean daily Long/Short Jaccard; compounded net drawdown depth Pearson with initial1 and per-scope reset"
+  },
+  "attribution": {
+    "groups": [
+      "BOTH_HIGH",
+      "SLOW_HIGH_MOM_LOW",
+      "SLOW_LOW_MOM_HIGH",
+      "BOTH_LOW",
+      "OTHER"
+    ],
+    "membership": "official positive weights=HIGH (Q4/Q5), negative=LOW (Q1/Q2); residual OTHER. Current membership assigns all costs, including neutral exit costs.",
+    "measures": "stock-days, finite targets, forward target mean, candidate/SLOW gross/net/cost/turnover and deltas; daily and all scopes; stock-day sum and annual contributions; no filter"
+  },
+  "saved_components": {
+    "slow_features": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/features_base.parquet",
+      "columns": [
+        "raw_size",
+        "raw_amihud",
+        "z_size",
+        "z_amihud",
+        "size_liquidity"
+      ],
+      "sha256": "8d19f220e66d8460f86c305b2a6c5cfcc1f51a9d6c919125d493357c288a89af"
+    },
+    "slow_scores": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "columns": [
+        "SLOW_CONTROL",
+        "MOM60"
+      ],
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    },
+    "frozen_momentum": {
+      "path": "releases/DM-20260908-v1/snapshot/reports/DM-20260908/selected_train_predictions.parquet",
+      "columns": [
+        "Return"
+      ],
+      "sha256": "58b803b31dc6d61c58d56f2a49c091eb55d481eacac2dffce3d5511df058f46c"
+    }
+  },
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "audit": "Exact index/dtype/bit values, each source plus all future mutations, truncation, row shuffle, deterministic rebuild, label independence, maturity/purge, official accounting, explicit Train-only stage/firewall, frozen MOM residual source and old audit comparison.",
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261003-05",
+  "execution_timeout_seconds": 1800,
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "prohibitions": [
+    "SN1_H1",
+    "momentum/window/skip/alpha/weight/sign/threshold/filter search",
+    "side weights",
+    "sector neutralization",
+    "regime switching",
+    "volatility targeting",
+    "extra score smoothing",
+    "rescue candidate",
+    "Historical Valid",
+    "Valid"
+  ],
+  "pure_sleeve_diagnostic": false
+}

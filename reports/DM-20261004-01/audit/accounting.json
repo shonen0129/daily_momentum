@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "receipts": {
+    "SIZE_ONLY": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "daily_net_bitwise": true,
+      "stock_day_net_reconciles_bitwise": true,
+      "strict_uint64": true
+    },
+    "ILLIQ_ONLY": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "daily_net_bitwise": true,
+      "stock_day_net_reconciles_bitwise": true,
+      "strict_uint64": true
+    },
+    "SLOW_CONTROL": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "daily_net_bitwise": true,
+      "stock_day_net_reconciles_bitwise": true,
+      "strict_uint64": true
+    }
+  },
+  "SLOW_saved_daily_net_bitwise": true,
+  "SLOW_saved_score_official_full_daily_net_bitwise": true,
+  "official_target_missing_drops_cost": true,
+  "all_position_cost_also_saved": true,
+  "continuous_accounting_before_purge": true
+}

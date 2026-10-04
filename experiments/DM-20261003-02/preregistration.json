@@ -1,0 +1,12 @@
+{
+  "frozen_at_utc": "2026-10-03T06:47:11.239128+00:00",
+  "plan_sha256": "2b50f298f2bce8137afcf85cd4df1d103a876b22aae77caf93918abde52b068a",
+  "config_sha256": "8538be73f522271723ea53e274110abf7c0f08e93e043ce062d48f5fd9ba9338",
+  "max_trials": 2,
+  "performance_read": false,
+  "prior_anchor_sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89",
+  "prior_definition_code_sha256": {
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/strategies/dm_decline_causes/features.py": "0491a358327c1584adfe2b085893433eaec0f58fb8241dbb218b95edf471ad90"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tests_returncode": 0,
+  "tests_output": "........................                                                 [100%]\n24 passed, 2 deselected in 2.85s\nbounded command exit=0 deadline=180s",
+  "make_check_returncode": 2,
+  "make_check_output": ".venv/bin/python tools/workspace.py check\nERROR: /Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/experiments/DM-20261002-04: unknown experiment kind\nmake: *** [check] Error 1\n",
+  "own_metadata": "PASS",
+  "existing_freeze_hashes": 129,
+  "existing_freeze_hashes_status": "PASS",
+  "scientific_code_ast_change_only": [
+    "mutate",
+    "causality"
+  ],
+  "added_function": "source_dates: audit-only JST normalization"
+}

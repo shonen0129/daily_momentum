@@ -1,0 +1,3 @@
+# Causality audit
+
+See audit/source_scan.json, prefix_invariance.json (3cutoffs×6cases), primitive_parity, prior_control_parity, adapter_parity, standalone_smoke, prediction_source_firewall, firewall_denials, purge, official_accounting_parity, prior_evidence_unchanged and resources. Exact uint64-bit checks include IndustryResidualReturn/history, StockMom20, IndustryMom20, Within33Rev20, all scores; no tolerance. Mechanism partition reconciliation alone uses1e-15 floating tolerance. Four prediction inputs only; Train target loaded only after all feature and score audits. No fitting. Experimental checks cannot prove every possible input.

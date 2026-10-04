@@ -1,0 +1,214 @@
+{
+  "status": "PASS",
+  "SN1_annual_models": [
+    {
+      "side": "high",
+      "year": 2011,
+      "training_rows": 1006,
+      "training_dates": 195,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2010-12-28",
+      "max_label_maturity_date": "2010-12-30",
+      "coefficients": [
+        -0.09151357118524873,
+        0.04572569747942312,
+        -0.0042437694265337455,
+        -0.03260763317245198,
+        -0.016468310011491273,
+        -0.0359670264890699
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2011,
+      "training_rows": 1150,
+      "training_dates": 157,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2010-12-24",
+      "max_label_maturity_date": "2010-12-28",
+      "coefficients": [
+        0.0017990003076819594,
+        0.01271364428344107,
+        0.012909225145997107,
+        0.021589608350248448,
+        0.006711951067977923,
+        -0.05060142427637052
+      ]
+    },
+    {
+      "side": "high",
+      "year": 2012,
+      "training_rows": 1946,
+      "training_dates": 367,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2011-12-28",
+      "max_label_maturity_date": "2011-12-30",
+      "coefficients": [
+        -0.06756081576578901,
+        0.020114502374831752,
+        -0.0027661723734686665,
+        -0.022535322571179496,
+        -0.0011313082436056688,
+        0.0025953558884850877
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2012,
+      "training_rows": 2380,
+      "training_dates": 300,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2011-12-28",
+      "max_label_maturity_date": "2011-12-30",
+      "coefficients": [
+        -0.0002048202710133804,
+        0.022614338678043907,
+        0.0011509374875895626,
+        0.010240227916880954,
+        0.03388384166724434,
+        -0.022761646531854633
+      ]
+    },
+    {
+      "side": "high",
+      "year": 2013,
+      "training_rows": 3596,
+      "training_dates": 590,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2012-12-26",
+      "max_label_maturity_date": "2012-12-28",
+      "coefficients": [
+        -0.05597085498952818,
+        0.017346840126328825,
+        -0.0023662693120609975,
+        0.006852439692177259,
+        -0.011825248315680853,
+        -0.007935623747798076
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2013,
+      "training_rows": 3711,
+      "training_dates": 438,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2012-12-20",
+      "max_label_maturity_date": "2012-12-25",
+      "coefficients": [
+        0.0013240441680656499,
+        0.012798328822823836,
+        0.006982956103691935,
+        0.005973273335069991,
+        0.025773624047907798,
+        -0.006527058523878392
+      ]
+    },
+    {
+      "side": "high",
+      "year": 2014,
+      "training_rows": 8907,
+      "training_dates": 807,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2013-12-26",
+      "max_label_maturity_date": "2013-12-30",
+      "coefficients": [
+        -0.027295203339753073,
+        0.005674972041787722,
+        -0.009440216116680169,
+        0.012110738095332365,
+        -0.033292652809950335,
+        -0.024312305504799035
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2014,
+      "training_rows": 3733,
+      "training_dates": 458,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2013-12-17",
+      "max_label_maturity_date": "2013-12-19",
+      "coefficients": [
+        0.001987672166319255,
+        0.01403220632474265,
+        0.005971607564924988,
+        0.007085948791166617,
+        0.026078381347587717,
+        -0.008692099420519987
+      ]
+    },
+    {
+      "side": "high",
+      "year": 2015,
+      "training_rows": 12184,
+      "training_dates": 1033,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2014-12-26",
+      "max_label_maturity_date": "2014-12-30",
+      "coefficients": [
+        -0.02197707318894513,
+        0.0004942981615324237,
+        -0.005922512431562695,
+        0.016068788366982473,
+        -0.02736679985983171,
+        -0.022064530770771036
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2015,
+      "training_rows": 4191,
+      "training_dates": 557,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2014-12-17",
+      "max_label_maturity_date": "2014-12-19",
+      "coefficients": [
+        0.006046101552887774,
+        0.007203785548022432,
+        0.006459575344221325,
+        0.009669485948352903,
+        0.021830380895211707,
+        -0.010477438960111881
+      ]
+    },
+    {
+      "side": "high",
+      "year": 2016,
+      "training_rows": 16388,
+      "training_dates": 1241,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2015-12-25",
+      "max_label_maturity_date": "2015-12-29",
+      "coefficients": [
+        -0.018550729833620837,
+        -0.0003302073366459273,
+        -0.002970986746196581,
+        0.011757561851715115,
+        -0.026930862976685246,
+        -0.016807011918782123
+      ]
+    },
+    {
+      "side": "low",
+      "year": 2016,
+      "training_rows": 4521,
+      "training_dates": 634,
+      "min_training_signal": "2009-11-13",
+      "max_training_signal": "2015-12-28",
+      "max_label_maturity_date": "2015-12-30",
+      "coefficients": [
+        0.003402178530911291,
+        0.008665051062658781,
+        0.004778977644001749,
+        0.010630535131667548,
+        0.019366193204289887,
+        -0.011449263175139173
+      ]
+    }
+  ],
+  "H1_endpoint": "signal exchange index+2",
+  "reconstructable_rows": 803101,
+  "reconstruction_max_abs_error": 0.0,
+  "target_bitwise": true,
+  "terminal_two_sessions_excluded_from_every_evaluation": true
+}

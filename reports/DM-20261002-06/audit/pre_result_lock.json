@@ -1,0 +1,21 @@
+{
+  "at_utc": "2026-10-02T05:34:49.147202+00:00",
+  "plan_sha256": "186d3d5028166612262d5a5954d06d236f35421e6248da769b3fe1dd3b2df2c5",
+  "config_sha256": "9cff3344ca5ea3659f384e2f5e7cdc2eb33a59bda783617893a90cc61311898a",
+  "code_sha256": {
+    "research/experiments/sector_momentum.py": "8267d15eeee6a19831f309b5273d1721a28cdb4d9444012f69c72f4ee311a6a9",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "stock_comp_2026/strategies/dm_sector_momentum/submission.py": "9f551167ad52c3e2d05385a7040c68f060f19b6161c67db44ba14e3b9009e18c",
+    "stock_comp_2026/strategies/dm_sector_momentum/features.py": "209fb6e414a1b1011987bd2b9d4dedac813853b008d45127aa6fb936182b2a6d"
+  },
+  "target_read": false,
+  "max_trials": 3,
+  "trials": [
+    "SECTOR17_MOM",
+    "SECTOR33_MOM",
+    "RELATIVE33_MOM"
+  ]
+}

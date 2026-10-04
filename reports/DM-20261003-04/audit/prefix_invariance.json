@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-03-31",
+      "source": "prices_daily_quotes",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-03-31",
+      "source": "raw_return_1day",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-03-31",
+      "source": "fins_statements",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-03-31",
+      "source": "listed_info",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-03-31",
+      "source": "ALL",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-03-31",
+      "source": "TRUNCATION",
+      "rows": 41919,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "prices_daily_quotes",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "raw_return_1day",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "fins_statements",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "listed_info",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "ALL",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-06-29",
+      "source": "TRUNCATION",
+      "rows": 389444,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "prices_daily_quotes",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "fins_statements",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "rows": 780844,
+      "status": "PASS",
+      "bitwise": true
+    }
+  ],
+  "row_shuffle": "PASS",
+  "deterministic_rebuild": "PASS",
+  "exact_index": true,
+  "comparison": "float64 uint64 bits including NaNs, index/columns/dtype",
+  "tested_paths": [
+    "original SLOW feature/score",
+    "all raw/z descriptors",
+    "OLS residual score",
+    "primary matching weights"
+  ],
+  "limitations": "Finite tested cutoffs, not universal proof; vendor financial vintage cannot be independently certified. Dates have no intraday disclosure clock."
+}

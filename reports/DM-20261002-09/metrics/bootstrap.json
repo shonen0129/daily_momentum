@@ -1,0 +1,68 @@
+{
+  "EX2016:RAW_EWMA_SHORT_VETO-RAW_EWMA_CONTROL": {
+    "low": -0.02401354826070999,
+    "high": 0.25248421102823065,
+    "bootstrap_positive_fraction": 0.95,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": 0.1146789112940651,
+    "days": 1216,
+    "primary": true
+  },
+  "EX2016:RAW_EWMA_CONTROL-MOM60": {
+    "low": -0.041592631952106086,
+    "high": 0.032845410287666764,
+    "bootstrap_positive_fraction": 0.4245,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": -0.004469146445675254,
+    "days": 1216,
+    "primary": false
+  },
+  "EX2016:RAW_EWMA_SHORT_VETO-MOM60": {
+    "low": -0.030191450396311846,
+    "high": 0.2549556799701393,
+    "bootstrap_positive_fraction": 0.934,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": 0.11020976484838985,
+    "days": 1216,
+    "primary": false
+  },
+  "POOLED:RAW_EWMA_SHORT_VETO-RAW_EWMA_CONTROL": {
+    "low": 0.0015765678935835605,
+    "high": 0.26905900026743823,
+    "bootstrap_positive_fraction": 0.9755,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": 0.13048782907451273,
+    "days": 1275,
+    "primary": false
+  },
+  "POOLED:RAW_EWMA_CONTROL-MOM60": {
+    "low": -0.02760348739038512,
+    "high": 0.046200177057839006,
+    "bootstrap_positive_fraction": 0.7145,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": 0.00971350673438065,
+    "days": 1275,
+    "primary": false
+  },
+  "POOLED:RAW_EWMA_SHORT_VETO-MOM60": {
+    "low": 0.003352035993600556,
+    "high": 0.2894728973922245,
+    "bootstrap_positive_fraction": 0.978,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "point_delta": 0.14020133580889338,
+    "days": 1275,
+    "primary": false
+  }
+}

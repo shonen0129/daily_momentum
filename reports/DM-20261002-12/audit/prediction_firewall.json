@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "opened_before_target": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/beta_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/topix_return_1day_train.parquet"
+  ],
+  "denied": [
+    {
+      "path": "target_1day_valid.parquet",
+      "reason": "Train-only parquet guard denied target_1day_valid.parquet"
+    },
+    {
+      "path": "raw_target_1day_train.parquet",
+      "reason": "Train-only parquet guard denied raw_target_1day_train.parquet"
+    },
+    {
+      "path": "unknown.parquet",
+      "reason": "Train-only parquet source is unavailable: /Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261002-12/run-20261002T101951Z/stage/unknown.parquet"
+    }
+  ],
+  "feature_only_stage": true
+}

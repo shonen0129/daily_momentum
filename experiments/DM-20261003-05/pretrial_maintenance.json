@@ -1,0 +1,11 @@
+{
+  "failed_run": "run-20261003T143513Z",
+  "performance_trials": 0,
+  "cause": "raw_size negative-sign NaNs lose sign/payload in Parquet null representation",
+  "raw_size_nan_only_differences": 28115,
+  "all_finite_raw_and_normalized_and_SLOW_MOM_score_bits_equal": true,
+  "change": "raw stored diagnostics compare exact finite bits and missing mask plus canonical null storage bits; signal comparisons stay strict uint64",
+  "parameter_changes": false,
+  "selection_changes": false,
+  "rescue_candidate": false
+}

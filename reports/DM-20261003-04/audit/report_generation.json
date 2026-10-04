@@ -1,0 +1,7 @@
+{
+  "source": "research/experiments/slow_style_report.py",
+  "code_sha256": "6f8977f236650b2f978dc95d7073797bbbde3f1defed837d7caa3836858786ea",
+  "interpretation_sha256": "df8ba16d44f13de7f9d4a3be1e6d51741d12113af91312a38133b040a4e5f483",
+  "report_sha256": "8025907c438ab87aed5e42952b6e79242a1de9a2565f40ed9930359761596e37",
+  "no_additional_fit_or_evaluation": true
+}

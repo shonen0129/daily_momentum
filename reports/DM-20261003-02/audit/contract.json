@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "exact_index": true,
+  "all_predictions_finite": true,
+  "no_revision_carry": true,
+  "event_support_mutually_exclusive": true,
+  "inactive_overlay_exact_zero": true,
+  "anchor_rank_weight_quintiles_bitwise": true,
+  "MOM60_primitive_bitwise": true,
+  "disclosure_available_before_signal": true,
+  "same_fiscal_basis": true,
+  "comparable_disclosures": 6747,
+  "fresh_known_revision_rows": 3085,
+  "fund_active_rows": 3085,
+  "flow_active_rows": 191444
+}

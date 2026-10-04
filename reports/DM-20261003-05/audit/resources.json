@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 103.02051304100314,
+  "peak_rss_bytes": 2703360000,
+  "new_performance_trials": 0,
+  "actual_trials": 1,
+  "valid_evaluation": false,
+  "scientific_source_elapsed_wall_seconds": 38.468006,
+  "scientific_source_peak_rss_bytes": null,
+  "execution_timeout_seconds": 1800
+}

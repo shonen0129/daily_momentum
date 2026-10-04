@@ -1,0 +1,78 @@
+{
+  "BASELINE_SECTOR33_VETO": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_sharpe": false,
+      "ex2016_net_sharpe": false,
+      "full_year_improvements_4_of_5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net": false,
+      "short_gross": true,
+      "short_net": false,
+      "long_net_positive": true,
+      "turnover_le_1_25x": false,
+      "q_monotonicity_no_large_decline": true,
+      "short_net_positive_increment": false,
+      "short_gross_share_ge50pct": false
+    },
+    "failed_checks": [
+      "pooled_net_sharpe",
+      "ex2016_net_sharpe",
+      "full_year_improvements_4_of_5",
+      "bootstrap_lower_gt0",
+      "annual_net",
+      "short_net",
+      "turnover_le_1_25x",
+      "short_net_positive_increment",
+      "short_gross_share_ge50pct"
+    ],
+    "full_year_improvements": 2,
+    "delta_short_gross": 0.006933023487607,
+    "short_cost_effect": -0.00904923767528788,
+    "delta_short_net": -0.0021162141876808795,
+    "gross_fraction_of_short_net_improvement": null
+  },
+  "BASELINE_HIER_SECTOR_VETO": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_sharpe": false,
+      "ex2016_net_sharpe": false,
+      "full_year_improvements_4_of_5": false,
+      "bootstrap_lower_gt0": false,
+      "annual_net": false,
+      "short_gross": true,
+      "short_net": false,
+      "long_net_positive": true,
+      "turnover_le_1_25x": false,
+      "q_monotonicity_no_large_decline": true,
+      "short_net_positive_increment": false,
+      "short_gross_share_ge50pct": false
+    },
+    "failed_checks": [
+      "pooled_net_sharpe",
+      "ex2016_net_sharpe",
+      "full_year_improvements_4_of_5",
+      "bootstrap_lower_gt0",
+      "annual_net",
+      "short_net",
+      "turnover_le_1_25x",
+      "short_net_positive_increment",
+      "short_gross_share_ge50pct"
+    ],
+    "full_year_improvements": 2,
+    "delta_short_gross": 0.00319649021769507,
+    "short_cost_effect": -0.00975012813174084,
+    "delta_short_net": -0.006553637914045753,
+    "gross_fraction_of_short_net_improvement": null
+  },
+  "fallback": {
+    "checks": {
+      "net_sharpe": false,
+      "annual_net": false,
+      "coverage": true,
+      "short_net": false
+    },
+    "alpha_increment_confirmed": false,
+    "conclusion": "17 fallbackはoperational coverageを改善するがalpha改善は未確認"
+  }
+}

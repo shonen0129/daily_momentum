@@ -1,0 +1,681 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "strategy": "FUND_REV",
+      "scope": "POOLED",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "POOLED",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "POOLED",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "POOLED",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "POOLED",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "EX2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "EX2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "EX2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "EX2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "EX2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2011",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2011",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2011",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2011",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2011",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2011",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2011",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2011",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2011",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2011",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2011",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2011",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2012",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2012",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2012",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2012",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2012",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2012",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2012",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2012",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2012",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2012",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2012",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2012",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2013",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2013",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2013",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2013",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2013",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2013",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2013",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2013",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2013",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2013",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2013",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2013",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2014",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2014",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2014",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2014",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2014",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2014",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2014",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2014",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2014",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2014",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2014",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2014",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2015",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2015",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2015",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2015",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2015",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2015",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2015",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2015",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2015",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2015",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2015",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2015",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2016",
+      "subset": "ALL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2016",
+      "subset": "NEGATIVE_STOCK_MOVE",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FUND_REV",
+      "scope": "2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "FLOW_REV",
+      "scope": "2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "CAUSE_COMPOSITE",
+      "scope": "2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    },
+    {
+      "strategy": "MOM60",
+      "scope": "2016",
+      "subset": "NEGATIVE_RESIDUAL",
+      "status": "PASS",
+      "atol": 1e-12
+    }
+  ],
+  "all_joint_books_reconcile": true,
+  "negative_subsets_reconcile": true,
+  "tolerance": 1e-12,
+  "meaning": "Fixed signed residual P/L attribution, not standalone state portfolios. Empty/undefined IC is NaN, not0. No diagnostic-derived filter."
+}

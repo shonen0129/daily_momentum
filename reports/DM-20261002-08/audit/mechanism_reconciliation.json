@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "agreement": {
+    "status": "PASS",
+    "state_book_reconciliation_atol": 1e-15,
+    "standalone_state_strategy": false
+  },
+  "replacement": {
+    "status": "PASS",
+    "replacement_gross_reconciliation_atol": 1e-15,
+    "net_equals_gross_minus_cost_atol": 1e-15,
+    "interpretation": "REMOVED avoided signed old losses + ADDED signed new P/L + UNCHANGED weight effect; exact current-book difference, not isolated intervention causal effect."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "strategies": {
+    "SECTOR17_MOM": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "SECTOR33_MOM": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "RELATIVE33_MOM": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "MOM60": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    }
+  }
+}

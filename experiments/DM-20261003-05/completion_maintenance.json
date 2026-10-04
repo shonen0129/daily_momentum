@@ -1,0 +1,13 @@
+{
+  "scientific_source_run": "run-20261003T143918Z",
+  "scientific_source_trials": 1,
+  "new_performance_trials": 0,
+  "cumulative_trials": 1,
+  "failure": "future added row used naive timestamp with original tz-aware price/financial/listed dates",
+  "fix": "audit mutation preserves original index timezone on future rows; new regression test",
+  "strategy_source_changes": false,
+  "config_plan_changes": false,
+  "performance_metrics_recomputed": false,
+  "bootstrap_recomputed": false,
+  "completion_driver": "research/experiments/slow_mom60_equal_complete.py"
+}

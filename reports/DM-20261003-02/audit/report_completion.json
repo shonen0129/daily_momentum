@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scientific_source_run": "artifacts/DM-20261003-02/run-20261003T065804Z",
+  "source_status": "failed_report_copy_only",
+  "prediction_source_unchanged": true,
+  "new_performance_trials": 0,
+  "actual_unique_performance_trials": 2,
+  "correction": "Explicit allowlist for four generated diagnostic parquets, report completion from saved metrics. No rerun, no candidate/parameter/feature change.",
+  "report_driver_sha256": "526de6201afcf6c78a57855c5e236b2929c8473154e567c0d7090538e9b89e7b"
+}

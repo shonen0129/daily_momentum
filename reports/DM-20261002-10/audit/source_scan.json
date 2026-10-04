@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/__init__.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/features.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/primitives.py",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "Historical-date exact PIT33 membership, self-inclusive finite daily mean min5, residual20 lag1, same-date centered ranks, per-Code trailing EWMA. No LOO, fit, target or external input."
+}

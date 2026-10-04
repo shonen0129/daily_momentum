@@ -1,0 +1,112 @@
+{
+  "status": "IDENTIFIED",
+  "actual_trials": 0,
+  "differences": [
+    {
+      "column": "ResidualReturn",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "StockMom20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "IndustryResidualReturn",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "IndustryMom20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "FiniteMembers",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "Within33Mom20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "Within33Rev20",
+      "different_bits": 56940,
+      "both_missing_different_bits": 56940,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "IndustryComponent",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "WithinReversalComponent",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "CombinedRaw",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "STOCK_REV20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "WITHIN33_REV20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "IND33_MOM_WITHIN_REV20",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "StockMom60_raw",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    },
+    {
+      "column": "MOM60",
+      "different_bits": 0,
+      "both_missing_different_bits": 0,
+      "finite_differences": 0,
+      "missing_masks_equal": true
+    }
+  ],
+  "cause": "Saved parquet canonicalizes NaN sign bits; reconstructed unary-negation reversal has negative NaNs. All nonmissing values bitwise equal and masks equal."
+}

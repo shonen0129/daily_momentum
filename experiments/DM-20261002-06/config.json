@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-06",
+  "strategy": "dm_sector_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "MOM60 unchanged dm_trainonly.build_momentum(res60s1) then smooth(alpha=.25); recompute on matched calendar/accounting. No optional SLOW_CONTROL needed for component identification.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31 expanding input history; no fitting",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "evaluation": "2011 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2012,
+      "evaluation": "2012 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2013,
+      "evaluation": "2013 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2014,
+      "evaluation": "2014 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2015,
+      "evaluation": "2015 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2016,
+      "evaluation": "2016 calendar year, last two exchange dates purged; 2016 partial",
+      "fit": "none"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is previously studied development history, not independent OOS. Historical Valid never accessed.",
+  "max_trials": 3,
+  "trials": [
+    {
+      "trial_id": "SECTOR17_MOM"
+    },
+    {
+      "trial_id": "SECTOR33_MOM"
+    },
+    {
+      "trial_id": "RELATIVE33_MOM"
+    }
+  ],
+  "feature_definitions": {
+    "residual": "raw_return[t] - beta[t] * topix_return[t]",
+    "StockMom60": "sum of last60 finite residual observations after within-segment shift(1), min_periods60; existing60-observation definition, reset on >20 absent exchange-date ordinal gap. Pre-rank value, not centered rank, for meaningful economic sign. No horizon search.",
+    "Sector17Mom": "same-date PIT17 equal mean of finite StockMom60 peers EXCLUDING own stock; minimum10 finite peers",
+    "Sector33Mom": "same-date PIT33 equal mean of finite StockMom60 peers EXCLUDING own stock; minimum5 finite peers",
+    "Rel17Mom": "StockMom60-Sector17Mom, diagnostic only",
+    "Rel33Mom": "StockMom60-Sector33Mom",
+    "PIT": "Exact same(Date,Code) join only, missing classification excluded. Unclassified17=99/33=9999 excluded, no latest/backfill. Peer universe only raw_return rows present on date; full listed universe is never added.",
+    "missing": "raw component NaN on insufficient peers/history/sector; adapter neutral0, retain every required row. Coverage gate uses raw finite component BEFORE neutral filling. Own StockMom missing does not remove finite peer common score.",
+    "Breadth": "leave-one-out finite positive StockMom peers / finite peers; diagnostic only",
+    "hierarchy": "Sector33Mom-Sector17Mom industry-within-sector difference, no extraction/PCA"
+  },
+  "model": "Three fixed standalone raw component scores; no fit, ranking transform, smoothing, combination or overlay. Official scorer supplies quintiles.",
+  "parameters": {
+    "horizon": 60,
+    "skip_observations": 1,
+    "min_periods": 60,
+    "relisting_gap": 20,
+    "sector17_min_peers": 10,
+    "sector33_min_peers": 5,
+    "weight": "equal",
+    "candidate_smoothing": null,
+    "control_alpha": 0.25
+  },
+  "selection_rule": "First require ALL feasibility gates: pooled RankIC>0, pooled/ex2016 GrossSR>0, >=3/5 full years annual gross>0, raw finite evaluation coverage>=.95, turnover<=unchanged MOM60. Short-improvement claim additionally needs annual Short gross>0 and both annual Short gross/net>=MOM60. Next-experiment eligibility (not release adoption): feasibility plus pooled/ex2016 NetSR>0, pooled NetSR>MOM60, >=4/5 full-year NetSR improvements, paired deltaNetSR95% lower>0, positive quintile monotonicity, and Short gate. Otherwise REJECT fixed candidate. Concentration/LOSO are descriptive only, never selection/exclusion rules. No combination in this experiment.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "method": "paired circular moving-block over concatenated eligible signal dates"
+  },
+  "diagnostics": {
+    "agreement": "A(++), B(+-), C(-+), D(--); zeros/missing separate. Target mean, within-bucket StockMom/SectorMom RankIC, fixed portfolio short contribution and equal-short target mean, no candidate/filter.",
+    "breadth": "same-date sector-universe median for high/low SectorMom, breadth>=.5 broad positive and <.5 broad weakness; descriptive splits fixed before results",
+    "concentration": "Q1/Q5 sector17/33 shares, long/short gross exposure, gross/net contributions, daily HHI/max normalized absolute/side sector weights",
+    "LOSO": "subtract each PIT sector contribution from existing portfolio, preserve remaining positions and attributed costs, NO reranking/renormalization",
+    "correlations": "daily Pearson and Spearman, pooled raw Pearson and pooled same-date demeaned Pearson; all five requested pairs",
+    "persistence": "adjacent exchange-date rank autocorrelation, quintile retention, Q1/Q5 spell lengths with universe/date gaps reset and censored spells identified"
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-06",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800
+}

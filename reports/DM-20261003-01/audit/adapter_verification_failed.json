@@ -1,0 +1,7 @@
+{
+  "status": "FAILED",
+  "new_performance_trials": 0,
+  "script": "verify.py",
+  "log": "execution.log",
+  "reason": "FLOW_REV_raw saved parquet canonicalizes6161 NaN sign/payload bits; no finite-bit or NaN-mask difference. Strict memory causality comparison unchanged. Separate disk-serialization assertion in verify_disk.py."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "groups": [
+    "BOTH_HIGH",
+    "SLOW_HIGH_MOM_LOW",
+    "SLOW_LOW_MOM_HIGH",
+    "BOTH_LOW",
+    "OTHER"
+  ],
+  "rows": 576535,
+  "stock_days_partition_exact": true,
+  "daily_reconciliation_max_abs_error": 1.3877787807814457e-17,
+  "aggregation_atol": 1e-14,
+  "neutral_exit_costs_retained_in_OTHER": true,
+  "filter_or_veto_created": false
+}

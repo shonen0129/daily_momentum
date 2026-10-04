@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": 341.266212292001,
+  "peak_rss_bytes": 2611478528,
+  "actual_trials": 1,
+  "new_performance_trials": 0,
+  "valid_evaluation": false,
+  "scope": "audit/report completion; scientific run elapsed recorded by timestamps"
+}

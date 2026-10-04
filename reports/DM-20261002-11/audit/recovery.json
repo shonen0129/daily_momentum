@@ -1,0 +1,11 @@
+{
+  "status": "PRE_PERFORMANCE_TECHNICAL_RECOVERY",
+  "failed_run": "artifacts/DM-20261002-11/run-20261002T094236Z",
+  "failed_run_actual_trials": 0,
+  "new_run_budget": 1,
+  "cumulative_performance_budget": 1,
+  "strategy_changed": false,
+  "plan_config_changed": false,
+  "cause": "Parquet normalizes signed NaNs in stored raw features",
+  "fix": "Stored raw feature comparison requires exact missing masks and bitwise nonmissing values. All in-memory prefix/golden and final-score checks stay full bitwise."
+}

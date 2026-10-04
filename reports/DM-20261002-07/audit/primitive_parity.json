@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "raw_primitive_bitwise": true,
+  "MOM60_bitwise": true,
+  "unchanged_primitive_source": [
+    "smooth",
+    "segment_keys",
+    "centered_rank"
+  ],
+  "raw_reference_method": "Observe existing build_momentum value before final rank with temporary rank identity in audit only; frozen source never edited"
+}

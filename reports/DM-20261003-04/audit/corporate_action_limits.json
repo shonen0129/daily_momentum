@@ -1,0 +1,13 @@
+{
+  "action_stock_days": 132,
+  "adjustments_to_SLOW_or_descriptors": false,
+  "limitations": [
+    "last disclosed shares may lag splits/issuance; includes treasury stock",
+    "forecast EPS may use future/old share basis; no retrospective correction",
+    "Profit/Equity and CFO/Assets use FY reports only, not average capital or annual forecasts",
+    "B/P fields may have different disclosure vintages",
+    "annual growth covers positive prior denominators only; loss-to-profit transitions missing",
+    "sales growth is realized sales, not a market Growth classification",
+    "vendor revisions and historic coverage cannot be independently certified from Date-only rows"
+  ]
+}

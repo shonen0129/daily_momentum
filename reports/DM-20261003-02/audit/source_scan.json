@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_cause_event_overlay/anchor.py",
+    "stock_comp_2026/strategies/dm_cause_event_overlay/features.py",
+    "stock_comp_2026/strategies/dm_cause_event_overlay/financial.py",
+    "stock_comp_2026/strategies/dm_cause_event_overlay/primitives.py",
+    "stock_comp_2026/strategies/dm_cause_event_overlay/submission.py"
+  ],
+  "findings": [],
+  "anchor_copy_bitwise": true,
+  "manual_review": "Frozen global anchor only. Dormant original Sector17 loader/sector branch never used. New context only PIT33. Original anchor median allowed, no event imputation. Forecast delta only fresh first available signal, no held score. Price/volume prior session; causal20 prior observation median. Sector never added to score. No labels/fit."
+}

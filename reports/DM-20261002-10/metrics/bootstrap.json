@@ -1,0 +1,68 @@
+{
+  "POOLED:IND33_MOM_WITHIN_REV20-MOM60": {
+    "low": -2.1710533450585205,
+    "high": 0.38494172900868273,
+    "bootstrap_positive_fraction": 0.0855,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": -0.8473557442729736,
+    "primary": true
+  },
+  "POOLED:WITHIN33_REV20-STOCK_REV20": {
+    "low": -0.5301066006395891,
+    "high": 0.19596869466301226,
+    "bootstrap_positive_fraction": 0.206,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": -0.14261833505128574,
+    "primary": false
+  },
+  "POOLED:IND33_MOM_WITHIN_REV20-WITHIN33_REV20": {
+    "low": -0.6801047718402911,
+    "high": 2.110321902336301,
+    "bootstrap_positive_fraction": 0.8235,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": 0.7137940832738214,
+    "primary": false
+  },
+  "EX2016:IND33_MOM_WITHIN_REV20-MOM60": {
+    "low": -2.1983276220845953,
+    "high": 0.47866977862293403,
+    "bootstrap_positive_fraction": 0.0955,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": -0.8550962235636941,
+    "primary": false
+  },
+  "EX2016:WITHIN33_REV20-STOCK_REV20": {
+    "low": -0.5421845983085881,
+    "high": 0.2511453661585291,
+    "bootstrap_positive_fraction": 0.251,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": -0.1317683251553292,
+    "primary": false
+  },
+  "EX2016:IND33_MOM_WITHIN_REV20-WITHIN33_REV20": {
+    "low": -0.5899668049638432,
+    "high": 2.358197933555382,
+    "bootstrap_positive_fraction": 0.884,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": 0.8651825150090576,
+    "primary": false
+  }
+}

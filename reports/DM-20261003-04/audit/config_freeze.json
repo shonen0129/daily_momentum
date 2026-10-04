@@ -1,0 +1,16 @@
+{
+  "config_sha256": "f14f2424e0eb6dada375c887a35e8041adca74b8337704db0e31240b7998561f",
+  "plan_sha256": "5a55ae8ba67a3024ef4e9bfce43fcdfb0ceb9692f0aa0782775f8409584d629c",
+  "schema_sha256": "5409bafd435466643f0f7973e82b0775bf994d20131f183ab8fba1b747661017",
+  "code_sha256": {
+    "research/experiments/slow_style_diagnostic.py": "e1c4b852b73355d0ecc229bfa51f877a63c4fed6fe4f205260e0ce16c82c7d79",
+    "research/experiments/slow_style_descriptors.py": "38931607866ad1b7457960fed21e912de321815e57238d100cacf2dac6e8cba3",
+    "research/experiments/slow_multifactor.py": "a29e589295ea75ea99ecaac78a17866c08ff0c6321456ee31638f53750d86c3e",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818"
+  },
+  "target_read": false,
+  "performance_candidates": 0
+}

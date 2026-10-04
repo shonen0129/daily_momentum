@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-06",
+  "strategy": "dm_slow_mom60_ols",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Primary SLOW_CONTROL, secondary SLOW_MOM60_EQUAL, MOM60 reference; identical known Train dates and official accounting. Reuse hashed verified controls.",
+  "random_seed": 20261003,
+  "train_window": "2008-11-04 through 2016-03-31; yearly expanding OLS2009-2016; evaluate2011-2015 and2016 partial",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "Once at first exchange session of year, all prior finite Train stock-day labels whose t+2 maturity is strictly earlier",
+      "evaluation": "Calendar year, final2 exchange sessions purged; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train and prior equal-factor outcomes are known development evidence. User explicitly authorized this distinct one-candidate OLS experiment. No unseen holdout, no Historical Valid/Valid or saved Valid artifacts.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "SLOW_MOM60_OLS"
+    }
+  ],
+  "feature_definitions": {
+    "components": "Exact copied dm_slow_mom60_equal Size z_size, Illiquidity z_amihud, MOM60 residual60/skip1→centered daily rank→EWMA(.25). No component change.",
+    "inputs": "Each final component same-date average-tie percentile p→2*(p-mean(p)); identical saved factor_ranks.parquet.",
+    "label": "Provided target_1day_train Return, raw t+1→t+2 Open market residual; finite labels only. No label rank/zscore or winsorization.",
+    "OLS": "Intercept+SizeRank+IlliquidityRank+MOM60Rank. Minimize pooled mature stock-day squared raw residual errors. Equal stock-day weights; no per-day weighting, regularization, coefficient clipping, sign constraints or extra smoothing.",
+    "maturity": "Training signal date position+2 must be strictly before year first prediction exchange session; same-calendar t+2, terminal2 unknown labels excluded.",
+    "warmup": "2008 neutral score0; first annual model2009. Annual fits2009-2010 only establish continuous holdings before2011 evaluation; no early-period model selection. Rank-deficient warmup uses fixed lstsq minimum-norm result, rank/singular values logged."
+  },
+  "model": "Ordinary least squares, 4 coefficients (intercept+3 ranks), annual expanding fit; one candidate",
+  "parameters": {
+    "estimator": "numpy.linalg.lstsq",
+    "rcond": null,
+    "intercept": true,
+    "target": "raw_residual_return",
+    "observation_weights": "uniform_stock_day",
+    "model_years": [
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016
+    ],
+    "first_model_year": 2009,
+    "refit": "annual",
+    "regularization": null,
+    "coefficient_constraints": null,
+    "extra_smoothing": null,
+    "momentum_window": 60,
+    "momentum_skip": 1,
+    "momentum_alpha": 0.25
+  },
+  "selection_rule": "Conjunction of unchanged DM-20261003-05 user gates vs SLOW. POOLED and EX2016 NetSR>SLOW, annual net>=SLOW, Long net>0, Short net>=SLOW, MaxDD magnitude<=SLOW, turnover<=1.5*SLOW, incremental gross>incremental cost; >=4/5 full-year NetSR improvements, primary pooled bootstrap lower>0. OLS/EQUAL/MOM comparison descriptive; no rescue or changing estimator based on outcomes.",
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261003,
+    "ci": 0.95,
+    "method": "paired circular moving block on realized eligible walk-forward daily net P/L, percentile CI, no bootstrap refit",
+    "primary": "SLOW_MOM60_OLS-SLOW_CONTROL",
+    "secondary": "SLOW_MOM60_OLS-SLOW_MOM60_EQUAL",
+    "reference": "SLOW_MOM60_OLS-MOM60",
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "saved_evidence": {
+    "components": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/component_scores.parquet",
+      "sha256": "fa4ee8ecb49c60b48673cf2ba96b19ac344383d95c90f51c69f40c9f8153be59"
+    },
+    "scores": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/strategy_scores.parquet",
+      "sha256": "d73fdf4eae3255d5ced95d847c80e8426e4d9f5a40afc25f3deadbe100b28155"
+    },
+    "ranks": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/predictions/factor_ranks.parquet",
+      "sha256": "887c1b3bf288f8db108a397b77073b73c2be7856e299d9b44688fdbab3b60ee4"
+    },
+    "metrics": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/metrics.csv",
+      "sha256": "f4c34a156e89bc07e1e1ae4e6162bf15b91dafbbbebfee34c6d397d309572b13"
+    },
+    "prior_manifest": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/run.json",
+      "sha256": "91f14a821db5f8ed01e3085a58c55ffd43deac372bc7180c104d2ef607bfac6c"
+    },
+    "daily_SLOW_CONTROL": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_SLOW_CONTROL.csv",
+      "sha256": "cfc174037bd96abf8ed09dcfff01c8b03ab80e44a50f3bc7cf0e3974bac167ac"
+    },
+    "daily_MOM60": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_MOM60.csv",
+      "sha256": "7c13b07f38a52d24c5050e2a938885c51cade6221c78756a354109dfdb33ec53"
+    },
+    "daily_SLOW_MOM60_EQUAL": {
+      "path": "artifacts/DM-20261003-05/run-20261003T144512Z/metrics/daily_SLOW_MOM60_EQUAL.csv",
+      "sha256": "edb62070ec1fa0fd6331b98845aea024c4f9602fb4596435ed5a39673a2dd761"
+    }
+  },
+  "prior_run": "artifacts/DM-20261003-05/run-20261003T144512Z",
+  "scientific_prior_run": "artifacts/DM-20261003-05/run-20261003T143918Z",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261003-06",
+  "execution_timeout_seconds": 1800,
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "adoption": {
+    "improved_years_min": 4,
+    "turnover_ratio_max": 1.5,
+    "primary_bootstrap_lower_gt": 0,
+    "gate_scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "audit": "Each of6 feature sources, maturity-aware future Train labels, ALL, truncation; exact rebuilt components/ranks/scores/models, row shuffle, determinism, target-free artifact inference/standalone smoke, maturity/purge, official accounting, firewall, same controls.",
+  "prohibitions": [
+    "feature/window/skip/alpha search",
+    "manual coefficient/weight/sign search",
+    "Ridge/Lasso/model comparison",
+    "rolling-window search",
+    "target transformation search",
+    "side weights",
+    "filters",
+    "regime/sector/risk overlays",
+    "extra smoothing",
+    "Historical Valid",
+    "Valid",
+    "post-result rescue"
+  ],
+  "date_note": "ID allocated2026-10-03 JST; plan/implementation and execution continued2026-10-04 JST."
+}

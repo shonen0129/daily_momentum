@@ -1,0 +1,42 @@
+{
+  "raw_return_1day": {
+    "schema": "Return: double\nDate: timestamp[ns]\nCode: large_string\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\", \"Code\"], \"column_indexes\": [{\"name\": ' + 557",
+    "used_columns": [
+      "Return"
+    ]
+  },
+  "beta_1day": {
+    "schema": "Return: double\nDate: timestamp[ns]\nCode: large_string\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\", \"Code\"], \"column_indexes\": [{\"name\": ' + 557",
+    "used_columns": [
+      "Return"
+    ]
+  },
+  "topix_return_1day": {
+    "schema": "Return: double\nDate: timestamp[ns]\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\"], \"column_indexes\": [{\"name\": null, \"f' + 445",
+    "used_columns": [
+      "Return"
+    ]
+  },
+  "prices_daily_quotes": {
+    "schema": "Open: double\nHigh: double\nLow: double\nClose: double\nUpperLimit: double\nLowerLimit: double\nVolume: double\nTurnoverValue: double\nAdjustmentFactor: double\nAdjustmentOpen: double\nAdjustmentHigh: double\nAdjustmentLow: double\nAdjustmentClose: double\nAdjustmentVolume: double\nMorningOpen: double\nMorningHigh: double\nMorningLow: double\nMorningClose: double\nMorningUpperLimit: double\nMorningLowerLimit: double\nMorningVolume: double\nMorningTurnoverValue: double\nMorningAdjustmentOpen: double\nMorningAdjustmentHigh: double\nMorningAdjustmentLow: double\nMorningAdjustmentClose: double\nMorningAdjustmentVolume: double\nAfternoonOpen: double\nAfternoonHigh: double\nAfternoonLow: double\nAfternoonClose: double\nAfternoonUpperLimit: double\nAfternoonLowerLimit: double\nAfternoonVolume: double\nAfternoonTurnoverValue: double\nAfternoonAdjustmentOpen: double\nAfternoonAdjustmentHigh: double\nAfternoonAdjustmentLow: double\nAfternoonAdjustmentClose: double\nAfternoonAdjustmentVolume: double\nDate: timestamp[ns]\nCode: large_string\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\", \"Code\"], \"column_indexes\": [{\"name\": ' + 5694",
+    "used_columns": [
+      "Volume"
+    ]
+  },
+  "listed_info": {
+    "schema": "CompanyName: string\nCompanyNameEnglish: string\nSector17Code: string\nSector17CodeName: string\nSector33Code: string\nSector33CodeName: string\nScaleCategory: string\nMarketCode: string\nMarketCodeName: string\nMarginCode: string\nMarginCodeName: string\nDate: timestamp[ns]\nCode: string\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\", \"Code\"], \"column_indexes\": [{\"name\": ' + 1825",
+    "used_columns": [
+      "Sector33Code"
+    ]
+  },
+  "fins_statements": {
+    "schema": "DisclosureNumber: int64\nTypeOfDocument: dictionary<values=string, indices=int8, ordered=0>\nTypeOfCurrentPeriod: dictionary<values=string, indices=int8, ordered=0>\nCurrentPeriodStartDate: timestamp[ns]\nCurrentPeriodEndDate: timestamp[ns]\nCurrentFiscalYearStartDate: timestamp[ns]\nCurrentFiscalYearEndDate: timestamp[ns]\nNextFiscalYearStartDate: timestamp[ns]\nNextFiscalYearEndDate: timestamp[ns]\nNetSales: double\nOperatingProfit: double\nOrdinaryProfit: double\nProfit: double\nEarningsPerShare: double\nDilutedEarningsPerShare: double\nTotalAssets: double\nEquity: double\nEquityToAssetRatio: double\nBookValuePerShare: double\nCashFlowsFromOperatingActivities: double\nCashFlowsFromInvestingActivities: double\nCashFlowsFromFinancingActivities: double\nCashAndEquivalents: double\nResultDividendPerShare1stQuarter: double\nResultDividendPerShare2ndQuarter: double\nResultDividendPerShare3rdQuarter: double\nResultDividendPerShareFiscalYearEnd: double\nResultDividendPerShareAnnual: double\nDistributionsPerUnit(REIT): double\nResultTotalDividendPaidAnnual: double\nResultPayoutRatioAnnual: double\nForecastDividendPerShare1stQuarter: double\nForecastDividendPerShare2ndQuarter: double\nForecastDividendPerShare3rdQuarter: double\nForecastDividendPerShareFiscalYearEnd: double\nForecastDividendPerShareAnnual: double\nForecastDistributionsPerUnit(REIT): double\nForecastTotalDividendPaidAnnual: double\nForecastPayoutRatioAnnual: double\nNextYearForecastDividendPerShare1stQuarter: double\nNextYearForecastDividendPerShare2ndQuarter: double\nNextYearForecastDividendPerShare3rdQuarter: double\nNextYearForecastDividendPerShareFiscalYearEnd: double\nNextYearForecastDividendPerShareAnnual: double\nNextYearForecastDistributionsPerUnit(REIT): double\nNextYearForecastPayoutRatioAnnual: double\nForecastNetSales2ndQuarter: double\nForecastOperatingProfit2ndQuarter: double\nForecastOrdinaryProfit2ndQuarter: double\nForecastProfit2ndQuarter: double\nForecastEarningsPerShare2ndQuarter: double\nNextYearForecastNetSales2ndQuarter: double\nNextYearForecastOperatingProfit2ndQuarter: double\nNextYearForecastOrdinaryProfit2ndQuarter: double\nNextYearForecastProfit2ndQuarter: double\nNextYearForecastEarningsPerShare2ndQuarter: double\nForecastNetSales: double\nForecastOperatingProfit: double\nForecastOrdinaryProfit: double\nForecastProfit: double\nForecastEarningsPerShare: double\nNextYearForecastNetSales: double\nNextYearForecastOperatingProfit: double\nNextYearForecastOrdinaryProfit: double\nNextYearForecastProfit: double\nNextYearForecastEarningsPerShare: double\nMaterialChangesInSubsidiaries: bool\nSignificantChangesInTheScopeOfConsolidation: bool\nChangesBasedOnRevisionsOfAccountingStandard: bool\nChangesOtherThanOnesBasedOnRevisionsOfAccountingStandard: bool\nChangesInAccountingEstimates: bool\nRetrospectiveRestatement: bool\nNumberOfIssuedAndOutstandingSharesAtTheEndOfFiscalYearIncludingTreasuryStock: double\nNumberOfTreasuryStockAtTheEndOfFiscalYear: double\nAverageNumberOfShares: double\nNonConsolidatedNetSales: double\nNonConsolidatedOperatingProfit: double\nNonConsolidatedOrdinaryProfit: double\nNonConsolidatedProfit: double\nNonConsolidatedEarningsPerShare: double\nNonConsolidatedTotalAssets: double\nNonConsolidatedEquity: double\nNonConsolidatedEquityToAssetRatio: double\nNonConsolidatedBookValuePerShare: double\nForecastNonConsolidatedNetSales2ndQuarter: double\nForecastNonConsolidatedOperatingProfit2ndQuarter: double\nForecastNonConsolidatedOrdinaryProfit2ndQuarter: double\nForecastNonConsolidatedProfit2ndQuarter: double\nForecastNonConsolidatedEarningsPerShare2ndQuarter: double\nNextYearForecastNonConsolidatedNetSales2ndQuarter: double\nNextYearForecastNonConsolidatedOperatingProfit2ndQuarter: double\nNextYearForecastNonConsolidatedOrdinaryProfit2ndQuarter: double\nNextYearForecastNonConsolidatedProfit2ndQuarter: double\nNextYearForecastNonConsolidatedEarningsPerShare2ndQuarter: double\nForecastNonConsolidatedNetSales: double\nForecastNonConsolidatedOperatingProfit: double\nForecastNonConsolidatedOrdinaryProfit: double\nForecastNonConsolidatedProfit: double\nForecastNonConsolidatedEarningsPerShare: double\nNextYearForecastNonConsolidatedNetSales: double\nNextYearForecastNonConsolidatedOperatingProfit: double\nNextYearForecastNonConsolidatedOrdinaryProfit: double\nNextYearForecastNonConsolidatedProfit: double\nNextYearForecastNonConsolidatedEarningsPerShare: double\nFiscalYear: int64\nPeriod: double\nDate: timestamp[ns, tz=Asia/Tokyo]\nCode: dictionary<values=string, indices=int16, ordered=0>\n-- schema metadata --\npandas: '{\"index_columns\": [\"Date\", \"Code\"], \"column_indexes\": [{\"name\": ' + 17871",
+    "used_columns": [
+      "ForecastOperatingProfit",
+      "TotalAssets",
+      "TypeOfDocument",
+      "CurrentFiscalYearStartDate",
+      "CurrentFiscalYearEndDate"
+    ]
+  }
+}

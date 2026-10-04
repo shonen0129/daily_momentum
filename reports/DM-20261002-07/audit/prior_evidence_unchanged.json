@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "prior": "DM-20261002-06",
+  "hashes": {
+    "experiments/DM-20261002-06/plan.md": "186d3d5028166612262d5a5954d06d236f35421e6248da769b3fe1dd3b2df2c5",
+    "experiments/DM-20261002-06/config.json": "9cff3344ca5ea3659f384e2f5e7cdc2eb33a59bda783617893a90cc61311898a",
+    "experiments/DM-20261002-06/decision.md": "ad980a16acf7453a8dd8ae0155cc047b2649771fbb2283b17bcadd6235e71255",
+    "experiments/DM-20261002-06/experiment.json": "4c5c366b9a8bb50e7fe1e70a88b13c75141d821c1bba4c04d14969456dabc074",
+    "reports/DM-20261002-06/REPORT.md": "a9d63cfc8d47ea92ae218b0202c2cb01b1f2ddcbd5132a5f5c1a6ff5380a433d",
+    "stock_comp_2026/strategies/dm_sector_momentum/submission.py": "9f551167ad52c3e2d05385a7040c68f060f19b6161c67db44ba14e3b9009e18c",
+    "stock_comp_2026/strategies/dm_sector_momentum/features.py": "209fb6e414a1b1011987bd2b9d4dedac813853b008d45127aa6fb936182b2a6d"
+  }
+}

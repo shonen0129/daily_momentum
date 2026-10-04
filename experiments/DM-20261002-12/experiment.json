@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-12",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_baseline_sector_veto",
+  "valid_evaluation": false,
+  "run_id": "run-20261002T102506Z",
+  "actual_trials": 2,
+  "report": "reports/DM-20261002-12/REPORT.md",
+  "scientific_run_id": "run-20261002T101951Z",
+  "report_recovery_run_id": "run-20261002T102506Z"
+}

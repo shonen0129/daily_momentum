@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "actual_performance_trials": 3,
+  "additional_performance_trials": 0,
+  "full_tests": 212,
+  "focused_tests": 13,
+  "frozen_hashes": 129,
+  "make_check_status": "BLOCKED_PREEXISTING_DM-20261002-04_UNKNOWN_KIND",
+  "new_metadata": "PASS",
+  "prior_experiment_evidence_unchanged": "PASS",
+  "scientific_sources_snapshots_artifacts_hashes": "PASS",
+  "agreement_and_sector_side_attribution_reconciliation": "PASS",
+  "CSV_float_parser": "round_trip",
+  "accounting_tolerance_unchanged": 1e-15,
+  "raw_natural_reconstruction_max_error": 2.220446049250313e-16,
+  "smoothed_identity_global_holds": false,
+  "smoothed_defect_explanation": "PASS",
+  "report_sha256": "973cd94a2808d1a6f4287fe9f7d57cba710c2933ae3ac4cc1262922fb61885ce",
+  "decision_sha256": "39de138f79b1c8c42b4d715999a83a90c5825345fef2d1e03b7b79d18665aee7",
+  "completion_from_saved_results_only": true,
+  "retained_report_only_failed_attempt": "report_completion/failed.json",
+  "valid_evaluation": false
+}

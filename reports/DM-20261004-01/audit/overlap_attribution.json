@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exclusive_groups": [
+    "BOTH_LONG",
+    "SIZE_ONLY_LONG",
+    "ILLIQ_ONLY_LONG",
+    "BOTH_SHORT",
+    "SIZE_ONLY_SHORT",
+    "ILLIQ_ONLY_SHORT",
+    "SIGNAL_DISAGREEMENT",
+    "OTHER"
+  ],
+  "daily_reconciliation_max_abs": 1.3877787807814457e-17,
+  "summation_atol": 1e-14,
+  "other_retains_neutral_exit_costs": true,
+  "filter_created": false
+}

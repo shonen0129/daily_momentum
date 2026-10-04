@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "StockMom_and_MOM60_bitwise": true,
+  "prior07_common_and_PIT_bitwise": true,
+  "unchanged_primitive_sources": [
+    "smooth",
+    "segment_keys",
+    "centered_rank"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "PIT_shares": "Original asof_financials: positive field-level carry; disclosure Date EOD JST; backward merge_asof only",
+  "raw_return_timing": "Provided raw_return_1day is Open-to-Open realized at date t; used abs at t only; t+2 target reconstructed separately",
+  "Amihud": "Full exchange date grid trailing60 mean min40 including current t, no centered rolling, future rows cannot alter prefix",
+  "normalization": "Original same-date raw1/99winsor, median/0, sample z unchanged",
+  "diagnostics": "Same-date transforms, no target argument, labels enter only post-decomposition diagnostics, no fitted return model",
+  "source_scan_scope": "Original feature module and target-free diagnostic module; driver manually reviewed: negative shift only in reused evaluation-only maturity reconstruction",
+  "measurement_limits": [
+    "Shares include treasury; stale share basis after corporate actions not retrospectively corrected",
+    "Vendor historical revisions cannot be independently certified",
+    "Raw-missing rows retain original imputed components, not missing-only sample selection",
+    "High correlations and descriptive conditional spreads do not identify causal economic premia",
+    "Official Code diff skips absent rows; membership grid treats absent as neutral; the two are explicitly different diagnostics"
+  ]
+}

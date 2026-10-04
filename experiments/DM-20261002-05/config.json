@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-05",
+  "strategy": "dm_slow_multifactor",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "MOM60: existing dm_trainonly build_momentum(res60s1), smooth(alpha=.25). SLOW_CONTROL: fixed SizeLiquidity block only, equal size/Amihud weights, no fitted sample coefficients.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31 feature history; no label fitting",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2011 calendar year; final two exchange dates purged; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2012 calendar year; final two exchange dates purged; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2013 calendar year; final two exchange dates purged; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2014 calendar year; final two exchange dates purged; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2015 calendar year; final two exchange dates purged; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "past": "2008-11-04 through preceding year; expanding causal history, no fit",
+      "evaluation": "2016 calendar year; final two exchange dates purged; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train years are previously studied development data. No untouched OOS claim. Historical Valid already read in prior research but never accessed in this experiment.",
+  "max_trials": 3,
+  "trials": [
+    {
+      "trial_id": "SLOW_MF_BASE",
+      "phase": 1
+    },
+    {
+      "trial_id": "SLOW_MF_SECTOR",
+      "phase": 2,
+      "conditional": true
+    },
+    {
+      "trial_id": "SLOW_MF_REVISION",
+      "phase": 3,
+      "conditional": true
+    }
+  ],
+  "feature_definitions": {
+    "size": "-log(raw Close * latest positive disclosed issued shares); no ScaleCategory fallback",
+    "illiquidity": "abs(organizer raw_return)/positive raw TurnoverValue; 60 exchange-date trailing mean, min_periods=40; absent stock dates explicitly missing",
+    "quality": [
+      "Operating CF / positive Total Assets",
+      "Profit / positive Equity",
+      "Equity / positive Total Assets"
+    ],
+    "value": [
+      "Equity / positive shares / positive raw Close",
+      "ForecastEPS / positive raw Close"
+    ],
+    "normalization": "Every raw feature: per-date 1%/99% winsorization, daily median imputation then 0, sample-std z-score, zero if scale=0. Within-block fixed arithmetic mean; each block global same-date sample-std z-score without a second winsorization. Sum 3 equally weighted blocks.",
+    "pit": "Fins Date is disclosed date only; available at 23:59:59 JST that date. Signal time same day 23:59:59 JST. Per-field previous nonmissing disclosed value; backward as-of only. Listed Sector17Code exact Date/Code join. No retrospectively adjusted price level; shares/EPS never back-adjusted for corporate actions.",
+    "sector": "Quality/Value raw feature winsorization, median and z-score within same-date PIT Sector17Code if >=20 finite observations; otherwise entire transform falls back to global same-date. Block scale remains global.",
+    "revision": "Latest finite disclosed ForecastEPS minus previous finite disclosed ForecastEPS divided by signal-date raw Close; previous includes unchanged finite disclosure, does not skip equal values; missing new disclosure does not create event. Normalize globally with same 1%/99% winsor/median/z; add as equal fourth block. Extends SECTOR if it passes Phase3 gate, else BASE if it passes; deterministic parent priority."
+  },
+  "model": "Fixed additive economic blocks; no training, no Momentum, no learned weights, no smoothing or turnover overlays.",
+  "parameters": {
+    "illiq_window": 60,
+    "illiq_min_periods": 40,
+    "winsor_quantiles": [
+      0.01,
+      0.99
+    ],
+    "sector_min_count": 20,
+    "ddof": 1,
+    "score_smoothing": null,
+    "turnover_control": null,
+    "revision_weight": 1.0
+  },
+  "phase_gates": {
+    "phase2": {
+      "source": "BASE",
+      "pooled_annual_gross_min_exclusive": 0,
+      "full_year_positive_gross_min": 3,
+      "full_year_count": 5,
+      "ex_2016_annual_gross_min_exclusive": 0,
+      "pooled_turnover_max_inclusive": 0.06
+    },
+    "phase3": {
+      "sources_priority": [
+        "SECTOR",
+        "BASE"
+      ],
+      "pooled_annual_gross_min_exclusive": 0,
+      "full_year_positive_gross_min": 4,
+      "full_year_count": 5,
+      "ex_2016_annual_gross_min_exclusive": 0,
+      "pooled_long_gross_min_exclusive": 0,
+      "pooled_short_gross_min_exclusive": 0
+    }
+  },
+  "selection_rule": "Next-stage research candidate only if pooled and ex-2016 net positive, >=4/5 full-year net positive, Net SR exceeds BOTH fixed controls in >=4/5 full years and pooled, both pooled Long/Short net positive, pooled RankIC and Q monotonicity positive, paired bootstrap delta NetSR lower 95% bound >0 against both controls. If multiple pass: prioritize positive-fold count then worst full-year NetSR, fewer blocks on tie. Turnover .03/day design aim, not adoption threshold. Otherwise reject fixed operationalization; no rescue trials.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "method": "paired circular moving-block, Net Sharpe difference"
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-05",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800
+}

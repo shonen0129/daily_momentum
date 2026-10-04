@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scientific_run": "artifacts/DM-20261002-10/run-20261002T091211Z",
+  "scientific_run_sha256": "9ebe6bbf0db17eb5b9df5a1c310cff960ec033e648683cbcbb1908feb97042f4",
+  "actual_trials": 3,
+  "extra_trials": 0,
+  "artifact_hashes_checked": 75,
+  "prior_evidence_hashes_checked": 276,
+  "report_metric_audit_copies_match": true,
+  "Train_only": true,
+  "Valid_used": false,
+  "make_check_exception": "Existing DM-20261002-04 unknown experiment kind; unchanged",
+  "final_report_sha256": "08c22de80563b3a76ad304dbe2486114deeffebcef72e6a1c8a59ff990d2e570",
+  "final_decision_sha256": "d15b4379a314e862b5361d020101caf96c903ca72fe90385edcd01df76209798",
+  "finalization": "Saved-results narrative only; no feature rebuild or candidate rerun. Final report clarifies primary-source search-indexed abstracts,403 page requests and unread full texts.",
+  "literature_hypothesis_sha256": "e887948a87657650001267b873aead5607344c1bcb0d8e31400e384450e6c8b1"
+}

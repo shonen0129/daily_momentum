@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "bitwise": true,
+  "rows": 809636,
+  "candidates": [
+    "BASELINE_SECTOR33_VETO",
+    "BASELINE_HIER_SECTOR_VETO"
+  ]
+}

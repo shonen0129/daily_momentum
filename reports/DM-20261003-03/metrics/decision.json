@@ -1,0 +1,23 @@
+{
+  "decision": "REJECT",
+  "all_passed": false,
+  "checks": {
+    "improved_full_years_ge4": false,
+    "POOLED_net_sharpe_gt_slow": false,
+    "POOLED_annual_net_ge_slow": true,
+    "POOLED_MDD_magnitude_le_slow": false,
+    "POOLED_long_net_gt0": true,
+    "POOLED_short_net_ge0": true,
+    "POOLED_turnover_le_max_components": false,
+    "EX2016_net_sharpe_gt_slow": false,
+    "EX2016_annual_net_ge_slow": false,
+    "EX2016_MDD_magnitude_le_slow": false,
+    "EX2016_long_net_gt0": true,
+    "EX2016_short_net_ge0": true,
+    "EX2016_turnover_le_max_components": false,
+    "primary_pooled_bootstrap_lower_gt0": false
+  },
+  "full_year_net_sharpe_improvements": 2,
+  "actual_trials": 1,
+  "rescue_trials": 0
+}

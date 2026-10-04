@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "seconds": 5.228076833067462,
+  "rows": 809636,
+  "peak_rss_bytes": 1285521408,
+  "opened": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/beta_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/topix_return_1day_train.parquet"
+  ],
+  "no_argument_predict": true,
+  "bitwise_research_parity_all_candidates": true
+}

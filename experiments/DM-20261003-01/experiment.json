@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-01",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_decline_causes",
+  "valid_evaluation": false,
+  "actual_trials": 3,
+  "run_id": "run-20261002T205924Z",
+  "report": "reports/DM-20261003-01/REPORT.md",
+  "technical_verification": "artifacts/DM-20261003-01/adapter-verification/verification.json",
+  "post_result_performance_trials": 0,
+  "final_test_count": 32
+}

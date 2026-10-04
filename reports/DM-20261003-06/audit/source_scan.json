@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "paths": [
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/__init__.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/__init__.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_momentum.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/__init__.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/features.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/features.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/submission.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/models.py",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "Immutable PIT/causal features and label-free artifact inference; models.fit_year accepts explicit Train labels only, maturity+2 strictly before annual prediction start, expanding lstsq without future fit."
+}

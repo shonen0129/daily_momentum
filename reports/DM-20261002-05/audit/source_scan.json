@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py",
+    "stock_comp_2026/strategies/dm_slow_multifactor/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "Date-only financial end-of-day availability, backward as-of; exact PIT sector; raw Close; per-date winsorization and scaling; trailing calendar rolling. No fitted labels."
+}

@@ -1,0 +1,15 @@
+{
+  "classification": "A",
+  "label": "Structural Size/Liquidity（測定したstyleに限る）",
+  "reason": "SLOWの収益を2010年代のSmall Growth / Growth regimeだけで説明する仮説は、この固定Train診断では支持されない。Value/Growth bucket内でもspreadが残り、style matchingと共通銘柄集合でのOLS残差もGrossを維持する。H0の純粋な因果的証明ではない。",
+  "verification": "関連36テストPASS。元score809,636行とofficial weight/daily Net bitwise PASS。future-mutation/truncation18case、row shuffle、deterministic rebuild PASS。make checkは既存DM-20261002-04の非対応experiment kindで停止したが、本実験metadata/configと既存Freeze129file hashを個別に照合してPASS。科学計算130.60秒、peak RSS2.92GB（約2.72GiB）。最終artifact-copy guard失敗はhash照合による保存済み結果finalizationで解消し、追加backtest/候補trialなし。",
+  "observations": [
+    "- Long−Short z exposure: B/P **+0.285**、E/P **+0.024**、Sales Growth **+0.035**、Operating Growth **−0.035**、Profit Growth **−0.067**。B/Pは2011–2016各年で正、Sales Growthは2014–2016で負。LongはShortよりValue寄りで、明確なGrowth偏重ではない。ROE **−0.087**、CFO/Assets **−0.137**、Equity/Assets **+0.244**とquality exposureは混在する。",
+    "- Pooled SLOW Q5−Q1 daily spread: B/P Low/Mid/High **10.54 / 5.09 / 8.64bp**、Sales Growth Low/Mid/High **5.51 / 7.96 / 6.61bp**。Operating/Profit Growthも3bucketすべて正。B/Pは全year×3bucketで正。Sales Growthは2012年Highだけ負（**−1.10bp/day**）で、High Growthへの一貫した収益集中はない。HACは同じ固定bundle内の記述的統計で、多重比較調整後の発見とは呼ばない。",
+    "- 元SLOW GrossSR **2.179** / 年率Gross **8.027%**、B/P×Sales Growth matched **2.138** / **8.005%**。Matched NetSR **1.788**（元 **2.094**）はturnover **0.0525**（元 **0.0129**）、年率cost **1.310%**（元 **0.315%**）の影響を受ける。Gross消失を示す結果ではなく、matched仮想portfolioの採用判断には使わない。",
+    "- OLS共通銘柄集合で元SLOW GrossSR **1.921** / 年率Gross **7.194%**、style residual **2.004** / **7.365%**。RankIC **0.006305→0.007297**、daily Q5−Q1 **6.81→7.11bp**。2016除外でもGrossSR **1.928→1.976**。年別成績がすべて改善するわけではないが、残差Grossは全6評価年で正。full-universe **2.179→2.004**の差にはcomplete-case coverage効果が含まれる。",
+    "- Growth−Value factorのpooled相関 **0.0654**、beta **0.0212**、R² **0.00427**（0.43%）。2013は相関 **0.285**、R² **0.081**で一部共変動がある。全てのregime影響がゼロとは断定しない。固定factor共有targetによる同時相関は因果的なreturn attributionではない。",
+    "- Long年率Gross **7.675%**のうちSales Growth Low/Mid/Highは **1.771 / 2.414 / 2.562%**、Missing **0.928%**。High Growthだけではない。small-cap tercileは **7.190%**、high-Amihud tercileは **6.999%**。これらは別々の重複cohortで合算不可。Long weighted market-cap median **111.6bn円**、Short **1,135.3bn円**。",
+    "- Stock-day coverage: Sales Growth **90.44%**、Operating Growth **83.46%**、Profit Growth **82.06%**、OLS8descriptor共通集合 **77.41%**。missing、赤字前年、会計/決算期変更、realized Growthと市場期待styleの差に結論の限界がある。raw CloseとPIT shares/EPSのbasis不整合、自己株式、vendor restatement vintage、Date-only disclosure clockを監査限界として残す。"
+  ]
+}

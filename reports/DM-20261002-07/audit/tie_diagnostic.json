@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "one_fixed_perturbation": "score-1e-12*max(1,date maxabs)*centered same-date Code percentile",
+  "perturbed_PL_evaluated": false,
+  "new_performance_candidates": 0,
+  "interpretation": "Sensitivity of official tail membership/weights only; also record unequal adjacent near-score order changes. No random tie break or outcome search."
+}

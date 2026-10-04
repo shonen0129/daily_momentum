@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "Short_gross_net_cost_turnover_reconciliation_atol": 1e-15,
+  "definition": "Current membership REMOVED/ADDED/UNCHANGED; unchanged includes weight effects. OTHER retains exit-only costs for exact Short reconciliation; Q1/Q2 costs are current-quintile allocation, not standalone quintile strategies."
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 68209,
+      "industry_rows": 5247
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 444771,
+      "industry_rows": 33660
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "bitwise": true,
+      "stock_rows": 780844,
+      "industry_rows": 57849
+    }
+  ],
+  "features": [
+    "ResidualReturn",
+    "Sector33Code",
+    "StockMom20",
+    "IndustryResidualReturn",
+    "IndustryMom20",
+    "FiniteMembers",
+    "Within33Mom20",
+    "Within33Rev20",
+    "IndustryComponent",
+    "WithinReversalComponent",
+    "CombinedRaw",
+    "STOCK_REV20",
+    "WITHIN33_REV20",
+    "IND33_MOM_WITHIN_REV20",
+    "StockMom60_raw",
+    "MOM60"
+  ],
+  "industry_history": [
+    "IndustryResidualReturn",
+    "IndustryMom20",
+    "FiniteMembers"
+  ],
+  "row_shuffle": true,
+  "deterministic_rebuild": true,
+  "comparison": "Exact index/columns/dtype, numeric uint64 bits including NaN and signed zero; no tolerance",
+  "mutation": "Suffix residual-source extremes/NaN; source row deletion; PIT classification changes/new industries, stock membership and future-only stocks; full truncation",
+  "scope": "Full Train four input sources,3cutoffs; no fitted model. Empirical checks, not proof for every input."
+}

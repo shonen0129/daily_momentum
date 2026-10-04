@@ -1,0 +1,25 @@
+diagnostic,scope,rankic,HAC5_t,hit,defined_days,own_included,lag,limitation
+LAG1_INDUSTRY_SELF_INCLUSIVE,POOLED,0.0028741727706733137,0.8090556332115277,0.5027450980392156,1275,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,EX2016,0.0029764372718532567,0.8167878654694295,0.5041118421052632,1216,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2011,0.008533784217720677,1.1015719121141627,0.5185185185185185,243,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2012,-0.0002661369261562478,-0.029582476099128088,0.4878048780487805,246,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2013,0.005990305334297883,0.6633759515440639,0.5102880658436214,243,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2014,0.002232307806958756,0.4062116873659638,0.5041322314049587,242,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2015,-0.001589896049655095,-0.1826388688171968,0.5,242,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_SELF_INCLUSIVE,2016,0.0007664840683884023,0.04672502539458855,0.4745762711864407,59,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,POOLED,-0.0035545594030933726,-1.1992368355972538,0.4768627450980392,1275,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,EX2016,-0.0034590294751430458,-1.1405560234801924,0.4786184210526316,1216,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2011,-0.007785852747099766,-1.0465000863039051,0.4609053497942387,243,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2012,-0.006945145767956046,-1.0187091587931123,0.45934959349593496,246,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2013,0.001197659515116603,0.16764818487928718,0.5061728395061729,243,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2014,0.005605208436351387,1.1075994063118737,0.5,242,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2015,-0.009310758136702,-1.338602746511519,0.4669421487603306,242,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_OWN_RESIDUAL,2016,-0.0055234474096628105,-0.39985050373703085,0.4406779661016949,59,False,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,POOLED,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,EX2016,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2011,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2012,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2013,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2014,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2015,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion
+LAG1_INDUSTRY_WITHIN_SECTOR,2016,,,,0,True,1,Common industry score has no within-sector rank variation; self-inclusive correlation cannot identify peer diffusion

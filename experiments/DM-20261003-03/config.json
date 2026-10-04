@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-03",
+  "strategy": "dm_sn1_slow_blend",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Immutable SN1_H1 and SLOW_CONTROL; MOM60 descriptive existing baseline only",
+  "random_seed": 20261003,
+  "train_window": "2008-11-04 through 2016-03-31 feature history; evaluation 2011-2015 full years and 2016 partial",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "SN1: original expanding annual Ridge(lambda=1) on mature prior Train labels; SLOW and BLEND: no fit",
+      "evaluation": "calendar year excluding last 2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is previously studied development evidence; no unseen holdout. Historical Valid / Valid prohibited, including saved artifacts.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "SN1_SLOW_BLEND"
+    }
+  ],
+  "feature_definitions": {
+    "SN1_H1": "Original dm_variable_box_breakout feature/bidirectional/sn1 path and annual H1 Ridge unchanged; replay original base EWMA inversion, High=.25 Low=.50, Low precedence. All breakout/horizon/model parameters unchanged.",
+    "SLOW_CONTROL": "Original dm_slow_multifactor build_features(sector=False).size_liquidity unchanged: global normalized size/amihud, trailing60/min40, 1/99 winsor/median/z; no smoothing.",
+    "rank": "Per-date average percentile rank p, center mean(p), return 2*(p-mean(p)); same original centered_rank. Identical scale in both components; singleton/all ties zero. Average ties before official first tie break by sorted Code.",
+    "SN1_SLOW_BLEND": "centered_rank(SN1_H1 final score)+centered_rank(SLOW_CONTROL final score), fixed 1:1, no further EWMA; official five-quintile ranking.",
+    "PURE_WEIGHT_50_50": "diagnostic only: .5*SN1 official weight+.5*SLOW official weight. Cost .001*abs(diff(net combined weight)) on full continuous panel. Also separate .5*component sleeve cost P/L as non-netted diagnostic; neither a submission candidate."
+  },
+  "model": "One fixed, label-free score combination of two immutable components; no tuning",
+  "parameters": {
+    "blend_weights": [
+      1,
+      1
+    ],
+    "smoothing": null,
+    "turnover_control": null,
+    "SN1_horizon": 1,
+    "SN1_high_alpha": 0.25,
+    "SN1_low_alpha": 0.5,
+    "SN1_ridge_lambda": 1.0
+  },
+  "selection_rule": "Conjunction of all user criteria vs SLOW_CONTROL; no rescue. Annual net and MDD compared pooled and ex2016; Long/Short and turnover gates pooled and ex2016. Primary bootstrap pooled lower95>0; ex2016 bootstrap also saved descriptive.",
+  "adoption": {
+    "pooled_net_sharpe_gt_slow": true,
+    "ex2016_net_sharpe_gt_slow": true,
+    "year_improvement_min": 4,
+    "primary_bootstrap_lower_gt": 0,
+    "annual_net_ge_slow": true,
+    "drawdown_magnitude_le_slow": true,
+    "long_net_gt": 0,
+    "short_net_ge": 0,
+    "turnover_le_max_components": true
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261003,
+    "ci": 0.95,
+    "method": "paired circular moving-block on concatenated eligible sessions; ddof=1 annualized Sharpe",
+    "primary": "SN1_SLOW_BLEND-SLOW_CONTROL",
+    "secondary": "SN1_SLOW_BLEND-SN1_H1",
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "orthogonality": {
+    "scores": "daily Spearman average ties, aggregate mean and HAC5",
+    "membership": "official Long Q4/Q5 and Short Q1/Q2; intersection/min(set sizes), directional intersection/set size and Jaccard; continuous weights",
+    "sector": "exact contemporaneous PIT33, UNKNOWN separate; each-day cross-sector exposure Pearson and each-sector across-date Pearson, separate Long/Short",
+    "drawdown": "compounded net wealth with initial1; underwater<0, intersection/union Jaccard and conditional rates, episodes, depths Pearson; no threshold search",
+    "loss_days": "net<0 strict; both, exactly one, neither; conditional other Net means"
+  },
+  "attribution": {
+    "partition": "disagreement priority (opposite official sides); bothLong, SN1-onlyLong(otherNeutral), SLOW-onlyLong(otherNeutral), bothShort, SN1-onlyShort(otherNeutral), SLOW-onlyShort(otherNeutral), bothNeutral residual for exit costs. Also inclusive marginal memberships saved, overlaps explicitly marked.",
+    "measures": "stock-day count, finite target count/mean, daily target mean, gross/net/turnover/cost for all3 books plus deltas vs each component; full official panel before date eligibility, exit charges retained; .001 charged only finite targets, all-position costs separate"
+  },
+  "saved_components": {
+    "SN1_H1": {
+      "path": "artifacts/DM-20260930-02/run-20260930T081524Z/predictions/SN1_H1.parquet",
+      "column": "Return",
+      "sha256": "081329b58e13bb0930e1b45540c42c9dfa0f74ce3e4ebba0d0be76fcea8bb7b9"
+    },
+    "SLOW_CONTROL": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "column": "SLOW_CONTROL",
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    }
+  },
+  "prefix_cutoffs": [
+    "2012-06-29",
+    "2014-06-30",
+    "2015-12-30"
+  ],
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261003-03",
+  "execution_timeout_seconds": 1800,
+  "prohibitions": [
+    "component parameter changes",
+    "weight search",
+    "conditional weights",
+    "regime switching",
+    "sector filter",
+    "side weights",
+    "disagreement veto",
+    "extra smoothing",
+    "Historical Valid",
+    "Valid",
+    "post-result rescue"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-10-03T17:30:00.765437+00:00",
+  "plan_sha256": "2ad7cf103afbe4e87797a400a9d11e46d6749506a28f6186bb0b86a54c49a80d",
+  "config_sha256": "1c432dff8b15713542a1b99ce7cf62978bdee558f42070782c962800f0919b6a",
+  "code_sha256": {
+    "research/experiments/slow_size_illiq_diagnostic.py": "0c9ed92d934fc95136d866f945fb255084badaf668543cd64c7052a4cdc0a1d3",
+    "research/experiments/slow_size_illiq_components.py": "811e2248e0ab7de18c3d089bbef305ede1dc8d56465f116bcc098bb802aa6763",
+    "research/experiments/slow_mom60_equal.py": "a6ca3bd91fcfbcb4c9e0f1c96b246b859c9271b06c1e2c663a8cf8e92d85e5db",
+    "research/experiments/slow_multifactor.py": "a29e589295ea75ea99ecaac78a17866c08ff0c6321456ee31638f53750d86c3e",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "tests/workspace/test_slow_size_illiq_diagnostic.py": "0383dfa07371c4dd8aa3b86cd5f22eb34e07ea36eea41c87d0b0c54f032e6423"
+  },
+  "performance_candidates": 0,
+  "diagnostic_bundle_budget": 1,
+  "target_opened": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "paths": [
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/__init__.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_slow/__init__.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_slow/features.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/__init__.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/bidirectional.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/features.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/sn1.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/features.py",
+    "stock_comp_2026/strategies/dm_sn1_slow_blend/submission.py"
+  ],
+  "findings": [],
+  "reviewed_label_access": [
+    {
+      "source": "stock_comp_2026/strategies/dm_sn1_slow_blend/submission.py",
+      "reason": "explicit Train-only SN1 annual learning; mature prior-fold labels. Blend transform takes final scores only."
+    }
+  ],
+  "manual": "original backward PIT financial EOD join, causal observed AdjustmentFactor cumprod (not adjusted OHLC level), trailing prior prices and rolling, within-date ranks; explicit Train-only loaders"
+}

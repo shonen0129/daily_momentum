@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "dates": 1814,
+  "codes": 473,
+  "exact_index": true,
+  "finite": true,
+  "coverage": 1.0,
+  "stored_models_inference_bitwise": true,
+  "standalone_bitwise": true,
+  "target_absent_from_inference_stage": true
+}

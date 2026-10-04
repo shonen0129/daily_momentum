@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-03",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_sn1_slow_blend",
+  "valid_evaluation": false
+}

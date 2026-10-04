@@ -1,0 +1,63 @@
+[
+  {
+    "phase": "plan_config_code_freeze",
+    "at_utc": "2026-10-03T09:37:10.187776+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "plan.md": "d268509f4f091b3f9b16e663d0c744c2f50225a165b92f799f3cad6b574e0ce6",
+      "config.json": "98cbec6470044097b3ed64a3476345d55c91ad989306fe554f162acdd6a1cdef"
+    }
+  },
+  {
+    "phase": "component_parity",
+    "at_utc": "2026-10-03T09:37:58.862712+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "audit/component_parity.json": "8c7d042887b312f46dd572cd125bdae20c373c516274356a3445a141b7f3c873",
+      "predictions/component_scores.parquet": "9e936b2dc9803f2abbcfb724de525a2d1ff8d4d8db5b284d2ef659ffeb3cd42a"
+    }
+  },
+  {
+    "phase": "orthogonality_diagnostics_saved",
+    "at_utc": "2026-10-03T09:38:07.890745+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "metrics/orthogonality_summary.csv": "6b59b3f177691be9c701be871c25be69b5fcf2539bef344cbef635a147903e43",
+      "metrics/orthogonality_daily.csv": "762b539c052dbf5a59021efaec7cdbcede711de0327a22f21ebe83779a35ea28"
+    }
+  },
+  {
+    "phase": "pure_weight_diagnostic_saved",
+    "at_utc": "2026-10-03T09:38:08.125707+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "metrics/pure_diversification_metrics.csv": "bdcdf65fb7a48a081d3bfcc7f379a086f80a1276126422b325fbd91fc06abbf4"
+    }
+  },
+  {
+    "phase": "fixed_score_blend_trial_completed",
+    "at_utc": "2026-10-03T09:38:15.238110+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/metrics.csv": "16251d5560528c895951e59f2e653258324ba508b4160ab42ce61eb6ddb7e4c5"
+    }
+  },
+  {
+    "phase": "bootstrap_completed",
+    "at_utc": "2026-10-03T09:38:15.301034+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/bootstrap.json": "6fd36c0ff3b45cc6953efda33ee7557446bedd3d2670e23fcd798c5e07c89194"
+    }
+  },
+  {
+    "phase": "causality_audit_completed",
+    "at_utc": "2026-10-03T09:48:35.294657+00:00",
+    "actual_trials": 1
+  },
+  {
+    "phase": "decision_recorded",
+    "at_utc": "2026-10-03T09:48:35.294671+00:00",
+    "actual_trials": 1
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "runs": [
+    {
+      "run_id": "run-20261003T093214Z",
+      "status": "failed",
+      "actual_trials_recorded": 0,
+      "new_performance_trials": 0,
+      "failure": "AssertionError()",
+      "source": null
+    },
+    {
+      "run_id": "run-20261003T093320Z",
+      "status": "failed",
+      "actual_trials_recorded": 0,
+      "new_performance_trials": 0,
+      "failure": "PermissionError('Train-only parquet guard denied component_scores.parquet')",
+      "source": null
+    },
+    {
+      "run_id": "run-20261003T093503Z",
+      "status": "failed",
+      "actual_trials_recorded": 0,
+      "new_performance_trials": 0,
+      "failure": "TypeError(\"unsupported operand type(s) for +: 'PosixPath' and 'str'\")",
+      "source": null
+    },
+    {
+      "run_id": "run-20261003T093657Z",
+      "status": "failed",
+      "actual_trials_recorded": 1,
+      "new_performance_trials": 1,
+      "failure": "TypeError('Invalid comparison between dtype=datetime64[ns, Asia/Tokyo] and Timestamp')",
+      "source": null
+    },
+    {
+      "run_id": "run-20261003T094246Z",
+      "status": "completed",
+      "actual_trials_recorded": 1,
+      "new_performance_trials": 0,
+      "failure": null,
+      "source": "artifacts/DM-20261003-03/run-20261003T093657Z"
+    }
+  ],
+  "unique_performance_trials": 1,
+  "rescue_trials": 0,
+  "note": "early technical failures before score blend and audit-only completion retain all scientific artifacts"
+}

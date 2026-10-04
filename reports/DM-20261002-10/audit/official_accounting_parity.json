@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "strategies": {
+    "STOCK_REV20": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "WITHIN33_REV20": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "IND33_MOM_WITHIN_REV20": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    },
+    "MOM60": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "long_short_tolerance": 1e-15,
+      "full_panel_rows": 809636
+    }
+  }
+}

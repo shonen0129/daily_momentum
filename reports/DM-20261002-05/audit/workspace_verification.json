@@ -1,0 +1,21 @@
+{
+  "status": "PASS for task-scoped verification",
+  "strategy_tests": 9,
+  "full_regression_tests": 187,
+  "full_regression_exit_code": 0,
+  "make_check": {
+    "status": "FAIL",
+    "pre_existing": true,
+    "reason": "DM-20261002-04 unknown experiment kind historical_valid_descriptive_backtest"
+  },
+  "independent_existing_freeze_hashes": {
+    "status": "PASS",
+    "files": 129
+  },
+  "initial_test_failure": "Pandas3 stack(dropna=False) API mismatch fixed before research; no economic definition change",
+  "candidate_trials_unique": 2,
+  "phase3": "not run; both candidates fail positive Short gross gate",
+  "freeze_changed": false,
+  "valid_data_read": false,
+  "additional_performance_trials_after_results": 0
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-07",
+  "strategy": "dm_hierarchical_momentum",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "MOM60 unchanged raw residual60 -> centered_rank -> EWMA(.25), official quintiles. Recompute matched dates and bitwise compare preceding experiment control.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31 expanding input history, no fitting",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "evaluation": "2011 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2012,
+      "evaluation": "2012 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2013,
+      "evaluation": "2013 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2014,
+      "evaluation": "2014 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2015,
+      "evaluation": "2015 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    },
+    {
+      "year": 2016,
+      "evaluation": "2016 calendar year, last2 exchange dates purged, 2016 partial",
+      "fit": "none"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "Known Train history; no independent OOS claim, no Historical Valid access. New explicitly requested hierarchy hypothesis after DM-20261002-06; old3 candidates stay REJECT.",
+  "max_trials": 3,
+  "trials": [
+    {
+      "trial_id": "HIER33_SECTOR"
+    },
+    {
+      "trial_id": "HIER33_WITHIN"
+    },
+    {
+      "trial_id": "HIER33_COMBINED"
+    }
+  ],
+  "feature_definitions": {
+    "StockMom60_raw": "existing res60s1 raw primitive before centered_rank: residual=raw_return-beta*TOPIX, shift1 within segment, rolling60 observations min60 sum, >20 absent exchange-date gap reset",
+    "Sector33Common_raw": "same-date PIT33 equal mean of finite StockMom60_raw INCLUDING own if finite, minimum5 finite members, broadcast exactly same raw value to every sector member present that date",
+    "Within33_raw": "StockMom60_raw-Sector33Common_raw; never fit/extract/PCA/LOO",
+    "PIT": "Date/Code exact left join, missing/9999/blank excluded, only raw_return rows present on signal date enter daily membership; no latest/future/backfill",
+    "missing": "undefined raw component stays NaN for raw coverage; each raw component independently neutral0 BEFORE EWMA; no history carry imputation or arbitrary state reset",
+    "EWMA": "same per-Code/relisting-segment smooth primitive as existing MOM60; alpha .25, adjust=False. Sector changes keep previous Code state, no extra reset. Current sector raw common equal; smoothed histories can differ for sector changers/new/relisted stocks.",
+    "Z": "same-date arithmetic mean and sample SD (ddof1) of finite smoothed scores across all required date-present stock rows; zero SD -> neutral0; no winsorization/rank/sector weighting",
+    "combined": "Z(EWMA(SectorCommon raw neutral0)) + Z(EWMA(Within raw neutral0)); exactly1:1, NO additional EWMA after date-zscore",
+    "identity": "raw on joint finite rows; smoothed Stock(raw neutral0) vs Sector/Within. Independent neutralization can break identity on missing histories; defect=Stock0-Sector0-Within0. Test discrepancy equals EWMA(defect) within floating tolerance. No economic definition altered to hide mismatch."
+  },
+  "model": "Fixed common/within decomposition, same causal EWMA and equal standardized combination. No labels, fitted model, horizons, weights or smoothing search.",
+  "parameters": {
+    "horizon": 60,
+    "skip": 1,
+    "min_periods": 60,
+    "sector33_min_finite_members": 5,
+    "alpha": 0.25,
+    "ewm_adjust": false,
+    "relisting_gap": 20,
+    "ddof": 1,
+    "weights": [
+      1,
+      1
+    ],
+    "neutral_before_ewma": 0
+  },
+  "feasibility_gates": {
+    "rankic_min_exclusive": 0,
+    "grossSR_min_exclusive": 0,
+    "ex2016_grossSR_min_exclusive": 0,
+    "full_year_positive_gross_min": 3,
+    "raw_finite_coverage_min": 0.95,
+    "turnover_control_multiplier": 1.25
+  },
+  "selection_rule": "All3 evaluated regardless feasibility. A/B are component identification only: REJECT if feasibility fails, DESCRIPTIVE_COMPONENT_ONLY if all pass; no standalone adoption/rescue. COMBINED next-stage eligibility requires feasibility AND pooled/ex2016 NetSR>MOM60, full-year2011-2015 improvement>=4/5, paired bootstrap deltaNetSR lower>0, annualNet>MOM60, turnover<=MOM60*1.25, annualShortgross/net>=MOM60, positive Q monotonicity. Else REJECT. No added positive-Short requirement beyond user inequalities. No release/Valid.",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "method": "paired circular moving-block of matched eligible sessions, percentile95% deltaNetSR"
+  },
+  "diagnostics": {
+    "ties": "all4 official scores, daily unique score count; exact tie share=rows in duplicate same-date values/N; same-sector Q1/Q5 exposure; within-exact-tie ordinal Code/rank and actual tail membership; ONE tiny deterministic perturbation score-1e-12*max(1,date maxabs(score))*same-date centered Code rank. Only Q1/Q5 migration/Jaccard and weight change, NO perturbation P/L/selection/random search. Report changed non-tied order too.",
+    "rank_changes": "adjacent exchange-date percentile rank change distribution, daily/fold pooled; retention and full tail spells, censored/gap conventions documented",
+    "common_alpha": "same-date sector equal-stock average raw/smoothed common and target; finite count and dispersion; low/middle/high sector-rank thirds fixed diagnostic; sector P/L attribution from original book",
+    "within_alpha": "within each PIT sector/date smoothedWithin RankIC/HAC5, descriptive internal Q1-Q5 target means using deterministic Code ties; original global-book Long/Short contributions, no new portfolio",
+    "agreement": "A(++),B(+-),C(-+),D(--),ZERO_OR_MISSING raw signs, target mean + stock/sector/within RankIC/HAC; original MOM60 and COMBINED Long/Short/gross/net attribution, no filters",
+    "concentration": "33 only all4, daily exposure/HHI/max weight/Q1Q5 distribution, annual contributions/top2; LOSO subtract original sector P/L and attributed costs, NO rerank/renormalization",
+    "Short": "gross/net Sharpe/annual P/L and turnover costs per side; delta net=delta gross-delta cost against MOM60"
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-07",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "prior_experiment": "DM-20261002-06",
+  "execution_timeout_seconds": 1800
+}

@@ -1,0 +1,38 @@
+{
+  "failures": [
+    {
+      "run": "run-20261003T125649Z",
+      "error": "KeyError(\"None of ['Date'] are in the columns\")",
+      "config_sha256": "f14f2424e0eb6dada375c887a35e8041adca74b8337704db0e31240b7998561f",
+      "return_accounting_reached": false,
+      "preserved": true
+    },
+    {
+      "run": "run-20261003T131201Z",
+      "error": "AssertionError('target opened before descriptors frozen')",
+      "config_sha256": "f14f2424e0eb6dada375c887a35e8041adca74b8337704db0e31240b7998561f",
+      "return_accounting_reached": false,
+      "preserved": true
+    },
+    {
+      "run": "run-20261003T131554Z",
+      "error": "AttributeError(\"'DataFrame' object has no attribute 'Date'\")",
+      "config_sha256": "f14f2424e0eb6dada375c887a35e8041adca74b8337704db0e31240b7998561f",
+      "return_accounting_reached": true,
+      "preserved": true
+    },
+    {
+      "run": "run-20261003T132116Z",
+      "error": "Error([('/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261003-04/run-20261003T132116Z/metrics/z_descriptors.parquet', '/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/reports/DM-20261003-04/metrics/z_descriptors.parquet', 'Train-only parquet guard denied z_descriptors.parquet'), ('/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261003-04/run-20261003T132116Z/metrics/raw_descriptors.parquet', '/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/reports/DM-20261003-04/metrics/raw_descriptors.parquet', 'Train-only parquet guard denied raw_descriptors.parquet'), ('/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261003-04/run-20261003T132116Z/metrics/descriptor_ages.parquet', '/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/reports/DM-20261003-04/metrics/descriptor_ages.parquet', 'Train-only parquet guard denied descriptor_ages.parquet'), ('/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261003-04/run-20261003T132116Z/metrics/diagnostic_panel.parquet', '/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/reports/DM-20261003-04/metrics/diagnostic_panel.parquet', 'Train-only parquet guard denied diagnostic_panel.parquet')])",
+      "config_sha256": "f14f2424e0eb6dada375c887a35e8041adca74b8337704db0e31240b7998561f",
+      "return_accounting_reached": true,
+      "preserved": true
+    }
+  ],
+  "finalization_initial_copy_failure_log": "artifacts/DM-20261003-04/run-20261003T132635Z/logs/finalization.log",
+  "finalization_recovery_log": "artifacts/DM-20261003-04/run-20261003T132635Z/logs/finalization-recovery.log",
+  "config_unchanged": true,
+  "descriptor_selection_changed": false,
+  "performance_candidate_trials": 0,
+  "scientific_bundle": "one frozen diagnostic, technical reruns only; finalization reused completed saved results"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "phase": "plan_config_code_freeze",
+    "at_utc": "2026-10-03T15:25:10.894200+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "plan.md": "bf3ed6c8023baa154ad3461c9c8ae3af014640b9165fb682c96467c5be7b4f29",
+      "config.json": "8a058710a8bfe96a6c1994978dcf4c1cbf08d222a25fc4ba1840d88ae52b7131"
+    }
+  },
+  {
+    "phase": "component_rank_parity",
+    "at_utc": "2026-10-03T15:25:14.994002+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "audit/component_parity.json": "84627558c904b9d2652b4d867fc1de36df634196003b29e1a764ac7f920ef8e2"
+    }
+  },
+  {
+    "phase": "one_annual_OLS_candidate",
+    "at_utc": "2026-10-03T15:25:15.304929+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "predictions/strategy_scores.parquet": "ac1544a49b18f23825dfe1e1ea291c4ece4056703c7714f5b7ff0a828bbb3755",
+      "metrics/annual_coefficients.csv": "67062f7869c354343ebe5b2e38b7a9d2eecc763f124b79ee060db68b9720d7e1"
+    }
+  },
+  {
+    "phase": "official_accounting_metrics_cost",
+    "at_utc": "2026-10-03T15:25:19.748440+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/metrics.csv": "99ab3f4ec4ac242473d8edfaf43dd403886371e796f4c49967d589baa0549ae3",
+      "metrics/incremental.csv": "d5b86fa6fce335698209644a32c2615aa144648aa604de56bc0a61b9af1fad0a"
+    }
+  },
+  {
+    "phase": "paired_bootstrap",
+    "at_utc": "2026-10-03T15:25:19.844851+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/bootstrap.json": "dc78e2916d457c5a8f729cdfd482ebfda0c6d0ee879ad305a8ee6b7ad2e315a4"
+    }
+  },
+  {
+    "phase": "learning_causality_contract",
+    "at_utc": "2026-10-03T15:27:08.423279+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "audit/prefix_invariance.json": "e3950f56744579a88ae14c817c89a455398e4e2d6cb92824251cf26548f6a65c",
+      "audit/contract_adapter.json": "583a4ca3d21713e808ca5dedaff1cdcb50f394f3cca261aab3b8b72c6eaf5ede"
+    }
+  },
+  {
+    "phase": "decision",
+    "at_utc": "2026-10-03T15:27:13.165706+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/decision.json": "acf23a52ff3cbbb57767952a0127c3eb7a30f1e7665793b53fc6951cfb43c3ca"
+    }
+  }
+]

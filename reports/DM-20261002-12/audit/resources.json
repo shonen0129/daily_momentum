@@ -1,0 +1,10 @@
+{
+  "report_recovery_seconds": 0.8983225840001978,
+  "report_recovery_peak_rss_bytes": 485392384,
+  "science_pre_result_lock_to_failure_seconds": 51.217222,
+  "science_peak_rss_bytes": null,
+  "science_peak_rss_limitation": "Original process stopped before its end-of-run resource record; standalone inference RSS/time retained; no extra scientific replay for profiling",
+  "actual_trials": 0,
+  "cumulative_performance_trials": 2,
+  "valid_evaluation": false
+}

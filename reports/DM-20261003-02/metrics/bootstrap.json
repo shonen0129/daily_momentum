@@ -1,0 +1,68 @@
+{
+  "POOLED:SLOW_CAUSE_AWARE-SLOW_CONTROL": {
+    "low": -2.7358459891248743,
+    "high": -2.120861395789258,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -2.4068365552983515,
+    "days": 1275,
+    "primary": true
+  },
+  "POOLED:SLOW_FUND_EVENT-SLOW_CONTROL": {
+    "low": -0.05884508187004996,
+    "high": -0.012803798000417407,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -0.03384996145126706,
+    "days": 1275,
+    "primary": false
+  },
+  "POOLED:SLOW_CAUSE_AWARE-SLOW_FUND_EVENT": {
+    "low": -2.7006860052209762,
+    "high": -2.0951504944805244,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -2.3729865938470844,
+    "days": 1275,
+    "primary": false
+  },
+  "EX2016:SLOW_CAUSE_AWARE-SLOW_CONTROL": {
+    "low": -2.7425416251884407,
+    "high": -2.1046059755349273,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -2.4076250823747016,
+    "days": 1216,
+    "primary": false
+  },
+  "EX2016:SLOW_FUND_EVENT-SLOW_CONTROL": {
+    "low": -0.060984549199464555,
+    "high": -0.011702751745785674,
+    "bootstrap_positive_fraction": 0.0015,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -0.034878313833714536,
+    "days": 1216,
+    "primary": false
+  },
+  "EX2016:SLOW_CAUSE_AWARE-SLOW_FUND_EVENT": {
+    "low": -2.698839757316768,
+    "high": -2.0700356634391457,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -2.372746768540987,
+    "days": 1216,
+    "primary": false
+  }
+}

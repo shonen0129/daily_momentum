@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "all_train_rows": 809636,
+  "evaluation_rows": 576535,
+  "finite_predictions": true,
+  "exact_index": true
+}

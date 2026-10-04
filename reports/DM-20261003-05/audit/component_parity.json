@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "saved_refs": {
+    "slow_features": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/features_base.parquet",
+      "columns": [
+        "raw_size",
+        "raw_amihud",
+        "z_size",
+        "z_amihud",
+        "size_liquidity"
+      ],
+      "sha256": "8d19f220e66d8460f86c305b2a6c5cfcc1f51a9d6c919125d493357c288a89af"
+    },
+    "slow_scores": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "columns": [
+        "SLOW_CONTROL",
+        "MOM60"
+      ],
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    },
+    "frozen_momentum": {
+      "path": "releases/DM-20260908-v1/snapshot/reports/DM-20260908/selected_train_predictions.parquet",
+      "columns": [
+        "Return"
+      ],
+      "sha256": "58b803b31dc6d61c58d56f2a49c091eb55d481eacac2dffce3d5511df058f46c"
+    }
+  },
+  "raw_parquet_storage_parity": {
+    "status": "PASS",
+    "columns": [
+      {
+        "column": "raw_size",
+        "finite_bits_equal": true,
+        "missing_positions_equal": true,
+        "nan_payload_bit_differences": 28115
+      },
+      {
+        "column": "raw_amihud",
+        "finite_bits_equal": true,
+        "missing_positions_equal": true,
+        "nan_payload_bit_differences": 0
+      }
+    ],
+    "canonical_null_storage_bits_equal": true,
+    "note": "Parquet nulls do not preserve raw -log NaN sign/payload. No tolerance on any finite value; final component/score bits are checked separately without canonicalization."
+  },
+  "normalized_Size_Illiquidity_bitwise": true,
+  "SLOW_saved_and_reconstructed_bitwise": true,
+  "MOM60_saved_and_frozen_bitwise": true,
+  "SLOW_module_byte_identical": true,
+  "MOM_functions_current_frozen_source_identical": [
+    "build_momentum",
+    "centered_rank",
+    "segment_keys",
+    "smooth"
+  ],
+  "frozen_momentum_source_sha256": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+  "old_MOM_audit_path": "releases/DM-20260908-v1/snapshot/reports/DM-20260908/verification.json",
+  "old_MOM_audit_sha256": "1054f91497a79d60d555f054215d1b462e826d02d643d65527e0195bd06d912d",
+  "old_MOM_audit_status": "PASS",
+  "comparison": "index/columns/dtype and exact uint64 float64 bits including NaN; zero tolerance"
+}

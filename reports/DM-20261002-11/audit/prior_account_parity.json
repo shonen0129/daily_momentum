@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "prior_daily_bitwise": true,
+  "controls": [
+    "IND33_MOM_WITHIN_REV20",
+    "MOM60"
+  ],
+  "new_performance_trials": 1
+}

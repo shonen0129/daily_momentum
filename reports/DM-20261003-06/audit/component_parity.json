@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "bitwise_components": true,
+  "bitwise_ranks": true,
+  "bitwise_controls": true,
+  "copies": [
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/submission.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/submission.py",
+      "sha256": "222e0c4ce61acb29c98078df033410799a0c7cc1203800f1f6485a769a716b6f"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/__init__.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/features.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/features.py",
+      "sha256": "3ba3f04fc8a8030e2df291b447874d23292b596c01aa76398e6261e2d4b040fc"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/component_momentum.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_momentum.py",
+      "sha256": "a7de4e22d69b75b1a7b19a456143cd75dfe6883aa07086a70052c4df2aaddbdd"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/component_slow/__init__.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_mom60_equal/component_slow/features.py",
+      "copy": "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/features.py",
+      "sha256": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3"
+    }
+  ],
+  "rows": 809636,
+  "target_not_parsed_during_features": true
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "path": "target_1day_valid.parquet",
+      "reason": "Train-only parquet guard denied target_1day_valid.parquet"
+    },
+    {
+      "path": "raw_target_1day_train.parquet",
+      "reason": "Train-only parquet guard denied raw_target_1day_train.parquet"
+    },
+    {
+      "path": "unknown.parquet",
+      "reason": "Train-only parquet source is unavailable: /Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/artifacts/DM-20261002-11/run-20261002T094523Z/stage/unknown.parquet"
+    }
+  ]
+}

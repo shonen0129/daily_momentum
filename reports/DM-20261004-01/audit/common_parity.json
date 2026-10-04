@@ -1,0 +1,7 @@
+{
+  "status": "CHECK_COMPLETE",
+  "score_bitwise_equal": false,
+  "weight_bitwise_equal": false,
+  "different_definitions_preserved": true,
+  "rank_common_is_not_original_zscore_mean": true
+}

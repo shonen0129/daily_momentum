@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "agreement": {
+    "status": "PASS",
+    "state_book_reconciliation_atol": 1e-15,
+    "standalone_state_strategy": false
+  },
+  "replacement": {
+    "status": "PASS",
+    "replacement_gross_reconciliation_atol": 1e-15,
+    "net_equals_gross_minus_cost_atol": 1e-15,
+    "interpretation": "REMOVED avoided signed old losses + ADDED signed new P/L + UNCHANGED weight effect; exact current-book difference, not isolated intervention causal effect."
+  },
+  "turnover_difference": {
+    "status": "PASS",
+    "disjoint_partition_atol": 1e-15,
+    "C_STATE_EXIT": "Current raw C Short removed from portfolio, not necessarily a temporal raw-C exit",
+    "limitation": "Descriptive current-row assignment; delayed EWMA/replacement causation is not uniquely identified"
+  },
+  "matched_rows": {
+    "status": "PASS",
+    "same_rows": true,
+    "no_additional_strategy": true,
+    "original_book_partition_atol": 1e-15,
+    "limitation": "Current raw availability cannot remove prior unavailable context's EWMA state; subset Q ranks are target diagnostics only"
+  }
+}

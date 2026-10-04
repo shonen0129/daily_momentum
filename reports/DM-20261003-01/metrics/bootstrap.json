@@ -1,0 +1,68 @@
+{
+  "POOLED:FUND_REV-MOM60": {
+    "low": -2.3568793062264244,
+    "high": 0.05048479791473311,
+    "bootstrap_positive_fraction": 0.031,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -1.1124517097540993,
+    "days": 1275,
+    "primary": false
+  },
+  "POOLED:FLOW_REV-MOM60": {
+    "low": -13.829747264932,
+    "high": -10.481657528670867,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -12.07807060312584,
+    "days": 1275,
+    "primary": false
+  },
+  "POOLED:CAUSE_COMPOSITE-MOM60": {
+    "low": -10.796099298090235,
+    "high": -7.23355912709227,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -8.91870907985677,
+    "days": 1275,
+    "primary": true
+  },
+  "EX2016:FUND_REV-MOM60": {
+    "low": -2.34739084889577,
+    "high": 0.18186909512205196,
+    "bootstrap_positive_fraction": 0.047,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -1.0838307270229164,
+    "days": 1216,
+    "primary": false
+  },
+  "EX2016:FLOW_REV-MOM60": {
+    "low": -13.911336589139994,
+    "high": -10.355741314525295,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -12.108718659261484,
+    "days": 1216,
+    "primary": false
+  },
+  "EX2016:CAUSE_COMPOSITE-MOM60": {
+    "low": -10.993067952599336,
+    "high": -7.3044433854288355,
+    "bootstrap_positive_fraction": 0.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "point_delta": -9.071469908195983,
+    "days": 1216,
+    "primary": false
+  }
+}

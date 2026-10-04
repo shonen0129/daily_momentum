@@ -1,0 +1,50 @@
+{
+  "POOLED:SN1_SLOW_BLEND-SLOW_CONTROL": {
+    "low": -0.8810127226919555,
+    "high": 0.5349308987743608,
+    "bootstrap_positive_fraction": 0.3255,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "observed_delta": -0.17064017616868288,
+    "days": 1275,
+    "ci": 0.95,
+    "primary": true
+  },
+  "POOLED:SN1_SLOW_BLEND-SN1_H1": {
+    "low": 0.3852361358897508,
+    "high": 1.3603966856193228,
+    "bootstrap_positive_fraction": 0.9995,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "observed_delta": 0.8594738481496043,
+    "days": 1275,
+    "ci": 0.95,
+    "primary": false
+  },
+  "EX2016:SN1_SLOW_BLEND-SLOW_CONTROL": {
+    "low": -0.9714945986286965,
+    "high": 0.5452212834407958,
+    "bootstrap_positive_fraction": 0.294,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "observed_delta": -0.20966542005493038,
+    "days": 1216,
+    "ci": 0.95,
+    "primary": true
+  },
+  "EX2016:SN1_SLOW_BLEND-SN1_H1": {
+    "low": 0.3802813850746285,
+    "high": 1.464651441196138,
+    "bootstrap_positive_fraction": 1.0,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261003,
+    "observed_delta": 0.8778958455159009,
+    "days": 1216,
+    "ci": 0.95,
+    "primary": false
+  }
+}

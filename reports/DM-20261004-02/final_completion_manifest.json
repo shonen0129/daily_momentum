@@ -1,0 +1,26 @@
+{
+  "experiment_id": "DM-20261004-02",
+  "completed_run": "artifacts/DM-20261004-02/run-20261003T185022Z",
+  "run_sha256": "4d516243ae3afa22c11aad3b5bf65e8545368e48b499890d8e7ab0c1919fab7c",
+  "output_hashes_verified": 83,
+  "input_hashes_verified": 7,
+  "unchanged_definition_and_accounting_sources_verified": 16,
+  "primary_hypotheses": 3,
+  "fixed_group_variant_descriptors": 168,
+  "displayed_group_variant_scope_spread_ic_statistics": 2688,
+  "count_note": "Descriptors/scopes overlap and are not independent hypotheses; only H1/H2/H3 primary. All other comparisons descriptive secondary.",
+  "candidate_trials": 0,
+  "rescue_trials": 0,
+  "permutation_or_bootstrap_reruns": 0,
+  "reports_sha256": {
+    "INTERPRETATION.md": "4fd6a659fccbd2fe21a4318bfabe5ab4bcd5b9e5201a162d094486b8ed000ea2",
+    "primary_summary_bp.csv": "0fa42e819ff44f90e8136567cd1ce48f8ddf2e9d9cba4a6da571e8ed8c30fb75",
+    "transition_paired_spread_daily.csv": "997a8b6d8972270049817516b6dbc6b7a565799daafb51af31c624b4addf8437",
+    "transition_paired_spread_summary.csv": "9b9c5690e895f4e4d067791879f449ab306caf07c43edd5ae4c76ba7ea093973",
+    "surface_smoothness_audited.csv": "5802d7703ecb2ea771c8668b1ea87d2ae372dea20392b25b70ef3eda3df2a985"
+  },
+  "current_driver_sha256": "aaef3eaa79a8ccb1f781231c8dfa7b45f2112a5ae30ccd540563498ea876d974",
+  "last_driver_change": "Resume input/common-source hash checks and source log preservation only; no scientific/strategy change.",
+  "source_verification_logs": "artifacts/DM-20261004-02/run-20261003T183736Z/logs",
+  "interpretation_and_hash_check_elapsed_seconds": 1.1744701249990612
+}

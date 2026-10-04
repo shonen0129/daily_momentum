@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "decision": "REJECT",
+  "actual_unique_trials": 1,
+  "new_performance_trials": 0,
+  "rescue_trials": 0,
+  "phase_order": [
+    "plan_config_code_freeze",
+    "component_parity",
+    "orthogonality_diagnostics_saved",
+    "pure_weight_diagnostic_saved",
+    "fixed_score_blend_trial_completed",
+    "bootstrap_completed",
+    "causality_audit_completed",
+    "decision_recorded"
+  ],
+  "saved_performance_artifact_hashes": "PASS",
+  "plan_config_frozen": "PASS",
+  "exact_score_rows": 809636,
+  "real_train_prefix_cases": 27,
+  "scientific_source_unmodified": true,
+  "completed_run_unmodified": true,
+  "historical_valid_access": false,
+  "valid_evaluation": false,
+  "report_script_sha256": "7c87feb5b033893acd88c9c66d8131775c40dfcb683983b49e3813ad1d0baeec",
+  "report_additional_metrics_sha256": {
+    "net_volatility.csv": "e2f319a7082ab9a16b4fc97721880b20b8524bf31cce86729ef3097bec43793b",
+    "primary_secondary_attribution_summary.csv": "231100104e763aacc8954bb9436afe40efdaf68fe41bd4216328d3444fd4d686"
+  }
+}

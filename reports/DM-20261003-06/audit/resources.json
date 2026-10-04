@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": 122.45804029199644,
+  "peak_rss_bytes": 2420195328,
+  "actual_trials": 1,
+  "rescue_trials": 0,
+  "valid_evaluation": false,
+  "execution_timeout_seconds": 1800
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "candidate": {
+    "status": "PASS",
+    "weight_bitwise": true,
+    "net_bitwise": true,
+    "side_account_tolerance": 1e-15,
+    "rows": 809636,
+    "min_quintiles_per_day": 5,
+    "exact_uint64_checked": true
+  },
+  "controls": "Hash-fixed identical inputs/target/score and identical previous.account/evaluation functions; daily CSV metrics exactly reproduced",
+  "prior_run": "artifacts/DM-20261003-05/run-20261003T144512Z",
+  "reused_controls": [
+    "SLOW_CONTROL",
+    "SLOW_MOM60_EQUAL",
+    "MOM60"
+  ]
+}

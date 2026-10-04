@@ -1,0 +1,7 @@
+{
+  "new_experiment_validation": "PASS",
+  "freeze_hash_validation": "PASS",
+  "frozen_hashes": 129,
+  "make_check": "FAIL_PREEXISTING_DM-20261002-04_UNKNOWN_KIND",
+  "prior_evidence_files": 421
+}

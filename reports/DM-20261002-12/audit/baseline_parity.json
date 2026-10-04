@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "frozen_and_current_baseline_bitwise": true,
+  "saved_baseline_bitwise": true,
+  "saved_source": "artifacts/DM-20261002-08/run-20261002T070900Z/predictions/scores.parquet",
+  "saved_sha256": "fa95e30d41bab50bc5e4bd35bcfce18134ef254b7bcc88adbe7b812c328d3c43",
+  "same_horizon_sector33_bitwise": true,
+  "baseline_parameters": {
+    "strategy_id": "DM-20260908-v1",
+    "selected_trial_id": "M_res60s1_a0.25",
+    "family": "Momentum",
+    "momentum": "res60s1",
+    "return_definition": "raw_return[t] - beta[t] * topix_return[t]",
+    "momentum_aggregation": "sum of preceding 60 per-code observed trading rows, excluding current row",
+    "window": 60,
+    "min_periods": 60,
+    "skip": 1,
+    "normalization": "2 * (daily average percentile rank - daily mean percentile rank)",
+    "missing_policy": "nonfinite residual -> NaN; missing momentum rank -> 0 before EWMA",
+    "relisting_reset": "reset after more than 20 missing exchange-date ordinal steps",
+    "alpha": 0.25,
+    "ewma_adjust": false,
+    "ewma_initialization": "first available score in each listing segment",
+    "lambda": 0.0,
+    "gate": "disabled",
+    "hysteresis": "disabled",
+    "boundary_buffer": "disabled",
+    "cost_aware_update": "disabled",
+    "random_seed": 20260908,
+    "trained_model": "none",
+    "training_procedure": "No supervised fit; definition selected on four Train development folds 2011-2014 only",
+    "confirmation": "Train 2015-01-05 through 2016-03-29, no reselection",
+    "valid_evaluation": "not run",
+    "required_inputs": [
+      "raw_return_1day",
+      "beta_1day",
+      "topix_return_1day"
+    ],
+    "libraries_inference": [
+      "numpy==2.4.6",
+      "pandas==3.0.3",
+      "pyarrow==24.0.0"
+    ],
+    "python": "3.11.15",
+    "portfolio": "official 5 quintile weights (q-2)/N/1.2",
+    "transaction_cost_oneway": 0.001,
+    "annualization": 252,
+    "economic_status": "research candidate only; confirmation Net Sharpe negative; statistical adoption evidence insufficient"
+  }
+}

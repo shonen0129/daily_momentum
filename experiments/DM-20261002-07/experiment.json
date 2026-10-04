@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-07",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_hierarchical_momentum",
+  "valid_evaluation": false,
+  "actual_trials": 3,
+  "run_id": "run-20261002T062103Z",
+  "report": "reports/DM-20261002-07/REPORT.md",
+  "adopted_candidate": null,
+  "next_stage_candidate": null,
+  "selection_summary": "Combined fails raw coverage, 4/5 improvement and bootstrap lower bound; Sector descriptive only"
+}

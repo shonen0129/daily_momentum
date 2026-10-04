@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "financial_date_mutation": [
+    {
+      "cutoff": "2009-03-31",
+      "mutation": "Every future financial disclosure Date shifted forward17calendar days; prefix unchanged",
+      "status": "PASS",
+      "bitwise": true,
+      "rows": 41919
+    },
+    {
+      "cutoff": "2012-06-29",
+      "mutation": "Every future financial disclosure Date shifted forward17calendar days; prefix unchanged",
+      "status": "PASS",
+      "bitwise": true,
+      "rows": 389444
+    },
+    {
+      "cutoff": "2015-12-30",
+      "mutation": "Every future financial disclosure Date shifted forward17calendar days; prefix unchanged",
+      "status": "PASS",
+      "bitwise": true,
+      "rows": 780844
+    }
+  ],
+  "exact_annual_pairs": 2523,
+  "events_without_exact_comparator": 651,
+  "same_document_basis": true,
+  "period_end_before_disclosure": true,
+  "prior_disclosure_before_current": true,
+  "no_future_carry": true,
+  "negative_disclosure_age": false,
+  "code_sha256": {
+    "audit": "5b29c491a06d14211b5cdea95596fcc84a5e16543715440f8bd6c9e2cf5b0a6a",
+    "descriptors": "38931607866ad1b7457960fed21e912de321815e57238d100cacf2dac6e8cba3"
+  },
+  "targets_or_saved_results_read": false,
+  "command": [
+    ".venv/bin/python",
+    "tools/run_bounded.py",
+    "--seconds",
+    "120",
+    ".venv/bin/python",
+    "-m",
+    "research.experiments.slow_style_disclosure_audit",
+    "--config",
+    "artifacts/DM-20261003-04/run-20261003T132635Z/config.json",
+    "--output",
+    "artifacts/DM-20261003-04/run-20261003T132635Z"
+  ],
+  "opened": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/fins_statements_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/prices_daily_quotes_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet"
+  ]
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "phase": "preserved_scientific_evidence",
+    "at_utc": "2026-10-03T14:45:54.082486+00:00",
+    "new_performance_trials": 0,
+    "cumulative_performance_trials": 1,
+    "sha256": {
+      "audit/completion_provenance.json": "bc0d4453b135f6b7d814916853aa2202098f939c98d854205e3918efaa537623"
+    }
+  },
+  {
+    "phase": "causality_audit",
+    "at_utc": "2026-10-03T14:47:32.754235+00:00",
+    "new_performance_trials": 0,
+    "cumulative_performance_trials": 1,
+    "sha256": {
+      "audit/prefix_invariance.json": "d4ceb8023556f2caaa003654bd2c80364e90ad8f527e1d87c6f42c66e8a6672f",
+      "audit/adapter_parity.json": "84d8064a63cbd428360a457fcda604794f711fbeb876cceb394c43fc0c676a51"
+    }
+  },
+  {
+    "phase": "verification",
+    "at_utc": "2026-10-03T14:47:36.601030+00:00",
+    "new_performance_trials": 0,
+    "cumulative_performance_trials": 1,
+    "sha256": {
+      "audit/verification.json": "a43c8e387608adcebc9ebc0f1322db6f5fe45f522afa3ce0f5f8c1a625f2772d"
+    }
+  },
+  {
+    "phase": "decision",
+    "at_utc": "2026-10-03T14:47:36.612201+00:00",
+    "new_performance_trials": 0,
+    "cumulative_performance_trials": 1,
+    "sha256": {
+      "metrics/decision.json": "81b731a9aca3656ed5e4619aea5020b8fb577fcb12adc9bb54a5a50a38532b5b"
+    }
+  }
+]

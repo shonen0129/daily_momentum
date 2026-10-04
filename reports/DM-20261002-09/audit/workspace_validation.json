@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "new_experiment_ready": true,
+  "frozen_hashes_checked": 129,
+  "preregistered_plan_config_unchanged": true,
+  "make_check": "FAIL: pre-existing DM-20261002-04 unknown experiment kind; untouched",
+  "data_opened": false
+}

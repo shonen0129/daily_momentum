@@ -1,0 +1,270 @@
+{
+  "status": "PASS",
+  "models": [
+    {
+      "year": 2009,
+      "fold_start": "2009-01-05",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.0009081191231415053,
+        -0.00015416418944850006,
+        0.0,
+        0.0
+      ],
+      "rows": 15613,
+      "training_sessions": 37,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2008-12-26",
+      "max_label_maturity_date": "2008-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 2,
+      "singular_values": [
+        124.95199544385139,
+        58.23775218184691,
+        0.0,
+        0.0
+      ],
+      "condition_number": null,
+      "training_mse": 0.0012649357332167783,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2010,
+      "fold_start": "2010-01-04",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.0005448137486969566,
+        0.00044926922366601043,
+        1.4574729435741994e-05,
+        -0.00036953211994119955
+      ],
+      "rows": 119441,
+      "training_sessions": 280,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2009-12-28",
+      "max_label_maturity_date": "2009-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        345.60490325785514,
+        249.4542550123886,
+        177.3307373786172,
+        96.5390357790093
+      ],
+      "condition_number": 3.579949814798138,
+      "training_mse": 0.000643723968127241,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2011,
+      "fold_start": "2011-01-04",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.0003708823290193942,
+        0.0004724157449730302,
+        -7.123855610858493e-05,
+        -0.0003746532424026133
+      ],
+      "rows": 224980,
+      "training_sessions": 525,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2010-12-28",
+      "max_label_maturity_date": "2010-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        474.3232183894023,
+        357.70629806673674,
+        258.9044527831797,
+        118.18439500794386
+      ],
+      "condition_number": 4.013416647413733,
+      "training_mse": 0.0004604703734379248,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2012,
+      "fold_start": "2012-01-04",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.00040388097362890717,
+        0.0005564345376721528,
+        -4.696511623895606e-06,
+        -0.00016379281852544245
+      ],
+      "rows": 331885,
+      "training_sessions": 770,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2011-12-28",
+      "max_label_maturity_date": "2011-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        576.0970604536682,
+        441.4131766177231,
+        319.9448205757184,
+        137.8167073670941
+      ],
+      "condition_number": 4.180168511203457,
+      "training_mse": 0.000424296431177401,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2013,
+      "fold_start": "2013-01-04",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.00030281834539132714,
+        0.0004867222038661716,
+        -2.2104690430942403e-05,
+        -5.7080710983012186e-05
+      ],
+      "rows": 441024,
+      "training_sessions": 1018,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2012-12-26",
+      "max_label_maturity_date": "2012-12-28",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        664.0996729142103,
+        511.59176994783974,
+        373.09574372248426,
+        156.3234384200074
+      ],
+      "condition_number": 4.248241208269214,
+      "training_mse": 0.0003888313195797762,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2014,
+      "fold_start": "2014-01-06",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.00028214621613535207,
+        0.0005480037467541455,
+        -8.16910744161213e-05,
+        -2.175021334843867e-05
+      ],
+      "rows": 550105,
+      "training_sessions": 1263,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2013-12-26",
+      "max_label_maturity_date": "2013-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        741.6960183194547,
+        573.5136785323018,
+        419.33115462922433,
+        172.847960322112
+      ],
+      "condition_number": 4.291031360377421,
+      "training_mse": 0.0003875220653290603,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2015,
+      "fold_start": "2015-01-05",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.00028183119523563584,
+        0.0004721205065223947,
+        -1.6463237385570634e-05,
+        1.6074688616867652e-05
+      ],
+      "rows": 661570,
+      "training_sessions": 1507,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2014-12-26",
+      "max_label_maturity_date": "2014-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        813.3741931438499,
+        631.9086561956533,
+        461.7261762843996,
+        184.35593747527184
+      ],
+      "condition_number": 4.411977201726686,
+      "training_mse": 0.0003643411007659027,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    },
+    {
+      "year": 2016,
+      "fold_start": "2016-01-04",
+      "columns": [
+        "SizeRank",
+        "IlliquidityRank",
+        "MOM60Rank"
+      ],
+      "coefficients": [
+        0.0002935480991022438,
+        0.0004121471989799858,
+        7.950664226085382e-05,
+        1.3904140688720318e-05
+      ],
+      "rows": 774611,
+      "training_sessions": 1751,
+      "first_training_signal": "2008-11-04",
+      "last_training_signal": "2015-12-28",
+      "max_label_maturity_date": "2015-12-30",
+      "maturity_strictly_before_prediction": true,
+      "design_rank": 4,
+      "singular_values": [
+        880.124456438035,
+        686.1947365941917,
+        500.65732432355594,
+        195.5427955696777
+      ],
+      "condition_number": 4.500930110331887,
+      "training_mse": 0.00035468706285081734,
+      "estimator": "OLS numpy.linalg.lstsq(rcond=None), equal stock-day weights, intercept, raw residual target",
+      "regularization": null,
+      "fit_once_per_year": true
+    }
+  ],
+  "strict_t_plus_2_maturity": true
+}

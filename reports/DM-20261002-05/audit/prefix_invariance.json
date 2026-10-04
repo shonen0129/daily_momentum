@@ -1,0 +1,368 @@
+{
+  "status": "PASS",
+  "comparison": "float64 bit patterns including NaNs, exact index/column/dtype",
+  "cases": [
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "listed_info",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "ALL",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "listed_info",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "ALL",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "listed_info",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "ALL",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": false,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "listed_info",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "ALL",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2009-06-30",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 68209,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "listed_info",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "ALL",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2012-12-28",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 444771,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "prices_daily_quotes",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "raw_return_1day",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "fins_statements",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "listed_info",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "ALL",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    },
+    {
+      "sector": true,
+      "revision": false,
+      "cutoff": "2015-12-30",
+      "mutated_source": "TRUNCATION",
+      "prefix_rows": 780844,
+      "columns": 19,
+      "status": "PASS",
+      "bitwise": true
+    }
+  ],
+  "mutation": "Each source and all sources: random extreme/zero/NaN suffix values, PIT sector changes, suffix deletions and added future new-code row. Truncation separately. Financial suffix disclosure dates preserved for existing rows; added new disclosure date strictly later. No fitted model.",
+  "scope": "All feature inputs; labels cannot enter builder. Momentum is fixed existing control, not newly audited here."
+}

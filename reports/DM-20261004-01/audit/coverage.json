@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "dates": 1814,
+  "codes": 473,
+  "all_components_transforms_finite": true,
+  "unique_exact_Date_Code_index": true,
+  "evaluation_days": 1275,
+  "target_coverage": 0.9930919573734369,
+  "all_stock_days_signal_coverage": 1.0,
+  "raw_missingness_unchanged": true
+}

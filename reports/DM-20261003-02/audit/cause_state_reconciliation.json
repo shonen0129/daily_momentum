@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "scope": "POOLED",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 270694,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "POOLED",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 270694,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "POOLED",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 270694,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "POOLED",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 270694,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "EX2016",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 256680,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "EX2016",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 256680,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "EX2016",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 256680,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "EX2016",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 256680,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2011",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 51585,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2011",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 51585,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2011",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 51585,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2011",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 51585,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2012",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 50554,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2012",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 50554,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2012",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 50554,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2012",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 50554,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2013",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 50281,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2013",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 50281,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2013",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 50281,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2013",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 50281,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2014",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 51476,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2014",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 51476,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2014",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 51476,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2014",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 51476,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2015",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 52784,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2015",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 52784,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2015",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 52784,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2015",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 52784,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2016",
+      "strategy": "SLOW_FUND_EVENT",
+      "status": "PASS",
+      "rows": 14014,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2016",
+      "strategy": "SLOW_CAUSE_AWARE",
+      "status": "PASS",
+      "rows": 14014,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2016",
+      "strategy": "SLOW_CONTROL",
+      "status": "PASS",
+      "rows": 14014,
+      "tolerance": 1e-12
+    },
+    {
+      "scope": "2016",
+      "strategy": "MOM60",
+      "status": "PASS",
+      "rows": 14014,
+      "tolerance": 1e-12
+    }
+  ],
+  "classification": "Observed proxy classification, not true causal identification; fixed priority/no post-result filters."
+}

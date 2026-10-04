@@ -1,0 +1,11 @@
+{
+  "status": "PASS_WITH_EXISTING_WORKSPACE_METADATA_FAILURE",
+  "tests_returncode": 0,
+  "tests_output": ".......................................                                  [100%]\n39 passed in 4.28s\nbounded command exit=0 deadline=180s\n",
+  "own_metadata": "PASS",
+  "existing_freeze_hashes": 129,
+  "existing_freeze_hashes_status": "PASS",
+  "make_check_returncode": 2,
+  "make_check_output": ".venv/bin/python tools/workspace.py check\nERROR: /Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/experiments/DM-20261002-04: unknown experiment kind\nmake: *** [check] Error 1\n",
+  "limitation": "Full workspace check has preexisting DM-20261002-04 metadata failure; not passed. No edits to that experiment."
+}

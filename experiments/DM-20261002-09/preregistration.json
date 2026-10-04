@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-02T07:36:43.912386+00:00",
+  "target_read": false,
+  "max_trials": 2,
+  "trials": [
+    "RAW_EWMA_CONTROL",
+    "RAW_EWMA_SHORT_VETO"
+  ],
+  "plan_sha256": "b8987c03649997af82d5fa0047997e0f037b00df432ef590efd194f531f3ba1a",
+  "config_sha256": "b2a1cbfe34ff15725de1b2cec5b4ee58e14c41429d9f8f80cc103b11c076a921"
+}

@@ -1,0 +1,3 @@
+# Timing clarification
+
+Timing clarification:凍結計画/configの「signal t at start」は新event部分の観測cutoff（t開始時点）の表記。変更禁止のSLOW_CONTROL本体は原仕様通りtの日次raw Close/TurnoverValueを使うので、最終scoreの情報時点はcompetition契約のt日終了時点。全入力がt開始時点に利用可能という監査結果ではない。新価格/sector/volume overlayは直前session τ、fresh財務eventはt開始までに公開済みの最初のsessionのみという固定の保守的定義で実行した。最終scoreにはtより後の価格/開示を使用しない。plan/configの原本hashは変更せず、この表記上の区別を監査補足として残す。

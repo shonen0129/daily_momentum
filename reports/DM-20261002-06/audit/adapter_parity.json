@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "candidates": [
+    "SECTOR17_MOM",
+    "SECTOR33_MOM",
+    "RELATIVE33_MOM"
+  ],
+  "rows": 809636,
+  "bitwise": true,
+  "top_level_default_parity": true,
+  "standalone_seconds": 0.9869213330093771,
+  "labels_read": false
+}

@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "cutoff": "2009-06-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2009-06-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 68209,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2012-12-28",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 444771,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "raw_return_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "beta_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "topix_return_1day",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "listed_info",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "ALL",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    },
+    {
+      "cutoff": "2015-12-30",
+      "source": "TRUNCATION",
+      "status": "PASS",
+      "prefix_rows": 780844,
+      "bitwise": true
+    }
+  ],
+  "features": [
+    "StockMom60_raw",
+    "BASELINE",
+    "Sector33Code",
+    "SECTOR33_MOM",
+    "FiniteMembers33",
+    "Sector17Code",
+    "SECTOR17_MOM",
+    "FiniteMembers17",
+    "ContextSource",
+    "HIER_SECTOR_MOM",
+    "BASELINE_SECTOR33_VETO",
+    "BASELINE_HIER_SECTOR_VETO"
+  ],
+  "scores": [
+    "BASELINE_SECTOR33_VETO",
+    "BASELINE_HIER_SECTOR_VETO"
+  ],
+  "deterministic_rebuild": true,
+  "row_shuffle": true,
+  "comparison": "Exact index/columns/dtypes/strings; numeric uint64 bits including NaN, zero tolerance",
+  "mutations": "Each/joint suffix extreme/NaN, row deletion, future-only stocks and PIT changes on33/17; whole-source truncation at3cutoffs"
+}

@@ -1,0 +1,386 @@
+`daily_momentum` で、現行baselineへSector Momentumをcontextとして統合する新規実験を行え。
+
+目的はSector Momentumを独立alphaとして加算することではなく、
+
+**「baselineが弱気でも、同一業種全体が強い場合はShort convictionを下げる」**
+
+という仮説を検証すること。
+
+過去実験では33業種Industry Momentum自体には正の情報があり、17業種化はcoverageを改善したがNet performanceは改善しなかった。したがって、
+
+- Sector33 = primary context
+- Sector17 = Sector33利用不能時のみfallback
+
+とする。
+
+Historical Validは禁止。Train-only、既存competition rules、`AGENTS.md`、PIT、prefix-invariance、Freeze policyを厳守する。
+
+## 1. Baseline
+
+まず現在repoで正式なbaselineとして使用しているstrategy / score pipelineを特定し、その定義・parameter・smoothing・rankingを一切変更しない。
+
+`BASELINE`
+
+としてbitwise再現する。
+
+Sector実験のためにbaseline自体を再調整してはいけない。
+
+## 2. Sector Momentum
+
+固定60-observation residual Momentumを使用する。
+
+新しいhorizon探索は禁止。
+
+### Sector33
+PIT Sector33内の銘柄について、各historical date時点のfinite residual Momentumをequal-weight集約する。
+
+### Sector17
+同様にPIT Sector17で構築する。
+
+LOOは使用しない。
+
+minimum finite member数は既存実験と同じ値を使用し、変更しない。
+
+## 3. Hierarchical Sector Context
+
+各銘柄日について、
+
+1. Sector33 contextが利用可能ならSector33 Momentum
+2. Sector33が利用不能でSector17が利用可能ならSector17 Momentum
+3. 両方利用不能ならcontext unavailable
+
+とする。
+
+17/33をblendしない。
+
+33と17のweight searchは禁止。
+
+このcontextを
+
+`HIER_SECTOR_MOM`
+
+とする。
+
+必ず以下を保存する。
+
+- Sector33使用率
+- Sector17 fallback率
+- context unavailable率
+- year別coverage
+- sector別coverage
+
+## 4. Candidate A — BASELINE_SECTOR33_VETO
+
+Sector33のみを使用する。
+
+baseline scoreがShort方向で、Sector33 Momentumが正の場合のみ、そのbearish scoreをneutral化する。
+
+概念:
+
+`if BASELINE_SCORE < 0 and SECTOR33_MOM > 0: score = 0`
+`else: score = BASELINE_SCORE`
+
+その他はbaselineを変更しない。
+
+thresholdは禁止。
+
+Sector Momentumの大きさによるweight変更は禁止。
+
+## 5. Candidate B — BASELINE_HIER_SECTOR_VETO
+
+Candidate Aと同じShort-context ruleを使うが、Sector33 unavailable時のみSector17へfallbackする。
+
+`context = Sector33 if available else Sector17 if available else unavailable`
+
+context unavailableの場合はbaseline scoreをそのまま保持する。
+
+つまり、
+
+`if BASELINE_SCORE < 0 and context > 0: score = 0`
+`else: score = BASELINE_SCORE`
+
+とする。
+
+これを今回の本命candidateとする。
+
+## 6. Trial budget
+
+新規performance candidateは厳密に2本。
+
+1. `BASELINE_SECTOR33_VETO`
+2. `BASELINE_HIER_SECTOR_VETO`
+
+追加candidate禁止。
+
+特に禁止:
+
+- 17/33 blend
+- soft veto
+- 50% attenuation
+- Sector threshold
+- Momentum horizon search
+- Long-side veto
+- agreement weight search
+- EWMA alpha変更
+- duration filter
+- sector exclusion
+
+## 7. Primary comparisons
+
+必ず以下を比較する。
+
+- Candidate A vs BASELINE
+- Candidate B vs BASELINE
+- Candidate B vs Candidate A
+
+Candidate B vs Aでは、
+
+**17 fallbackがcoverage改善だけでなく、実際のNet performanceへ増分を持つか**
+
+を確認する。
+
+## 8. Short mechanism
+
+最重要評価。
+
+各candidateについて、
+
+- Short gross
+- Short net
+- Short Gross Sharpe
+- Short Net Sharpe
+- Short turnover
+- Short cost
+
+をBASELINEと比較する。
+
+また、
+
+`ΔShort Net = ΔShort Gross + cost effect`
+
+へ分解する。
+
+改善の50%以上がGross improvement由来であるか確認する。
+
+単なるcost削減だけならSector context alpha改善とは呼ばない。
+
+## 9. Removed / Added analysis
+
+BASELINE Short bookとcandidate Short bookを比較し、
+
+- REMOVED
+- ADDED
+- UNCHANGED
+
+へ分類する。
+
+各群について、
+
+- forward target
+- signed gross contribution
+- net contribution
+- Sector33 Momentum
+- Sector17 Momentum
+- baseline score
+- sector distribution
+
+を保存する。
+
+Sector vetoが、
+
+**損失の大きいShortを除去しているのか**
+
+を確認する。
+
+## 10. 33→17 fallback attribution
+
+Candidate B固有の診断として、
+
+- Sector33で判断された行
+- Sector17 fallbackで判断された行
+- context unavailable行
+
+を分離する。
+
+Sector17 fallback部分について、
+
+- row count
+- Short removed count
+- gross contribution
+- net contribution
+- turnover contribution
+
+を報告する。
+
+17 fallbackだけを独立strategyとして再最適化しない。
+
+## 11. Long-side impact
+
+Short context ruleでもglobal rankingによりLong側は変化する。
+
+必ず、
+
+- Long gross/net
+- Long turnover
+- Long membership overlap
+- Long Jaccard
+
+を比較する。
+
+Short改善と引き換えにLong alphaを失っていないか確認する。
+
+## 12. Sector concentration
+
+Short側について、
+
+- Sector17 / Sector33 HHI
+- max sector weight
+- Q1/Q2 sector distribution
+- top2 sector exposure
+- sector contribution
+
+をBASELINEと比較する。
+
+context導入によって一部業種へShortが集中していないか確認する。
+
+## 13. Stability
+
+2011–2015をfull-year stability評価とする。
+
+2016 partialは別表示し、改善年数へ含めない。
+
+各年で、
+
+- Net Sharpe
+- annual Net
+- Short gross/net
+- turnover
+
+を保存する。
+
+## 14. Bootstrap
+
+paired circular moving-block bootstrap:
+
+- block = 20 sessions
+- reps = 2000
+- seed = 20261002
+- 95% CI
+
+Primary:
+
+`BASELINE_HIER_SECTOR_VETO - BASELINE`
+
+Secondary:
+
+- `BASELINE_SECTOR33_VETO - BASELINE`
+- `BASELINE_HIER_SECTOR_VETO - BASELINE_SECTOR33_VETO`
+
+ΔNet Sharpeを評価する。
+
+## 15. Adoption criteria
+
+本命 `BASELINE_HIER_SECTOR_VETO` は、BASELINEに対して以下をすべて要求する。
+
+- pooled Net Sharpe > BASELINE
+- ex2016 Net Sharpe > BASELINE
+- 2011–2015 Net Sharpe improvement >= 4/5
+- bootstrap ΔNet Sharpe 95% lower bound > 0
+- annual Net > BASELINE
+- Short gross >= BASELINE
+- Short net >= BASELINE
+- Long net > 0
+- turnover <= BASELINE × 1.25
+- Q monotonicityを大きく悪化させない
+
+また、
+
+**Short net改善の50%以上がGross improvement由来**
+
+であること。
+
+## 16. Fallback adoption condition
+
+17業種fallback自体の価値を認めるには、
+
+Candidate BがCandidate Aに対して、
+
+- Net Sharpeを改善
+- annual Netを改善
+- coverageを改善
+- Short netを悪化させない
+
+ことを要求する。
+
+coverage改善だけなら、
+
+「17 fallbackはoperational coverageを改善するがalpha改善は未確認」
+
+と結論する。
+
+## 17. Causality
+
+必須:
+
+- PIT Sector33
+- PIT Sector17
+- residual Momentum
+- hierarchical fallback
+- veto
+- final score
+
+について、
+
+- source scan
+- Train firewall
+- future mutation
+- truncation invariance
+- future stocks
+- future sector changes
+- row shuffle
+- deterministic rebuild
+- exact index
+- research/adapter parity
+- official accounting reconciliation
+
+を実施する。
+
+cutoff後の情報変更がcutoff以前へ影響しないこと。
+
+## 18. Decision principle
+
+今回知りたいのは、
+
+「Sector Momentumをどう足せばSharpeが上がるか」
+
+ではない。
+
+知りたいのは、
+
+**現在のbaselineがShortを出したとき、同一業種全体のMomentumが正であるという情報を使うことで、損失の大きいShortを安定して回避できるか**
+
+である。
+
+33業種をprimary contextとし、17業種はcoverage fallbackとしてのみ使用する。
+
+結果が弱ければREJECTする。
+
+結果後にthreshold・weight・horizon・attenuation率を探索して救済しない。
+
+過去Sector Momentum候補のREJECTも変更しない。
+
+新しいExperiment IDを採番し、
+
+- plan.md
+- config.json
+- decision.md
+- overall/year metrics
+- bootstrap
+- Long/Short decomposition
+- removed/added analysis
+- 33/17 fallback attribution
+- coverage
+- sector concentration
+- causality audit
+
+を保存して終了せよ。

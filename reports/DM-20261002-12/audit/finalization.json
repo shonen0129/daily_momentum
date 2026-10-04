@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "tests": {
+    "full_suite_before_finalization_fix": "307 passed in50.78s",
+    "affected_suite_after_fix": "24 passed in4.70s",
+    "firewall_regression": "PASS saved prediction/diagnostic reads, hash, report copy; Valid remains denied"
+  },
+  "preflight": {
+    "new_experiment_validation": "PASS",
+    "freeze_hash_validation": "PASS",
+    "frozen_hashes": 129,
+    "make_check": "FAIL_PREEXISTING_DM-20261002-04_UNKNOWN_KIND",
+    "prior_evidence_files": 421
+  },
+  "current_experiment_metadata": "PASS",
+  "freeze_hashes_rechecked": 129,
+  "inference_unchanged_after_science": true,
+  "prior_evidence_hashes": 421,
+  "source_run_statuses": [
+    {
+      "run_id": "run-20261002T102506Z",
+      "status": "completed",
+      "actual_trials": 0
+    },
+    {
+      "run_id": "run-20261002T102316Z",
+      "status": "failed",
+      "actual_trials": 0
+    },
+    {
+      "run_id": "run-20261002T101951Z",
+      "status": "failed",
+      "actual_trials": 2
+    }
+  ],
+  "cumulative_performance_trials": 2,
+  "additional_trials": 0,
+  "full_train_long_daily_bitwise_unchanged": true,
+  "first_report_recovery": "failed copying its own diagnostic parquets before explicit whitelist; retained with0trials",
+  "reporting_code_sha256": "b1514586d42d0c3f34bfca3f923fedb6d51389732fff86c23b4de650d382246e"
+}

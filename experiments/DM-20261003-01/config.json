@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-01",
+  "strategy": "dm_decline_causes",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "MOM60: frozen residual60 skip1 centered-average-rank EWMA0.25",
+  "random_seed": 20261003,
+  "train_window": [
+    "2008-11-04",
+    "2016-03-31"
+  ],
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "year minus last2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is known development evidence; no unseen holdout claim. Historical Valid and Valid prohibited.",
+  "max_trials": 3,
+  "trials": [
+    {
+      "trial_id": "FUND_REV"
+    },
+    {
+      "trial_id": "FLOW_REV"
+    },
+    {
+      "trial_id": "CAUSE_COMPOSITE"
+    }
+  ],
+  "feature_definitions": {
+    "timing": "Signal t at start of session; tau=immediately previous exchange session in raw-return calendar, common to all stocks. All components and disclosure state <=tau end-of-day JST. Missing tau stock row stays missing; no stale observed-session backfill.",
+    "fundamental_column": "ForecastOperatingProfit only, total full-year management operating-profit forecast. CurrentFiscalYearStartDate and CurrentFiscalYearEndDate exact pair. No NextYearForecast, EPS, ordinary/net-income, nonconsolidated-field or performance-driven fallback.",
+    "FUND_REV": "Latest finite current full-year forecast minus previous finite forecast for same Code/fiscal start/end/accounting basis; divide by latest strictly-positive PIT TotalAssets at that disclosure. Basis inferred causally from TypeOfDocument financial statements; revisions inherit prior known basis; unknown basis cannot compare. Every financial disclosure updates state: no valid comparable pair or scale -> missing; unchanged forecasts are true zero; new fiscal period never compared to old. State remains fixed until next disclosure; no duration parameter.",
+    "assets": "Use most recent finite positive TotalAssets already disclosed in same inherited accounting basis. Scale locked at revision disclosure; no future restatement.",
+    "SECTOR33_SHOCK": "Residual=raw_return-beta*TOPIX on each historical date. Equal-weight mean of finite residuals in exact contemporaneous PIT33 membership within raw-return universe; self-inclusive, minimum1 finite member (no user-requested size threshold). Unknown9999/blank missing. Map own PIT33 at tau to daily return at tau; no17/fallback/LOO/blend/horizon.",
+    "AbnormalVolume": "log1p(raw Volume_tau >=0) minus median of log1p volumes on immediately preceding20 price-observation rows of that Code/relisting segment; all20 must be finite nonnegative, otherwise missing. Zero volume valid. Gap>20 absent calendar sessions resets. No window or threshold search.",
+    "WithinShock": "StockResidualReturn_tau-Sector33ResidualReturn_tau",
+    "FLOW_REV": "-WithinShock*max(AbnormalVolume,0); fixed positive reversal sign. Nonpositive surprise is a genuine formula zero, never a veto.",
+    "rank": "For each date/component independently, raw missing filled with median of finite same-date values; if entire component/date missing all remain tied missing. Centered ordinal ranks=(2*rank_first-(n+1))/n; deterministic Code ascending resolves all genuine/imputed ties, including all-missing dates. No bulk score-zero imputation. These arbitrary ties are not economic information; raw masks, imputed contributions and tie sensitivity limits must be reported.",
+    "CAUSE_COMPOSITE": "centered_rank(FUND_REV_raw)+centered_rank(SECTOR33_SHOCK_raw)+centered_rank(FLOW_REV_raw), exactly1:1:1, no availability reweighting, no final rerank/EWMA.",
+    "smoothing": "none for all new candidates; no baseline blend or veto"
+  },
+  "model": "Three fixed label-free independent portfolios; no fitted model.",
+  "parameters": {
+    "volume_window": 20,
+    "volume_min_periods": 20,
+    "sector33_min_finite_members": 1,
+    "relisting_gap": 20,
+    "weights": [
+      1,
+      1,
+      1
+    ],
+    "candidate_smoothing": null
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "selection_rule": "All adoption booleans must pass for each candidate; C is primary, A/B secondary. No trial additions or rescue; eligible means next-stage research only.",
+  "adoption": {
+    "pooled_net_sharpe_gt_MOM60": true,
+    "ex2016_net_sharpe_gt_MOM60": true,
+    "full_year_improvements_min": 4,
+    "bootstrap_delta_net_sharpe_lower_gt": 0,
+    "annual_net_gt_MOM60": true,
+    "turnover_multiplier_max": 1.25,
+    "short_gross_ge_MOM60": true,
+    "short_net_ge_MOM60": true,
+    "long_net_gt": 0
+  },
+  "bootstrap": {
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261003,
+    "ci": 0.95,
+    "method": "paired circular moving-block on same concatenated eligible sessions; annual holdings remain continuous",
+    "primary": "CAUSE_COMPOSITE-MOM60",
+    "secondary": [
+      "FUND_REV-MOM60",
+      "FLOW_REV-MOM60"
+    ],
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ]
+  },
+  "diagnostics": {
+    "negative_stock_move": "raw_return at tau<0; residual-negative partition saved separately. Cartesian Fundamental down/not down, sector down/up, abnormal high/normal, Within negative/positive; zero and missing retained in separate states. high=AbnormalVolume>0, fixed definition sign, no fitted threshold.",
+    "outputs": "Each joint state and each marginal: count, mean next Train target, per-date HAC5 RankIC, raw component RankIC, signed official Long/Short gross/net/cost contributions for all3 candidates and MOM60. All states reconcile to book; negative-move states separately reconcile to negative subset. No candidate filtering. Revision event vs held state descriptive only."
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261003-01",
+  "slow_control": {
+    "role": "descriptive only; saved unchanged prior scores",
+    "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+    "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89",
+    "column": "SLOW_CONTROL"
+  },
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800,
+  "prohibitions": [
+    "Historical Valid",
+    "Valid",
+    "field substitution",
+    "sign flip",
+    "lookback search",
+    "holding period",
+    "Sector17",
+    "LOO",
+    "sector blend",
+    "volume threshold search",
+    "weight search",
+    "hard/partial veto",
+    "post-result filter",
+    "sector exclusion",
+    "EWMA alpha search",
+    "ML",
+    "rescue candidate"
+  ]
+}

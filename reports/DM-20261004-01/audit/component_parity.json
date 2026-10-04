@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "raw_storage": {
+    "status": "PASS",
+    "columns": [
+      {
+        "column": "raw_size",
+        "finite_bits_equal": true,
+        "missing_positions_equal": true,
+        "nan_payload_bit_differences": 28115
+      },
+      {
+        "column": "raw_amihud",
+        "finite_bits_equal": true,
+        "missing_positions_equal": true,
+        "nan_payload_bit_differences": 0
+      }
+    ],
+    "canonical_null_storage_bits_equal": true,
+    "note": "Parquet nulls do not preserve raw -log NaN sign/payload. No tolerance on any finite value; final component/score bits are checked separately without canonicalization."
+  },
+  "normalized_components_bitwise": true,
+  "SLOW_saved_and_reconstructed_bitwise": true,
+  "saved_score_official_weight_bitwise": true,
+  "target_free_transforms_complete": true,
+  "feature_only_reads_before_target": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/beta_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/fins_statements_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/listed_info_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/prices_daily_quotes_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/raw_return_1day_train.parquet",
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/topix_return_1day_train.parquet"
+  ],
+  "refs": {
+    "slow_features": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/features_base.parquet",
+      "columns": [
+        "raw_size",
+        "raw_amihud",
+        "z_size",
+        "z_amihud",
+        "size_liquidity"
+      ],
+      "sha256": "8d19f220e66d8460f86c305b2a6c5cfcc1f51a9d6c919125d493357c288a89af"
+    },
+    "slow_scores": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "columns": [
+        "SLOW_CONTROL",
+        "MOM60"
+      ],
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    },
+    "slow_daily": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/metrics/daily_SLOW_CONTROL.csv",
+      "sha256": "cfc174037bd96abf8ed09dcfff01c8b03ab80e44a50f3bc7cf0e3974bac167ac",
+      "columns": [
+        "net"
+      ]
+    }
+  }
+}

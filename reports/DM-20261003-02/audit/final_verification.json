@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "experiment_id": "DM-20261003-02",
+  "final_run": "run-20261003T070500Z",
+  "scientific_source_run": "artifacts/DM-20261003-02/run-20261003T065804Z",
+  "scientific_run_failure_retained": true,
+  "new_performance_trials": 0,
+  "actual_unique_trials": 2,
+  "artifact_hashes_checked": 70,
+  "plan_config_freeze_unchanged": true,
+  "anchor_sha256_unchanged": true,
+  "exact_signal_target_index": true,
+  "prediction_rows": 809636,
+  "all_scores_finite": true,
+  "target_t_plus2_finite_rows": 803101,
+  "target_t_plus2_max_abs_error": 0.0,
+  "target_t_plus2_tolerance": 1e-14,
+  "current_experiment_metadata": "PASS",
+  "metadata_status": "rejected",
+  "train_split_terminal_finite_labels": 942,
+  "terminal_labels_excluded_from_all_fold_primary_and_event_study_scopes": true,
+  "unpurged_ALL_TRAIN_archival_scope_omitted_from_delivered_report": true,
+  "valid_metadata_count": 48,
+  "existing_freeze_hashes_checked": 129,
+  "make_check_exit": 2,
+  "preexisting_workspace_errors": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/experiments/DM-20261002-04: unknown experiment kind"
+  ],
+  "historical_diagnostic_hash_checks_skipped": [
+    "DM-20260927-04",
+    "DM-20260928-01",
+    "DM-20260928-02",
+    "DM-20261002-02",
+    "DM-20261002-03"
+  ],
+  "scope": "Train-only target maturity/index/hash/config verification, no performance trial or Valid access."
+}

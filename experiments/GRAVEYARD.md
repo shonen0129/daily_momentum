@@ -292,3 +292,102 @@ This rejects only the registered Candidate A integration at this fixed feature/m
 - Current baselineの独立再構築とDM-20260930-02保存値は809,636行でbitwise一致。source scan、全Train入力とtargetのfuture-mutation prefix-invariance、coverage、finite score、決定性、2位置purge、Train firewallはPASS。出力レポートの技術失敗は同じ保存済み候補artifactからreport-only復旧し、追加fitなし。
 
 これは固定 `UP_PULLBACK` のSN1_H1への追加のみを棄却する。Event Box全般、pullback一般、trend following一般の否定ではない。
+
+## DM-20261002-05: Independent Slow Multifactor
+
+[Decision](DM-20261002-05/decision.md) / [Report](../reports/DM-20261002-05/REPORT.md). Train-only, fixed 2/3 candidate trials; no Valid/Freeze/SN1 change.
+
+- **SLOW_MF_BASE** — Gross/Net SR 2.1080/1.8101, turnover 0.03654/day, annual Long/Short net +6.366%/-0.842%. Reject: both_sides_net_positive, pooled_netSR_beats_SLOW_CONTROL, netSR_beats_SLOW_CONTROL_4of5, bootstrap_lower_positive_SLOW_CONTROL.
+- **SLOW_MF_SECTOR** — Gross/Net SR 2.4991/2.1414, turnover 0.03807/day, annual Long/Short net +6.324%/-0.651%. Reject: both_sides_net_positive, netSR_beats_SLOW_CONTROL_4of5, bootstrap_lower_positive_SLOW_CONTROL.
+
+Rejects these registered operationalizations, not all slow factors. No result-driven rescue or additional candidate; unrun phases remain untested.
+
+## DM-20261002-06: Independent PIT Sector Momentum
+
+[Decision](DM-20261002-06/decision.md) / [Report](../reports/DM-20261002-06/REPORT.md). Fixed3 trials, known Train-only, no Valid/Freeze/combination.
+
+- **SECTOR17_MOM** — Gross/Net SR 0.4897/-0.5443, turnover 0.17459/day, annual Short gross/net -2.448%/-4.627%. Reject: turnover_le_MOM60, short_gross_positive, short_gross_ge_MOM60, short_net_ge_MOM60, pooled_netSR_positive, ex2016_netSR_positive, pooled_netSR_beats_MOM60, netSR_improvement_4of5, bootstrap_lower_positive.
+- **SECTOR33_MOM** — Gross/Net SR 0.5826/-0.3567, turnover 0.16764/day, annual Short gross/net -1.701%/-3.761%. Reject: raw_finite_coverage_95pct, turnover_le_MOM60, short_gross_positive, short_net_ge_MOM60, pooled_netSR_positive, ex2016_netSR_positive, pooled_netSR_beats_MOM60, netSR_improvement_4of5, bootstrap_lower_positive.
+- **RELATIVE33_MOM** — Gross/Net SR 0.5232/-0.6428, turnover 0.16052/day, annual Short gross/net -3.288%/-5.320%. Reject: raw_finite_coverage_95pct, turnover_le_MOM60, short_gross_positive, short_gross_ge_MOM60, short_net_ge_MOM60, pooled_netSR_positive, ex2016_netSR_positive, pooled_netSR_beats_MOM60, netSR_improvement_4of5, bootstrap_lower_positive.
+
+Rejects fixed operationalizations; diagnostics do not authorize sector exclusion/breadth/agreement filters or rescue searches.
+
+Raw finite coverage17/33/Relative33=97.980%/94.018%/92.886%; turnover .17459/.16764/.16052 vs MOM60 .06342. D<C target差はあるがDのactual Short contributionも負、ex2016 D平均targetは正。Combination eligibilityなし、固定条件のまま3/3終了。
+
+## DM-20261002-07: Sector33 Hierarchical Momentum
+
+[Decision](DM-20261002-07/decision.md) / [Report](../reports/DM-20261002-07/REPORT.md). Fixed3 trials; self-inclusive common/within, causalEWMA(.25), combination1:1. Known Train-only, no Valid/Freeze/rescue.
+
+- **HIER33_WITHIN** — Gross/Net SR 0.4863/0.0478, turnover 0.06188, Short gross/net -3.475%/-4.258%. Reject: raw_coverage_ge95pct.
+- **HIER33_COMBINED** — Gross/Net SR 0.6655/0.3783, turnover 0.06287, Short gross/net -1.963%/-2.753%. Reject: raw_coverage_ge95pct, NetSR_improvement_4of5, bootstrap_lower_gt0.
+
+Rejects fixed candidate definitions, not all hierarchy hypotheses. Prior DM-20261002-06 remains REJECT; no sector/side/filter/weight rescue.
+
+Combined pooled Net SR0.3783 vs MOM60 0.3081、Short net+0.273ppは点推定改善。ただしraw coverage93.890%、full-year改善3/5、bootstrap95%[−0.1203,+0.2436]で条件未達。Sectorはfeasibility通過の記述的componentのみ、単独採用なし。既存DM-20261002-06のREJECTは変更なし。
+
+## DM-20261002-08: Sector context confirmation
+
+[Decision](DM-20261002-08/decision.md) / [Report](../reports/DM-20261002-08/REPORT.md). Exactly2 fixed context-before-EWMA trials, known Train, no Valid/Freeze/rescue. Prior06/07 remain unchanged.
+
+- **SECTOR_CONFIRM** — Gross/Net SR0.7190/0.4209, turnover0.06418, Shortgross/net-1.532%/-2.302%. REJECT: raw_context_coverage_ge95pct, NetSR_improvement_4of5, bootstrap_lower_gt0.
+- **SHORT_DISAGREE_VETO** — Gross/Net SR0.7504/0.4483, turnover0.06316, Shortgross/net-1.754%/-2.564%. REJECT: raw_context_coverage_ge95pct, NetSR_improvement_4of5.
+
+Rejects these fixed operational strategies; no tuning/filters or independent OOS claim.
+
+VetoはShort gross損失+0.4798pp縮小、Short net+0.4622pp（Short costは増加）、pooled bootstrap95%[+0.0034,+0.2895]。ただし改善3/5・raw context93.890%でREJECT。2016除外の主評価bootstrap95%[−0.0302,+0.2550]。Replacement added Shortは負、損失回避とunchanged weight差が改善源。Hardは改善2/5・bootstrap下限負・coverage未達。既知Train・変換順序差を保持し、追加救済なし。
+
+## DM-20261002-09: Transform-order matched C-veto ablation
+
+[Decision](DM-20261002-09/decision.md) / [Report](../reports/DM-20261002-09/REPORT.md). Exactly2 fixed Train-only trials. RAW control diagnostic only; Veto REJECT relative to RAW control: NetSR_improvements_4of5, primary_bootstrap_lower_gt0. Improvement 3/5 full years. Prior08 judgments unchanged. No rescue/Valid/Freeze or independent OOS claim.
+
+DM-20261002-09 主比較追記: EX2016 ΔNetSR+0.114679, CI95[-0.024014,+0.252484],3/5改善。Shortgross/netΔ+0.4002/+0.3694pp。Raw control対MOM60ΔNetSR-0.004469なので変換順だけで改善したという点推定ではないが、安定性/CI未達でSector独立効果を昇格しない。既存08 REJECT保持、追加候補なし。
+
+## DM-20261002-10: Industry Momentum + Stock Reversal
+
+[Decision](DM-20261002-10/decision.md) / [Report](../reports/DM-20261002-10/REPORT.md). Exactly3 registered known-Train trials; no Valid/rescue/Freeze. Prior06–09 unchanged.
+
+- **STOCK_REV20** — REJECT; failed: pooled_rankic_positive, pooled_gross_positive, ex2016_gross_positive, gross_positive_3of5, turnover_le008.
+- **WITHIN33_REV20** — REJECT; failed: pooled_rankic_positive, pooled_gross_positive, ex2016_gross_positive, gross_positive_3of5, raw_coverage_ge95pct, turnover_le008.
+- **IND33_MOM_WITHIN_REV20** — REJECT; failed: raw_coverage_ge95pct, turnover_le008, pooled_netSR_beats_MOM60, ex2016_netSR_beats_MOM60, netSR_improvements_4of5, bootstrap_lower_positive, annual_net_beats_MOM60, turnover_le125_MOM60, short_net_ge_MOM60.
+
+## DM-20261002-11: Sector17 granularity robustness
+
+[Decision](DM-20261002-11/decision.md) / [Report](../reports/DM-20261002-11/REPORT.md). One fixed new trial only, parent10 unchanged, Train-only/no rescue/Valid/Freeze.
+
+- **IND17_MOM_WITHIN_REV20** — REJECT; failed: gross_positive_3of5, turnover_le008, pooled_netSR_beats_MOM60, ex2016_netSR_beats_MOM60, netSR_improvements_4of5, bootstrap_lower_positive, annual_net_beats_MOM60, turnover_le125_MOM60, short_net_ge_MOM60. NetSR17/33/MOM60=-0.5607/-0.5393/0.3081.
+
+## DM-20261002-12: post-baseline hierarchical Sector veto
+
+[Decision](DM-20261002-12/decision.md) / [Report](../reports/DM-20261002-12/REPORT.md). Fixed2 trials, baseline bitwise unchanged, Train-only; prior REJECTs unchanged.
+
+- **BASELINE_SECTOR33_VETO** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, short_net, turnover_le_1_25x, short_net_positive_increment, short_gross_share_ge50pct.
+- **BASELINE_HIER_SECTOR_VETO** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, short_net, turnover_le_1_25x, short_net_positive_increment, short_gross_share_ge50pct.
+
+## DM-20261003-01: 株価下落の原因分解
+
+[Decision](DM-20261003-01/decision.md) / [Report](../reports/DM-20261003-01/REPORT.md). Fixed3 trials; Train-only/no Valid/no rescue.
+
+- **FUND_REV** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, short_gross, short_net.
+- **FLOW_REV** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, turnover_le_1_25x, short_gross, short_net, long_net_positive.
+- **CAUSE_COMPOSITE** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, turnover_le_1_25x, short_gross, short_net, long_net_positive.
+
+## DM-20261003-02: Fresh cause-aware event overlays
+
+[Decision](DM-20261003-02/decision.md) / [Report](../reports/DM-20261003-02/REPORT.md). Fixed2 trials; unchanged SLOW_CONTROL; Train-only/no Valid/no rescue.
+
+- **SLOW_FUND_EVENT** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, turnover_le_1_25x, short_net_ge_control.
+- **SLOW_CAUSE_AWARE** — REJECT; failed: pooled_net_sharpe, ex2016_net_sharpe, full_year_improvements_4_of_5, bootstrap_lower_gt0, annual_net, turnover_le_1_25x, short_net_ge_control, B_net_sharpe_gt_A, B_annual_net_gt_A, Flow_incremental_cost_lt_gross.
+
+- [DM-20261003-03](./DM-20261003-03/decision.md): fixed SN1_H1+SLOW_CONTROL rank1:1 diversification REJECT; improved full-year NetSR 2/5. Failed gates: improved_full_years_ge4, POOLED_net_sharpe_gt_slow, POOLED_MDD_magnitude_le_slow, POOLED_turnover_le_max_components, EX2016_net_sharpe_gt_slow, EX2016_annual_net_ge_slow, EX2016_MDD_magnitude_le_slow, EX2016_turnover_le_max_components, primary_pooled_bootstrap_lower_gt0. One trial, zero rescue, Train-only.
+
+## DM-20261003-05: fixed Size / Illiquidity / MOM60
+
+B. Gross-only improvement; one trial, zero rescue. Net Sharpe full-year improvement 1/5; primary ΔNetSR CI [-1.007035, 0.119568]. [Decision](DM-20261003-05/decision.md). Train-only; no Valid.
+
+## DM-20261003-06: fixed annual three-factor OLS
+
+Reject; NetSR full-year improvement 1/5; primary CI [-1.229396,0.033688]. [Decision](DM-20261003-06/decision.md). One OLS candidate, zero rescue, no Valid.
+
+## DM-20261004-02: conditional residual Momentum
+
+F. Inconclusive; candidate0, rescue0. Long=0.00028164, Short=0.00014106, Small+Illiquid=0.00032651. [Decision](DM-20261004-02/decision.md). Train-only, no Valid.

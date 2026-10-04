@@ -1,0 +1,26 @@
+{
+  "HIER33_SECTOR": {
+    "low": -0.5801732755198173,
+    "high": 0.3457382781455059,
+    "bootstrap_positive_fraction": 0.337,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002
+  },
+  "HIER33_WITHIN": {
+    "low": -0.6099091567782015,
+    "high": 0.053375854731081036,
+    "bootstrap_positive_fraction": 0.0525,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002
+  },
+  "HIER33_COMBINED": {
+    "low": -0.12027083987176841,
+    "high": 0.2435852778025995,
+    "bootstrap_positive_fraction": 0.771,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002
+  }
+}

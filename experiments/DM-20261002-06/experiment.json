@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-06",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_sector_momentum",
+  "valid_evaluation": false,
+  "actual_trials": 3,
+  "run_id": "run-20261002T053435Z",
+  "report": "reports/DM-20261002-06/REPORT.md"
+}

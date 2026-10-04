@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "experiment_id": "DM-20261003-05",
+  "run_id": "run-20261003T144512Z",
+  "metadata_status": "rejected",
+  "new_completion_performance_trials": 0,
+  "cumulative_performance_trials": 1,
+  "code_hashes": 13,
+  "artifact_hashes": 69,
+  "report_sha256": "a6bf039c486464315e3be7c7b9dfff4ec29b79e3ee6043d0b79905317ae543e1",
+  "decision_sha256": "1269290b4645ffa90dca472058994dfbe4d2865ce0ad15e0842397e1d574be29",
+  "valid_evaluation": false,
+  "workspace_check_limitation": "Existing DM-20261002-04 unsupported metadata kind; documented in verification.json."
+}

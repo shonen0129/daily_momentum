@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-02T09:12:29.312834+00:00",
+  "plan_sha256": "cab59ff883bd148fd819b02fa148c45580773bdcea212ee9eb280f1183c30c52",
+  "config_sha256": "3c9842b18a3464540b817752833428f9c87908a315a16555c00de02ee66565ed",
+  "code_sha256": {
+    "research/experiments/industry_momentum_stock_reversal.py": "7cb2192efd75f1b79938b26e6ca9fef1cab6b3becbb0da14b2c21522d72ba4f0",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "research/experiments/sector_momentum.py": "8267d15eeee6a19831f309b5273d1721a28cdb4d9444012f69c72f4ee311a6a9",
+    "research/experiments/hierarchical_momentum.py": "816787a687b67e750214f78fc0e72e77c51e656001c9413689fd9d42bcf99f71",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/__init__.py": "2aa00274ea885d287107a7f1e12b692d4840ba2054dc184080c9afdc9c9f6d1a",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/features.py": "edd27dccf54105670bbaab4f7aad911aea16b6885d79a1322ccd39bcd0e1a85c",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/primitives.py": "4807ca75e92adcfbe70699499b0879680f1f899f6d6eecf714f815ad124052e3",
+    "stock_comp_2026/strategies/dm_industry_momentum_stock_reversal/submission.py": "8a6f00675ef62593ef52f5cd795be73f54e1b91ffd71cc000e400965ad323056"
+  },
+  "target_loaded": false,
+  "trials": [
+    "STOCK_REV20",
+    "WITHIN33_REV20",
+    "IND33_MOM_WITHIN_REV20"
+  ],
+  "max_trials": 3
+}

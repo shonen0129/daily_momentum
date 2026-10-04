@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "books": {
+    "SLOW_CONTROL": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "exact_uint64_checked": true
+    },
+    "MOM60": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "exact_uint64_checked": true
+    },
+    "SLOW_MOM60_EQUAL": {
+      "status": "PASS",
+      "weight_bitwise": true,
+      "net_bitwise": true,
+      "side_account_tolerance": 1e-15,
+      "rows": 809636,
+      "min_quintiles_per_day": 5,
+      "exact_uint64_checked": true
+    }
+  },
+  "stock_contributions_reconciliation_atol": 1e-15,
+  "global_five_quintiles": true
+}

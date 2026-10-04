@@ -1,0 +1,63 @@
+[
+  {
+    "phase": "plan_config_code_freeze",
+    "at_utc": "2026-10-03T14:39:26.953843+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "plan.md": "9997df6f5827276f3ab13b48a1bcd89ff8501baf29755229fcda4b495388d28c",
+      "config.json": "f8d3abd9bd379024fc046b296809ab0c243e46e4eb160e1a698e6d2c93c9581f"
+    }
+  },
+  {
+    "phase": "component_parity",
+    "at_utc": "2026-10-03T14:39:31.071584+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "audit/component_parity.json": "aa169e4c53f5e4b27409665b8a5ea07c04b3e6002890b3dd8a7ca5e183657215",
+      "predictions/component_scores.parquet": "fa4ee8ecb49c60b48673cf2ba96b19ac344383d95c90f51c69f40c9f8153be59"
+    }
+  },
+  {
+    "phase": "orthogonality_diagnostics",
+    "at_utc": "2026-10-03T14:39:42.753379+00:00",
+    "actual_trials": 0,
+    "sha256": {
+      "metrics/score_spearman_summary.csv": "8f50a041821c1753ab266c654254b2c61737d18b23ff2b6f595555905aa6d35a",
+      "metrics/pl_orthogonality_summary.csv": "e3bad46f4459fccae9da2b5ea752cfba0811ec63ca139f5805aa18ea55a44b75"
+    }
+  },
+  {
+    "phase": "fixed_1_1_1_trial",
+    "at_utc": "2026-10-03T14:39:48.455189+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "predictions/strategy_scores.parquet": "d73fdf4eae3255d5ced95d847c80e8426e4d9f5a40afc25f3deadbe100b28155",
+      "metrics/metrics.csv": "f4c34a156e89bc07e1e1ae4e6162bf15b91dafbbbebfee34c6d397d309572b13"
+    }
+  },
+  {
+    "phase": "incremental_attribution",
+    "at_utc": "2026-10-03T14:39:49.530666+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/incremental.csv": "f56ed9ba53e1f690d49e498b76425b7374ef5dd50ff58b1ea380dc1b5381f058",
+      "metrics/momentum_contribution_summary.csv": "a7acc8c8412fd6dd2f99af579d6005bfb1ce410e8b592c3968c9f8c883c476f7"
+    }
+  },
+  {
+    "phase": "turnover_cost_analysis",
+    "at_utc": "2026-10-03T14:39:49.534963+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/turnover_cost_analysis.csv": "f9460c7cdc13ef2df3ec8ba36113cac35ad584136562e67fd287d37118449688"
+    }
+  },
+  {
+    "phase": "bootstrap",
+    "at_utc": "2026-10-03T14:39:49.598652+00:00",
+    "actual_trials": 1,
+    "sha256": {
+      "metrics/bootstrap.json": "dfa89d7a3c82c8e44a669fe6f2ed04de8fefd67a6e16514fd0bcf310cfa4feef"
+    }
+  }
+]

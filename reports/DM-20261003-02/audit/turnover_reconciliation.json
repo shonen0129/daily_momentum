@@ -1,0 +1,343 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "POOLED",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "POOLED",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "POOLED",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "EX2016",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "EX2016",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "EX2016",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2011",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2011",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2011",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2012",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2012",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2012",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2013",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2013",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2013",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2014",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2014",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2014",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2015",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2015",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2015",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2016",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2016",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_FUND_EVENT",
+      "scope": "2016",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "POOLED",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "POOLED",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "POOLED",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "EX2016",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "EX2016",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "EX2016",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2011",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2011",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2011",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2012",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2012",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2012",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2013",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2013",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2013",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2014",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2014",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2014",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2015",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2015",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2015",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2016",
+      "dimension": "event_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2016",
+      "dimension": "transition",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    {
+      "strategy": "SLOW_CAUSE_AWARE",
+      "scope": "2016",
+      "dimension": "rank_group",
+      "status": "PASS",
+      "tolerance": 1e-12
+    }
+  ],
+  "B_minus_A_reconciled": true,
+  "definition": "CURRENT_EVENT and PRIOR_EVENT_ONLY union assigns one-session event exits. NON_EVENT means neither current nor previous active event. ENTRY/EXIT/SIGN_FLIP/RESIZE disjoint. Rank membership displacement versus anchor is separate overlapping view, not added to transition turnover. No causal turnover identification claimed."
+}

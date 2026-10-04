@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-12",
+  "strategy": "dm_baseline_sector_veto",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "BASELINE = formal frozen DM-20260908-v1/M_res60s1_a0.25: provided residual -> observed lag1/rolling60 -> centered daily average percentile rank -> per-Code EWMA(.25). No baseline changes; bitwise old implementation and prior saved MOM60 scores.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31; expanding causal history; no fit",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train history is known development evidence. No independent OOS, Historical Valid, Valid, Freeze or external submission.",
+  "max_trials": 2,
+  "trials": [
+    {
+      "trial_id": "BASELINE_SECTOR33_VETO"
+    },
+    {
+      "trial_id": "BASELINE_HIER_SECTOR_VETO"
+    }
+  ],
+  "feature_definitions": {
+    "StockMom60_raw": "Identical frozen residual raw_return-beta*TOPIX; shift1 per observed Code/relisting segment; rolling60 sum min60; gap>20 ordinal reset.",
+    "SectorMomentum": "Each historical date has its own exact PIT33/17 membership. Equal mean of finite StockMom60_raw on present raw-return rows, self-inclusive (no LOO). No industry-daily-return rolling20 or retrospective signal-date membership.",
+    "missing": "Unknown 99/9999, missing/blank classifications excluded; nonfinite stock excluded. Insufficient finite group remains NaN. Context unavailable preserves BASELINE.",
+    "HIER_SECTOR_MOM": "finite33 first, else finite17, else unavailable; no blend.",
+    "A": "BASELINE final score<0 and finite SECTOR33_MOM>0 -> exact0, otherwise BASELINE.",
+    "B": "BASELINE final score<0 and finite HIER_SECTOR_MOM>0 -> exact0, otherwise BASELINE.",
+    "final_ranking": "No candidate rerank, smoothing, fit or overlay. Official global quintile ranking follows final score; Code tie ordering identical baseline. Final zero scores can remain Short under global ranking."
+  },
+  "parameters": {
+    "horizon": 60,
+    "skip": 1,
+    "min_periods": 60,
+    "sector33_min_finite_members": 5,
+    "sector17_min_finite_members": 10,
+    "alpha": 0.25,
+    "ewm_adjust": false,
+    "relisting_gap": 20
+  },
+  "minimum_members_provenance": "DM-20261002-06 config, same residual60 Sector context; 33=5/17=10 (inclusive now per user). DM10/11 are a different industry daily residual20 definition, both min5. Optional clarification requested; no answer before lock, announced same-horizon default.",
+  "model": "Two fixed label-free post-baseline sign vetoes. No baseline/source modifications.",
+  "selection_rule": "B requires ALL specified adoption checks vs BASELINE; apply economic gates on POOLED, EX2016 NetSR and 4/5 full-year improvements mandatory. Paired pooled bootstrap lower>0. Q not materially worse = pooled Spearman decrease <=0.1 and Q5-Q1>0. DeltaShortNet>0 and DeltaShortGross/DeltaShortNet>=0.5. A evaluated with same gates for comparison. Failure REJECT, all pass TRAIN_ONLY_NEXT_STAGE_ELIGIBLE, no deployment. No rescue.",
+  "adoption": {
+    "net_sharpe_gt_baseline_pooled": true,
+    "net_sharpe_gt_baseline_ex2016": true,
+    "full_year_net_sharpe_improvements_min": 4,
+    "pooled_bootstrap_lower_gt": 0,
+    "annual_net_gt_baseline": true,
+    "short_gross_ge_baseline": true,
+    "short_net_ge_baseline": true,
+    "long_net_gt": 0,
+    "turnover_baseline_multiplier_max": 1.25,
+    "q_spearman_decline_max": 0.1,
+    "q5_minus_q1_gt": 0,
+    "short_net_improvement_gt": 0,
+    "short_gross_share_of_net_improvement_min": 0.5
+  },
+  "fallback_selection_rule": "B vs A POOLED NetSR>, annualNet>, context coverage>, ShortNet>=. If coverage improves alone, operational coverage improves but alpha increment unconfirmed. EX2016/year/bootstrap reported; no standalone17 portfolio.",
+  "bootstrap": {
+    "method": "paired circular moving-block percentile95 on identical concatenated eligible sessions",
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "ci": 0.95,
+    "primary": "BASELINE_HIER_SECTOR_VETO-BASELINE",
+    "scopes": [
+      "POOLED",
+      "EX2016"
+    ],
+    "pairs": [
+      [
+        "BASELINE_HIER_SECTOR_VETO",
+        "BASELINE"
+      ],
+      [
+        "BASELINE_SECTOR33_VETO",
+        "BASELINE"
+      ],
+      [
+        "BASELINE_HIER_SECTOR_VETO",
+        "BASELINE_SECTOR33_VETO"
+      ]
+    ]
+  },
+  "diagnostics": {
+    "replacement": "For each A/B vs baseline ShortQ1+Q2 and Q1/Q2: REMOVED ADDED UNCHANGED; OTHER includes current no-Short cost-only exit rows, retained for exact cost reconciliation. Forward target/signed gross/net/cost/turnover, raw33/17/context/baseline score, both sector distributions.",
+    "fallback": "B vs baseline and B vs A, disjoint current-row context-source attribution; all rows including cost-only exits, counts, direct veto count, Short removal count, gross/net/turnover. Global-ranking spillovers also attributed to current-row source, not isolated causal17 alpha.",
+    "long": "Official Long gross/net/turnover/cost, original baseline membership overlap/Jaccard.",
+    "concentration": "For all3 books, shared exact PIT17 and PIT33 partitions: Short side-normalized HHI/max, Q1/Q2 distribution, top2 exposure and sector contribution. UNKNOWN retained.",
+    "coverage": "33/17/HIER finite separately, 33 used/17 fallback/unavailable; pooled/ex2016/year/both sector partitions/all-Train. Prediction coverage separate."
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-12",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "execution_timeout_seconds": 1800,
+  "prior_experiments": [
+    "DM-20261002-06",
+    "DM-20261002-07",
+    "DM-20261002-08",
+    "DM-20261002-09",
+    "DM-20261002-10",
+    "DM-20261002-11"
+  ],
+  "prohibitions": [
+    "additional candidates",
+    "LOO",
+    "sector blending",
+    "threshold/horizon/alpha/weight search",
+    "soft veto/attenuation",
+    "Long veto",
+    "duration filter",
+    "sector exclusion",
+    "Historical Valid/Valid",
+    "post-result rescue"
+  ]
+}

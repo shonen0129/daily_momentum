@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "rows": 809636,
+  "exact_index": true,
+  "adapter_finite": true,
+  "raw_coverage_gate_before_neutral": true
+}

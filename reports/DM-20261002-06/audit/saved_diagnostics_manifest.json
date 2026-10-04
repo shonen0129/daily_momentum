@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "source_run": "artifacts/DM-20261002-06/run-20261002T053435Z",
+  "original_code_and_artifact_hashes_verified": true,
+  "new_performance_trials": 0,
+  "feature_rebuilds": 0,
+  "new_strategy": false,
+  "script_sha256": "28ed40e10ed0ff3d629f1fe383bc486ab9fe70963c8922444aee15a5eb2a8789",
+  "artifact_sha256": {
+    "raw_component_rankic.csv": "cc425581c7dc288116a60d66bdcb4692d9778434dcb0f3e4cf1a913d85d902d2",
+    "coverage_reasons.csv": "c9bea47343d7e28026156fbd8bdc38db02c590b563c9ac1868ce72d09087ae9e",
+    "raw_stock_rank_persistence.json": "3bfe36811767e48b0bbd438fe26f1e86a65056604f2ca8c81e966dfa28c1b19d",
+    "raw_stock_rank_persistence_daily.csv": "c1f554fa79808607feedda0ee675825caa302ccabc6428376cc17be3955512d6",
+    "short_sector_sign.csv": "61499e9a89efe85d1681eae63355fc84b871a43f7b3afd562f5f5712097e5868"
+  },
+  "inputs": {
+    "predictions/features.parquet": "5ec10016cd1550e4f9383f51183f81ff3812ceea587125483eec4b0cff4e2ffe",
+    "predictions/scores.parquet": "08e5841dca16ce6424d65dac21fb1cbebcf580ec435fb794a97bac9a548ae6df",
+    "stage/target_1day_train.parquet": "9b07dbf0942edd690a264ceef0626fb71ceceb633ba1d6ba2069da9f5f1aea16"
+  },
+  "firewall_opened": [
+    "/Users/takahashimasatoshi/Library/Mobile Documents/com~apple~CloudDocs/個別株/daily_momentum/stock_comp_2026/input/target_1day_train.parquet"
+  ],
+  "valid_evaluation": false
+}

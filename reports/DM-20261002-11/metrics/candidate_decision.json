@@ -1,0 +1,38 @@
+{
+  "candidate": "IND17_MOM_WITHIN_REV20",
+  "decision": "REJECT",
+  "unchanged_parent_gates": true,
+  "feasibility": {
+    "pooled_rankic_positive": true,
+    "pooled_gross_positive": true,
+    "ex2016_gross_positive": true,
+    "gross_positive_3of5": false,
+    "raw_coverage_ge95pct": true,
+    "turnover_le008": false
+  },
+  "combined_adoption": {
+    "pooled_netSR_beats_MOM60": false,
+    "ex2016_netSR_beats_MOM60": false,
+    "netSR_improvements_4of5": false,
+    "bootstrap_lower_positive": false,
+    "annual_net_beats_MOM60": false,
+    "turnover_le125_MOM60": false,
+    "long_net_positive": true,
+    "short_net_ge_MOM60": false,
+    "Q_monotonicity_positive": true
+  },
+  "failed_checks": [
+    "gross_positive_3of5",
+    "turnover_le008",
+    "pooled_netSR_beats_MOM60",
+    "ex2016_netSR_beats_MOM60",
+    "netSR_improvements_4of5",
+    "bootstrap_lower_positive",
+    "annual_net_beats_MOM60",
+    "turnover_le125_MOM60",
+    "short_net_ge_MOM60"
+  ],
+  "raw_coverage": 0.9846826298490118,
+  "full_year_gross_positive": 2,
+  "full_year_netSR_improvements_vs_MOM60": 2
+}

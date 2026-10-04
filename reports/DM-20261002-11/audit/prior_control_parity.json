@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "stored_parent_feature_parity": {
+    "status": "PASS",
+    "index_columns_dtypes_exact": true,
+    "defined_values_bitwise": true,
+    "NaN_masks_exact": true,
+    "NaN_payload_differences": {
+      "ResidualReturn": 0,
+      "StockMom20": 0,
+      "IndustryResidualReturn": 0,
+      "IndustryMom20": 0,
+      "FiniteMembers": 0,
+      "Within33Mom20": 0,
+      "Within33Rev20": 56940,
+      "IndustryComponent": 0,
+      "WithinReversalComponent": 0,
+      "CombinedRaw": 0,
+      "STOCK_REV20": 0,
+      "WITHIN33_REV20": 0,
+      "IND33_MOM_WITHIN_REV20": 0,
+      "StockMom60_raw": 0,
+      "MOM60": 0
+    },
+    "scope": "Stored parquet comparison only. In-memory prefix/rebuild/golden comparisons still strict uint64 incl NaN; no tolerance."
+  },
+  "control_scores_bitwise": true,
+  "stock_residuals_unchanged": true,
+  "rows": 809636,
+  "source": "artifacts/DM-20261002-10/run-20261002T091211Z/predictions/scores.parquet",
+  "sha256": "14aa17ab001de83740b91200bc702699a60aa43c98958152b8d62c6ee7b5525e",
+  "new_control_trials": 0
+}

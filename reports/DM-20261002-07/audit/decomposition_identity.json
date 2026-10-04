@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "raw_valid_rows": 733968,
+  "max_raw_identity_error": 0.0,
+  "raw_common_within_sector_constancy": true,
+  "max_smoothed_identity_error": 0.6285176777239501,
+  "smoothed_identity_fraction_within_1e14": 0.9318879101225735,
+  "global_smoothed_identity_holds": false,
+  "max_unexplained_after_EWMA_neutral_defect": 2.220446049250313e-16,
+  "max_smoothed_error_on_joint_raw_valid_rows": 0.10720400342682161,
+  "reason": "Different raw availability masks independently neutralized0; Stock0-common0-within0 is not always0, and its Code EWMA exactly explains the smoothed discrepancy within floating precision. Control smooths centered ranks and is not a raw identity term.",
+  "identity_tolerance_only": 1e-14,
+  "prefix_tolerance": 0
+}

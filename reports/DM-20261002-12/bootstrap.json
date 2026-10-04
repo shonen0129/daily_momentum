@@ -1,0 +1,68 @@
+{
+  "POOLED:BASELINE_HIER_SECTOR_VETO-BASELINE": {
+    "low": -0.27243850192610536,
+    "high": 0.007925700748214736,
+    "bootstrap_positive_fraction": 0.03,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": -0.12325788968036361,
+    "primary": true
+  },
+  "POOLED:BASELINE_SECTOR33_VETO-BASELINE": {
+    "low": -0.18136420087697352,
+    "high": 0.08343677844690102,
+    "bootstrap_positive_fraction": 0.279,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": -0.03953659698763884,
+    "primary": false
+  },
+  "POOLED:BASELINE_HIER_SECTOR_VETO-BASELINE_SECTOR33_VETO": {
+    "low": -0.13578239539148787,
+    "high": -0.03470701735675998,
+    "bootstrap_positive_fraction": 0.0015,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1275,
+    "point_delta": -0.08372129269272477,
+    "primary": false
+  },
+  "EX2016:BASELINE_HIER_SECTOR_VETO-BASELINE": {
+    "low": -0.29846746674051206,
+    "high": -0.005412509729529803,
+    "bootstrap_positive_fraction": 0.0205,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": -0.14098618523611856,
+    "primary": false
+  },
+  "EX2016:BASELINE_SECTOR33_VETO-BASELINE": {
+    "low": -0.21680421347105058,
+    "high": 0.07526741977007968,
+    "bootstrap_positive_fraction": 0.19,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": -0.05945816252684927,
+    "primary": false
+  },
+  "EX2016:BASELINE_HIER_SECTOR_VETO-BASELINE_SECTOR33_VETO": {
+    "low": -0.13309417183272154,
+    "high": -0.03262246102081017,
+    "bootstrap_positive_fraction": 0.0005,
+    "reps": 2000,
+    "block": 20,
+    "seed": 20261002,
+    "days": 1216,
+    "point_delta": -0.08152802270926929,
+    "primary": false
+  }
+}

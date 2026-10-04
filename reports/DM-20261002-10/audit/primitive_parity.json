@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "MOM60_bitwise": true,
+  "raw60_bitwise": true,
+  "unchanged_source": [
+    "smooth",
+    "segment_keys",
+    "centered_rank"
+  ],
+  "residual": "same provided raw_return-beta*TOPIX construction"
+}

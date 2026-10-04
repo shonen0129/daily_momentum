@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-08",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_sector_confirmation",
+  "valid_evaluation": false,
+  "actual_trials": 2,
+  "run_id": "run-20261002T070900Z",
+  "report": "reports/DM-20261002-08/REPORT.md",
+  "report_recovery_run_id": "run-20261002T071247Z"
+}

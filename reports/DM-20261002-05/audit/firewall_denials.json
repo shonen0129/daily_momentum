@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "denied": [
+    "target_1day_valid.parquet",
+    "raw_target_1day_train.parquet"
+  ],
+  "allowed_names": [
+    "beta_1day_train.parquet",
+    "fins_statements_train.parquet",
+    "listed_info_train.parquet",
+    "prices_daily_quotes_train.parquet",
+    "raw_return_1day_train.parquet",
+    "target_1day_train.parquet",
+    "topix_return_1day_train.parquet"
+  ]
+}

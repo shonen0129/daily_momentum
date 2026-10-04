@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-11",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_industry_momentum_stock_reversal17",
+  "valid_evaluation": false,
+  "run_id": "run-20261002T094523Z",
+  "actual_trials": 1,
+  "report": "reports/DM-20261002-11/REPORT.md"
+}

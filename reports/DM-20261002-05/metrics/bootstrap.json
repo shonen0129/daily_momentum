@@ -1,0 +1,38 @@
+{
+  "SLOW_MF_BASE": {
+    "MOM60": {
+      "low": 0.2705732446113895,
+      "high": 2.7173579129960523,
+      "bootstrap_positive_fraction": 0.994,
+      "reps": 2000,
+      "block": 20,
+      "seed": 20261002
+    },
+    "SLOW_CONTROL": {
+      "low": -1.0236994513523494,
+      "high": 0.4727025608983575,
+      "bootstrap_positive_fraction": 0.2415,
+      "reps": 2000,
+      "block": 20,
+      "seed": 20261002
+    }
+  },
+  "SLOW_MF_SECTOR": {
+    "MOM60": {
+      "low": 0.6212324806824991,
+      "high": 3.03885755199927,
+      "bootstrap_positive_fraction": 1.0,
+      "reps": 2000,
+      "block": 20,
+      "seed": 20261002
+    },
+    "SLOW_CONTROL": {
+      "low": -0.6712721855315755,
+      "high": 0.7896247156921371,
+      "bootstrap_positive_fraction": 0.587,
+      "reps": 2000,
+      "block": 20,
+      "seed": 20261002
+    }
+  }
+}

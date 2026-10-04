@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-05",
+  "kind": "experiment",
+  "status": "rejected",
+  "strategy": "dm_slow_mom60_equal",
+  "valid_evaluation": false,
+  "actual_trials": 1,
+  "run_id": "run-20261003T144512Z",
+  "report": "reports/DM-20261003-05/REPORT.md",
+  "category": "B"
+}

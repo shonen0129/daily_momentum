@@ -1,0 +1,26 @@
+{
+  "at_utc": "2026-10-03T15:25:10.893941+00:00",
+  "plan_sha256": "bf3ed6c8023baa154ad3461c9c8ae3af014640b9165fb682c96467c5be7b4f29",
+  "config_sha256": "8a058710a8bfe96a6c1994978dcf4c1cbf08d222a25fc4ba1840d88ae52b7131",
+  "code_sha256": {
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_momentum.py": "a7de4e22d69b75b1a7b19a456143cd75dfe6883aa07086a70052c4df2aaddbdd",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/component_slow/features.py": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/features.py": "3ba3f04fc8a8030e2df291b447874d23292b596c01aa76398e6261e2d4b040fc",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/component_factors/submission.py": "222e0c4ce61acb29c98078df033410799a0c7cc1203800f1f6485a769a716b6f",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/models.py": "73c252f0a16f5945fb37367625315fcfe6c88410cadadb054251f39faaff60a3",
+    "stock_comp_2026/strategies/dm_slow_mom60_ols/submission.py": "f10747fdff523f32e2398b3b7f60832d828b00b79a94890078bf36473abfcc55",
+    "research/experiments/slow_mom60_ols.py": "ce1125fea7456fe73156f336680644af652893a38a47b6a9a8d798586faf709b",
+    "research/experiments/slow_mom60_equal.py": "a6ca3bd91fcfbcb4c9e0f1c96b246b859c9271b06c1e2c663a8cf8e92d85e5db",
+    "research/experiments/slow_multifactor.py": "a29e589295ea75ea99ecaac78a17866c08ff0c6321456ee31638f53750d86c3e",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "tools/workspace.py": "c5dd21fed6b6a0e2a85d1ae8d80c162a21f2aca9412623c4b9ddda9f139e7cd1",
+    "tests/strategies/dm_slow_mom60_ols/test_ols.py": "935a5e889181aac09474ee82cade48c4e02dc44083e91659a6329c4e1902e0b5"
+  },
+  "max_trials": 1,
+  "target_parsed": false
+}

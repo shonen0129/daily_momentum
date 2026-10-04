@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "disjoint_source_accounting_atol": 1e-15,
+  "limitation": "Source assigned at each current row, including cost-only exits and global-ranking spillovers. B-minus-A source allocation is descriptive; not a separately optimized17 strategy or isolated causal attribution."
+}

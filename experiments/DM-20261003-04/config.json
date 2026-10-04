@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261003-04",
+  "strategy": "dm_slow_multifactor",
+  "diagnostic_only": true,
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Immutable SLOW_CONTROL; MOM60 descriptive only",
+  "random_seed": 20261003,
+  "train_window": "2008-11-04..2016-03-31 history; evaluation2011..2015,2016partial",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    },
+    {
+      "year": 2012,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    },
+    {
+      "year": 2013,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    },
+    {
+      "year": 2014,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    },
+    {
+      "year": 2015,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    },
+    {
+      "year": 2016,
+      "evaluation": "calendar year remove final2 sessions; no training/selection"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train previously studied; no unseen holdout. Historical Valid / Valid prohibited.",
+  "max_trials": 1,
+  "trials": [
+    {
+      "trial_id": "STYLE_DIAGNOSTIC_ONLY",
+      "performance_candidate": false
+    }
+  ],
+  "performance_trial_budget": 0,
+  "diagnostic_run_budget": 1,
+  "feature_definitions": {
+    "SLOW_CONTROL": "Original build_features(sector=False).size_liquidity; unchanged size=-log(raw Close*PIT shares), Amihud60/min40, original normalization/imputation/ranking/portfolio",
+    "bp": "Original finite backward carried Equity/positive shares/raw positive Close",
+    "ey": "Original finite backward carried Forecast EPS/raw positive Close",
+    "roe": "Latest standard annual FY same-event Profit/positive Equity; new FY missing invalidates",
+    "cf_assets": "Latest standard annual FY same-event CFO/positive Assets; new FY missing invalidates",
+    "equity_assets": "Latest same-event finite Equity/positive Assets",
+    "growth": "Sales/OperatingProfit/Profit annual actuals / strictly positive prior-year actuals -1; identical TypeOfDocument, start/end offset1year,365/366day FY equal fiscal period. Comparator latest disclosed version as of current report. New incomparable/nonstandard FY invalidates. No forecast growth or replacement proxy.",
+    "normalization": "daily1/99linear winsor and sample z, preserve missing",
+    "buckets": "average-tie percentile;ceil(3*p);ties not split by Code",
+    "double_sort": "each descriptor tercile, within-cell average-tie SLOW quintiles ceil(5*p); equal-weight high-low observed forward residual returns",
+    "matching": "Primary bp x sales_growth3x3 and fixed secondary bp-only3cells. Original Long/Short intersection cells only, common mass=min(original Lcell,Scell), original within-side relative weights; rescale each side to min(original totalL,totalS). No overlap day cash; no optimization",
+    "neutralization": "daily OLS SLOW on intercept plus all8z descriptors, complete cases only. No target,regularization,selection,interaction. Official quintile weights within complete-case universe, zero outside; same-support original SLOW comparator",
+    "factors": "same universe tercile equal-weight High-Low for bp(Value),sales_growth(Growth);GminusV=GrowthFactor-ValueFactor. One definition. Daily OLS original SLOW gross on intercept+GminusV, descriptive",
+    "cohorts": "Original official weights. Each descriptor terciles plus MISSING. Side gross contribution and .001 side turnover cost, official finite-target convention; neutral exits retain side cost. Means renormalized over observed weight,coverage reported"
+  },
+  "model": "Diagnostic-only fixed sorts/matching and contemporaneous unregularized OLS",
+  "parameters": {
+    "descriptors": [
+      "bp",
+      "ey",
+      "roe",
+      "cf_assets",
+      "equity_assets",
+      "sales_growth",
+      "operating_growth",
+      "profit_growth"
+    ],
+    "primary_value": "bp",
+    "primary_growth": "sales_growth",
+    "terciles": 3,
+    "quintiles": 5,
+    "winsor": [
+      0.01,
+      0.99
+    ],
+    "smoothing": null,
+    "optimization": false
+  },
+  "selection_rule": "No adoption. Classify A/B/C/D with coverage/comparability limits; no trading rule",
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "prefix_cutoffs": [
+    "2009-03-31",
+    "2012-06-29",
+    "2015-12-30"
+  ],
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261003-04",
+  "execution_timeout_seconds": 1800,
+  "saved_scores": {
+    "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+    "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89",
+    "columns": [
+      "SLOW_CONTROL",
+      "MOM60"
+    ]
+  },
+  "schema_audit_sha256": "5409bafd435466643f0f7973e82b0775bf994d20131f183ab8fba1b747661017"
+}

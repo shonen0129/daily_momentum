@@ -1,0 +1,47 @@
+{
+  "SLOW_MF_BASE": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_positive": true,
+      "ex2016_net_positive": true,
+      "net_positive_4of5_full_years": true,
+      "both_sides_net_positive": false,
+      "rankic_positive": true,
+      "monotonicity_positive": true,
+      "pooled_netSR_beats_MOM60": true,
+      "netSR_beats_MOM60_4of5": true,
+      "bootstrap_lower_positive_MOM60": true,
+      "pooled_netSR_beats_SLOW_CONTROL": false,
+      "netSR_beats_SLOW_CONTROL_4of5": false,
+      "bootstrap_lower_positive_SLOW_CONTROL": false
+    },
+    "failed_checks": [
+      "both_sides_net_positive",
+      "pooled_netSR_beats_SLOW_CONTROL",
+      "netSR_beats_SLOW_CONTROL_4of5",
+      "bootstrap_lower_positive_SLOW_CONTROL"
+    ]
+  },
+  "SLOW_MF_SECTOR": {
+    "decision": "REJECT",
+    "checks": {
+      "pooled_net_positive": true,
+      "ex2016_net_positive": true,
+      "net_positive_4of5_full_years": true,
+      "both_sides_net_positive": false,
+      "rankic_positive": true,
+      "monotonicity_positive": true,
+      "pooled_netSR_beats_MOM60": true,
+      "netSR_beats_MOM60_4of5": true,
+      "bootstrap_lower_positive_MOM60": true,
+      "pooled_netSR_beats_SLOW_CONTROL": true,
+      "netSR_beats_SLOW_CONTROL_4of5": false,
+      "bootstrap_lower_positive_SLOW_CONTROL": false
+    },
+    "failed_checks": [
+      "both_sides_net_positive",
+      "netSR_beats_SLOW_CONTROL_4of5",
+      "bootstrap_lower_positive_SLOW_CONTROL"
+    ]
+  }
+}

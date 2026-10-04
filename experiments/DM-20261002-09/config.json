@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-09",
+  "strategy": "dm_raw_ewma_ablation",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Primary RAW_EWMA_CONTROL: StockMom60_raw neutral0 -> EWMA(.25). Secondary unchanged MOM60: centered rank -> EWMA(.25). Official full-row books and 10bp one-way costs.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31 expanding history; no fitting",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "Known Train development evidence. EX2016 (2011-2015) primary, POOLED includes 2016 partial for continuity. No Historical Valid or independent OOS.",
+  "max_trials": 2,
+  "trials": [
+    {
+      "trial_id": "RAW_EWMA_CONTROL"
+    },
+    {
+      "trial_id": "RAW_EWMA_SHORT_VETO"
+    }
+  ],
+  "feature_definitions": {
+    "StockMom60_raw": "Exact existing residual raw_return-beta*TOPIX; shift1 observation then rolling60 sum min60; original >20 absent exchange-session segmentation.",
+    "Sector33Common_raw": "Exact DM-20261002-08 self-inclusive equal-weight finite StockMom mean, same-date PIT33 join, minimum5 finite members; same unknown/missing policy.",
+    "state": "Exact raw A(++),B(+-),C(-+),D(--); exact zero/nonfinite ZERO_OR_MISSING. C evaluable coverage=joint finite raw, includes exact zeros.",
+    "RAW_EWMA_CONTROL": "StockMom60_raw, nonfinite neutral0 before EWMA(.25) to preserve finite-output/relisting policy; no Sector inputs or rank transform. Nonmissing values unchanged.",
+    "RAW_EWMA_SHORT_VETO": "Exact prior08 ShortVeto: joint-finite raw Stock>=0 or Stock<0/Common<=0 kept, C neutral0. Nonfinite raw context neutral0 before one EWMA(.25). No prior/post rank.",
+    "EWMA": "Existing per-Code/relisting segment smooth alpha=.25 adjust=False; sector changes preserve state. No second smoothing.",
+    "interpretation": "Transform-order matched operational contrast VETO-control within raw->EWMA only. Missingness neutralization remains an operational difference; matched-row diagnostics cannot erase past EWMA missingness."
+  },
+  "model": "Exactly two fixed non-fitted rules, no label-trained model",
+  "parameters": {
+    "horizon": 60,
+    "skip": 1,
+    "min_periods": 60,
+    "sector33_min_finite_members": 5,
+    "alpha": 0.25,
+    "ewm_adjust": false,
+    "relisting_gap": 20,
+    "neutral_before_ewma": 0
+  },
+  "selection_rule": "VETO relative to RAW control: pooled NetSR>, EX2016 NetSR>; EX2016 annualNet>, Shortgross>=, Shortnet>=, turnover<=1.25x, Longnet>0, Qmonotonicity>0; 2011-2015 NetSR improvements>=4/5; EX2016 paired20session/2000rep/seed20261002 deltaNetSR CI95 lower>0; EX2016 deltaShortnet>0 and deltaShortgross/deltaShortnet>=.5. All required. Failure REJECT, success NEXT_EXPERIMENT_ELIGIBLE_TRAIN_ONLY. RAW control diagnostic only; no adoption inference vs MOM60.",
+  "selection_scope": {
+    "pooled_NetSR": "POOLED",
+    "ex2016_NetSR": "EX2016",
+    "annualNet_Short_Long_turnover_Q": "EX2016",
+    "bootstrap": "EX2016",
+    "mechanism": "EX2016",
+    "stability": "2011-2015"
+  },
+  "bootstrap": {
+    "method": "paired circular moving-block percentile95% on concatenated matched eligible sessions",
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "primary_contrast": "RAW_EWMA_SHORT_VETO minus RAW_EWMA_CONTROL",
+    "scopes": [
+      "EX2016",
+      "POOLED"
+    ]
+  },
+  "diagnostics": {
+    "replacement": "RAW control vs Veto only; ShortQ1+Q2,Q1,Q2 REMOVED/ADDED/UNCHANGED. Save row target, signed gross/net/cost, weight contribution, stock/common quantiles and sector distributions. Shortgross difference exact sum; cost effect includes OTHER exit-only rows.",
+    "C_cohorts": "RAW control C Shorts all/removed/retained, row count,target,annual gross/net,average signed and absolute weights,sector distribution; raw veto may persist in Short through EWMA.",
+    "state": "Same A/B/C/D/ZERO attribution to globally ranked original books, equal-row/equal-date target, daily RankIC, side gross/net/cost/turnover. Full observed spells, censor flags, 1/5day uninterrupted persistence.",
+    "turnover": "Total/side annual cost, C entry/exit share. Difference partition current rows C_STATE_EXIT (removed C Short, distinct from temporal C exit), REPLACEMENT (added Short), UNCHANGED_WEIGHT, REMOVED_NON_C, OTHER including exits. Overlap temporal C-entry/exit share separately; descriptive disjoint reconciliation, no unique delayed causal attribution.",
+    "long": "Gross/net/turnover, membership retention and Jaccard vs RAW control (MOM60 reference also saved).",
+    "sector": "Short33 exposure/dailyHHI/max, Q1/Q2 sector distributions,top2 exposure and sector signed contributions; no exclusion.",
+    "coverage": "Stock finite vs Common finite vs C evaluable joint finite by year/33; RAW control raw requires Stock only. Output100% is separate.",
+    "matched_rows": "Joint finite Stock/Common SAME rows for both final scores: daily RankIC and score-ranking Q1-Q5 diagnostic on matched rows; original full-book gross/net/turn/cost contributions on matched vs unavailable rows. No new strategy P/L, no matched-row reranking portfolio or additional trial."
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-09",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "prior_experiments": [
+    "DM-20261002-06",
+    "DM-20261002-07",
+    "DM-20261002-08"
+  ],
+  "execution_timeout_seconds": 1800
+}

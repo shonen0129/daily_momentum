@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-08",
+  "strategy": "dm_sector_confirmation",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "Unchanged MOM60 residual60 skip1 -> centered rank -> causal per-Code EWMA(.25); official 5 quintiles and 10bp one-way costs, continuous accounting then matched annual purge.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31 expanding history; no fitting",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "calendar year minus last2 exchange sessions; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train is known development evidence, including preceding06/07. No independent OOS or Historical Valid. Primary2011-2015=EX2016; legacy POOLED includes2016 partial and is also a fixed gate. Both must pass; full-year improvement count excludes2016.",
+  "max_trials": 2,
+  "trials": [
+    {
+      "trial_id": "SECTOR_CONFIRM"
+    },
+    {
+      "trial_id": "SHORT_DISAGREE_VETO"
+    }
+  ],
+  "feature_definitions": {
+    "StockMom60_raw": "Exact existing primitive: raw_return-beta*TOPIX, segment shift1, 60 observation sum min60; gap>20 exchange-date ordinal reset.",
+    "Sector33Common_raw": "Same as DM-20261002-07: signal-date PIT33 mean of finite StockMom60 including own, minimum5 finite members. Exact Date/Code join projected to present raw_return rows. Unknown/missing sector excluded.",
+    "state": "A stock>0/common>0; B stock>0/common<0; C stock<0/common>0; D stock<0/common<0. Exact zero or nonfinite -> ZERO_OR_MISSING. Context coverage=both raw values finite, includes defined zeros; four-state coverage reported separately.",
+    "SECTOR_CONFIRM": "Keep StockMom raw for A/D, else0 (including exact zeros or nonfinite). One EWMA(.25) of this raw score; no ranking before EWMA.",
+    "SHORT_DISAGREE_VETO": "If both raw values finite, keep StockMom>=0 and StockMom<0/common<=0, neutral0 only StockMom<0/common>0. Nonfinite raw context neutral0. Exact sector zero retains finite negative StockMom per requested <=0 branch. One EWMA(.25), no prior rank.",
+    "EWMA": "Unchanged existing per-Code/relisting segment alpha=.25 adjust=False smooth; sector change preserves Code state. Neutral0 before EWMA, reset only original gap rule.",
+    "order": "Operational context-adjusted strategy vs fixed rank-before-EWMA MOM60; NOT pure isolated context effect. No order-matched third candidate."
+  },
+  "model": "Two fixed non-fitted context rules, no second alpha or regression fit",
+  "parameters": {
+    "horizon": 60,
+    "skip": 1,
+    "min_periods": 60,
+    "sector33_min_finite_members": 5,
+    "alpha": 0.25,
+    "ewm_adjust": false,
+    "relisting_gap": 20,
+    "neutral_before_ewma": 0
+  },
+  "feasibility_gates": {
+    "pooled_rankic_gt": 0,
+    "pooled_gross_sharpe_gt": 0,
+    "ex2016_gross_sharpe_gt": 0,
+    "2011_2015_gross_positive_min": 3,
+    "raw_context_coverage_min": 0.95,
+    "turnover_max_multiplier": 1.25
+  },
+  "selection_rule": "All feasibility gates AND pooled/ex2016 NetSR>MOM60,2011-2015 NetSR improvements>=4/5,paired20day2000rep bootstrap deltaNetSR lower>0,annualNet>MOM60,turnover<=1.25*MOM60,Shortgross/net>=MOM60,Longnet>0,Qmonotonicity>0. B additionally deltaShortnet>0 and deltaShortgross/deltaShortnet>=.5. Failure=REJECT; no rescue.",
+  "bootstrap": {
+    "method": "paired circular moving-block percentile95% on concatenated matched eligible sessions",
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002
+  },
+  "diagnostics": {
+    "attribution": "A/B/C/D/ZERO_OR_MISSING row count, row-weighted and equal-date target mean, rawStock and each strategy RankIC, original official-book long/short gross/net/turn/cost. Sum components to daily book, no standalone state strategies.",
+    "states": "All-history adjacent exchange-session transitions, summarize eligible destination dates; full contiguous spell lengths intersecting evaluation, gap resets, left/right censor flags; 1 and5 session uninterrupted persistence conditional on observable contiguous future5 (diagnostics only); C duration quantiles/distribution.",
+    "portfolio": "Daily turnover/cost/side costs, rank autocorrelation/quintile retention/tail spells/percentile change from unchanged diagnostic functions. Turnover on current-state rows and transitions, C entry/exit share incl per-side. Immediate row-based descriptive attribution, not causal total.",
+    "replacement": "B vs MOM60 official Short (Q1/Q2),Q1,Q2 membership removed/added/unchanged daily; save stock-day rows, target means, gross contribution, sector and stock/common distributions. DeltaShortgross=avoided removed losses+added returns+unchanged weight effect; deltaNet=deltaGross-deltaCost exact. C removed cohort separately; raw-veto not guaranteed actual Short exit due EWMA/global ranks.",
+    "long": "All strategies long gross/net/turnover; daily long set intersection/Jaccard/retention vs MOM60.",
+    "concentration": "PIT33 official Short exposure,HHI,max share,Q1/Q2 sector distributions,sector side gross/net/cost and top2 short/total contributions. No sector exclusion."
+  },
+  "transaction_cost_oneway": 0.001,
+  "annualization": 252,
+  "rankic_hac_lag": 5,
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-08",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "prior_experiments": [
+    "DM-20261002-06",
+    "DM-20261002-07"
+  ],
+  "execution_timeout_seconds": 1800
+}

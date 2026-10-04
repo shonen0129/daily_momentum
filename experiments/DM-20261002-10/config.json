@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261002-10",
+  "strategy": "dm_industry_momentum_stock_reversal",
+  "data_split": "train",
+  "valid_evaluation": false,
+  "baseline": "MOM60 unchanged residual60 skip1 -> centered_rank -> EWMA(.25) -> official five quintiles. No SLOW_CONTROL performance run.",
+  "random_seed": 20261002,
+  "train_window": "2008-11-04 through 2016-03-31; expanding causal history, no fit",
+  "walk_forward_folds": [
+    {
+      "year": 2011,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2012,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2013,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2014,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2015,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    },
+    {
+      "year": 2016,
+      "fit": "none",
+      "evaluation": "calendar year; last2 exchange sessions purged; 2016 partial"
+    }
+  ],
+  "purge_trading_days": 2,
+  "confirmation_policy": "All Train history is known development evidence; no independent OOS, Historical Valid or Valid access.",
+  "max_trials": 3,
+  "trials": [
+    {
+      "trial_id": "STOCK_REV20"
+    },
+    {
+      "trial_id": "WITHIN33_REV20"
+    },
+    {
+      "trial_id": "IND33_MOM_WITHIN_REV20"
+    }
+  ],
+  "feature_definitions": {
+    "ResidualReturn": "provided raw_return - provided beta * provided TOPIX on exact Date/Code, finite only, identical existing market residual primitive; no fitted beta/factor model",
+    "IndustryResidualReturn": "each historical date u, actual present raw_return rows with exact PIT33(u); self-inclusive equal mean of finite ResidualReturn, minimum5; missing/9999/blank excluded. No LOO or signal-date membership retrospectively applied",
+    "StockMom20": "within unchanged Code/relisting segments: residual.shift(1).rolling(20,min_periods=20).sum(); one skipped current observation, prior20 observations ending at preceding observed stock row",
+    "IndustryMom20": "industry residual daily history on raw-return exchange calendar; shift1 then rolling20 min20 sum; missing/insufficient-member dates stay NaN, not compressed; map current PIT33(t) to that industry history",
+    "timing": "both horizon20/skip1/previous-observation endpoint. Stock uses existing per-Code observed rows; industry uses industry exchange observations. Stock gaps can mean different calendar spans, saved as diagnostic; no alternate timing trial",
+    "Within33Mom20": "StockMom20 - IndustryMom20",
+    "Within33Rev20": "-Within33Mom20; sign registered from external literature, not post-hoc sign reversal of previous Train candidates",
+    "scaling": "unchanged same-date centered average percentile rank on finite raw values, zero missing after transform; each component separately",
+    "STOCK_REV20": "centered_rank(-StockMom20) -> per-Code/relisting EWMA(.25)",
+    "WITHIN33_REV20": "centered_rank(Within33Rev20) -> identical EWMA(.25)",
+    "IND33_MOM_WITHIN_REV20": "centered_rank(IndustryMom20)+centered_rank(Within33Rev20), fixed1:1 -> centered_rank(sum) -> identical EWMA(.25)",
+    "missing": "raw retains NaN for coverage. component ranks neutral0 after ranking; combined raw coverage requires both finite, predictions cover every required row. No availability filter",
+    "state": "existing >20 absent exchange-date relisting segment reset; sector change keeps per-Code EWMA history; no extra reset"
+  },
+  "model": "Three fixed formula scores; no fitted parameters, ML, regression/PCA or sign/weight/horizon/alpha searches",
+  "parameters": {
+    "horizon": 20,
+    "skip": 1,
+    "min_periods": 20,
+    "sector33_min_finite_members": 5,
+    "alpha": 0.25,
+    "ewm_adjust": false,
+    "relisting_gap": 20,
+    "scale": "centered_rank",
+    "weights": [
+      1,
+      1
+    ]
+  },
+  "feasibility_gates": {
+    "pooled_rankic_gt": 0,
+    "pooled_gross_sharpe_gt": 0,
+    "ex2016_gross_sharpe_gt": 0,
+    "full_year_gross_positive_min": 3,
+    "raw_coverage_ge": 0.95,
+    "turnover_le": 0.08
+  },
+  "combined_adoption_gates": {
+    "pooled_net_sharpe_gt_MOM60": true,
+    "ex2016_net_sharpe_gt_MOM60": true,
+    "full_year_net_sharpe_improvements_min": 4,
+    "pooled_bootstrap_delta_net_sharpe_lower_gt": 0,
+    "annual_net_gt_MOM60": true,
+    "turnover_le_MOM60_multiplier": 1.25,
+    "long_net_gt": 0,
+    "short_net_ge_MOM60": true,
+    "q_monotonicity_gt": 0
+  },
+  "selection_rule": "All3 trials terminate. Components: REJECT if any feasibility gate fails, otherwise FEASIBLE_COMPONENT_ONLY (no standalone adoption rule). Combined: NEXT_STAGE_ELIGIBLE only if all feasibility and combined gates pass; else REJECT. No Freeze/Valid/submission. No fourth performance candidate.",
+  "bootstrap": {
+    "method": "paired circular moving-block on identical concatenated eligible sessions",
+    "block": 20,
+    "reps": 2000,
+    "seed": 20261002,
+    "ci": 0.95,
+    "primary_scope": "POOLED",
+    "secondary_scope": "EX2016",
+    "pairs": [
+      [
+        "IND33_MOM_WITHIN_REV20",
+        "MOM60"
+      ],
+      [
+        "WITHIN33_REV20",
+        "STOCK_REV20"
+      ],
+      [
+        "IND33_MOM_WITHIN_REV20",
+        "WITHIN33_REV20"
+      ]
+    ]
+  },
+  "diagnostics": {
+    "industry_only": "raw industry20 cross-industry RankIC/HAC5/year, equal-sector target terciles, dispersion, mean absolute percentile-rank change proxy; original candidate sector P/L contribution only; no industry-only portfolio or Net trial",
+    "within": "raw Within sign +/-/zero/missing, A(++),B(+-),C(-+),D(--), forward target equal-row/equal-date and original-book attribution; no filter",
+    "lead_lag": "one fixed prior-exchange-observation IndustryResidualReturn assigned current PIT33, includes own historical return; compare association to own prior residual and within-sector target. Lag1 only; no LOO, leader/search/network/trading score. Self-inclusion precludes pure peer identification.",
+    "breadth": "Sector33 side-normalized HHI/max, Q1/Q5 distribution, top2 contribution, original-book LOSO subtract attributed P/L/cost without rerank; no exclusions",
+    "persistence": "daily turnover/cost, rank autocorrelation, quintile retention, contiguous observed tail spells (gap reset, censor disclosed), absolute percentile rank changes and MOM60 tail overlap",
+    "coverage": "raw stock/industry/within masks by ALL_TRAIN/POOLED/EX2016/year and Sector33; minimum-member failures daily and trailing-window; calendar-span timing differences",
+    "metrics": "MeanRankIC/HAC5/hit, Gross/NetSR, annualGross/Net/Cost, turnover, compound/additive DD, Q1-Q5/Q5-Q1/monotonicity, Long/Short gross/net/SR/turnover/cost, period sums; 2016 separately"
+  },
+  "input_dir": "stock_comp_2026/input",
+  "report_dir": "reports/DM-20261002-10",
+  "prefix_cutoffs": [
+    "2009-06-30",
+    "2012-12-28",
+    "2015-12-30"
+  ],
+  "prior_experiments": [
+    "DM-20261002-06",
+    "DM-20261002-07",
+    "DM-20261002-08",
+    "DM-20261002-09"
+  ],
+  "execution_timeout_seconds": 1800,
+  "prohibitions": [
+    "additional candidates",
+    "alternate horizons/skips/scales/weights/alpha",
+    "Sector17",
+    "LOO industry feature",
+    "filters/veto/threshold/exclusion",
+    "overlays/blends/ML/PCA/regression",
+    "lead-lag performance candidate",
+    "Valid/Historical Valid",
+    "post-result rescue"
+  ]
+}

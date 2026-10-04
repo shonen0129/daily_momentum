@@ -1,0 +1,33 @@
+{
+  "at_utc": "2026-10-02T10:20:08.894107+00:00",
+  "plan_sha256": "d161512d7e70eefbcb0b3017a9f65f550faf18926baa6c0e1c6a5b3874ca9425",
+  "config_sha256": "454a5c2c27e93295f3125afc46139362d4181a43c86b2b357b0b4655eda0b79f",
+  "code_sha256": {
+    "research/experiments/baseline_sector_veto.py": "4e06d9ed86a724f450f3b3d35f7da3bdaa71a6a165671e66a4fd27bd8ebaaba0",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "research/experiments/sector_momentum.py": "8267d15eeee6a19831f309b5273d1721a28cdb4d9444012f69c72f4ee311a6a9",
+    "research/experiments/sector_confirmation.py": "6a6617cc04d011774fefdb2c1ef6135f9d059b26c62bdba57cef1c1f94dd78f6",
+    "research/experiments/industry_momentum_stock_reversal.py": "7cb2192efd75f1b79938b26e6ca9fef1cab6b3becbb0da14b2c21522d72ba4f0",
+    "research/experiments/hierarchical_momentum.py": "816787a687b67e750214f78fc0e72e77c51e656001c9413689fd9d42bcf99f71",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/__init__.py": "caa9a724ac6da8afd786c911db0fd50add1d2ba82ce842a2b1d00d9206040fd2",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/features.py": "ac4ba55e232f103dda9fb5af0bf318f486a1c3f5f30fd5acb772724029f8e5c2",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/primitives.py": "4807ca75e92adcfbe70699499b0879680f1f899f6d6eecf714f815ad124052e3",
+    "stock_comp_2026/strategies/dm_baseline_sector_veto/submission.py": "8e3ea86ae1103f793b51f08bbd948b26d02e57a557747b2c6b5265d177831ce1",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "stock_comp_2026/strategies/dm_trainonly/models.py": "51f906a63c0c3d0726782fea488330a0e5bcbe692b8fff27ace9d558f2319c39",
+    "stock_comp_2026/strategies/dm_trainonly/submission.py": "c4268e69b25ecf6c1215e1d1f61d5241a5bd510dcde6f3b14b59221844060c72",
+    "stock_comp_2026/strategies/dm_sector_confirmation/__init__.py": "713fbcb560f3a3e02cc56abcc46033d3f5c412b70b1c38ef535f994566c21f8f",
+    "stock_comp_2026/strategies/dm_sector_confirmation/features.py": "c0993d3cbd0be263a048eb057e6fe75c2aaa4089e143d6a4e9f40292fb60131d",
+    "stock_comp_2026/strategies/dm_sector_confirmation/primitives.py": "4807ca75e92adcfbe70699499b0879680f1f899f6d6eecf714f815ad124052e3",
+    "stock_comp_2026/strategies/dm_sector_confirmation/submission.py": "7ad91c4427ba602195c886a3714f703872f5be886cad89f3ca1a785ed0ad2176",
+    "tests/strategies/dm_baseline_sector_veto/test_features.py": "806f841abca4a622e59fff14ca643c7d4d4172defcc7ec74c98f75f6105ecfc5"
+  },
+  "target_loaded": false,
+  "max_trials": 2,
+  "trials": [
+    "BASELINE_SECTOR33_VETO",
+    "BASELINE_HIER_SECTOR_VETO"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "paths": [
+    "stock_comp_2026/strategies/dm_slow_multifactor/features.py",
+    "research/experiments/slow_size_illiq_components.py"
+  ],
+  "findings": [],
+  "manual_review": "Only fixed Train feature loaders. Backward disclosed-date EOD PIT shares; raw price/value. Trailing Amihud; residual(raw_return-beta*same-date TOPIX) shifted1 before trailing60; rank-before-EWMA .25; existing relisting reset; independent same-date final ranks. No labels or fit."
+}

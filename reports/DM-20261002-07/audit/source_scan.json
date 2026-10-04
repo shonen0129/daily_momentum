@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/features.py",
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/primitives.py",
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "Self-inclusive same-date finite member mean; PIT33 exact projection; raw residual60 lag1; per-Code trailing EWMA and same-date sample zscore; no LOO or fitted/label path."
+}

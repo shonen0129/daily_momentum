@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DM-20261004-01",
+  "kind": "experiment",
+  "status": "completed",
+  "strategy": "dm_slow_multifactor",
+  "valid_evaluation": false,
+  "diagnostic_only": true,
+  "performance_candidates": 0,
+  "run_id": "run-20261003T172950Z",
+  "diagnostic_classification": "F",
+  "actual_trials": 0,
+  "diagnostic_bundles": 1,
+  "submission_created": false,
+  "report": "reports/DM-20261004-01/REPORT.md"
+}

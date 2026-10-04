@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "all_saved_performance_artifacts_sha256": {
+    "predictions/strategy_scores.parquet": "8c325a2fab0e8104ed47d366ed661fd1002f02615cbf1cd3e2d14faa8a6560f3",
+    "predictions/component_scores.parquet": "9e936b2dc9803f2abbcfb724de525a2d1ff8d4d8db5b284d2ef659ffeb3cd42a",
+    "metrics/pure_diversification_metrics.csv": "bdcdf65fb7a48a081d3bfcc7f379a086f80a1276126422b325fbd91fc06abbf4",
+    "metrics/sector_exposure_time_correlations.csv": "8053e596de83d9ce105d3f8c5a04e480b51bd979547ed69995475406a149170e",
+    "metrics/component_drawdowns.csv": "1875890eef46ca78e89b1fc5493f0420d71909308f547ccb9a59509a13c0c198",
+    "metrics/sector_exposures.csv": "2dbddfda2f995bf9c2e555bb7790542f64f3f238547fceb5f126b01dd5964eb5",
+    "metrics/orthogonality_summary.csv": "6b59b3f177691be9c701be871c25be69b5fcf2539bef344cbef635a147903e43",
+    "metrics/diversification_attribution.csv": "71ca4d2b7383edb6434ce2df5eb5c0101046d0cba4c3aaa0516345acf83ea808",
+    "metrics/diversification_stock_attribution.parquet": "7d9f28dd06a6acd8b0ef45ebb007225c6f45e332b00d0829d5c9cd8d23e5fdd6",
+    "metrics/daily_SN1_SLOW_BLEND.csv": "2095b9938629ad3b34921bcff1b83b434a387201e0f81c055cb795f3262d5e41",
+    "metrics/metrics.csv": "16251d5560528c895951e59f2e653258324ba508b4160ab42ce61eb6ddb7e4c5",
+    "metrics/orthogonality_daily.csv": "762b539c052dbf5a59021efaec7cdbcede711de0327a22f21ebe83779a35ea28",
+    "metrics/pure_virtual_weights.parquet": "fa7e7980a29d175beb1752b60cb6156e7ba36d0e875cb0847c80792e4fd3e4ee",
+    "metrics/daily_SLOW_CONTROL.csv": "c82748053091c9ecb14484f2d8bc54394411ddd4f254223e5a89a5bef457c525",
+    "metrics/diversification_attribution_daily.csv": "93a970559d3824e044ba66eb31889ae745cb7a355023c8a1e4d863b54d201733",
+    "metrics/drawdown_episodes.csv": "673864575d02dd0ca22f5ccc0d773ac3404861c4cdcfb19a046ca64f9ba0a5ec",
+    "metrics/daily_MOM60.csv": "cce060f02e8daa6c71a5f61cad81be52348c0d79b85e3d03d53238fe88eb9aec",
+    "metrics/daily_SN1_H1.csv": "7aba58f1aec2bfc9a43f44b76f7f3cace515307013c055481b00e6437811a08d",
+    "metrics/bootstrap.csv": "38663fb4d80169fd2662519ca6b3b0915ffe1a8240c3b3c4acc5ee052b08ce0d",
+    "metrics/daily_PURE_WEIGHT_50_50.csv": "f8e445a78db48169f14af16ba2d1ff1b96aa81fcb11f59e2130949f3d5116bb6",
+    "metrics/incremental.csv": "e39b938c5f5ce65fa1f1b3f25e0bc1776435441036b28edbd40f697bd433eefc",
+    "metrics/bootstrap.json": "6fd36c0ff3b45cc6953efda33ee7557446bedd3d2670e23fcd798c5e07c89194"
+  },
+  "performance_artifacts_unchanged": true,
+  "new_performance_trials": 0,
+  "actual_unique_trials": 1,
+  "only_fix": "Audit dates compared on JST-naive wall dates, original component/PIT/parameters unchanged",
+  "scientific_source_run": "artifacts/DM-20261003-03/run-20261003T093657Z",
+  "failure_retained": true
+}

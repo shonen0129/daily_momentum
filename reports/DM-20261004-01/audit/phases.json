@@ -1,0 +1,47 @@
+[
+  {
+    "phase": "plan_config_code_freeze",
+    "at_utc": "2026-10-03T17:30:00.765622+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "component_parity",
+    "at_utc": "2026-10-03T17:30:06.222053+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "standalone_diagnostics",
+    "at_utc": "2026-10-03T17:30:25.311719+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "correlation_overlap",
+    "at_utc": "2026-10-03T17:30:27.174034+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "conditional_double_sorts",
+    "at_utc": "2026-10-03T17:30:29.835558+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "residualization_common_disagreement",
+    "at_utc": "2026-10-03T17:30:32.074393+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "long_short_attribution",
+    "at_utc": "2026-10-03T17:30:32.074721+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "turnover_attribution",
+    "at_utc": "2026-10-03T17:30:32.211554+00:00",
+    "actual_trials": 0
+  },
+  {
+    "phase": "causality_audit",
+    "at_utc": "2026-10-03T17:31:44.523285+00:00",
+    "actual_trials": 0
+  }
+]

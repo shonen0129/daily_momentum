@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "bitwise_same_classifications": true,
+  "all_features_and_history": true,
+  "source_change": "33->17 identifiers only; unused STOCK/standalone-WITHIN score exports pruned; combined formula unchanged",
+  "primitives_bytes_unchanged": true,
+  "rows": 809636
+}

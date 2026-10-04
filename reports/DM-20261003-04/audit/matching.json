@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "max_cell_side_weight_gap": 4.163336342344337e-17,
+  "tolerance": 1e-14,
+  "optimization": false,
+  "daily_cash_days": 298,
+  "bp_growth_grid": "3x3",
+  "primary_value": "bp",
+  "primary_growth": "sales_growth"
+}

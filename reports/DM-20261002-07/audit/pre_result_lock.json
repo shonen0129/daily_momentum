@@ -1,0 +1,32 @@
+{
+  "at_utc": "2026-10-02T06:21:23.050866+00:00",
+  "plan_sha256": "5ac82fb97b0d300a7add674c56dc79361f4eb5ed64080c41a7b0cfb31c44a3bd",
+  "config_sha256": "580857624942bdea23785dc4f1d641061d41e95f654262228df10dba74a817d4",
+  "code_sha256": {
+    "research/experiments/hierarchical_momentum.py": "816787a687b67e750214f78fc0e72e77c51e656001c9413689fd9d42bcf99f71",
+    "research/evaluation.py": "4da3e290f49e2061f2fdaf4efdb6e1ae5ecda5babc4dc9e9f6f77fc7ae891c4e",
+    "research/firewall.py": "115cd72f81cc58c76cd02821440c1573530fe5d8b2c0c382b8efd09b44c2a56f",
+    "research/experiments/sector_momentum.py": "8267d15eeee6a19831f309b5273d1721a28cdb4d9444012f69c72f4ee311a6a9",
+    "stock_comp_2026/evaluate_script.py": "4945e4b50169abc3de4d84c60b73b0b38c4ded091fc6631bfa6828ec87261818",
+    "stock_comp_2026/strategies/dm_trainonly/features.py": "3a8cbd997ab3273d2df56d43436c5f3980ce5dc0ef91e3c397f6d94f4eee4881",
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/features.py": "ca569d03fbfaf54dce66f9a3f8358130c2b89ae3ea753daa1e233c6346bcb5bf",
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/primitives.py": "4807ca75e92adcfbe70699499b0879680f1f899f6d6eecf714f815ad124052e3",
+    "stock_comp_2026/strategies/dm_hierarchical_momentum/submission.py": "c024e7a67b9347d635ee33c8c73935d1699f2f8408a3f84093096b8ab64d6578"
+  },
+  "prior_evidence_sha256": {
+    "experiments/DM-20261002-06/plan.md": "186d3d5028166612262d5a5954d06d236f35421e6248da769b3fe1dd3b2df2c5",
+    "experiments/DM-20261002-06/config.json": "9cff3344ca5ea3659f384e2f5e7cdc2eb33a59bda783617893a90cc61311898a",
+    "experiments/DM-20261002-06/decision.md": "ad980a16acf7453a8dd8ae0155cc047b2649771fbb2283b17bcadd6235e71255",
+    "experiments/DM-20261002-06/experiment.json": "4c5c366b9a8bb50e7fe1e70a88b13c75141d821c1bba4c04d14969456dabc074",
+    "reports/DM-20261002-06/REPORT.md": "a9d63cfc8d47ea92ae218b0202c2cb01b1f2ddcbd5132a5f5c1a6ff5380a433d",
+    "stock_comp_2026/strategies/dm_sector_momentum/submission.py": "9f551167ad52c3e2d05385a7040c68f060f19b6161c67db44ba14e3b9009e18c",
+    "stock_comp_2026/strategies/dm_sector_momentum/features.py": "209fb6e414a1b1011987bd2b9d4dedac813853b008d45127aa6fb936182b2a6d"
+  },
+  "target_read": false,
+  "trials": [
+    "HIER33_SECTOR",
+    "HIER33_WITHIN",
+    "HIER33_COMBINED"
+  ],
+  "max_trials": 3
+}

@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "copies": [
+    {
+      "original": "stock_comp_2026/strategies/dm_variable_box_breakout/features.py",
+      "copy": "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/features.py",
+      "sha256": "d2e4adba62a3c0497d36241c5fde8d7709e727ad7c9b2a01842809964adf46e3"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_variable_box_breakout/bidirectional.py",
+      "copy": "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/bidirectional.py",
+      "sha256": "7cec7be6d45bfba9debee9c07af6d6abf5229961014654de17b23b88b145e287"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_variable_box_breakout/sn1.py",
+      "copy": "stock_comp_2026/strategies/dm_sn1_slow_blend/component_sn1/sn1.py",
+      "sha256": "55f95ab669e506d61a1d20442efe9b266b56ab14737a7d46b666fee7c0f9c7ae"
+    },
+    {
+      "original": "stock_comp_2026/strategies/dm_slow_multifactor/features.py",
+      "copy": "stock_comp_2026/strategies/dm_sn1_slow_blend/component_slow/features.py",
+      "sha256": "3362552b48d1fd8e7222044fb4d07d09b7f8c8084a06d8a075207c620aee5ec3"
+    }
+  ],
+  "source_feature_bits": true,
+  "saved_score_bits": true,
+  "SN1_original_adapter_bits": true,
+  "deterministic_rebuild_bits": true,
+  "MOM60_saved_bits": true,
+  "rows": 809636,
+  "saved_refs": {
+    "SN1_H1": {
+      "path": "artifacts/DM-20260930-02/run-20260930T081524Z/predictions/SN1_H1.parquet",
+      "column": "Return",
+      "sha256": "081329b58e13bb0930e1b45540c42c9dfa0f74ce3e4ebba0d0be76fcea8bb7b9"
+    },
+    "SLOW_CONTROL": {
+      "path": "artifacts/DM-20261002-05/run-20261002T050345Z/predictions/strategy_scores.parquet",
+      "column": "SLOW_CONTROL",
+      "sha256": "24c1f234f000508e7546fb9a06faea09d4d6e9abf771fc2e9ec4a1b46eac1f89"
+    }
+  },
+  "SN1_original_fit_records_equal": true
+}

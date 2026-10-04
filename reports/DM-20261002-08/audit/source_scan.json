@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sources": [
+    "stock_comp_2026/strategies/dm_sector_confirmation/__init__.py",
+    "stock_comp_2026/strategies/dm_sector_confirmation/features.py",
+    "stock_comp_2026/strategies/dm_sector_confirmation/primitives.py",
+    "stock_comp_2026/strategies/dm_sector_confirmation/submission.py"
+  ],
+  "findings": [],
+  "manual_review": "Exact same-date PIT projection/self-inclusive finite common min5; residual60 shift1; raw signs/context before existing Code EWMA; no label/fitted/order-matched path."
+}

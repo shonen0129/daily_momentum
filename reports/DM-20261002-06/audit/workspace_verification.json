@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "full_tests": 199,
+  "focused_tests": 12,
+  "make_test_exit_code": 0,
+  "frozen_hash_count": 129,
+  "frozen_hash_status": "PASS",
+  "new_metadata": "PASS",
+  "make_check_status": "BLOCKED_BY_PREEXISTING_METADATA",
+  "make_check_reason": "DM-20261002-04: unknown experiment kind",
+  "scientific_code_config_plan_and_artifacts_hashes": "PASS",
+  "short_sign_partition_long_short_account_reconciliation": "PASS",
+  "raw_missing_reasons_exact_count": "PASS",
+  "new_performance_trials": 0,
+  "supplemental_failed_attempt": "diagnostic_completion/failed.json",
+  "final_report_sha256": "a9d63cfc8d47ea92ae218b0202c2cb01b1f2ddcbd5132a5f5c1a6ff5380a433d",
+  "final_decision_sha256": "ad980a16acf7453a8dd8ae0155cc047b2649771fbb2283b17bcadd6235e71255"
+}
